@@ -12,7 +12,7 @@ li {
 
 li a {
   display: block;
-  color: white;
+  color: black;
   padding: 15px 16px;
   text-decoration: none;
   text-align: center;
@@ -20,5 +20,5 @@ li a {
 }
 
 li a:hover {
-  background-color: #111111;
+  background-color: white;
 }

@@ -1,0 +1,29 @@
+.body_text ul{
+ 
+    background: #f5d1ad;
+    position: relative;
+    width:50%;
+    text-align: center;
+    margin: auto;
+}
+
+input[type=Large_text], select {
+    width: 55%;
+    height: 300px;
+    padding: 12px 20px;
+    margin: 20px 0;
+    display: inline-block;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    overflow-y: scroll;
+  }
+
+  .send_button{
+    position: relative;
+    width: 15%;
+    height: 40px;
+    color: black;
+    background: white;
+  }

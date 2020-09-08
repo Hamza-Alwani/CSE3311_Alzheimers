@@ -1,20 +1,22 @@
-body
-{
-  background-color: #fdf0e3;
-}
 
-.welcome-message
+.header_text{
+    font-size: x-large;
+    font-style: bold;
+    text-align:center ;
+    position: relative;
+}
+.body_text
 {
   left: 0;
   font-size: 30px;
-  position: relative;
+  position: absolute;
   text-align: center;
   top: 35%;
   width: 100%;
 }
 
 input[type=text], select {
-  width: 50%;
+  width: 55%;
   padding: 12px 20px;
   margin: 20px 0;
   display: inline-block;
@@ -22,3 +24,7 @@ input[type=text], select {
   border-radius: 4px;
   box-sizing: border-box;
 }
+
+
+
+  

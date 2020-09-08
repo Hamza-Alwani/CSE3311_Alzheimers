@@ -10,15 +10,13 @@ import ReactDOM from 'react-dom';
 import './index.css';
 
 // components
-import Nav from './components/Nav';
-import Welcome from './components/Welcome';
 
+import App from './app'
 // React.StrictMode is used for development mode 
 
 ReactDOM.render(
   <React.StrictMode>
-    <Nav/>
-    <Welcome/>
+    <App/>
   </React.StrictMode>,
   document.getElementById('root')
 );
