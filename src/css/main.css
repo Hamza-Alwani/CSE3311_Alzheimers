@@ -4,10 +4,16 @@ body {
     height: 100%;
 }
 
+#root
+{
+  height: 100%
+}
+
 .main-component
 {
   margin: 0 auto;
   width: 70%;
+  overflow: auto;
 }
 
 

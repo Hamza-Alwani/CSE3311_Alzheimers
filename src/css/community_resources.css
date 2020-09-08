@@ -1,0 +1,17 @@
+.main-component *
+{
+	/*margin: 0px;*/
+}
+
+.map
+{
+	float: left;
+	width: 60%;
+}
+
+.info
+{
+	float: right;
+	width: 40%;
+}
+

@@ -1,8 +1,11 @@
 
 
 import React from 'react';
-import Nav from '../components/Nav';
 
+// components
+import Nav from '../components/Nav';
+import CommunityResources from '../components/CommunityResources';
+import Footer from '../components/Footer'; 
 
 
 
@@ -13,7 +16,8 @@ class ComunityResources extends React.Component{
       return(
          <div>
             <Nav></Nav>
-            <h3> ComunityResources</h3>
+            <CommunityResources></CommunityResources>
+            <Footer></Footer>
          </div>
       );
    }

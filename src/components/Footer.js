@@ -1,11 +1,13 @@
 /// summary
 ///
-///	Navigation bar 
+///	Footer bar 
 ///
 /// summary
 
 /// To Do
 ///   - add link and stuff
+///   - reorganize 
+///   - add more content
 
 import React from 'react';
 import { Link } from 'react-router-dom';
