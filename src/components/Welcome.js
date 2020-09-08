@@ -11,15 +11,21 @@
 
 import React from 'react';
 
+// css
+import '../css/main.css'; 
 import '../css/welcome.css'; 
 
 function Welcome() {
   return (
-    <div className="Welcome">
-        <h1>Welcome!</h1>
-        <p>The website is currently under construction please leave your email for Dr. Kathy Lee :D</p>
-        <input type="text" id="fname" name="firstname" placeholder="Enter Email"/>
-    </div>
+  	<div className="welcome-div">
+	  	<div className="main-component">
+		    <div className="Welcome">
+		        <h1>Welcome!</h1>
+		        <p>The website is currently under construction please leave your email for Dr. Kathy Lee :D</p>
+		        <input type="email" id="fname" name="firstname" placeholder="Enter Email"/>
+		    </div>
+		</div>
+	</div>
   );
 }
 

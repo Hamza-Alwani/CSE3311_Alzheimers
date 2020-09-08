@@ -1,4 +1,9 @@
 /* centers the OVERALL component/divs*/
+html, 
+body {
+    height: 100%;
+}
+
 .main-component
 {
   margin: 0 auto;
@@ -22,7 +27,7 @@
   font-size: 30px;
   position: absolute;
   text-align: center;
-  top: 35%;
+  top: 25%;
   width: 100%;
 }
 

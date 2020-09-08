@@ -3,6 +3,7 @@
 import React from 'react';
 import Nav from '../components/Nav';
 import Welcome from '../components/Welcome';
+import Footer from '../components/Footer';
 
 class MainPage extends React.Component{
 
@@ -12,6 +13,7 @@ class MainPage extends React.Component{
          <div>
             <Nav></Nav>
             <Welcome></Welcome>
+            <Footer></Footer>
          </div>
       );
    }
