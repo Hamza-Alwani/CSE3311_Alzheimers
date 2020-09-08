@@ -1,9 +1,7 @@
 
-import React, { createRef } from 'react';
-import Button from 'react-bootstrap/Button'
-import ReactDOM from 'react-dom';
-
+import React from 'react';
 import Nav from '../components/Nav';
+import Button from 'react-bootstrap/Button'
 import  '../css/gen.css'; 
 import '../css/ContactUs.css';
 

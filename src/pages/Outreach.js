@@ -1,7 +1,5 @@
 
-import React, { createRef } from 'react';
-import ReactDOM from 'react-dom';
-
+import React from 'react';
 import Nav from '../components/Nav';
 
 
@@ -15,11 +13,7 @@ class Outreach extends React.Component{
             <h3> Outreach</h3>
          </div>
       );
-   }
-
-    
-        
-    
+   }    
 }
 
 export default Outreach

@@ -1,8 +1,9 @@
 
-import React, { createRef } from 'react';
-import ReactDOM from 'react-dom';
 
+import React from 'react';
 import Nav from '../components/Nav';
+
+
 
 
 class ComunityResources extends React.Component{

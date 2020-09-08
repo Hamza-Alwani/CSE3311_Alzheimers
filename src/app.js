@@ -1,6 +1,6 @@
 
-import React, { createRef } from 'react';
-import ReactDOM from 'react-dom';
+import React from 'react';
+
 
 import Main_Page from './pages/MainPage'
 import Contact_us_Page from './pages/ContactUs'
@@ -9,12 +9,8 @@ import Research_Page from './pages/Research'
 import Dementia_Information_Page from './pages/DementiaInformation'
 import Community_Resources_Page from './pages/CommunityResources'
 import Paget_Not_Found_Page from './pages/PageNotFound'
-
-
-import { Component } from 'react';
-
 import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
-import PageNotFound1 from './pages/PageNotFound';
+
 
 class App extends React.Component{
 
