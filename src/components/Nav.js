@@ -16,11 +16,13 @@ function Nav() {
     <div className="Nav">
       <header className="Nav-header">
         <ul>
-		  <li><a href="">About</a></li>
-		  <li><a href="">Contact</a></li>
-		  <li><a href="">Bing</a></li>
-		  <li><a href="">Home</a></li>
-		</ul>
+          <li><a href="">Contact Us</a></li>
+          <li><a href="">Outreach</a></li>
+    		  <li><a href="">Resarch</a></li>
+    		  <li><a href="">Dementia Information</a></li>
+    		  <li><a href="">Community Reasources</a></li>
+    		  <li><a href="">Home</a></li>
+    		</ul>
       </header>
     </div>
   );

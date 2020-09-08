@@ -6,7 +6,7 @@ In the project directory, you can run:
 
 ### `npm install`
 
-Installs all the required dependencies before you can start the localhost
+Installs all the required dependencies before you can start the localhost.
 
 ### `npm start`
 
