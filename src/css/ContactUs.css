@@ -1,11 +1,3 @@
-.body_text ul{
- 
-    background: #f5d1ad;
-    position: relative;
-    width:50%;
-    text-align: center;
-    margin: auto;
-}
 
 input[type=Large_text], select {
     width: 55%;
@@ -19,7 +11,7 @@ input[type=Large_text], select {
     overflow-x: hidden;
     overflow-y: scroll;
   }
-
+  
   .send_button{
     position: relative;
     width: 15%;
