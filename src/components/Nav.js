@@ -20,7 +20,6 @@ function Nav() {
       <header className="Nav-header"> 
       
         <ul>
-        
           <div>
           <Link to ="/"><img src={logo}  height="100" width="100px" alt="logo" /> </Link>
             <li><Link to ="/contact_us">Contact us</Link></li>    

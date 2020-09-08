@@ -18,7 +18,7 @@ function Welcome() {
     <div className="Welcome">
       <div className="welcome-message">
         <h1>Welcome!</h1>
-        <p>The current website is current under construction please leave your email for Dr. Kathy Lee.</p>
+        <p>The website is currently under construction please leave your email for Dr. Kathy Lee :D</p>
         <input type="text" id="fname" name="firstname" placeholder="Enter Email"/>
       </div>
     </div>
