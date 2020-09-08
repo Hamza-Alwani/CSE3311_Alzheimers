@@ -2,8 +2,10 @@
 import React from 'react';
 import Nav from '../components/Nav';
 import Button from 'react-bootstrap/Button'
-import  '../css/gen.css'; 
-import '../css/ContactUs.css';
+
+// css
+import  '../css/main.css'; 
+import '../css/contact_us.css';
 
 
 class ContactUs extends React.Component{

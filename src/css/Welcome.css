@@ -3,13 +3,14 @@ body
   background-color: white;
 }
 
-.welcome-message
+.Welcome
 {
   left: 0;
   font-size: 30px;
-  position: relative;
+  /* I don't know why but don't use relative positioning */
+  position: absolute; 
   text-align: center;
-  top: 35%;
+  top: 30%;
   width: 100%;
 }
 

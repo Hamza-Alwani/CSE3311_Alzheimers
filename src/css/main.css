@@ -1,8 +1,19 @@
+/* centers the OVERALL component/divs*/
+.main-component
+{
+  margin: 0 auto;
+  width: 70%;
+}
 
+
+
+
+
+/* Hamza if it is confusing you can move the code below to a new file if needed, I will convert this file to apply to main conponents */
 .header_text{
     font-size: x-large;
     font-style: bold;
-    text-align:center ;
+    text-align: center;
     position: relative;
 }
 .body_text
