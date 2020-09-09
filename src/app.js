@@ -20,7 +20,7 @@ class App extends React.Component{
          <Router>
             <Switch>
                <Route exact path="/" component={Main_Page} />
-               <Route exact  path="/Community_Resources" component={Community_Resources_Page} />
+               <Route exact path="/Community_Resources" component={Community_Resources_Page} />
                <Route exact path="/Dementia_Information" component={Dementia_Information_Page} />
                <Route exact path="/Research" component={Research_Page} />
                <Route exact path="/Outreach" component={Outreach_Page} />

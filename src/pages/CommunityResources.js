@@ -4,19 +4,19 @@ import React from 'react';
 
 // components
 import Nav from '../components/Nav';
-import CommunityResources from '../components/CommunityResources';
+import CommunityComponent from '../components/CommunityComponent';
 import Footer from '../components/Footer'; 
 
 
 
-class ComunityResources extends React.Component{
+class CommunityResources extends React.Component{
 
    render(){
 
       return(
          <div>
             <Nav></Nav>
-            <CommunityResources></CommunityResources>
+            <CommunityComponent></CommunityComponent>
             <Footer></Footer>
          </div>
       );
@@ -27,4 +27,4 @@ class ComunityResources extends React.Component{
     
 }
 
-export default ComunityResources
+export default CommunityResources

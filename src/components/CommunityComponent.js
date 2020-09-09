@@ -18,7 +18,7 @@ import '../css/community_resources.css';
 // images
 import carrollton from '../pictures/carrollton.jpg';
 
-function CommunityResources() {
+function CommunityComponent() {
   return (
     <div className="community-div">
       <div className="main-component">
@@ -58,4 +58,4 @@ function CommunityResources() {
   );
 }
 
-export default CommunityResources;
+export default CommunityComponent;
