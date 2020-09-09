@@ -2,7 +2,8 @@
 import React from 'react';
 
 import Nav from '../components/Nav';
-
+import ResearchComponent from '../components/ResearchComponent';
+import Footer from '../components/Footer';
 
 class Research extends React.Component{
 
@@ -11,7 +12,8 @@ class Research extends React.Component{
       return(
          <div>
             <Nav></Nav>
-            <h3>Research</h3>
+            <ResearchComponent></ResearchComponent>
+            <Footer></Footer>
          </div>
       );
    }

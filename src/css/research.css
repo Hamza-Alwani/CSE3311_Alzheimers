@@ -1,0 +1,17 @@
+
+.research-section
+{
+
+}
+
+.interview
+{
+	float: left;
+	width: 60%;
+}
+
+.survey
+{
+	float: right;
+	width: 40%;
+}
