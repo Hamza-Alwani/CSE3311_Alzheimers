@@ -6,11 +6,11 @@
 
 ### `git clone https://github.com/Hamza-Alwani/CSE3311_Alzheimers`
 
-Clone the project to your computer
+Clone the project to your computer.
 
-### `Go to the cloned project folder` 
+### `Navigate to the project directory with node.js` 
 
-Navigate to the project directory with node.js:
+Must be navigated to inside the node.js terminal.
 
 ### `npm install`
 
