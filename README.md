@@ -8,15 +8,15 @@
 
 Clone the project to your computer.
 
-### `Navigate to the project directory with node.js` 
+### `Navigate to the project directory with your cmd terminal` 
 
 Must be navigated to inside the node.js terminal.
 
-### `Run 'npm install'`
+### `Run 'npm install' with cmd terminal`
 
 Installs all the required dependencies before you can start the localhost.
 
-### `Run 'npm start'`
+### `Run 'npm start' with cmd terminal`
 
 Runs the app in the development mode.<br />
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.

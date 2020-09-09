@@ -1,7 +1,8 @@
 
 import React from 'react';
 import Nav from '../components/Nav';
-
+import DementiaComponent from '../components/DementiaComponent';
+import Footer from '../components/Footer'; 
 
 class DementiaInformation extends React.Component{
 
@@ -10,7 +11,8 @@ class DementiaInformation extends React.Component{
       return(
          <div>
             <Nav></Nav>
-            <h3> Dementia Information</h3>
+            <DementiaComponent></DementiaComponent>
+            <Footer></Footer>
          </div>
       );
    }
