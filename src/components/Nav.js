@@ -12,7 +12,7 @@ import { Link } from 'react-router-dom';
 
 // css
 import '../css/main.css'; 
-import '../css/nav.css';
+import '../css/Nav.css';
 
 // images
 import logo from '../pictures/logo1.png';
