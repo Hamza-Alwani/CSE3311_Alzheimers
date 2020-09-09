@@ -4,8 +4,6 @@
 
 - node.js version 12.18.3 LTS - https://nodejs.org/en/
 
-Clone the project to your computer
-
 ### `git clone https://github.com/Hamza-Alwani/CSE3311_Alzheimers`
 
 Clone the project to your computer
