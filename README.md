@@ -1,6 +1,6 @@
 ## Steps to contribute
 
-## Required programs to run the project
+### Required programs to run the project
 
 - node.js version 12.18.3 LTS - https://nodejs.org/en/
 
@@ -10,7 +10,7 @@ Clone the project to your computer
 
 Clone the project to your computer
 
-### `cd to the cloned CSE3311_Alzheimers folder` 
+### `Go to the cloned project folder` 
 
 Navigate to the project directory with node.js:
 
