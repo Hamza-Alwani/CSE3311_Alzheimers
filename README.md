@@ -12,11 +12,11 @@ Clone the project to your computer.
 
 Must be navigated to inside the node.js terminal.
 
-### `npm install`
+### `Run 'npm install'`
 
 Installs all the required dependencies before you can start the localhost.
 
-### `npm start`
+### `Run 'npm start'`
 
 Runs the app in the development mode.<br />
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
