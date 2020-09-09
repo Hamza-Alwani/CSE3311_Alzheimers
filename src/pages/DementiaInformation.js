@@ -1,19 +1,18 @@
 
 import React from 'react';
-import Nav from '../components/Nav';
+import Nav from '../components/NavigationBar';
+import Article from '../components/Article'
 
 
-class DementiaInformation extends React.Component{
-
-   render(){
-
-      return(
-         <div>
-            <Nav></Nav>
-            <h3> Dementia Information</h3>
-         </div>
+function DementiaInformation() { 
+   return(    
+      <div>
+         <Nav></Nav>
+         <h3> Dementia Information</h3>            
+         <Article></Article>
+       </div>
       );
-   }
+
 
     
         

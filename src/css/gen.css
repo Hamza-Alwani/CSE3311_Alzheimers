@@ -4,6 +4,8 @@
     font-style: bold;
     text-align:center ;
     position: relative;
+    padding-top: 10px;
+    padding-bottom:10px ;
 }
 .body_text
 {
@@ -20,9 +22,10 @@ input[type=text], select {
   padding: 12px 20px;
   margin: 20px 0;
   display: inline-block;
-  border: 2px solid #ccc;
+  border: 2px solid BLACK;
   border-radius: 4px;
   box-sizing: border-box;
+  position: relative;
 }
 
 

@@ -1,6 +1,6 @@
 
 import React from 'react';
-import Nav from '../components/Nav';
+import Nav from '../components/NavigationBar';
 
 
 class Outreach extends React.Component{

@@ -1,4 +1,5 @@
 import React from "react"
+import Nav from '../components/NavigationBar';
 
 class PageNotFound extends React.Component{
 
@@ -6,6 +7,7 @@ class PageNotFound extends React.Component{
  
        return(
           <div>
+         <Nav></Nav>    
              <h1>ERROR 404 : PAGE NOT FOUND </h1>
           </div>
        );
