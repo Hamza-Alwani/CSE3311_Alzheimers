@@ -7,18 +7,18 @@ import React from 'react';
 // components
 import Nav from '../components/Nav';
 import Footer from '../components/Footer'; 
-
+import '../css/genral_formating.css'
 // remember to import your components
 
 
 // Change class name 
-class Template extends React.Component{
-
-   render(){
-
-      return(
+function Template() { 
+   return(    
          <div>
             <Nav></Nav>
+            <div className="gen_header">
+            *Title*
+            </div>
         	{/*add in your components in the middle here*/}
             <Footer></Footer>
          </div>

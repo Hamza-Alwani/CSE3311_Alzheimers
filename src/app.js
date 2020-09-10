@@ -1,7 +1,11 @@
-
+/*
+Finished pages are stacked to enter routing 
+only add full pages no  components
+*/
 import React from 'react';
-
-
+// components
+import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
+//pages
 import Main_Page from './pages/MainPage'
 import Contact_us_Page from './pages/ContactUs'
 import Outreach_Page from './pages/Outreach'
@@ -10,14 +14,12 @@ import Dementia_Information_Page from './pages/DementiaInformation'
 import Community_Resources_Page from './pages/CommunityResources'
 import Paget_Not_Found_Page from './pages/PageNotFound'
 import Admin_Page from './pages/PageNotFound'
-import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 
 
-class App extends React.Component{
 
-   render(){
 
-      return(
+function App() { 
+   return(    
          <Router>
             <Switch>
                <Route exact path="/" component={Main_Page} />
@@ -35,10 +37,4 @@ class App extends React.Component{
       
       );
    }
-
-    
-        
-    
-}
-
 export default App

@@ -1,19 +1,23 @@
-
 import React from 'react';
+/*
+Untouched
+*/
+
+// components
 import Nav from '../components/NavigationBar';
+//css
+import '../css/genral_formating.css'
 
-
-class Outreach extends React.Component{
-
-   render(){
-
-      return(
-         <div>
-            <Nav></Nav>
-            <h3> Outreach</h3>
+function Outreach (){
+   return(
+      <div>
+         <Nav></Nav>
+         <div className="gen_header">
+            Outreach
          </div>
-      );
-   }    
-}
+     </div>
+   );
+}    
+
 
 export default Outreach

@@ -1,14 +1,20 @@
+/*
+finished
+*/
 import React from "react"
+// components
 import Nav from '../components/NavigationBar';
+//css
+import '../css/genral_formating.css'
 
-class PageNotFound extends React.Component{
 
-    render(){
+
+function PageNotFound() { 
  
        return(
           <div>
          <Nav></Nav>    
-             <h1>ERROR 404 : PAGE NOT FOUND </h1>
+             <div className="gen_header">ERROR 404 : PAGE NOT FOUND </div>
           </div>
        );
     }
@@ -16,7 +22,7 @@ class PageNotFound extends React.Component{
      
          
      
- }
+ 
  
 
  
