@@ -12,7 +12,6 @@ function MainPage (){
          <div>
             <Nav></Nav>
             <Welcome></Welcome>
-            <Footer></Footer>
          </div>
       );
    }
