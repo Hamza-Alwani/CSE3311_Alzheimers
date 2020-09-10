@@ -1,20 +1,17 @@
 import React from 'react';
-/*
-Untouched
-*/
 
 // components
 import Nav from '../components/NavigationBar';
+import OutreachComponent from '../components/OutreachComponent';
 //css
 import '../css/genral_formating.css'
 
+
 function Outreach (){
-   return(
-      <div>
-         <Nav></Nav>
-         <div className="gen_header">
-            Outreach
-         </div>
+      return(
+         <div>
+            <Nav></Nav>
+            <OutreachComponent></OutreachComponent>
      </div>
    );
 }    
