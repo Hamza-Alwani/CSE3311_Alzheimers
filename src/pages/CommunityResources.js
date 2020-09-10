@@ -1,9 +1,7 @@
 
 
 import React from 'react';
-
-// components
-import Nav from '../components/Nav';
+import Nav from '../components/NavigationBar';
 import CommunityComponent from '../components/CommunityComponent';
 import Footer from '../components/Footer'; 
 

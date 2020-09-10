@@ -1,9 +1,10 @@
 
 import React from 'react';
 
-import Nav from '../components/Nav';
 import ResearchComponent from '../components/ResearchComponent';
 import Footer from '../components/Footer';
+import Nav from '../components/NavigationBar';
+
 
 class Research extends React.Component{
 

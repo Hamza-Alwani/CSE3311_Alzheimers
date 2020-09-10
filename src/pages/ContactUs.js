@@ -1,6 +1,6 @@
 
 import React from 'react';
-import Nav from '../components/Nav';
+import Nav from '../components/NavigationBar';
 import Button from 'react-bootstrap/Button'
 
 // css
@@ -14,9 +14,8 @@ class ContactUs extends React.Component{
       return(
          <div>
             <Nav></Nav>  
-
             <div className="header_text">
-               <h1>Contact Us</h1> 
+            <h1>Contact Us</h1>
             </div>
 
             <div className="body_text">
