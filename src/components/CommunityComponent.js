@@ -36,7 +36,7 @@ function CommunityComponent() {
 
           <div className="map">
             <h3>Map</h3>
-            <img src={carrollton} width="80%"/> {/* not working*/}
+            <img src={carrollton} alt="placehold-map" width="80%"/> {/* not working*/}
           </div>
 
           <div className="info">

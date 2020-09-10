@@ -10,7 +10,7 @@ import '../css/genral_formating.css'
 function CommunityResources() { 
 
       return(
-         <div>
+         <div className="all-content">
             <Nav></Nav>
             <div className="gen_header">
             Community Resources

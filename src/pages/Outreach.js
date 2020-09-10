@@ -10,7 +10,7 @@ import '../css/genral_formating.css'
 
 function Outreach (){
       return(
-         <div>
+         <div className="all-content">
             <Nav></Nav>
             <OutreachComponent></OutreachComponent>
             <Footer></Footer>

@@ -1,3 +1,12 @@
+/* used with styled components to keeps themes consistent in react project */
+:root{
+  --mainDark: #343a40;
+  --mainGrey: rgba(109,109,109);
+  --mainLightGrey: rgba(172,172,172);
+  --mainWhite: #fff;
+  --mainBlue: #007bff;
+}
+
 /* centers the OVERALL component/divs*/
 *
 {
@@ -14,10 +23,14 @@ body {
   overflow-x: hidden;
 
 }
-/* doesn't work because it makes all divs 100%? */
-#root 
+/* When you want a component to take up the remaining height of the page add 'flex: 1;' to it
+      - Do not add flex: 1; here, go find your css for the component and add in flex: 1; there
+*/
+#root .all-content
 {
-  /* height: 100%; */
+  display:flex;
+  flex-direction:column;
+  height: 100%;
 }
 
 .main-component
@@ -25,9 +38,19 @@ body {
   margin: 0 auto;
   width: 70%;
   overflow: auto;
+  flex:1;
 }
 
+/* used by big header */
+.gen_header{
 
+  font-size: calc(2rem + 1.5vw) ;
+  text-align: center;
+  position: top;
+  background:none;
+
+  
+}
 
 
 

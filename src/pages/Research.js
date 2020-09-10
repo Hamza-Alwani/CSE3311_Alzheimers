@@ -10,7 +10,7 @@ import '../css/genral_formating.css'
 
 function Research (){
       return(
-         <div>
+         <div className="all-content">
             <Nav></Nav>
             <ResearchComponent></ResearchComponent>
             <Footer></Footer>

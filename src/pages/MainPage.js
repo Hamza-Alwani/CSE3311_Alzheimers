@@ -8,7 +8,7 @@ import '../css/genral_formating.css'
 
 function MainPage (){
       return(
-         <div>
+         <div className="all-content">
             <Nav></Nav>
             <Welcome></Welcome>
          </div>

@@ -10,7 +10,7 @@
 ///   - add more content
 
 import React from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom'; // not used
 import styled from 'styled-components'
 
 

@@ -12,10 +12,10 @@ import '../css/genral_formating.css'
 function PageNotFound() { 
  
        return(
-          <div>
-         <Nav></Nav>    
+         <div className="all-content">
+            <Nav></Nav>    
              <div className="gen_header">ERROR 404 : PAGE NOT FOUND </div>
-          </div>
+         </div>
        );
     }
  
