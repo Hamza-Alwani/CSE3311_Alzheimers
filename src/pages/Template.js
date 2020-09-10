@@ -14,12 +14,12 @@ import '../css/genral_formating.css'
 // Change class name 
 function Template() { 
    return(    
-         <div>
+         <div className="all-content">
             <Nav></Nav>
             <div className="gen_header">
             *Title*
             </div>
-        	{/*add in your components in the middle here*/}
+        	   {/*add in your components in the middle here*/}
             <Footer></Footer>
          </div>
       );
@@ -28,6 +28,6 @@ function Template() {
     
         
     
-}
 
-export default Template {/*	Change this part to match the class name above */}
+
+export default Template /*	Change this part to match the class name above */

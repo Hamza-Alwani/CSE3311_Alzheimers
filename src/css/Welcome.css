@@ -1,17 +1,20 @@
-body
+.welcome-div
 {
-  background-color: white;
+  margin-top: 12%;
 }
+
 
 .Welcome
 {
-  left: 0;
   font-size: 30px;
-  /* I don't know why but don't use relative positioning */
-  position: absolute; 
+  /* 9/3 - I don't know why but don't use relative positioning */
+  /* 9/10 - what a fool i was, the problem was that the parent div didn't have height 
+  so absolute took it out of the loop and created its own space */
+  /* position: absolute;  */
   text-align: center;
   top: 30%;
-  width: 100%;
+  height: 70%;
+  
 }
 
 input[type=email], select {

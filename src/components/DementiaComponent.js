@@ -32,15 +32,15 @@ function DementiaComponent() {
           <ul>
               <li>
                 <h3>10 Signs of Alzheimer's</h3>
-                <img src={TenSigns}/>
+                <img src={TenSigns} alt="placeholder"/>
               </li>   
               <li>
                 <h3>Interactive Brain Tour</h3>
-                <img src={Interactive}/>
+                <img src={Interactive} alt="placeholder"/>
               </li>    
               <li>
                 <h3>Caregivers</h3>
-                <img src={Caregivers}/>
+                <img src={Caregivers} alt="placeholder"/>
               </li>    
           </ul>
 

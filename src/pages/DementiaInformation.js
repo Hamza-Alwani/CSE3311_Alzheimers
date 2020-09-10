@@ -11,7 +11,7 @@ import '../css/dementia_information.css'
 
 function DementiaInformation() { 
    return(    
-      <div>
+      <div className="all-content">
          <Nav></Nav>
          <div className="gen_header">
             Dementia Information

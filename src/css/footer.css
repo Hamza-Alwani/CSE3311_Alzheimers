@@ -6,10 +6,12 @@
   --mainBlue: #007bff;
 }
 
-.fullbody{
+/* Below will make the footer overlap with the content of the body */
+/* To fix the floater footer problem, the body needs to have content or set to 100% of the resolution height instead so the spacer div can push against it*/
+/* .fullbody{
   position: fixed;
   bottom: 0;
   margin-left: auto;
   margin-right: auto;
   width: 100%;
-}
+} */
