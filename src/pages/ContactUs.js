@@ -1,7 +1,8 @@
 import React from 'react';
 // components
 import Nav from '../components/NavigationBar';
-import Button from 'react-bootstrap/Button'
+import Button from 'react-bootstrap/Button';
+import Footer from '../components/Footer';
 // css
 import '../css/main.css'; 
 import '../css/contact_us.css';
@@ -23,6 +24,7 @@ function ContactUs() {
                <ul><Button className="send_button">  Send   </Button></ul>
             </div>
          </div>
+         <Footer></Footer>
       </div>            
    );
 }

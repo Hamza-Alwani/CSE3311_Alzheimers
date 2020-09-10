@@ -22,58 +22,58 @@ import '../css/footer.css';
 function Footer() {
   return (
       <FooterContainer>
-        <div class="spacer"></div>
-        <div className="footer-middle">
-          <div className="container-change-later">
-            <div className="row">
-            
-            {/* Column 1 */}
-            <div className="col-md-3 col-sm-6">
-              <h4> Lorem ipsum </h4>
-              <ul className="list-unstyled">
-                <p>In metus vulputate eu scelerisque felis imperdiet proin.  </p>
-              </ul>
+        <div className="fullbody"> 
+          <div class="spacer">
+          </div>
+          <div className="footer-middle">
+            <div className="container-change-later">
+              <div className="row">
+                {/* Column 1 */}
+                <div className="col-md-3 col-sm-6">
+                  <h4> Lorem ipsum </h4>
+                  <ul className="list-unstyled">
+                   <p>In metus vulputate eu scelerisque felis imperdiet proin.  </p>
+                  </ul>
+                </div>
+                {/* Column 1 */}
+                <div className="col-md-3 col-sm-6">
+                  <h4> Lorem ipsum </h4>
+                  <ul className="list-unstyled">
+                    <li><a href="/">Lorem, ipsum</a></li>
+                    <li><a href="/">Lorem, ipsum</a></li>
+                    <li><a href="/">Lorem, ipsum</a></li>
+                    <li><a href="/">Lorem, ipsum</a></li>
+                  </ul>
+                </div>
+                {/* Column 1 */}
+                <div className="col-md-3 col-sm-6">
+                  <h4> Lorem ipsum </h4>
+                  <ul className="list-unstyled">
+                    <li><a href="/">Lorem, ipsum</a></li>
+                    <li><a href="/">Lorem, ipsum</a></li>
+                    <li><a href="/">Lorem, ipsum</a></li>
+                    <li><a href="/">Lorem, ipsum</a></li>
+                  </ul>
+              </div>
+              {/* Column 1 */}
+              <div className="col-md-3 col-sm-6">
+                <h4> Lorem ipsum </h4>
+                <ul className="list-unstyled">
+                  <li><a href="/">Lorem, ipsum</a></li>
+                  <li><a href="/">Lorem, ipsum</a></li>
+                  <li><a href="/">Lorem, ipsum</a></li>
+                  <li><a href="/">Lorem, ipsum</a></li>
+                </ul>
+              </div>        
             </div>
-            {/* Column 1 */}
-            <div className="col-md-3 col-sm-6">
-              <h4> Lorem ipsum </h4>
-              <ul className="list-unstyled">
-                <li><a href="/">Lorem, ipsum</a></li>
-                <li><a href="/">Lorem, ipsum</a></li>
-                <li><a href="/">Lorem, ipsum</a></li>
-                <li><a href="/">Lorem, ipsum</a></li>
-              </ul>
-            </div>
-            {/* Column 1 */}
-            <div className="col-md-3 col-sm-6">
-              <h4> Lorem ipsum </h4>
-              <ul className="list-unstyled">
-                <li><a href="/">Lorem, ipsum</a></li>
-                <li><a href="/">Lorem, ipsum</a></li>
-                <li><a href="/">Lorem, ipsum</a></li>
-                <li><a href="/">Lorem, ipsum</a></li>
-              </ul>
-            </div>
-            {/* Column 1 */}
-            <div className="col-md-3 col-sm-6">
-              <h4> Lorem ipsum </h4>
-              <ul className="list-unstyled">
-                <li><a href="/">Lorem, ipsum</a></li>
-                <li><a href="/">Lorem, ipsum</a></li>
-                <li><a href="/">Lorem, ipsum</a></li>
-                <li><a href="/">Lorem, ipsum</a></li>
-              </ul>
-            </div>
-            
-            
-            </div>
-            {/* Footer Bottom */}
-            <div className="footer-bottom">
-              <p className="text-xs-center">
-              &copy;{new Date().getFullYear()} Alzhiemer's App - All Rights Reserve
-              </p>
-            </div>
-          </div> 
+              {/* Footer Bottom */}
+              <div className="footer-bottom">
+                <p className="text-xs-center">
+                &copy;{new Date().getFullYear()} Alzhiemer's App - All Rights Reserve
+                </p>
+              </div>
+            </div> 
+          </div>
         </div>
       </FooterContainer>
   );
@@ -97,7 +97,6 @@ const FooterContainer = styled.footer`
 }
 .footer-middle 
 {
-  
   background: var(--mainBlue);
   padding-top: 3rem; 
   color: var(--mainWhite);

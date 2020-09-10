@@ -28,6 +28,7 @@ function DementiaInformation() {
             <Article></Article>
             <Article></Article>
          </div>
+         <Footer></Footer>
        </div>
       );
 
