@@ -1,4 +1,8 @@
 /* centers the OVERALL component/divs*/
+*
+{
+margin: 0;  
+}
 html, 
 body {
     height: 100%;
