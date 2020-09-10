@@ -1,0 +1,21 @@
+
+.social-list
+{
+    list-style: none;
+}
+
+.social-list li 
+{
+    margin-bottom: 20%;
+}
+
+.social-list li img
+{
+    float: left;
+}
+
+.social-list li p
+{
+    margin-left: 10%;
+    float: left;
+}

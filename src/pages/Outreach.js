@@ -1,7 +1,7 @@
 
 import React from 'react';
 import Nav from '../components/NavigationBar';
-
+import OutreachComponent from '../components/OutreachComponent';
 
 class Outreach extends React.Component{
 
@@ -10,7 +10,7 @@ class Outreach extends React.Component{
       return(
          <div>
             <Nav></Nav>
-            <h3> Outreach</h3>
+            <OutreachComponent></OutreachComponent>
          </div>
       );
    }    
