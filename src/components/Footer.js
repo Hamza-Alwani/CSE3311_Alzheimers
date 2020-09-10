@@ -87,7 +87,8 @@ const FooterContainer = styled.footer`
   ${'' /* i got tired so i hardcoded the s word out of this */}
   ${'' /* seperate the body from the footer so it doesn't touch */}
   ${'' /* put this spacer with the nav bar too */}
-    padding-top: 3rem;
+  ${'' /* change to 5rem later after footer is fixed */}
+  padding-top: 3rem;
 }
 
 .container-change-later

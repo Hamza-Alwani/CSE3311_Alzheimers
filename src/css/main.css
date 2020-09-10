@@ -14,6 +14,11 @@ body {
   overflow-x: hidden;
 
 }
+/* doesn't work because it makes all divs 100%? */
+#root 
+{
+  /* height: 100%; */
+}
 
 .main-component
 {
@@ -39,9 +44,11 @@ body {
 {
   left: 0;
   font-size: 30px;
-  position: absolute;
+  /* absolute starts igorning other elements so footer starts to overlap this */
+  /* position: absolute;  */
   text-align: center;
-  top: 25%;
+  /* top: 25%; */
+  /* height: 50%; */
   width: 100%;
 }
 
