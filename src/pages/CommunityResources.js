@@ -1,28 +1,24 @@
-
-
 import React from 'react';
+// components
 import Nav from '../components/NavigationBar';
 import CommunityComponent from '../components/CommunityComponent';
 import Footer from '../components/Footer'; 
+//css
+import '../css/genral_formating.css'
 
 
-
-class CommunityResources extends React.Component{
-
-   render(){
+function CommunityResources() { 
 
       return(
          <div>
             <Nav></Nav>
+            <div className="gen_header">
+            Community Resources
+            </div>
             <CommunityComponent></CommunityComponent>
             <Footer></Footer>
          </div>
       );
    }
-
-    
-        
-    
-}
 
 export default CommunityResources

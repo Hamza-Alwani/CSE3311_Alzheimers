@@ -9,7 +9,7 @@
 ///   - make a map or use googles maps api for the className="map" section
 
 import React from 'react';
-import { Link } from 'react-router-dom';
+
 
 // css
 import '../css/main.css'; 

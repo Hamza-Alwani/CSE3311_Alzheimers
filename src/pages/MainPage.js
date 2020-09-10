@@ -1,14 +1,13 @@
-
-
 import React from 'react';
+// components
 import Nav from '../components/NavigationBar';
 import Welcome from '../components/Welcome';
 import Footer from '../components/Footer';
+//css
+import '../css/genral_formating.css'
 
-class MainPage extends React.Component{
 
-   render(){
-
+function MainPage (){
       return(
          <div>
             <Nav></Nav>
@@ -17,10 +16,5 @@ class MainPage extends React.Component{
          </div>
       );
    }
-
-    
-        
-    
-}
 
 export default MainPage

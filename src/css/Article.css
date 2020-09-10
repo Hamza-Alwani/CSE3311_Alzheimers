@@ -3,10 +3,11 @@
     max-width: 400px;
     width: auto;
     height: auto;
-    margin: auto;
+    margin: .5% .5%;
     padding: 1%;
-    
+    display: inline-block;
     background-color: gray;
+    text-align: center;
 }
 
 .pic img{

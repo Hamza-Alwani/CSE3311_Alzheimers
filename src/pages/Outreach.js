@@ -1,19 +1,20 @@
-
 import React from 'react';
+
+// components
 import Nav from '../components/NavigationBar';
 import OutreachComponent from '../components/OutreachComponent';
+//css
+import '../css/genral_formating.css'
 
-class Outreach extends React.Component{
 
-   render(){
-
+function Outreach (){
       return(
          <div>
             <Nav></Nav>
             <OutreachComponent></OutreachComponent>
-         </div>
-      );
-   }    
-}
+     </div>
+   );
+}    
+
 
 export default Outreach
