@@ -30,7 +30,7 @@ function ResearchComponent() {
           <div className="interview">
             <h3>Schedule a Telephone Interview</h3>
             {/*placeholder until we make a scheduler*/}
-            <img src={interview} width="80%"/>
+            <img src={interview} alt="placeholder" width="80%"/>
           </div>
 
           <div className="survey">
