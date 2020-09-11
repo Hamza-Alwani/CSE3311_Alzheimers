@@ -24,7 +24,9 @@ function OutreachComponent() {
     <div className="social-div">
       <div className="main-component">
 
-        <h1>Outreach</h1>
+        <div className="gen_header">
+            Outreach
+         </div>
 
         <div className="social-container">
 

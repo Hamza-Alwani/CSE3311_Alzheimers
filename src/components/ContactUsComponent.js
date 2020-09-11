@@ -23,7 +23,7 @@ function ContactUsComponent() {
     <div className="contact-div">
       <div className="main-component">
 
-        <div className="gen_header">
+         <div className="gen_header">
             Contact Us
          </div>
          

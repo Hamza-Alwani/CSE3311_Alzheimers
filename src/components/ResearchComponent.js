@@ -23,8 +23,9 @@ function ResearchComponent() {
     <div className="research-div">
       <div className="main-component">
 
-        <h1>Research</h1>
-
+        <div className="gen_header">
+            Research
+        </div>
         <div className="research-section">
 
           <div className="interview">

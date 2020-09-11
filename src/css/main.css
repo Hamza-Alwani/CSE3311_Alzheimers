@@ -6,6 +6,7 @@
   --mainWhite: #fff;
   --mainBlue: #007bff;
   --offBlue: #248dff; 
+  --offWhite: #eeeeee;
 }
 
 /* centers the OVERALL component/divs*/
@@ -49,8 +50,13 @@ body {
   text-align: center;
   position: top;
   background:none;
-
+  margin-bottom: 3rem;
   
+}
+
+h3
+{
+  margin-bottom: 2rem;
 }
 
 

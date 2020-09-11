@@ -51,8 +51,8 @@ function NavigationBar() {
           <Nav>
             <NavDropdown title="Language" id="collasible-nav-dropdown">
               <NavDropdown.Item href="#lang/EN">English</NavDropdown.Item>
-              <NavDropdown.Item href="#lang/KO">Korean</NavDropdown.Item>
-              <NavDropdown.Item href="#lang/ZH">Chinese</NavDropdown.Item>
+              <NavDropdown.Item href="#lang/KO">한국어</NavDropdown.Item>
+              <NavDropdown.Item href="#lang/ZH">中文</NavDropdown.Item>
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>
@@ -67,9 +67,19 @@ export default NavigationBar;
 
 const NavigationContainer = styled.nav`
 
+
+
+.navbar a{
+    font-size: 1.25rem;
+    margin-top:1% ;    
+    padding-right:10px ;
+    word-spacing: 10;
+
+}
+
 .nav-spacer
 {
-  padding-bottom: 2rem;
+  padding-bottom: 4rem;
 }
 
 .navbar-light .navbar-nav .nav-link
@@ -79,7 +89,7 @@ const NavigationContainer = styled.nav`
 
 .navbar-light .navbar-nav .nav-link:hover
 {
-  color: var(--mainLightGrey)
+  color: var(--offWhite)
 }
 
 
