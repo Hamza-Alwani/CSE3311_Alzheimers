@@ -9,7 +9,7 @@
 ///   - The images won't float left and are centered in the ul li element for some reason
 
 import React from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom'; not used
 
 // css
 import '../css/main.css'; 

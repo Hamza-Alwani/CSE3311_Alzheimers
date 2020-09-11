@@ -6,7 +6,7 @@
 /// summary
 
 /// To Do
-///   - make a map or use googles maps api for the className="map" section
+///   - maybe make a map or use googles maps api for the className="map" section
 
 import React from 'react';
 
@@ -21,16 +21,11 @@ import carrollton from '../pictures/carrollton.jpg';
 function CommunityComponent() {
   return (
     <div className="community-div">
+      <div className="gen_header">
+               Community Resources
+      </div>
       <div className="main-component">
 
-        <h1>Community Resources</h1>
-        {
-        //<button type="button">fuck team 2</button>
-        }
-
-        {
-          // later will add a map to the left and infomation to the right
-        }
 
         <div>
 

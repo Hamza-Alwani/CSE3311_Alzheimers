@@ -13,7 +13,7 @@ import React from 'react';
 
 // css
 import '../css/main.css'; 
-import '../css/Welcome.css'; 
+import '../css/welcome.css'; 
 
 function Welcome() {
   return (

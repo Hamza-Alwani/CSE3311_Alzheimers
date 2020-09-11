@@ -9,7 +9,7 @@
 
 // keep
 import React from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom'; not used
 
 // css
 import '../css/main.css'; 

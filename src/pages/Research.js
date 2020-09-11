@@ -6,7 +6,7 @@ import Footer from '../components/Footer';
 import Nav from '../components/NavigationBar';
 
 //css
-import '../css/genral_formating.css'
+import '../css/main.css'
 
 function Research (){
       return(

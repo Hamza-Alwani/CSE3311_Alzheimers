@@ -5,6 +5,7 @@
   --mainLightGrey: rgba(172,172,172);
   --mainWhite: #fff;
   --mainBlue: #007bff;
+  --offBlue: #248dff; 
 }
 
 /* centers the OVERALL component/divs*/

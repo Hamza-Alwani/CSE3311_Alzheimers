@@ -6,7 +6,7 @@
 /// summary
 
 /// To Do
-///   - The images won't float left and are centered in the ul li element for some reason
+///   - 
 
 import React from 'react';
 
@@ -34,10 +34,12 @@ function DementiaComponent() {
                 <h3>10 Signs of Alzheimer's</h3>
                 <img src={TenSigns} alt="placeholder"/>
               </li>   
+
               <li>
                 <h3>Interactive Brain Tour</h3>
                 <img src={Interactive} alt="placeholder"/>
               </li>    
+              
               <li>
                 <h3>Caregivers</h3>
                 <img src={Caregivers} alt="placeholder"/>
