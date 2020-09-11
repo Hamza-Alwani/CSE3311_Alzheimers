@@ -16,14 +16,13 @@ import styled from 'styled-components'
 
 // css
 import '../css/main.css'; 
-import '../css/footer.css';
 
 
 function Footer() {
   return (
       <FooterContainer>
         <div className="fullbody"> 
-          <div class="spacer">
+          <div className="spacer">
           </div>
           <div className="footer-middle">
             <div className="container-change-later">
@@ -112,12 +111,12 @@ const FooterContainer = styled.footer`
 
 ul li a 
 {
-  color: var(--mainGrey);
+  color: var(--mainWhite);
 }
 
 ul li a:hover
 {
-  color: var(--mainLightGrey)
+  color: var(--mainWhite)
 }
 
 

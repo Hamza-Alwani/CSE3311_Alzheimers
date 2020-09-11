@@ -1,12 +1,13 @@
 
 import React from 'react';
 // components
-import DementiaComponent from '../components/DementiaComponent';
+// import DementiaComponent from '../components/DementiaComponent'; not used
 import Footer from '../components/Footer'; 
 import Nav from '../components/NavigationBar';
 import Article from '../components/Article'
+
 //css
-import '../css/genral_formating.css'
+import '../css/main.css'
 import '../css/dementia_information.css'
 
 function DementiaInformation() { 

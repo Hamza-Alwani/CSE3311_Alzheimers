@@ -10,12 +10,11 @@
 
 import React from 'react';
 import Button from 'react-bootstrap/Button';
-import *as firebase from  'firebase';
+import * as firebase from  'firebase';
 
 // css
 import '../css/main.css'; 
 import '../css/contact_us.css';
-import '../css/genral_formating.css'
 
 // images
 

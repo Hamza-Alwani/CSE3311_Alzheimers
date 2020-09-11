@@ -5,7 +5,7 @@ import Nav from '../components/NavigationBar';
 import OutreachComponent from '../components/OutreachComponent';
 import Footer from '../components/Footer';
 //css
-import '../css/genral_formating.css'
+import '../css/main.css'
 
 
 function Outreach (){
