@@ -14,7 +14,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import styled from 'styled-components'
 // css
-import '../css/nav.css';
+
 // image
 import logo from '../pictures/logo1.png';
 
