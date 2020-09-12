@@ -91,38 +91,38 @@ const ArticleContainer = styled.nav`
         text-align: center;
     }
 
-    .pic img{
+    .pic img
+    {
     max-width: auto;
     max-height: auto;
     width: 100%;
     height: 100%;
     margin-bottom: 2% ;
-    
-}
+    }   
 
-.title a {
-    max-width: 500px;
-    max-height: 50px;
-    width: 100%;
-    height: 100%;
-    margin: 10% 0%;   
-    text-align: left;
-    font-size: x-large;
-    width: 100%;
-    padding-top: 1%;
-    color: black;
-    text-decoration:underline ;
-     
+    .title a {
+        max-width: 500px;
+        max-height: 50px;
+        width: 100%;
+        height: 100%;
+        margin: 10% 0%;   
+        text-align: left;
+        font-size: x-large;
+        width: 100%;
+        padding-top: 1%;
+        color: black;
+        text-decoration:underline ;
+        
 
 
-}
+    }
 
-.discription p{
-    max-height: fit-content;
-    padding-top: 2%;
-    width: auto;
-    height: auto;
-    font-size:auto ;
-}
+    .discription p{
+        max-height: fit-content;
+        padding-top: 2%;
+        width: auto;
+        height: auto;
+        font-size:auto ;
+    }
 
 `;
