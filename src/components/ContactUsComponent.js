@@ -43,6 +43,8 @@ function ContactUsComponent() {
 
 export default ContactUsComponent;
 
+// will move contact_us.css to here in the future after you're done with firebase stuff
+
 var firebaseConfig = {
   apiKey: "AIzaSyCrokXMvBewGnbmqrmBjDCMGdcuzsjVEdI",
   authDomain: "alzeihmerstudy.firebaseapp.com",
