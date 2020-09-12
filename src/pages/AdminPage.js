@@ -2,13 +2,14 @@
 /// write your summary here
 /// summary
 
-import React from 'react';
+import React, { Component } from 'react';
 
 // components
 import Nav from '../components/NavigationBar';
 import Footer from '../components/Footer'; 
-import EmailViewer from '../components/EmailViewer'
-import  firebase from '../components/firebase'
+import EmailViewer from '../components/EmailViewer';
+//import  '../components/EmailViewerBundler';
+import  firebase from '../components/firebase';
 //css
 import '../css/main.css'
 
@@ -16,42 +17,60 @@ import '../css/main.css'
 
 
 
+/*
+ 
+firebase.database().ref("/contact_us").on('value', (snapshot)=>{
+   snapshot.forEach((childsnapshot)=>{
+      var childKey = snapshot.key;
+      let keys = Object.keys(childKey);
+      keys.forEach((key) => {  
+      window.alert(keys.valueOf(key));
+      });
+   });
+ //  var childKey = snapshot.key;
+  // window.alert(childKey);
+  // let keys = Object.keys(childKey);
+  // keys.forEach((key) => {  });
+});
+*/
+
+
 
 
 var keys=[];
-var i=0;  
-const ref=firebase.database().ref("/contact_us")
+function AdminPage (){ 
+   
 
-ref.once('value', function(snapshot) {
-   snapshot.forEach(function(childSnapshot) {
-      var childKey = childSnapshot.key;
-      keys[i]=childKey;
-      i++
-   });
- });
+   var i=0;
+   firebase.database().ref("/contact_us").on('value', (snapshot)=>{
+      snapshot.forEach((childsnapshot)=>{
+         var childKey = childsnapshot.key;
+         keys[i]=childKey;
+         i++
+         window.alert(keys);
+         });
+      });
 
-
- var keyslist = keys.forEach(function(key){
-  return <EmailViewer ref={key}> </EmailViewer>
- })
-
- 
-
-
-
-
-// Change class name 
-function AdminPage() { 
-  
-
-    
+      
    return(    
          <div className="all-content">
             <Nav></Nav> 
-           <h1>{keyslist}</h1>
+            <div>
+            </div>
+            <div>
+               {
+               keys.map(k=>(
+                  <EmailViewer 
+                  name={k.name}
+                  />
+               ))
+               
+               }
+            </div>
             <Footer></Footer>
          </div>
       );
    }
+   
+export default  AdminPage
 
-export default AdminPage /*	Change this part to match the class name above */

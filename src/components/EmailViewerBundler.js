@@ -1,43 +1,53 @@
-import EmailViewer from '../components/EmailViewer'
-import  firebase from '../components/firebase'
+import React, { Component } from 'react';
+// components
+import Nav from '../components/NavigationBar';
+import Footer from '../components/Footer'; 
+import EmailViewer from '../components/EmailViewer';
+import  '../components/EmailViewerBundler';
+import  firebase from '../components/firebase';
+//css
+import '../css/main.css'
 
-class EmailVieweBundler
-{
+
+class ClassAdminPage extends Component{
+  
    constructor(props){
       super(props);
-
       this.state={
-         ref: []
+         ref:[],
+         name:[],
+         emailaddress:[],
+         emailbody:[],
+         post: '',
       };
+   }
+
+componentDidMount()  
+{
+   const rootRef = firebase.database().ref("contact_us");
+   const post = rootRef.child().orderByKey();
+        post.once('value', snap => {
+          snap.forEach(child => {
+              this.setState({
+                  ref:   this.state.name.concat([child.key]),
+                  name:  this.state.name.concat([child.val().name]),
+                  emailaddress: this.state.title.concat([child.val().email_address]),
+                  emailbody: this.state.story.concat([child.val().email_body])
+              })
+                 const postList = this.state.date.map((dataList, index) =>
+                 <p>
+                  {dataList}
+                  {this.state.name[index]},
+                  {this.state.emailaddress[index]},
+                  {this.state.emailbody[index]}
+                  </p>
+               )
+   
+               this.setState({
+                   post: postList
+               });
+          });
+      }); 
    };
+
 }
-
-   const ref=firebase.database().ref("/contact_us")
-   ref.once('value', function(snapshot) {
-      snapshot.forEach(function(childSnapshot) {
-         var childKey = childSnapshot.key;
-         this.setAtate({
-            ref:this.state.ref.concat([childley.key]),
-         })
-      });
-    });
-    
-
-/*
-    var keys=[];
-    var i=0;  
-    const ref=firebase.database().ref("/contact_us")
-    ref.once('value', function(snapshot) {
-       snapshot.forEach(function(childSnapshot) {
-          var childKey = childSnapshot.key;
-          keys[i]=childKey;
-          i++
-       });
-     });
-    
-     const list= keys.map((key)=>
-           window.alert(key)
-       );
-*/
-}
-
