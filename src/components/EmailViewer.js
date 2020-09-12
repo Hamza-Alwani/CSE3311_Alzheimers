@@ -46,18 +46,19 @@ firebase.database().ref("/contact_us").on('value', (snapshot)=>{
 */
 
 
-function EmailVeiwer({name}) 
+function EmailVeiwer(obj) 
 {
-
+   // console.log("EmailVietwe");
+   console.log(obj);
    return(    
          <div className="boundry">
              <div className="body">
-               <div>{name}</div>
+               <p>{obj.emails[0]}</p>
              </div>
              <Button> Delete </Button>
          </div>
       );
-   }
+}
 
     
         

@@ -37,40 +37,102 @@ firebase.database().ref("/contact_us").on('value', (snapshot)=>{
 
 
 
-var keys=[];
-function AdminPage (){ 
-   
+// function AdminPage (){ 
+//    var keys = [   ];
 
-   var i=0;
-   firebase.database().ref("/contact_us").on('value', (snapshot)=>{
-      snapshot.forEach((childsnapshot)=>{
-         var childKey = childsnapshot.key;
-         keys[i]=childKey;
-         i++
-         window.alert(keys);
+//    var i=0;
+
+
+   
+//    firebase
+//       .database()
+//       .ref("/contact_us")
+//       .on('value', (snapshot)=>{
+//          snapshot.forEach((childsnapshot)=>{
+//             var childKey = childsnapshot.key;
+//             keys[i]=childKey;
+//             i++
+//          // window.alert(keys);
+//          });
+//       });
+
+//       console.log(keys);
+      
+      
+//    return(    
+//          <div className="all-content">
+//             <Nav></Nav> 
+//             <div>
+//             </div>
+//             <div>
+
+//                {  
+//                   <EmailViewer 
+//                   name={keys}
+//                   />
+                  
+//                }
+               
+//             </div>
+//             <Footer></Footer>
+//          </div>
+//       );
+//    }
+
+   
+// export default  AdminPage
+
+
+// operates the same way as a function, but you can manipulate data with other functions and use lifecycle methods
+class AdminPage extends Component 
+{
+   // construct and object to save data
+   constructor()
+   {
+      super()
+      this.state = { 
+         emails: []
+      }
+   }
+
+   // life cycle method coming from the Component library
+   componentDidMount()
+   {
+      var keys = []
+      var i;
+
+      firebase
+      .database()
+      .ref("/contact_us")
+      .on('value', (snapshot)=>{
+         snapshot.forEach((childsnapshot)=>{
+            var childKey = childsnapshot.key;
+            keys[i]=childKey;
+            i++
+
+            // proper way to update an object's array
+            var joined = this.state.emails.concat(childKey);
+            this.setState({ emails: joined })
          });
       });
 
       
-   return(    
-         <div className="all-content">
-            <Nav></Nav> 
-            <div>
-            </div>
-            <div>
-               {
-               keys.map(k=>(
-                  <EmailViewer 
-                  name={k.name}
-                  />
-               ))
-               
-               }
-            </div>
-            <Footer></Footer>
-         </div>
-      );
    }
    
-export default  AdminPage
 
+
+   render()
+   {
+
+      // EmailViewer takes all the emails, i was just too lazy to list them all
+      return (
+         <div>
+            <Nav/>
+            <EmailViewer emails={this.state.emails}/>
+            <Footer/>
+         </div>
+      )
+   }
+}
+
+export default AdminPage
