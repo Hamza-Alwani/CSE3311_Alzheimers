@@ -10,16 +10,17 @@
 
 import React from 'react';
 
+import styled from 'styled-components'
 
 // css
 import '../css/main.css'; 
-import '../css/community_resources.css';
 
 // images
 import carrollton from '../pictures/carrollton.jpg';
 
 function CommunityComponent() {
   return (
+    <CommunityContainer>
     <div className="community-div">
       <div className="gen_header">
                Community Resources
@@ -50,7 +51,25 @@ function CommunityComponent() {
         </div>
       </div>
     </div>
+    </CommunityContainer>
   );
 }
 
 export default CommunityComponent;
+
+
+const CommunityContainer = styled.nav`
+  
+.map
+{
+  float: left;
+  width: 60%;
+}
+
+.info
+{
+  float: right;
+  width: 40%;
+}
+
+`;
