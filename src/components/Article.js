@@ -2,7 +2,7 @@ import React from 'react';
 import pic1 from '../pictures/background.png';
 
 // css
-import '../css/article.css'; 
+import '../css/Article.css'; 
 
 
 function Article() {

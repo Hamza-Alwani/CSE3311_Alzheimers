@@ -1,5 +1,4 @@
 
-/// summary
 /// write your summary here
 /// summary
 
@@ -46,19 +45,26 @@ firebase.database().ref("/contact_us").on('value', (snapshot)=>{
 */
 
 
-function EmailVeiwer(obj) 
+function EmailVeiwer(index,name,email,body) 
 {
    // console.log("EmailVietwe");
-   console.log(obj);
+   
+
    return(    
          <div className="boundry">
              <div className="body">
-               <p>{obj.emails[0]}</p>
+                {
+                  
+                   
+                                    
+                }
              </div>
              <Button> Delete </Button>
          </div>
       );
+
 }
+
 
     
         
