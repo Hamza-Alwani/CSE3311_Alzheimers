@@ -47,15 +47,15 @@ class DisplayArticle extends Component {
     
     render(){
         return (
-            <DisplayArticleContainer>
-                <div className="all-content">
-                    <div className="main-component">
+            <div className="all-content">
+                <div className="main-component">
+                    <DisplayArticleContainer>
                         <div className = "article-display-style">
                             <Article></Article>
                         </div>
-                    </div>
+                    </DisplayArticleContainer>
                 </div>
-            </DisplayArticleContainer>
+            </div>
         );
     }
 }
@@ -63,7 +63,7 @@ class DisplayArticle extends Component {
 
 export default DisplayArticle;
 
-const DisplayArticleContainer = styled.nav`
+const DisplayArticleContainer = styled.div`
 
 .article-display-style
 {
