@@ -11,6 +11,8 @@
 import React from 'react';
 import styled from 'styled-components'
 
+// bootstrap 
+import Table from 'react-bootstrap/Table'
 
 // css
 import '../css/main.css'; 
@@ -23,27 +25,43 @@ function OutreachComponent() {
   return (
     
         <div className="main-component">
-
           <div className="gen_header">
               Outreach
           </div>
           
           <OutreachContainer>
-            <div className="social-container">
-              <ul className="social-list">
-                  <li>
-                    <h3>KaKaoTalk</h3>
-                    <img src={KaKaoTalk} alt="kakaotalk-social-icon"/>
-                    <p>https://open.kakao.com/o/gPYKtsqc</p>
-                  </li>   
+            <Table striped bordered hover>
 
-                  <li>
-                    <h3>WeChat</h3>
-                    <img src={WeChat} alt="wechat-social-icon"/>
-                    <p>wechat link here</p>
-                  </li>    
-              </ul>
-            </div>
+              <thead>
+                <tr>
+                  <th>KaKaoTalk</th>
+                  <th>WeChat</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr>
+                  <td>
+                    <img src={KaKaoTalk} alt="kakaotalk-social"/>
+                  </td>
+                  <td>
+                    <img src={WeChat} alt="wechat-social"/>
+                  </td>
+                </tr>
+              </tbody>
+
+              <tbody>
+                <tr>
+                  <td>
+                    <p><strong>Group chat:</strong> <a href="https://open.kakao.com/o/gPYKtsqc">https://open.kakao.com/o/gPYKtsqc</a></p>
+                  </td>
+                  <td>
+                    <p><strong>Group chat:</strong> https://carrolltonhealth.com</p>
+                  </td>
+                </tr>
+              </tbody>
+              
+            </Table>
           </OutreachContainer>
         </div>
   );
@@ -53,27 +71,6 @@ export default OutreachComponent;
 
 const OutreachContainer = styled.div`
 
-
-.social-list
-{
-    list-style: none;
-}
-
-.social-list li 
-{
-    margin-bottom: 20%;
-}
-
-.social-list li img
-{
-    float: left;
-}
-
-.social-list li p
-{
-    margin-left: 10%;
-    float: left;
-}
 
 
 `;
