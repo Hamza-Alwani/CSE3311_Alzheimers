@@ -23,7 +23,7 @@ import logo from '../pictures/logo1.png';
 function NavigationBar() {
   return (
     <NavigationContainer>
-      <Navbar collapseOnSelect>
+      <Navbar collapseOnSelect expand="lg">
         {/* Logo */}
         <Navbar.Brand> 
           <Link to ="/">
