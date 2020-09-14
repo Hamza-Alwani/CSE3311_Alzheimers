@@ -20,7 +20,6 @@ import FormControl from 'react-bootstrap/FormControl'
 import '../css/main.css'; 
 
 // images 
-import carrollton from '../pictures/carrollton.jpg'; 
 
 function CommunityComponent() {
   return (
@@ -59,7 +58,7 @@ function CommunityComponent() {
         <Table striped bordered hover>
           <thead>
             <tr>
-              <th>Map</th>
+              <th>Google Map</th>
             </tr>
           </thead>
           <tbody>
