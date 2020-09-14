@@ -21,41 +21,37 @@ import WeChat from '../pictures/wechat.jpg';
 
 function OutreachComponent() {
   return (
-    <OutreachContainer>
-      <div className="social-div">
+    
         <div className="main-component">
 
           <div className="gen_header">
               Outreach
           </div>
+          
+          <OutreachContainer>
+            <div className="social-container">
+              <ul className="social-list">
+                  <li>
+                    <h3>KaKaoTalk</h3>
+                    <img src={KaKaoTalk} alt="kakaotalk-social-icon"/>
+                    <p>https://open.kakao.com/o/gPYKtsqc</p>
+                  </li>   
 
-          <div className="social-container">
-
-            <ul className="social-list">
-                <li>
-                  <h3>KaKaoTalk</h3>
-                  <img src={KaKaoTalk} alt="kakaotalk-social-icon"/>
-                  <p>https://open.kakao.com/o/gPYKtsqc</p>
-                </li>   
-
-                <li>
-                  <h3>WeChat</h3>
-                  <img src={WeChat} alt="wechat-social-icon"/>
-                  <p>wechat link here</p>
-                </li>    
-            </ul>
-
-
-          </div>
+                  <li>
+                    <h3>WeChat</h3>
+                    <img src={WeChat} alt="wechat-social-icon"/>
+                    <p>wechat link here</p>
+                  </li>    
+              </ul>
+            </div>
+          </OutreachContainer>
         </div>
-      </div>
-    </OutreachContainer>
   );
 }
 
 export default OutreachComponent;
 
-const OutreachContainer = styled.nav`
+const OutreachContainer = styled.div`
 
 
 .social-list

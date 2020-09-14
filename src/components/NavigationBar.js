@@ -67,7 +67,7 @@ function NavigationBar() {
 export default NavigationBar;
 
 // 'style-component package used for infile css'
-const NavigationContainer = styled.nav`
+const NavigationContainer = styled.div`
 
 
 ${'' /* space between navbar and the main content between */}

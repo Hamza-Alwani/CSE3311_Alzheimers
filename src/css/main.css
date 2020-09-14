@@ -43,7 +43,6 @@ body {
 {
   margin: 0 auto;
   width: 70%;
-  overflow: auto;
   flex:1;
 }
 
