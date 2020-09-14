@@ -12,11 +12,11 @@ import React from 'react';
 
 import styled from 'styled-components'
 
+// bootstrap 
+import Table from 'react-bootstrap/Table'
+
 // css
 import '../css/main.css'; 
-
-// images
-import interview from '../pictures/interview.png';
 
 function ResearchComponent() {
   return (
@@ -29,28 +29,40 @@ function ResearchComponent() {
           <ResearchContainer>
             <div className="research-section">
 
-              <div className="interview">
-                <h3>Schedule a Telephone Interview</h3>
-                {/*placeholder until we make a scheduler*/}
-                <img src={interview} alt="placeholder" width="80%"/>
-              </div>
+              <Table striped bordered hover>
 
-              <div className="survey">
+                <thead>
+                  <tr>
+                    <th>Schedule</th>
+                    <th>Placemate Forms</th>
+                  </tr>
+                </thead>
 
-                <div className="survey-top">
-                  <h3>Online Survey</h3>
-                  {/*placehold until we have a survey idea*/}
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Est placerat in egestas erat imperdiet sed euismod nisi. Nunc scelerisque viverra mauris in aliquam sem fringilla. Quis ipsum suspendisse ultrices gravida. Mi tempus imperdiet nulla malesuada pellentesque elit eget gravida. In metus vulputate eu scelerisque felis imperdiet proin. Ullamcorper malesuada proin libero nunc consequat interdum varius sit. Adipiscing tristique risus nec feugiat in. Neque sodales ut etiam sit amet nisl purus. Sed turpis tincidunt id aliquet risus feugiat.</p>
-                </div>
-                
-                {/*<div className="survey-bottom">
-                  <form>
-                    <input type="button" value="Survey" onclick="msg()"/>
-                  </form>
-                </div>*/}
 
-              </div>
+                <tbody>
+                  <tr>
+                    <td>
+                    <iframe src="https://calendar.google.com/calendar/embed?src=dementiacaregiving.study%40gmail.com&ctz=America%2FChicago" 
+                      width="800" 
+                      height="600" 
+                      frameBorder="0" 
+                      scrolling="no"
+                      title="google-calendar"
+                      >
+                    </iframe>
+                    </td>
+                    <td>
+                      <form>
+                        <label for="fname">First name:</label>
+                        <input type="text" id="fname" name="fname"/>
+                        <label for="lname">Last name:</label>
+                        <input type="text" id="lname" name="lname"/>
+                      </form>
+                    </td>
+                  </tr>
+                </tbody>
+
+              </Table>
             </div>
           </ResearchContainer>
         </div>
@@ -61,18 +73,6 @@ export default ResearchComponent;
 
 const ResearchContainer = styled.nav`
 
-
-  .interview
-  {
-    float: left;
-    width: 60%;
-  }
-
-  .survey
-  {
-    float: right;
-    width: 40%;
-  }
 
 
 
