@@ -56,7 +56,7 @@ function OutreachComponent() {
                     <p><strong>Group chat:</strong> <a href="https://open.kakao.com/o/gPYKtsqc">https://open.kakao.com/o/gPYKtsqc</a></p>
                   </td>
                   <td>
-                    <p><strong>Group chat:</strong> https://carrolltonhealth.com</p>
+                    <p><strong>Group chat:</strong> <a href="https://www.wechat.com">https://www.wechat.com</a></p>
                   </td>
                 </tr>
               </tbody>
