@@ -14,11 +14,17 @@ import styled from 'styled-components'
 
 // bootstrap 
 import Table from 'react-bootstrap/Table'
+import Form from 'react-bootstrap/Form'
+import InputGroup from 'react-bootstrap/InputGroup'
+import Button from 'react-bootstrap/Button'
 
 // css
 import '../css/main.css'; 
 
+
 function ResearchComponent() {
+
+  
   return (
         <div className="main-component">
 
@@ -52,12 +58,37 @@ function ResearchComponent() {
                     </iframe>
                     </td>
                     <td>
-                      <form>
-                        <label for="fname">First name:</label>
-                        <input type="text" id="fname" name="fname"/>
-                        <label for="lname">Last name:</label>
-                        <input type="text" id="lname" name="lname"/>
-                      </form>
+                    
+                      <Form>
+                        <Form.Group controlId="exampleForm.ControlInput1">
+                          <Form.Label>Email address</Form.Label>
+                          <Form.Control type="email" placeholder="name@example.com" />
+                        </Form.Group>
+
+                        <Form.Group controlId="exampleForm.ControlInput1">
+                          <Form.Label>Phone Number</Form.Label>
+                          <Form.Control type="email" placeholder="123-xxx-xxxx" />
+                        </Form.Group>
+
+                        <Form.Group controlId="exampleForm.ControlSelect1">
+                          <Form.Label>Time Selection</Form.Label>
+                          <Form.Control as="select">
+                            <option>12:00</option>
+                            <option>1:00</option>
+                            <option>2:00</option>
+                            <option>3:00</option>
+                            <option>4:00</option>
+                            <option>5:00</option>
+                            <option>6:00</option>
+                            <option>7:00</option>
+                            <option>8:00</option>
+                            <option>9:00</option>
+                            <option>10:00</option>
+                            <option>11:00</option>
+                          </Form.Control>
+
+                        </Form.Group>
+                      </Form>
                     </td>
                   </tr>
                 </tbody>
