@@ -4,6 +4,8 @@ import styled from 'styled-components'
 // css
 import '../css/main.css'; 
 
+
+
 function Welcome() {
   return (
 	<WelcomeContainer>

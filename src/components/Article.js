@@ -7,8 +7,10 @@ import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 
 // css
+
 import '../css/main.css'; 
 import '../css/article.css'; 
+
 
 // images
 import pic1 from '../pictures/background.png';

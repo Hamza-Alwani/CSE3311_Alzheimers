@@ -10,11 +10,12 @@
 
 import React from 'react';
 import Button from 'react-bootstrap/Button';
-import * as firebase from  'firebase';
-
+//import *as firebase from  'firebase';
+import firebase from'../components/firebase'
 // css
 import '../css/main.css'; 
 import '../css/contact_us.css';
+
 
 // images
 
@@ -43,6 +44,8 @@ function ContactUsComponent() {
 
 export default ContactUsComponent;
 
+
+
 // will move contact_us.css to here in the future after you're done with firebase stuff
 
 var firebaseConfig = {
@@ -58,12 +61,12 @@ var firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig);
 
+
 function send_button_pressed(){
  var n=document.getElementById("name").value;
  var eaddress =document.getElementById("email_address").value;
  var ebody= document.getElementById("email_body").value;
- var send_button= document.getElementById("send_button");
- 
+
  firebase.database().ref('contact_us/').child(eaddress);
  firebase.database().ref('contact_us/'+eaddress).set({
     name:n,
