@@ -1,18 +1,23 @@
 /* used with styled components to keeps themes consistent in react project */
 :root{
+  --primaryTheme: #dd3928;
+  
   --mainDark: #343a40;
   --mainGrey: rgba(109,109,109);
   --mainLightGrey: rgba(172,172,172);
   --mainWhite: #fff;
   --mainBlue: #007bff;
+  --mainRed: #dd3928; /* china's flag red */
   --offBlue: #248dff; 
+  --offWhite: #eeeeee;
 }
 
-/* centers the OVERALL component/divs*/
+/* centers the all component/divs */
 *
 {
 margin: 0;  
 }
+
 html, 
 body {
     height: 100%;
@@ -22,8 +27,8 @@ body {
 {
   height: 100%;
   overflow-x: hidden;
-
 }
+
 /* When you want a component to take up the remaining height of the page add 'flex: 1;' to it
       - Do not add flex: 1; here, go find your css for the component and add in flex: 1; there
 */
@@ -38,7 +43,6 @@ body {
 {
   margin: 0 auto;
   width: 70%;
-  overflow: auto;
   flex:1;
 }
 
@@ -49,10 +53,198 @@ body {
   text-align: center;
   position: top;
   background:none;
-
+  margin-bottom: 3rem;
   
 }
 
+h3
+{
+  margin-bottom: 2rem;
+}
+
+/* https://work.smarchal.com/twbscolor/css/e74c3cc0392becf0f1ffbbbc0 */
+/* use the link above to change the color scheme of the nav bar */
+/* then update the main colors for :root so the footer matches the theme */
+.navbar {
+  background-color: #dd3928;
+}
+.navbar .navbar-brand {
+  color: #fbfbfb;
+}
+.navbar .navbar-brand:hover,
+.navbar .navbar-brand:focus {
+  color: #ffd8dd;
+}
+.navbar .navbar-text {
+  color: #fbfbfb;
+}
+.navbar .navbar-text a {
+  color: #ffd8dd;
+}
+.navbar .navbar-text a:hover,
+.navbar .navbar-text a:focus {
+  color: #ffd8dd; 
+}
+.navbar .navbar-nav .nav-link {
+  color: #fbfbfb;
+  border-radius: .25rem;
+  margin: 0 0.25em;
+}
+.navbar .navbar-nav .nav-link:not(.disabled):hover,
+.navbar .navbar-nav .nav-link:not(.disabled):focus {
+  color: #ffd8dd;
+}
+.navbar .navbar-nav .nav-item.active .nav-link,
+.navbar .navbar-nav .nav-item.active .nav-link:hover,
+.navbar .navbar-nav .nav-item.active .nav-link:focus,
+.navbar .navbar-nav .nav-item.show .nav-link,
+.navbar .navbar-nav .nav-item.show .nav-link:hover,
+.navbar .navbar-nav .nav-item.show .nav-link:focus {
+  color: #ffd8dd;
+  background-color: #c13f32;
+}
+.navbar .navbar-toggle {
+  border-color: #c13f32;
+}
+.navbar .navbar-toggle:hover,
+.navbar .navbar-toggle:focus {
+  background-color: #c13f32;
+}
+.navbar .navbar-toggle .navbar-toggler-icon {
+  color: #fbfbfb;
+}
+.navbar .navbar-collapse,
+.navbar .navbar-form {
+  border-color: #fbfbfb;
+}
+.navbar .navbar-link {
+  color: #fbfbfb;
+}
+.navbar .navbar-link:hover {
+  color: #ffd8dd;
+}
+
+@media (max-width: 575px) {
+  .navbar-expand-sm .navbar-nav .show .dropdown-menu .dropdown-item {
+    color: #fbfbfb;
+  }
+  .navbar-expand-sm .navbar-nav .show .dropdown-menu .dropdown-item:hover,
+  .navbar-expand-sm .navbar-nav .show .dropdown-menu .dropdown-item:focus {
+    color: #ffd8dd;
+  }
+  .navbar-expand-sm .navbar-nav .show .dropdown-menu .dropdown-item.active {
+    color: #ffd8dd;
+    background-color: #c13f32;
+  }
+}
+
+@media (max-width: 767px) {
+  .navbar-expand-md .navbar-nav .show .dropdown-menu .dropdown-item {
+    color: #fbfbfb;
+  }
+  .navbar-expand-md .navbar-nav .show .dropdown-menu .dropdown-item:hover,
+  .navbar-expand-md .navbar-nav .show .dropdown-menu .dropdown-item:focus {
+    color: #ffd8dd;
+  }
+  .navbar-expand-md .navbar-nav .show .dropdown-menu .dropdown-item.active {
+    color: #ffd8dd;
+    background-color: #c13f32;
+  }
+}
+
+@media (max-width: 991px) {
+  .navbar-expand-lg .navbar-nav .show .dropdown-menu .dropdown-item {
+    color: #fbfbfb;
+  }
+  .navbar-expand-lg .navbar-nav .show .dropdown-menu .dropdown-item:hover,
+  .navbar-expand-lg .navbar-nav .show .dropdown-menu .dropdown-item:focus {
+    color: #ffd8dd;
+  }
+  .navbar-expand-lg .navbar-nav .show .dropdown-menu .dropdown-item.active {
+    color: #ffd8dd;
+    background-color: #c13f32;
+  }
+}
+
+@media (max-width: 1199px) {
+  .navbar-expand-xl .navbar-nav .show .dropdown-menu .dropdown-item {
+    color: #fbfbfb;
+  }
+  .navbar-expand-xl .navbar-nav .show .dropdown-menu .dropdown-item:hover,
+  .navbar-expand-xl .navbar-nav .show .dropdown-menu .dropdown-item:focus {
+    color: #ffd8dd;
+  }
+  .navbar-expand-xl .navbar-nav .show .dropdown-menu .dropdown-item.active {
+    color: #ffd8dd;
+    background-color: #c13f32;
+  }
+}
+
+.navbar-expand .navbar-nav .show .dropdown-menu .dropdown-item {
+  color: #fbfbfb;
+}
+.navbar-expand .navbar-nav .show .dropdown-menu .dropdown-item:hover,
+.navbar-expand .navbar-nav .show .dropdown-menu .dropdown-item:focus {
+  color: #ffd8dd;
+}
+.navbar-expand .navbar-nav .show .dropdown-menu .dropdown-item.active {
+  color: #ffd8dd;
+  background-color: #c13f32;
+}
+
+@media (max-width: 767px) {
+  .navbar-expand-md .navbar-nav .show .dropdown-menu .dropdown-item {
+    color: #fbfbfb;
+  }
+  .navbar-expand-md .navbar-nav .show .dropdown-menu .dropdown-item:hover,
+  .navbar-expand-md .navbar-nav .show .dropdown-menu .dropdown-item:focus {
+    color: #ffbbc4;
+  }
+  .navbar-expand-md .navbar-nav .show .dropdown-menu .dropdown-item.active {
+    color: #ffbbc4;
+    background-color: #c13f32;
+  }
+}
+
+@media (max-width: 991px) {
+  .navbar-expand-lg .navbar-nav .show .dropdown-menu .dropdown-item {
+    color: #fbfbfb;
+  }
+  .navbar-expand-lg .navbar-nav .show .dropdown-menu .dropdown-item:hover,
+  .navbar-expand-lg .navbar-nav .show .dropdown-menu .dropdown-item:focus {
+    color: #ffbbc4;
+  }
+  .navbar-expand-lg .navbar-nav .show .dropdown-menu .dropdown-item.active {
+    color: #ffbbc4;
+    background-color: #c13f32;
+  }
+}
+
+@media (max-width: 1199px) {
+  .navbar-expand-xl .navbar-nav .show .dropdown-menu .dropdown-item {
+    color: #fbfbfb;
+  }
+  .navbar-expand-xl .navbar-nav .show .dropdown-menu .dropdown-item:hover,
+  .navbar-expand-xl .navbar-nav .show .dropdown-menu .dropdown-item:focus {
+    color: #ffbbc4;
+  }
+  .navbar-expand-xl .navbar-nav .show .dropdown-menu .dropdown-item.active {
+    color: #ffbbc4;
+    background-color: #c13f32;
+  }
+}
+
+.navbar-expand .navbar-nav .show .dropdown-menu .dropdown-item {
+  color: #fbfbfb;
+}
+.navbar-expand .navbar-nav .show .dropdown-menu .dropdown-item:hover,
+.navbar-expand .navbar-nav .show .dropdown-menu .dropdown-item:focus {
+  color: #ffbbc4;
+}
+.navbar-expand .navbar-nav .show .dropdown-menu .dropdown-item.active {
+  color: #ffbbc4;
+  background-color: #c13f32;
+}
 
 
 /* Hamza if it is confusing you can move the code below to a new file if needed, I will convert this file to apply to main conponents */

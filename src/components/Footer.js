@@ -29,7 +29,7 @@ function Footer() {
               <div className="row">
                 {/* Column 1 */}
                 <div className="col-md-3 col-sm-6">
-                  <h4> Lorem ipsum </h4>
+                  <h4> About Us </h4>
                   <ul className="list-unstyled">
                    <p>In metus vulputate eu scelerisque felis imperdiet proin.  </p>
                   </ul>
@@ -87,7 +87,7 @@ const FooterContainer = styled.footer`
   ${'' /* seperate the body from the footer so it doesn't touch */}
   ${'' /* put this spacer with the nav bar too */}
   ${'' /* change to 5rem later after footer is fixed */}
-  padding-top: 3rem;
+  padding-top: 6rem;
 }
 
 .container-change-later
@@ -97,7 +97,7 @@ const FooterContainer = styled.footer`
 }
 .footer-middle 
 {
-  background: var(--mainBlue);
+  background: var(--primaryTheme);
   padding-top: 3rem; 
   color: var(--mainWhite);
   width: 100%;

@@ -5,10 +5,10 @@ import React from 'react';
 import Footer from '../components/Footer'; 
 import Nav from '../components/NavigationBar';
 import Article from '../components/Article'
+import DisplayArticle from '../components/DisplayArticle'
 
 //css
 import '../css/main.css'
-import '../css/dementia_information.css'
 
 function DementiaInformation() { 
    return(    
@@ -17,18 +17,7 @@ function DementiaInformation() {
          <div className="gen_header">
             Dementia Information
          </div>
-         <div className="article">
-            <Article></Article>
-            <Article></Article>
-            <Article></Article>
-            <Article></Article> 
-            <Article></Article>
-            <Article></Article>
-            <Article></Article>
-            <Article></Article>
-            <Article></Article>
-            <Article></Article>
-         </div>
+         <DisplayArticle></DisplayArticle>
          <Footer></Footer>
        </div>
       );

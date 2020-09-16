@@ -13,7 +13,10 @@ import { Navbar, Nav, NavDropdown} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import styled from 'styled-components'
+
 // css
+
+import '../css/main.css';
 
 // image
 import logo from '../pictures/logo1.png';
@@ -21,7 +24,7 @@ import logo from '../pictures/logo1.png';
 function NavigationBar() {
   return (
     <NavigationContainer>
-      <Navbar collapseOnSelect expand="lg" bg="primary" variant="light">
+      <Navbar collapseOnSelect expand="lg">
         {/* Logo */}
         <Navbar.Brand> 
           <Link to ="/">
@@ -51,8 +54,8 @@ function NavigationBar() {
           <Nav>
             <NavDropdown title="Language" id="collasible-nav-dropdown">
               <NavDropdown.Item href="#lang/EN">English</NavDropdown.Item>
-              <NavDropdown.Item href="#lang/KO">Korean</NavDropdown.Item>
-              <NavDropdown.Item href="#lang/ZH">Chinese</NavDropdown.Item>
+              <NavDropdown.Item href="#lang/KO">한국어</NavDropdown.Item>
+              <NavDropdown.Item href="#lang/ZH">中文</NavDropdown.Item>
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>
@@ -64,23 +67,22 @@ function NavigationBar() {
 
 export default NavigationBar;
 
+// 'style-component package used for infile css'
+const NavigationContainer = styled.div`
 
-const NavigationContainer = styled.nav`
 
+${'' /* space between navbar and the main content between */}
 .nav-spacer
 {
-  padding-bottom: 2rem;
+  padding-bottom: 4rem;
 }
 
-.navbar-light .navbar-nav .nav-link
-{
-  color: var(--mainWhite);
+.navbar a{
+    font-size: 1.5rem;
+    padding-right: 10px ;
+    word-spacing: 10;
 }
 
-.navbar-light .navbar-nav .nav-link:hover
-{
-  color: var(--mainLightGrey)
-}
 
 
 `;
