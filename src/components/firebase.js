@@ -1,14 +1,14 @@
 import * as firebase from 'firebase';
 
 const config={
-    apiKey: "AIzaSyCrokXMvBewGnbmqrmBjDCMGdcuzsjVEdI",
-    authDomain: "alzeihmerstudy.firebaseapp.com",
-    databaseURL: "https://alzeihmerstudy.firebaseio.com",
-    projectId: "alzeihmerstudy",
-    storageBucket: "alzeihmerstudy.appspot.com",
-    messagingSenderId: "745356370697",
-    appId: "1:745356370697:web:d4b0aed1fa17c058ac69d8",
-    measurementId: "G-RZ32M5TQ6J"
+    apiKey: "AIzaSyABKbfit7zCu8CI8ZXt35o6iQG5C1A-oWs",
+    authDomain: "alzheimers-f3255.firebaseapp.com",
+    databaseURL: "https://alzheimers-f3255.firebaseio.com",
+    projectId: "alzheimers-f3255",
+    storageBucket: "alzheimers-f3255.appspot.com",
+    messagingSenderId: "719559425984",
+    appId: "1:719559425984:web:279eeb392e04c5a53e1225",
+    measurementId: "G-J3SXRLD537"
 }
 const Firebase = firebase.initializeApp(config);
 export default Firebase;
