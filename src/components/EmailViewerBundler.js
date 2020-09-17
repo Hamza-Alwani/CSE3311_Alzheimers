@@ -34,12 +34,12 @@ componentDidMount()
                   emailaddress: this.state.title.concat([child.val().email_address]),
                   emailbody: this.state.story.concat([child.val().email_body])
               })
-                 const postList = this.state.date.map((dataList, index) =>
-                 <p>
-                  {dataList}
-                  {this.state.name[index]},
-                  {this.state.emailaddress[index]},
-                  {this.state.emailbody[index]}
+                  const postList = this.state.date.map((dataList, index) =>
+                  <p>
+                     {dataList}
+                     {this.state.name[index]},
+                     {this.state.emailaddress[index]},
+                     {this.state.emailbody[index]}
                   </p>
                )
    

@@ -1,15 +1,17 @@
 /// summary
 ///
-///	Community Resource section.  
-/// The component should be able to be inserted into any page
+/// The component should be able to be inserted into the community page
+/// 
 ///
 /// summary
 
-/// To Do
-///   - maybe make a map or use googles maps api for the className="map" section
 
-import React, {useState} from 'react';
+import React, {useState, useEffect } from 'react';
 import styled from 'styled-components'
+
+// firebase imports
+import firebase from '../components/firebase';
+
 
 // bootstrap components
 import Table from 'react-bootstrap/Table'
@@ -23,9 +25,26 @@ import '../css/main.css';
 
 function CommunityComponent() {
 
-  const [phone, setPhone] = useState(0);
-  const [address, setAddress] = useState('No Address');
-  const [website, setWebsite] = useState('No Website');
+  const [name, setName] = useState('Error: No title set');
+  const [phone, setPhone] = useState('Error: No phone number pulled');
+  const [address, setAddress] = useState('Error: No address pulled');
+  const [website, setWebsite] = useState('Error: No website pulled');
+  const [googleMap, setGoogleMap] = useState('Error: No website pulled'); // doing the hard way because the normal google maps api cost money
+
+  useEffect(() => {
+    const database = firebase.database().ref("community/Texas");
+    // const post = database.child().orderByKey();
+            database.on('value', snap => {
+              setName(snap.child("0").child("name").val())
+              setPhone(snap.child("0").child("phone").val())
+              setAddress(snap.child("0").child("address").val())
+              setWebsite(snap.child("0").child("website").val())
+              setGoogleMap(snap.child("0").child("googleMap").val())
+        }); 
+    
+  },[phone])
+
+
 
   return (
     <div className="main-component">
@@ -69,7 +88,7 @@ function CommunityComponent() {
           <tbody>
             <tr>
               <td >
-                <iframe 
+                {/* <iframe 
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3348.1429841093804!2d-96.90088378481364!3d32.947234180921015!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864c26479a675835%3A0x62ceba99e3d9f122!2s1618%20Kirby%20Rd%2C%20Carrollton%2C%20TX%2075006!5e0!3m2!1sen!2sus!4v1600039910371!5m2!1sen!2sus" 
                   width="100%" 
                   height="200%" 
@@ -79,7 +98,8 @@ function CommunityComponent() {
                   tabIndex="0"
                   title="comthing"
                   >
-                </iframe>
+                </iframe> */}
+                <div dangerouslySetInnerHTML={{ __html:googleMap}}></div>
               </td>
             </tr>
           </tbody>
@@ -94,9 +114,12 @@ function CommunityComponent() {
           <tbody>
             <tr>
               <td>
-                <p><strong>Phone Number:</strong> 972-245-1573</p>
-                <p><strong>Address:</strong> 1618 Kirby Rd</p>
-                <p><strong>Website:</strong> https://carrolltonhealth.com</p>
+                {/* 972-245-1573 */}
+                <p><strong>Phone Number:</strong> {phone} </p>
+                {/* 1618 Kirby Rd */}
+                <p><strong>Address:</strong> {address} </p>
+                {/* https://carrolltonhealth.com */}
+                <p><strong>Website:</strong> {website} </p>
               </td>
             </tr>
           </tbody>
