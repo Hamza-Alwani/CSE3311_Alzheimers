@@ -22,6 +22,11 @@ import '../css/main.css';
 // images 
 
 function CommunityComponent() {
+
+  const [phone, setPhone] = useState(0);
+  const [address, setAddress] = useState('No Address');
+  const [website, setWebsite] = useState('No Website');
+
   return (
     <div className="main-component">
 
