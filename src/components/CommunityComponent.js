@@ -12,7 +12,6 @@ import styled from 'styled-components'
 // firebase imports
 import firebase from '../components/firebase';
 
-
 // bootstrap components
 import Table from 'react-bootstrap/Table'
 import Dropdown from 'react-bootstrap/Dropdown'
@@ -22,30 +21,76 @@ import FormControl from 'react-bootstrap/FormControl'
 import '../css/main.css'; 
 
 // images 
+function dropdownItem(props)
+{
+
+
+}
+
 
 function CommunityComponent() {
 
+  // Data from firebase
   const [name, setName] = useState('Error: No title set');
   const [phone, setPhone] = useState('Error: No phone number pulled');
   const [address, setAddress] = useState('Error: No address pulled');
   const [website, setWebsite] = useState('Error: No website pulled');
   const [googleMap, setGoogleMap] = useState('Error: No website pulled'); // doing the hard way because the normal google maps api cost money
+  const [stateList, setStateList] = useState([]); // list of all states in firebase
+  // Data selected by user
+  const [selectedState, setSelectedState] = useState('Pick your state');
+  // const [city, setCity] = useState('Error: No city selected');
 
+
+  const DropdownItems = ({ nameList }) => {
+    return (
+      <Dropdown>
+        <Dropdown.Toggle as={CustomToggle} id="dropdown-custom-components" className="dropdown-button">{selectedState}</Dropdown.Toggle>
+  
+        <Dropdown.Menu className="dropdown-menu">
+          {nameList.map((name, index) => (
+            <Dropdown.Item href={`#/action-${index}`} key={index}>{name}</Dropdown.Item>
+          ))}
+        </Dropdown.Menu>
+      </Dropdown>
+    );
+  };
+
+  // Pulls and compiles a list of all the states in firebase - works
   useEffect(() => {
-    const database = firebase.database().ref("community/Texas");
-    // const post = database.child().orderByKey();
-            database.on('value', snap => {
+    const database = firebase.database()
+    const rootRef = database.ref("community");
+    
+    rootRef.on('value', snap => {
+              snap.forEach(function(childSnapshot) {
+                // alert(childSnapshot.key);
+                setStateList(stateList => [...stateList, childSnapshot.key]);
+            });
+          });
+    
+    console.log(stateList) // empty for some reason
+  }, [])
+
+
+  // Pulls the requested data of the state/city
+  useEffect(() => {
+    const database = firebase.database()
+    const rootRef = database.ref("community/Texas");
+    
+    rootRef.on('value', snap => {
               setName(snap.child("0").child("name").val())
               setPhone(snap.child("0").child("phone").val())
               setAddress(snap.child("0").child("address").val())
               setWebsite(snap.child("0").child("website").val())
               setGoogleMap(snap.child("0").child("googleMap").val())
-        }); 
+    }); 
     
-  },[phone])
+  }, [])
 
 
-
+///////////////////////////////////////////////////////////////////////////////////////
+  
+  // HTML
   return (
     <div className="main-component">
 
@@ -54,30 +99,18 @@ function CommunityComponent() {
                Community Resources
       </div>
 
-
       {/* Drop down to pick citys */}
       <Table striped bordered hover>
         <thead>
           <tr>
             <th>
-              <Dropdown>
-                <Dropdown.Toggle as={CustomToggle} id="dropdown-custom-components">
-                  Pick your city
-                </Dropdown.Toggle>
-
-                <Dropdown.Menu as={CustomMenu}>
-                  <Dropdown.Item eventKey="1" active>Dallas</Dropdown.Item>
-                  <Dropdown.Item eventKey="2">Los Angeles</Dropdown.Item>
-                  <Dropdown.Item eventKey="3">Washington D.C</Dropdown.Item>
-                  <Dropdown.Item eventKey="4">Bing Bong</Dropdown.Item>
-                </Dropdown.Menu>
-              </Dropdown>
+              <DropdownItems nameList={stateList} />
             </th>
           </tr>
         </thead>
       </Table>
 
-      {/* Information about city */}
+      {/* Information about the city */}
       <CommunityContainer>
         <Table striped bordered hover>
           <thead>
@@ -88,17 +121,7 @@ function CommunityComponent() {
           <tbody>
             <tr>
               <td >
-                {/* <iframe 
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3348.1429841093804!2d-96.90088378481364!3d32.947234180921015!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864c26479a675835%3A0x62ceba99e3d9f122!2s1618%20Kirby%20Rd%2C%20Carrollton%2C%20TX%2075006!5e0!3m2!1sen!2sus!4v1600039910371!5m2!1sen!2sus" 
-                  width="100%" 
-                  height="200%" 
-                  frameBorder="0" 
-                  allowFullScreen="" 
-                  aria-hidden="false" 
-                  tabIndex="0"
-                  title="comthing"
-                  >
-                </iframe> */}
+                {/* yolo */}
                 <div dangerouslySetInnerHTML={{ __html:googleMap}}></div>
               </td>
             </tr>
@@ -108,7 +131,7 @@ function CommunityComponent() {
         <Table striped bordered hover>
           <thead>
             <tr>
-              <th>Name of Place</th>
+              <th>{name}</th>
             </tr>
           </thead>
           <tbody>
