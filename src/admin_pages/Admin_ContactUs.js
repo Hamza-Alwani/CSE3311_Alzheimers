@@ -5,7 +5,7 @@
 import React, { Component } from 'react';
 
 // components
-import Nav from '../components/NavigationBar';
+import Nav from '../components/Admin_nav';
 import Footer from '../components/Footer'; 
 import EmailViewer from '../components/EmailViewer';
 //import  '../components/EmailViewerBundler';
@@ -18,7 +18,7 @@ import '../css/email_viewer.css'
 
 
 
-class AdminPage extends Component 
+class Admin_Contact_us_Page extends Component 
 {
 
    constructor()
@@ -81,4 +81,4 @@ class AdminPage extends Component
    }
 }
 
-export default AdminPage
+export default Admin_Contact_us_Page
