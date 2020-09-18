@@ -20,12 +20,6 @@ import FormControl from 'react-bootstrap/FormControl'
 // css
 import '../css/main.css'; 
 
-// images 
-function dropdownItem(props)
-{
-
-
-}
 
 
 function CommunityComponent() {
@@ -41,34 +35,23 @@ function CommunityComponent() {
   const [selectedState, setSelectedState] = useState('Pick your state');
   // const [city, setCity] = useState('Error: No city selected');
 
-
-  const DropdownItems = ({ nameList }) => {
-    return (
-      <Dropdown>
-        <Dropdown.Toggle as={CustomToggle} id="dropdown-custom-components" className="dropdown-button">{selectedState}</Dropdown.Toggle>
   
-        <Dropdown.Menu className="dropdown-menu">
-          {nameList.map((name, index) => (
-            <Dropdown.Item href={`#/action-${index}`} key={index}>{name}</Dropdown.Item>
-          ))}
-        </Dropdown.Menu>
-      </Dropdown>
-    );
-  };
+  
 
-  // Pulls and compiles a list of all the states in firebase - works
+  // Pulls a list of all the U.S States in firebase - works
   useEffect(() => {
     const database = firebase.database()
     const rootRef = database.ref("community");
     
     rootRef.on('value', snap => {
               snap.forEach(function(childSnapshot) {
-                // alert(childSnapshot.key);
                 setStateList(stateList => [...stateList, childSnapshot.key]);
             });
           });
     
     console.log(stateList) // empty for some reason
+    // The comment below disables a warning given to us because statelist isn't passed to the [] below
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
 
@@ -87,6 +70,19 @@ function CommunityComponent() {
     
   }, [])
 
+  // Pulls all the U.S States on firebase that exist and creates a dropdown list to select from
+  const DropdownItems = ({ nameList }) => {
+    return (
+      <Dropdown>
+        <Dropdown.Toggle as={CustomToggle} id="dropdown-custom-components" className="dropdown-button">{selectedState}</Dropdown.Toggle>
+        <Dropdown.Menu className="dropdown-menu">
+          {nameList.map((state, index) => (
+            <Dropdown.Item onClick={() => setSelectedState(state)} key={index}>{state}</Dropdown.Item>
+          ))}
+        </Dropdown.Menu>
+      </Dropdown>
+    );
+  };
 
 ///////////////////////////////////////////////////////////////////////////////////////
   
