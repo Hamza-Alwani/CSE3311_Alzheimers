@@ -31,12 +31,15 @@ function CommunityComponent() {
   const [website, setWebsite] = useState('Error: No website pulled');
   const [googleMap, setGoogleMap] = useState('Error: No website pulled'); // doing the hard way because the normal google maps api cost money
   const [stateList, setStateList] = useState([]); // list of all states in firebase
+  const [cityList, setCityList] = useState([]); // list of all city based on state in firebase
   // Data selected by user
-  const [selectedState, setSelectedState] = useState('Pick your state');
-  // const [city, setCity] = useState('Error: No city selected');
+  const [selectedState, setSelectedState] = useState('Texas');
+  const [selectedCity, setSelectedCity] = useState('Dallas');
 
   
-  
+  // Future Henry, make sure selectedState isn't null then the city drop down should be active
+  // selectedState could be null in the end due to cleaning be react
+
 
   // Pulls a list of all the U.S States in firebase - works
   useEffect(() => {
@@ -48,27 +51,63 @@ function CommunityComponent() {
                 setStateList(stateList => [...stateList, childSnapshot.key]);
             });
           });
-    
-    console.log(stateList) // empty for some reason
     // The comment below disables a warning given to us because statelist isn't passed to the [] below
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
 
-  // Pulls the requested data of the state/city
+  
+
+  // Pulls the requested data once state/city are seleceted
+  // maybe change this to onload, so it only executes once ******************
   useEffect(() => {
     const database = firebase.database()
-    const rootRef = database.ref("community/Texas");
+    const rootRef = database.ref("community/" + selectedState );
     
     rootRef.on('value', snap => {
-              setName(snap.child("0").child("name").val())
-              setPhone(snap.child("0").child("phone").val())
-              setAddress(snap.child("0").child("address").val())
-              setWebsite(snap.child("0").child("website").val())
-              setGoogleMap(snap.child("0").child("googleMap").val())
+              setName(snap.child(selectedCity).child("name").val())
+              setPhone(snap.child(selectedCity).child("phone").val())
+              setAddress(snap.child(selectedCity).child("address").val())
+              setWebsite(snap.child(selectedCity).child("website").val())
+              setGoogleMap(snap.child(selectedCity).child("googleMap").val())
     }); 
     
-  }, [])
+  }, [selectedState, selectedCity])
+
+  // Pulls the requested data once state/city are seleceted
+  useEffect(() => {
+    const database = firebase.database()
+    const rootRef = database.ref("community/" + selectedState );
+    setCityList([])
+    rootRef.on('value', snap => {
+              snap.forEach(function(childSnapshot) {
+                setCityList(cityList => [...cityList, childSnapshot.key]);
+            });
+          });
+    // The comment below disables a warning given to us because cityList isn't passed to the [] below
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [selectedState])
+
+
+  
+  // Pulls all the city of the state
+  const DropdownCity = ({ nameList }) => {
+    return (
+      <th>
+        <Dropdown>
+          <Dropdown.Toggle as={CustomToggle} id="dropdown-custom-components" className="dropdown-button">{selectedCity}</Dropdown.Toggle>
+          <Dropdown.Menu className="dropdown-menu">
+            {nameList.map((city, index) => (
+              <Dropdown.Item onClick={() => setSelectedCity(city)} key={index}>{city}</Dropdown.Item>
+            ))}
+          </Dropdown.Menu>
+        </Dropdown>
+      </th>
+    );
+
+  }
+
+
 
   // Pulls all the U.S States on firebase that exist and creates a dropdown list to select from
   const DropdownItems = ({ nameList }) => {
@@ -77,7 +116,7 @@ function CommunityComponent() {
         <Dropdown.Toggle as={CustomToggle} id="dropdown-custom-components" className="dropdown-button">{selectedState}</Dropdown.Toggle>
         <Dropdown.Menu className="dropdown-menu">
           {nameList.map((state, index) => (
-            <Dropdown.Item onClick={() => setSelectedState(state)} key={index}>{state}</Dropdown.Item>
+            <Dropdown.Item onClick={() => {setSelectedState(state); firebase.database().ref("community/"+state).orderByKey().limitToFirst(1).on('value', function(snap) { for(var key in snap.val()){setSelectedCity(key)} }); } }  key={index}>{state}</Dropdown.Item>
           ))}
         </Dropdown.Menu>
       </Dropdown>
@@ -102,6 +141,9 @@ function CommunityComponent() {
             <th>
               <DropdownItems nameList={stateList} />
             </th>
+            {/* <th> */}
+              <DropdownCity nameList={cityList} />
+            {/* </th> */}
           </tr>
         </thead>
       </Table>
@@ -133,11 +175,8 @@ function CommunityComponent() {
           <tbody>
             <tr>
               <td>
-                {/* 972-245-1573 */}
                 <p><strong>Phone Number:</strong> {phone} </p>
-                {/* 1618 Kirby Rd */}
                 <p><strong>Address:</strong> {address} </p>
-                {/* https://carrolltonhealth.com */}
                 <p><strong>Website:</strong> {website} </p>
               </td>
             </tr>
