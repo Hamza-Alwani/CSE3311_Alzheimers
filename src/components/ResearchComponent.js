@@ -15,8 +15,7 @@ import styled from 'styled-components'
 // bootstrap 
 import Table from 'react-bootstrap/Table'
 import Form from 'react-bootstrap/Form'
-import InputGroup from 'react-bootstrap/InputGroup'
-import Button from 'react-bootstrap/Button'
+
 
 // css
 import '../css/main.css'; 

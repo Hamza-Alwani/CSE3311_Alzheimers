@@ -4,7 +4,6 @@ import React from 'react';
 // import DementiaComponent from '../components/DementiaComponent'; not used
 import Footer from '../components/Footer'; 
 import Nav from '../components/NavigationBar';
-import Article from '../components/Article'
 import DisplayArticle from '../components/DisplayArticle'
 
 //css

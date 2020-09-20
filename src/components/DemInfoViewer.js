@@ -1,8 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 // components
-import Nav from '../components/Admin_nav';
-import Footer from '../components/Footer'; 
 //import  '../components/EmailViewerBundler';
 import  firebase from '../components/firebase';
 //css

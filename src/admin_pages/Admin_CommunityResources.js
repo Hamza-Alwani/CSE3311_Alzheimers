@@ -5,7 +5,6 @@ import Nav from '../components/Admin_nav';
 import Footer from '../components/Footer'; 
 //import  '../components/EmailViewerBundler';
 import  firebase from '../components/firebase';
-import  DemInfoViewer from '../components/DemInfoViewer';
 import { Button } from 'react-bootstrap';
 //css
 import '../css/main.css'
