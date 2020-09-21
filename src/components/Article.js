@@ -12,34 +12,23 @@ import '../css/main.css';
 import '../css/article.css'; 
 
 
-// images
+// images - delete later bc not using except for placeholder
 import pic1 from '../pictures/background.png';
 
-function Article() {
-
+function Article( {props} ) {
     return (
-        <ArticleContainer>
-
 
             <Card style={{ width: '18rem' }}>
-                <Card.Img variant="top" src={pic1} />
+                <Card.Img variant="top" src={props.pic} />
                 <Card.Body>
-                    <Card.Title>Card Title</Card.Title>
-                    <Card.Text>
-                    Some quick example text to build on the card title and make up the bulk of
-                    the card's content.
-                    </Card.Text>
+                    <Card.Title> {props.title} </Card.Title>
+                    <Card.Text> {props.disc} </Card.Text>
                     <Button variant="primary">Go somewhere</Button>
                 </Card.Body>
             </Card>
-         </ArticleContainer>
     );
 }
 
 
 export default Article;
 
-const ArticleContainer = styled.nav`
-
-
-`;

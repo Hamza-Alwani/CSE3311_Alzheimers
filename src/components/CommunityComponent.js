@@ -84,8 +84,6 @@ function CommunityComponent() {
                 setCityList(cityList => [...cityList, childSnapshot.key]);
             });
           });
-    // The comment below disables a warning given to us because cityList isn't passed to the [] below
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedState])
 
 
@@ -110,7 +108,7 @@ function CommunityComponent() {
 
 
   // Pulls all the U.S States on firebase that exist and creates a dropdown list to select from
-  const DropdownItems = ({ nameList }) => {
+  const DropdownStates = ({ nameList }) => {
     return (
       <Dropdown>
         <Dropdown.Toggle as={CustomToggle} id="dropdown-custom-components" className="dropdown-button">{selectedState}</Dropdown.Toggle>
@@ -139,7 +137,7 @@ function CommunityComponent() {
         <thead>
           <tr>
             <th>
-              <DropdownItems nameList={stateList} />
+              <DropdownStates nameList={stateList} />
             </th>
             {/* <th> */}
               <DropdownCity nameList={cityList} />

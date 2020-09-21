@@ -1,0 +1,1 @@
+// you have to edit the NavigationBar.js to make the language bar, not make this file. also make another branch to do your work
