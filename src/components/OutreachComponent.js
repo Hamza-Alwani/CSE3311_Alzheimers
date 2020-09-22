@@ -6,7 +6,7 @@
 /// summary
 
 /// To Do
-///   - The images won't float left and are centered in the ul li element for some reason
+///   - 
 
 import React from 'react';
 import styled from 'styled-components'

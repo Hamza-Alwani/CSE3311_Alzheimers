@@ -2,7 +2,6 @@
 ///
 /// The component should be able to be inserted into the community page
 /// 
-///
 /// summary
 
 
@@ -36,11 +35,6 @@ function CommunityComponent() {
   const [selectedState, setSelectedState] = useState('Texas');
   const [selectedCity, setSelectedCity] = useState('Dallas');
 
-  
-  // Future Henry, make sure selectedState isn't null then the city drop down should be active
-  // selectedState could be null in the end due to cleaning be react
-
-
   // Pulls a list of all the U.S States in firebase - works
   useEffect(() => {
     const database = firebase.database()
@@ -55,9 +49,6 @@ function CommunityComponent() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-
-  
-
   // Pulls the requested data once state/city are seleceted
   // maybe change this to onload, so it only executes once ******************
   useEffect(() => {
@@ -71,7 +62,6 @@ function CommunityComponent() {
               setWebsite(snap.child(selectedCity).child("website").val())
               setGoogleMap(snap.child(selectedCity).child("googleMap").val())
     }); 
-    
   }, [selectedState, selectedCity])
 
   // Pulls the requested data once state/city are seleceted
@@ -86,12 +76,9 @@ function CommunityComponent() {
           });
   }, [selectedState])
 
-
-  
   // Pulls all the city of the state
   const DropdownCity = ({ nameList }) => {
     return (
-      <th>
         <Dropdown>
           <Dropdown.Toggle as={CustomToggle} id="dropdown-custom-components" className="dropdown-button">{selectedCity}</Dropdown.Toggle>
           <Dropdown.Menu className="dropdown-menu">
@@ -100,12 +87,9 @@ function CommunityComponent() {
             ))}
           </Dropdown.Menu>
         </Dropdown>
-      </th>
     );
 
   }
-
-
 
   // Pulls all the U.S States on firebase that exist and creates a dropdown list to select from
   const DropdownStates = ({ nameList }) => {
@@ -132,22 +116,23 @@ function CommunityComponent() {
                Community Resources
       </div>
 
-      {/* Drop down to pick citys */}
-      <Table striped bordered hover>
-        <thead>
-          <tr>
-            <th>
-              <DropdownStates nameList={stateList} />
-            </th>
-            {/* <th> */}
-              <DropdownCity nameList={cityList} />
-            {/* </th> */}
-          </tr>
-        </thead>
-      </Table>
-
-      {/* Information about the city */}
       <CommunityContainer>
+        {/* Drop down to pick citys */}
+        <Table striped bordered hover>
+          <thead>
+            <tr>
+            
+              <th>
+                <DropdownStates nameList={stateList} />
+              </th>
+              <th>
+                <DropdownCity nameList={cityList} />
+              </th>
+            </tr>
+          </thead>
+        </Table>
+
+        {/* Information about the city */}
         <Table striped bordered hover>
           <thead>
             <tr>
@@ -163,7 +148,7 @@ function CommunityComponent() {
             </tr>
           </tbody>
         </Table>
-
+        
         <Table striped bordered hover>
           <thead>
             <tr>
@@ -242,6 +227,11 @@ const CommunityContainer = styled.div`
 .community-div
 {
   flex: 1;
+}
+
+th
+{
+  width: 50%;
 }
 
 `;
