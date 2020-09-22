@@ -188,7 +188,7 @@ const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
   </a>
 ));
 
-// Custom Menu
+// Custom Menu - future work
 const CustomMenu = React.forwardRef(
   ({ children, style, className, 'aria-labelledby': labeledBy }, ref) => {
     const [value, setValue] = useState('');
@@ -232,6 +232,12 @@ const CommunityContainer = styled.div`
 th
 {
   width: 50%;
+}
+
+iframe
+{
+  height: 100%;
+  width: 100%;
 }
 
 `;
