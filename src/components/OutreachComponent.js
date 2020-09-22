@@ -13,6 +13,7 @@ import styled from 'styled-components'
 
 // bootstrap 
 import Table from 'react-bootstrap/Table'
+import Button from 'react-bootstrap/Button'
 
 // css
 import '../css/main.css'; 
@@ -30,7 +31,7 @@ function OutreachComponent() {
           </div>
           
           <OutreachContainer>
-            <Table striped bordered hover>
+            <Table striped bordered hover responsive size="sm">
 
               <thead>
                 <tr>
@@ -53,10 +54,10 @@ function OutreachComponent() {
               <tbody>
                 <tr>
                   <td>
-                    <p><strong>Group chat:</strong> <a href="https://open.kakao.com/o/gPYKtsqc">https://open.kakao.com/o/gPYKtsqc</a></p>
+                    <Button variant="warning" href="https://open.kakao.com/o/gPYKtsqc">KaKaoTalk Group Chat</Button>
                   </td>
                   <td>
-                    <p><strong>Group chat:</strong> <a href="https://www.wechat.com">https://www.wechat.com</a></p>
+                    <Button variant="success" href="https://open.kakao.com/o/gPYKtsqc">WeChat Group Chat</Button>
                   </td>
                 </tr>
               </tbody>
@@ -71,6 +72,9 @@ export default OutreachComponent;
 
 const OutreachContainer = styled.div`
 
-
+td
+{
+  width:50%;
+}
 
 `;
