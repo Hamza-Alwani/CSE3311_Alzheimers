@@ -18,7 +18,6 @@ import Button from 'react-bootstrap/Button';
 
 // css
 import '../css/main.css'; 
-import '../css/contact_us.css';
 
 
 // images
@@ -31,7 +30,7 @@ function ContactUsComponent() {
          <div className="gen_header">
             Contact Us
          </div>
-         
+         <ContactUsContainer>
          <div className="body_text">
             <div className="list">
                <ul><input type="text"       id="name"          placeholder="Name"        /></ul>
@@ -56,6 +55,7 @@ function ContactUsComponent() {
             </Form.Group>
          </Form>
          <Button varient="danger" onClick={send_button_pressed} className="send_button">Send</Button>
+         </ContactUsContainer>
       </div>
     </div>
   );
@@ -91,8 +91,34 @@ function send_button_pressed(){
 
 const ContactUsContainer = styled.nav`
 
+   .contact-div
+   {
+   flex: 1;
+   }
+
+   .list ul
+   {
+   /*background:d;*/
+   text-align: center;
+   padding: 0;
+   
+   }
 
 
+   .send_button
+   {
+   position: relative;
+   overflow: hidden;
+   width: auto;
+   height: 40px;
+   color: black;
+   background: white;
+   border-color: black;
+   }
 
+   .send_button:hover
+   {
+   background: red;
+   }
 
 `
