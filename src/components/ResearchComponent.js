@@ -15,7 +15,7 @@ import styled from 'styled-components'
 // bootstrap 
 import Table from 'react-bootstrap/Table'
 import Form from 'react-bootstrap/Form'
-
+import Button from 'react-bootstrap/Button'
 
 // css
 import '../css/main.css'; 
@@ -39,7 +39,6 @@ function ResearchComponent() {
                 <thead>
                   <tr>
                     <th>Schedule</th>
-                    <th>Placemate Forms</th>
                   </tr>
                 </thead>
 
@@ -56,42 +55,53 @@ function ResearchComponent() {
                       >
                     </iframe>
                     </td>
+                  </tr>
+                </tbody>
+                
+
+                <thead>
+                  <tr>
+                    <th>Schedule An Appointment</th>
+                  </tr>
+                </thead>
+
+
+                <tbody>
+                  <tr>
+
                     <td>
                     
                       <Form>
-                        <Form.Group controlId="exampleForm.ControlInput1">
+                        <Form.Group controlId="email-input">
                           <Form.Label>Email address</Form.Label>
                           <Form.Control type="email" placeholder="name@example.com" />
                         </Form.Group>
 
-                        <Form.Group controlId="exampleForm.ControlInput1">
+                        <Form.Group controlId="number-input">
                           <Form.Label>Phone Number</Form.Label>
                           <Form.Control type="email" placeholder="123-xxx-xxxx" />
                         </Form.Group>
 
-                        <Form.Group controlId="exampleForm.ControlSelect1">
+                        <Form.Group controlId="time-selection">
                           <Form.Label>Time Selection</Form.Label>
                           <Form.Control as="select">
-                            <option>12:00</option>
-                            <option>1:00</option>
-                            <option>2:00</option>
-                            <option>3:00</option>
-                            <option>4:00</option>
-                            <option>5:00</option>
-                            <option>6:00</option>
-                            <option>7:00</option>
-                            <option>8:00</option>
-                            <option>9:00</option>
-                            <option>10:00</option>
-                            <option>11:00</option>
+                            <option>9:00 A.M</option>
+                            <option>10:00 A.M</option>
+                            <option>11:00 A.M</option>
+                            <option>12:00 P.M</option>
+                            <option>1:00 P.M</option>
+                            <option>2:00 P.M</option>
+                            <option>3:00 P.M</option>
+                            <option>4:00 P.M</option>
                           </Form.Control>
+
+                          <Button variant="danger" href="https://open.kakao.com/o/gPYKtsqc">Schedule</Button>
 
                         </Form.Group>
                       </Form>
                     </td>
                   </tr>
                 </tbody>
-
               </Table>
             </div>
           </ResearchContainer>
@@ -103,7 +113,25 @@ export default ResearchComponent;
 
 const ResearchContainer = styled.nav`
 
+iframe
+{
+  margin: auto;
+  display: block;
+  width: 100%;
+}
 
+select
+{
+  margin-top:0px;
+}
+
+@media (max-width: 1000px) {
+  /* CSS that should be displayed if width is equal to or less than 800px goes here */
+  .main-component
+  {
+    width:100%;
+  }
+}
 
 
 `;
