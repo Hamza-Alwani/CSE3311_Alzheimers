@@ -9,9 +9,13 @@
 ///   - 
 
 import React from 'react';
-import Button from 'react-bootstrap/Button';
-//import *as firebase from  'firebase';
+import styled from 'styled-components'
 import firebase from'../components/firebase'
+
+// bootstrap 
+import Form from 'react-bootstrap/Form'
+import Button from 'react-bootstrap/Button';
+
 // css
 import '../css/main.css'; 
 import '../css/contact_us.css';
@@ -37,6 +41,21 @@ function ContactUsComponent() {
             </div>
          </div>
 
+         <Form>
+            <Form.Group controlId="exampleForm.ControlInput1">
+               <Form.Label>Email address</Form.Label>
+               <Form.Control type="email" placeholder="name@example.com" />
+            </Form.Group>
+            <Form.Group controlId="exampleForm.ControlInput1">
+               <Form.Label>Name</Form.Label>
+               <Form.Control type="name" placeholder="Bing Bong" />
+            </Form.Group>
+            <Form.Group controlId="exampleForm.ControlTextarea1">
+               <Form.Label>Message</Form.Label>
+               <Form.Control as="textarea" rows="3" placeholder="Hi Team 2"/>
+            </Form.Group>
+         </Form>
+         <Button varient="danger" onClick={send_button_pressed} className="send_button">Send</Button>
       </div>
     </div>
   );
@@ -47,8 +66,6 @@ export default ContactUsComponent;
 
 
 // will move contact_us.css to here in the future after you're done with firebase stuff
-
-
 
 
 function send_button_pressed(){
@@ -71,3 +88,11 @@ function send_button_pressed(){
     }
  });
 }
+
+const ContactUsContainer = styled.nav`
+
+
+
+
+
+`
