@@ -19,6 +19,7 @@ import Form from 'react-bootstrap/Form'
 
 // css
 import '../css/main.css'; 
+import '../css/survey.css'; 
 
 
 function ResearchComponent() {
@@ -32,6 +33,13 @@ function ResearchComponent() {
           </div>
 
           <ResearchContainer>
+    
+            <div className="survey">
+              <a href="https://dementiacaregiving.questionpro.com" class="survey-button"> Online Survey </a>
+            </div>
+    
+            <div class="divider"/>
+    
             <div className="research-section">
 
               <Table striped bordered hover>
