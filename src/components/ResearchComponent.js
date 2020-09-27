@@ -19,6 +19,7 @@ import Button from 'react-bootstrap/Button'
 
 // css
 import '../css/main.css'; 
+import '../css/survey.css'; 
 
 
 function ResearchComponent() {
@@ -32,6 +33,13 @@ function ResearchComponent() {
           </div>
 
           <ResearchContainer>
+    
+            <div className="survey">
+              <a href="https://dementiacaregiving.questionpro.com" class="survey-button"> Online Survey </a>
+            </div>
+    
+            <div class="divider"/>
+    
             <div className="research-section">
 
               <Table striped bordered hover>
@@ -63,6 +71,7 @@ function ResearchComponent() {
                   </tr>
                 </thead>
 
+
                 <tbody>
                   <tr>
                     <td>
@@ -80,7 +89,9 @@ function ResearchComponent() {
 
                         <Form.Group controlId="time-selection">
                           <Form.Label>Time Selection</Form.Label>
+
                           <Form.Control as="select" name="time">
+
                             <option>9:00 A.M</option>
                             <option>10:00 A.M</option>
                             <option>11:00 A.M</option>
@@ -90,7 +101,7 @@ function ResearchComponent() {
                             <option>3:00 P.M</option>
                             <option>4:00 P.M</option>
                           </Form.Control>
-                          <Button type="submit">Schedule</Button>
+                          <Button variant="danger" type="submit">Schedule</Button>
                         </Form.Group>
 
                       </Form>
