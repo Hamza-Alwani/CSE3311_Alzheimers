@@ -11,10 +11,6 @@ import Button from 'react-bootstrap/Button'
 import '../css/main.css'; 
 import '../css/article.css'; 
 
-
-// images - delete later bc not using except for placeholder
-import pic1 from '../pictures/background.png';
-
 function Article( {props} ) {
     return (
 

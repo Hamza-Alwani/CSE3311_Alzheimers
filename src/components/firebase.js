@@ -1,3 +1,5 @@
+// Firebase's config file so we can access our database and send/receive data
+
 import * as firebase from 'firebase';
 
 const config={

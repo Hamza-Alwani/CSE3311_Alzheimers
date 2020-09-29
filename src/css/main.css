@@ -1,3 +1,5 @@
+ /* Used in every React component  */
+
 /* used with styled components to keeps themes consistent in react project */
 :root{
   --primaryTheme: #dd3928;

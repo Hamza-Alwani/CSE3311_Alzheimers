@@ -1,14 +1,25 @@
+/// summary
+///
+///	DemInfoViewer  - In Development
+/// - Admins will view articles and have the ablility to create/delete them in the future.
+///
+/// summary
+
+
 import React from 'react';
 
 // components
-//import  '../components/EmailViewerBundler';
 import  firebase from '../components/firebase';
+
+// bootstrap components
+import { Button } from 'react-bootstrap';
+
 //css
 import '../css/main.css'
 import '../css/email_viewer.css'
-import { Button } from 'react-bootstrap';
 
 
+// Currently spams all the articles and gives the admin the ability to delete the article 
 function Admin_DemInfoViewer(obj) 
 {
     return(
@@ -37,12 +48,13 @@ function Admin_DemInfoViewer(obj)
 }
 export default Admin_DemInfoViewer
 
- 
-  function delete_button_pressed(obj){
-   
-    firebase.database().ref('Article').child(obj).remove().then(function(){
+// Deleted an article with a specific ID under Article in firebase
+function delete_button_pressed(obj)
+{
+    firebase.database().ref('Article').child(obj).remove().then(function()
+    {
         window.alert("Message Deleted");
         window.location.reload(false);
-     }).catch(function(error){
-     });
-  }
+        }).catch(function(error){
+    });
+}

@@ -1,13 +1,10 @@
 /// summary
 ///
 ///	Footer bar 
+/// - Besides being the footer of the website key things this component does is
+///           - Creates a push against the content above it 
 ///
 /// summary
-
-/// To Do
-///   - add link and stuff
-///   - reorganize 
-///   - add more content
 
 import React from 'react';
 // import { Link } from 'react-router-dom'; // not used
@@ -25,16 +22,16 @@ function Footer() {
           <div className="spacer">
           </div>
           <div className="footer-middle">
-            <div className="container-change-later">
+            <div className="footer-content">
               <div className="row">
                 {/* Column 1 */}
                 <div className="col-md-3 col-sm-6">
                   <h4> About Us </h4>
                   <ul className="list-unstyled">
-                   <p>In metus vulputate eu scelerisque felis imperdiet proin.  </p>
+                    <p>In metus vulputate eu scelerisque felis imperdiet proin.  </p>
                   </ul>
                 </div>
-                {/* Column 1 */}
+                {/* Column 2 */}
                 <div className="col-md-3 col-sm-6">
                   <h4> Lorem ipsum </h4>
                   <ul className="list-unstyled">
@@ -44,7 +41,7 @@ function Footer() {
                     <li><a href="/">Lorem, ipsum</a></li>
                   </ul>
                 </div>
-                {/* Column 1 */}
+                {/* Column 3 */}
                 <div className="col-md-3 col-sm-6">
                   <h4> Lorem ipsum </h4>
                   <ul className="list-unstyled">
@@ -53,22 +50,22 @@ function Footer() {
                     <li><a href="/">Lorem, ipsum</a></li>
                     <li><a href="/">Lorem, ipsum</a></li>
                   </ul>
+                </div>
+                {/* Column 4 */}
+                <div className="col-md-3 col-sm-6">
+                  <h4> Lorem ipsum </h4>
+                  <ul className="list-unstyled">
+                    <li><a href="/">Lorem, ipsum</a></li>
+                    <li><a href="/">Lorem, ipsum</a></li>
+                    <li><a href="/">Lorem, ipsum</a></li>
+                    <li><a href="/">Lorem, ipsum</a></li>
+                  </ul>
+                </div>        
               </div>
-              {/* Column 1 */}
-              <div className="col-md-3 col-sm-6">
-                <h4> Lorem ipsum </h4>
-                <ul className="list-unstyled">
-                  <li><a href="/">Lorem, ipsum</a></li>
-                  <li><a href="/">Lorem, ipsum</a></li>
-                  <li><a href="/">Lorem, ipsum</a></li>
-                  <li><a href="/">Lorem, ipsum</a></li>
-                </ul>
-              </div>        
-            </div>
               {/* Footer Bottom */}
               <div className="footer-bottom">
                 <p className="text-xs-center">
-                &copy;{new Date().getFullYear()} Alzhiemer's App - All Rights Reserve
+                  &copy;{new Date().getFullYear()} Alzhiemer's App - All Rights Reserve
                 </p>
               </div>
             </div> 
@@ -80,17 +77,15 @@ function Footer() {
 
 export default Footer;
 
+// 'style-component package used for infile css'
 const FooterContainer = styled.footer`
 
 .spacer {
-  ${'' /* i got tired so i hardcoded the s word out of this */}
-  ${'' /* seperate the body from the footer so it doesn't touch */}
-  ${'' /* put this spacer with the nav bar too */}
-  ${'' /* change to 5rem later after footer is fixed */}
+  ${'' /* Seperates the body from the footer so it doesn't touch */}
   padding-top: 6rem;
 }
 
-.container-change-later
+.footer-content
 {
   margin: 0 auto;
   width:70%;
@@ -113,6 +108,7 @@ ul li a
 {
   color: var(--mainWhite);
 }
+
 
 ul li a:hover
 {
