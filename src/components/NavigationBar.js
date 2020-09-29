@@ -1,31 +1,37 @@
 /// summary
 ///
 ///	Navigation bar 
-///   - 
-/// summary
-
-/// To Do
+///   - This component is used to navigate accross the entire website.
 ///
+/// summary
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Navbar, Nav, NavDropdown} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
 import styled from 'styled-components'
 
-// css
+// bootstrap components
+import { Navbar, Nav, NavDropdown} from 'react-bootstrap';
 
+// css
 import '../css/main.css';
 
 // image
 import logo from '../pictures/logo1.png';
 
+
+
 function NavigationBar() {
   return (
+    // NavigationContainer is a style-component used to give the Nav bar css styles.
     <NavigationContainer>
+
+      {/* 
+        Below we used Navbar, a bootstrap component package, 
+        that allows us to give a modern look for the website and not reinvent the wheel
+      */}
       <Navbar collapseOnSelect expand="lg">
-        {/* Logo */}
+        {/* Logo picture */}
         <Navbar.Brand> 
           <Link to ="/">
             <img
@@ -38,10 +44,13 @@ function NavigationBar() {
           </Link> 
         </Navbar.Brand>
 
+        {/* When the resolution is too low, the navigation bar will collapse into a button usually for mobile users. */}
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
 
+
+        {/* Links below */}
         <Navbar.Collapse id="responsive-navbar-nav">
-          {/* Main nav bar - leftside */}
+          {/* Main Navigation Bar - links to pages in use for the user. */}
           <Nav className="mr-auto">
             <Nav.Link href="/Community_Resources"> Community Resources  </Nav.Link>
             <Nav.Link href="/Dementia_Information">Dementia Information </Nav.Link>
@@ -71,7 +80,7 @@ export default NavigationBar;
 const NavigationContainer = styled.div`
 
 
-${'' /* space between navbar and the main content between */}
+${'' /* Creates a push below the navigation below so nothing is touching */}
 .nav-spacer
 {
   padding-bottom: 4rem;

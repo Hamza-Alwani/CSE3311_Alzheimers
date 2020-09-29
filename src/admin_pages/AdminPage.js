@@ -1,5 +1,5 @@
 /// summary
-/// write your summary here
+///   In development - main admin page where the admin can create, delete, edit features.
 /// summary
 
 import React from 'react';

@@ -1,3 +1,10 @@
+/// summary
+///
+///	EditDemInfo
+///   - This component is in development but later will be used to edit the DisplayArticle component in the future.
+///
+/// summary
+
 import React, { Component } from 'react';
 
 // components

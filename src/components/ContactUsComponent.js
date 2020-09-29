@@ -1,12 +1,9 @@
 /// summary
 ///
 ///	Contact Us section.  
-/// The component should be able to be inserted into any page
+///   - Used to send questions/messages to the admins via email and admin dashboard
 ///
 /// summary
-
-/// To Do
-///   - 
 
 import React from 'react';
 import styled from 'styled-components'
@@ -20,41 +17,41 @@ import Button from 'react-bootstrap/Button';
 // css
 import '../css/main.css'; 
 
-
+// Basic form component used to take the user's input and later send to admin page/email
 function ContactUsComponent() {
    return (
       <div className="contact-div">
-      <div className="main-component">
+         <div className="main-component">
 
-         <div className="gen_header">
-            Contact Us
+            <div className="gen_header">
+               Contact Us
+            </div>
+
+            <ContactUsContainer>
+               <Form onSubmit={sendEmail} className="contact-us-form">
+                  <Form.Group controlId="exampleForm.ControlInput1">
+                     <Form.Label>Name</Form.Label>
+                     <Form.Control type="name" id="name" name="from_name" placeholder="Enter your name" />
+                  </Form.Group>
+                  <Form.Group controlId="exampleForm.ControlInput1">
+                     <Form.Label>Email address</Form.Label>
+                     <Form.Control type="email" id="email_address" name="from_email" placeholder="name@example.com" />
+                  </Form.Group>
+                  <Form.Group controlId="exampleForm.ControlTextarea1">
+                     <Form.Label>Message</Form.Label>
+                     <Form.Control as="textarea" id="email_body" rows="3" name="message" placeholder="Type your message"/>
+                  </Form.Group>
+                  <Button varient="danger"  onClick={submit_button_pressed} type="submit" className="submit">submit</Button>
+               </Form>
+            </ContactUsContainer>
          </div>
-
-         <ContactUsContainer>
-            <Form onSubmit={sendEmail} className="contact-us-form">
-               <Form.Group controlId="exampleForm.ControlInput1">
-                  <Form.Label>Name</Form.Label>
-                  <Form.Control type="name" id="name" name="from_name" placeholder="Enter your name" />
-               </Form.Group>
-               <Form.Group controlId="exampleForm.ControlInput1">
-                  <Form.Label>Email address</Form.Label>
-                  <Form.Control type="email" id="email_address" name="from_email" placeholder="name@example.com" />
-               </Form.Group>
-               <Form.Group controlId="exampleForm.ControlTextarea1">
-                  <Form.Label>Message</Form.Label>
-                  <Form.Control as="textarea" id="email_body" rows="3" name="message" placeholder="Type your message"/>
-               </Form.Group>
-               <Button varient="danger"  onClick={submit_button_pressed} type="submit" className="submit">submit</Button>
-            </Form>
-         </ContactUsContainer>
-      </div>
       </div>
    );
 }
 
 export default ContactUsComponent;
 
-// Sends an email to Dementia Care Giving
+// Sends an email to Dementia Care Giving's email
 function sendEmail(e) {
    e.preventDefault();
 
@@ -89,7 +86,7 @@ function submit_button_pressed(){
 }
 
 
-
+// 'style-component package used for infile css'
 const ContactUsContainer = styled.nav`
 
    .contact-div

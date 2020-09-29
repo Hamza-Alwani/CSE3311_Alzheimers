@@ -1,18 +1,16 @@
 /// summary
 ///
-///	Community Resource section.  
-/// The component should be able to be inserted into any page
+///	Research Component section.  
+/// - Should display Professor's schedule and give the user an ability to schedule their own appointments
 ///
 /// summary
 
-/// To Do
-///   - make a map or use googles maps api for the className="map" section
 
 import React from 'react';
 import styled from 'styled-components'
 import emailjs from 'emailjs-com';
 
-// bootstrap 
+// bootstrap components
 import Table from 'react-bootstrap/Table'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
@@ -26,30 +24,33 @@ function ResearchComponent() {
 
   
   return (
+        // The div main-component is used to push against the footer
         <div className="main-component">
-
+          
+          {/* Title of the page, the div is essential to push against the content below it */}
           <div className="gen_header">
               Research
           </div>
 
           <ResearchContainer>
-    
             <div className="survey">
               <a href="https://dementiacaregiving.questionpro.com" class="survey-button"> Online Survey </a>
             </div>
     
             <div class="divider"/>
-    
+
+            {/* Main content of the website below the gaint survey button */}
             <div className="research-section">
 
               <Table striped bordered hover>
-
+              
                 <thead>
                   <tr>
                     <th>Schedule</th>
                   </tr>
                 </thead>
 
+                {/* The Professor's calender is embedded in the website so the user can schedule their appointments */}
                 <tbody>
                   <tr>
                     <td>
@@ -71,7 +72,7 @@ function ResearchComponent() {
                   </tr>
                 </thead>
 
-
+                {/* Schedule an appointment below once information is filled out and submit button is hit */}
                 <tbody>
                   <tr>
                     <td>
@@ -89,9 +90,7 @@ function ResearchComponent() {
 
                         <Form.Group controlId="time-selection">
                           <Form.Label>Time Selection</Form.Label>
-
                           <Form.Control as="select" name="time">
-
                             <option>9:00 A.M</option>
                             <option>10:00 A.M</option>
                             <option>11:00 A.M</option>
@@ -117,6 +116,7 @@ function ResearchComponent() {
 
 export default ResearchComponent;
 
+// Email function that sends an email to Dementia Caregiving - used when submit is clicked
 function sendEmail(e) {
   e.preventDefault();
 
@@ -130,7 +130,7 @@ function sendEmail(e) {
 }
 
 
-//
+// 'style-component package used for infile css'
 const ResearchContainer = styled.nav`
 
 iframe

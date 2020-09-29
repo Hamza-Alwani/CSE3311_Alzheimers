@@ -222,7 +222,7 @@ const CustomMenu = React.forwardRef(
   },
 );
 
-  
+// 'style-component package used for infile css'
 const CommunityContainer = styled.div`
 .community-div
 {

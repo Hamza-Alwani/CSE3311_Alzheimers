@@ -1,3 +1,10 @@
+/// summary
+///
+///	Outreach 
+///   - Compiles the Outreach page based on the components entered in below
+///
+/// summary
+
 import React from 'react';
 
 // components
@@ -11,6 +18,7 @@ import '../css/main.css'
 function Outreach (){
       return(
          <div className="all-content">
+            {/* Components */}
             <Nav></Nav>
             <OutreachComponent></OutreachComponent>
             <Footer></Footer>

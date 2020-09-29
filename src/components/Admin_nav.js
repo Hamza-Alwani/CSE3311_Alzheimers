@@ -1,11 +1,9 @@
 /// summary
 ///
-///	Navigation bar 
-///   - 
-/// summary
-
-/// To Do
+///	Admin Navigation bar 
+///   - Admin navigation bar for admin stuff like create, edit, and delete functions on every link
 ///
+/// summary
 
 import React from 'react';
 import { Link } from 'react-router-dom';
@@ -15,15 +13,22 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import styled from 'styled-components'
 
 // css
-
 import '../css/main.css';
 
 // image
 import logo from '../pictures/logo1.png';
 
+
+
 function NavigationBar() {
   return (
+    // NavigationContainer is a style-component used to give the Nav bar css styles.
     <NavigationContainer>
+
+      {/* 
+        Below we used Navbar, a bootstrap component package, 
+        that allows us to give a modern look for the website and not reinvent the wheel
+      */}
       <Navbar collapseOnSelect expand="lg">
         {/* Logo */}
         <Navbar.Brand> 
@@ -38,6 +43,7 @@ function NavigationBar() {
           </Link> 
         </Navbar.Brand>
 
+        {/* When the resolution is too low, the navigation bar will collapse into a button usually for mobile users. */}
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
 
         <Navbar.Collapse id="responsive-navbar-nav">

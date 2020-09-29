@@ -1,3 +1,10 @@
+/// summary
+///
+///	DisplayArticle  
+/// - Will be used to display articles an admin has added and allow the user to click on them to read. 
+///
+/// summary
+
 import React, {useState, useEffect} from 'react';
 import styled from 'styled-components'
 
@@ -11,10 +18,8 @@ import firebase from '../components/firebase';
 // css
 import '../css/main.css'; 
 
-
-
-
 function DisplayArticle() { 
+    // Creates an object later used by firebase to store data the user will see once the page is done loading.
     const [article, setArticle] = useState(
         {
                 disc: "",
@@ -55,14 +60,15 @@ function DisplayArticle() {
     // Spams articles onto the page depending on how many articles there are on firebase. - we can add a limited in the future when needed
     const SpamArticle = ({ props }) => {
         return (
-          <CardDeck>
-              {props.map((state, index) => (
+            <CardDeck>
+                {props.map((state, index) => (
                 <Article props={state} key={index}></Article>
-              ))}
-          </CardDeck>
+                ))}
+            </CardDeck>
         );
-      };
+    };
 
+    // Main return of DisplayArticle(), uses all the function and UseEffects above to compile the page.
     return (
         <div className="all-content">
             <div className="main-component">
@@ -79,6 +85,7 @@ function DisplayArticle() {
 
 export default DisplayArticle;
 
+// 'style-component package used for infile css'
 const DisplayArticleContainer = styled.div`
 
 ${'' /* CSS if needed */}

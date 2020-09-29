@@ -1,3 +1,7 @@
+/// summary
+///   In development - admin page where the admin can create, delete, edit features fpr CommunityResources Page.
+/// summary
+
 import React, { Component } from 'react';
 
 // components
