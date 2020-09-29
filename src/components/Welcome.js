@@ -1,3 +1,10 @@
+/// summary
+///
+/// Welcome page component used to tell users entering that the site is currently in development.
+///
+/// summary
+
+
 import React from 'react';
 import styled from 'styled-components'
 
@@ -26,6 +33,7 @@ function Welcome() {
 
 export default Welcome;
 
+
 const WelcomeContainer = styled.nav`
 
 .welcome-div
@@ -37,10 +45,6 @@ const WelcomeContainer = styled.nav`
 .welcome
 {
   font-size: 30px;
-  /* 9/3 - I don't know why but don't use relative positioning */
-  /* 9/10 - what a fool i was, the problem was that the parent div didn't have height 
-  so absolute took it out of the loop and created its own space */
-  /* position: absolute;  */
   text-align: center;
   top: 30%;
   height: 70%;
