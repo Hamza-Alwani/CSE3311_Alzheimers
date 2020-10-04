@@ -72,6 +72,9 @@ function DisplayArticle() {
     return (
         <div className="all-content">
             <div className="main-component">
+                <div className="gen_header">
+                    Dementia Information
+                </div>
                 <DisplayArticleContainer>
                             <SpamArticle props ={articleList}></SpamArticle>
                 </DisplayArticleContainer>

@@ -50,7 +50,6 @@ function CommunityComponent() {
   }, [])
 
   // Pulls the requested data once state/city are seleceted
-  // maybe change this to onload, so it only executes once ******************
   useEffect(() => {
     const database = firebase.database()
     const rootRef = database.ref("community/" + selectedState );
@@ -118,7 +117,7 @@ function CommunityComponent() {
 
       <CommunityContainer>
         {/* Drop down to pick citys */}
-        <Table striped bordered hover>
+        <Table striped bordered hover className="state-city-dropdown-table">
           <thead>
             <tr>
             
@@ -160,7 +159,7 @@ function CommunityComponent() {
               <td>
                 <p><strong>Phone Number:</strong> {phone} </p>
                 <p><strong>Address:</strong> {address} </p>
-                <p><strong>Website:</strong> {website} </p>
+                <p><strong>Website:</strong> <a href={website}>{website}</a></p>
               </td>
             </tr>
           </tbody>
@@ -188,42 +187,23 @@ const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
   </a>
 ));
 
-// Custom Menu - future work
-const CustomMenu = React.forwardRef(
-  ({ children, style, className, 'aria-labelledby': labeledBy }, ref) => {
-    const [value, setValue] = useState('');
-
-    return (
-      <div
-        ref={ref}
-        style={style}
-        className={className}
-        aria-labelledby={labeledBy}
-      >
-        {/* filter */}
-        <FormControl
-          autoFocus
-          className="mx-3 my-2 w-auto"
-          placeholder="Type to filter..."
-          onChange={(e) => setValue(e.target.value)}
-          value={value}
-        />
-
-        {/* listing city based on */}
-        <ul className="list-unstyled">
-          {React.Children.toArray(children).filter(
-            (child) =>
-              !value || child.props.children.toLowerCase().startsWith(value),
-          )}
-        </ul>
-
-      </div>
-    );
-  },
-);
-
 // 'style-component package used for infile css'
 const CommunityContainer = styled.div`
+
+${'' /* Maybe we're use it - centers the table and makes the drop down smaller */}
+${'' /* .state-city-dropdown-table
+{
+  width: 25%;
+  margin: 0 auto;
+  margin-bottom: 1rem;
+} */}
+
+.dropdown a
+{
+  color: var(--mainBlack);
+  margin: 0 auto;
+}
+
 .community-div
 {
   flex: 1;
@@ -238,6 +218,18 @@ iframe
 {
   height: 100%;
   width: 100%;
+}
+
+
+
+
+
+@media only screen and (max-width: 600px) {
+  .state-city-dropdown-table
+  {
+    width: 100%;
+    margin: 0 auto;
+  }
 }
 
 `;

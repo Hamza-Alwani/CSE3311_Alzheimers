@@ -23,7 +23,7 @@ function ContactUsComponent() {
       <div className="contact-div">
          <div className="main-component">
 
-            <div className="gen_header">
+            <div className="contact-us-header">
                Contact Us
             </div>
 
@@ -41,7 +41,7 @@ function ContactUsComponent() {
                      <Form.Label>Message</Form.Label>
                      <Form.Control as="textarea" id="email_body" rows="3" name="message" placeholder="Type your message"/>
                   </Form.Group>
-                  <Button varient="danger"  onClick={submit_button_pressed} type="submit" className="submit">submit</Button>
+                  <Button variant="danger"  onClick={submit_button_pressed} type="submit" className="submit">submit</Button>
                </Form>
             </ContactUsContainer>
          </div>
@@ -89,6 +89,11 @@ function submit_button_pressed(){
 // 'style-component package used for infile css'
 const ContactUsContainer = styled.nav`
 
+   .gen_header
+   {
+      text-align: center;
+   }
+
    .contact-div
    {
       flex: 1;
@@ -111,17 +116,13 @@ const ContactUsContainer = styled.nav`
       }
    }
 
-   .submit
+   ${'' /* .submit
    {
       margin:0 auto;
       color: black;
       background: white;
       border-color: black;
-   }
+   } */}
 
-   .submit:hover
-   {
-      background: red;
-   }
 
 `

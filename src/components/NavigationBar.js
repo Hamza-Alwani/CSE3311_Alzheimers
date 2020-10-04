@@ -51,7 +51,7 @@ function NavigationBar() {
         {/* Links below */}
         <Navbar.Collapse id="responsive-navbar-nav">
           {/* Main Navigation Bar - links to pages in use for the user. */}
-          <Nav className="mr-auto">
+          <Nav className="ml-auto">
             <Nav.Link href="/Community_Resources"> Community Resources  </Nav.Link>
             <Nav.Link href="/Dementia_Information">Dementia Information </Nav.Link>
             <Nav.Link href="/Research">            Research             </Nav.Link>
@@ -60,13 +60,14 @@ function NavigationBar() {
           </Nav> 
 
           {/* Language drop down */}
-          <Nav>
+          {/* Move this later */}
+          {/* <Nav>
             <NavDropdown title="Language" id="collasible-nav-dropdown">
               <NavDropdown.Item href="#lang/EN">English</NavDropdown.Item>
               <NavDropdown.Item href="#lang/KO">한국어</NavDropdown.Item>
               <NavDropdown.Item href="#lang/ZH">中文</NavDropdown.Item>
             </NavDropdown>
-          </Nav>
+          </Nav> */}
         </Navbar.Collapse>
       </Navbar>
       <div className="nav-spacer"></div>
