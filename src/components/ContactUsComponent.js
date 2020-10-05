@@ -41,7 +41,7 @@ function ContactUsComponent() {
                      <Form.Label>Message</Form.Label>
                      <Form.Control as="textarea" id="email_body" rows="3" name="message" placeholder="Type your message"/>
                   </Form.Group>
-                  <Button variant="danger"  onClick={submit_button_pressed} type="submit" className="submit">submit</Button>
+                  <Button variant="danger"  onClick={submit_button_pressed} type="submit" className="submit">Submit</Button>
                </Form>
             </ContactUsContainer>
          </div>
