@@ -82,7 +82,7 @@ const FooterContainer = styled.footer`
 
 .spacer {
   ${'' /* Seperates the body from the footer so it doesn't touch */}
-  padding-top: 6rem;
+  padding-top: 8rem;
 }
 
 .footer-content
@@ -92,9 +92,9 @@ const FooterContainer = styled.footer`
 }
 .footer-middle 
 {
-  background: var(--primaryTheme);
+  background: var(--mainWhite);
   padding-top: 3rem; 
-  color: var(--mainWhite);
+  color: var(--primaryTheme);
   width: 100%;
 }
 
@@ -106,13 +106,13 @@ const FooterContainer = styled.footer`
 
 ul li a 
 {
-  color: var(--mainWhite);
+  color: var(--primaryTheme);
 }
 
 
 ul li a:hover
 {
-  color: var(--mainWhite)
+  color: var(--primaryTheme)
 }
 
 
