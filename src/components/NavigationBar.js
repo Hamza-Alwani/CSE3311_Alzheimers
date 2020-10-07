@@ -16,7 +16,7 @@ import { Navbar, Nav, NavDropdown} from 'react-bootstrap';
 // css
 import '../css/main.css';
 
-// image
+// image - Used later when we find a permanent image
 import logo from '../pictures/logo1.png';
 
 
@@ -87,13 +87,6 @@ ${'' /* Creates a push below the navigation below so nothing is touching */}
 {
   padding-bottom: 4rem;
 }
-
-/* Navigation bar Theme */
-${'' /* 
-.navbar a:hover,
-.navbar a:focus {
-	color: white;
-} */}
 
 
 /* Theme builder below */
@@ -230,18 +223,12 @@ ${'' /*
 /* End Theme Builder */
 
 /* Override CSS edits above */
-nav a {
+.navbar a {
 	font-weight: 900;
 	text-decoration: none;
 	text-transform: uppercase;
 	font-size: 1rem;
   margin: 1rem;
-}
-
-nav a:hover
-{
-  color: var(--primaryTheme)
-  transition: opacity 1s;
 }
 
 .navbar a {
@@ -251,10 +238,10 @@ nav a:hover
   -webkit-transition:.2s;
   transition:.2s;
 }
+
 .navbar a:hover 
 { 
   color:white;
-  ${'' /* text-shadow: 0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0 1px black; */}
 }
 
 /* End Override */

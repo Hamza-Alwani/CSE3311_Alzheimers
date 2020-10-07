@@ -132,7 +132,7 @@ function CommunityComponent() {
         </Table>
 
         {/* Information about the city */}
-        <Table striped bordered hover>
+        <Table striped bordered hover className="google-map-table">
           <thead>
             <tr>
               <th>Google Map</th>
@@ -142,7 +142,7 @@ function CommunityComponent() {
             <tr>
               <td >
                 {/* yolo */}
-                <div dangerouslySetInnerHTML={{ __html:googleMap}}></div>
+                <div className="iframe-google-map" dangerouslySetInnerHTML={{ __html:googleMap}}></div>
               </td>
             </tr>
           </tbody>
@@ -190,23 +190,31 @@ const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
 // 'style-component package used for infile css'
 const CommunityContainer = styled.div`
 
-${'' /* Maybe we're use it - centers the table and makes the drop down smaller */}
-${'' /* .state-city-dropdown-table
+/* Maybe we're use it - centers the table and makes the drop down smaller */
+/* .state-city-dropdown-table
 {
   width: 25%;
   margin: 0 auto;
   margin-bottom: 1rem;
-} */}
+} */
 
+/* General */
+.community-div
+{
+  flex: 1;
+}
+
+/* Downdown */
 .dropdown a
 {
   color: var(--mainBlack);
   margin: 0 auto;
 }
 
-.community-div
+/* Table */
+.google-map-table
 {
-  flex: 1;
+  height:30rem;
 }
 
 th
@@ -214,21 +222,29 @@ th
   width: 50%;
 }
 
-iframe
+.iframe-google-map
 {
-  height: 100%;
-  width: 100%;
+  height:100%;
 }
 
-
-
-
+iframe
+{
+  height:100%;
+  width:100%;
+}
+/* End Table */
 
 @media only screen and (max-width: 600px) {
   .state-city-dropdown-table
   {
+    height: 100%;
     width: 100%;
     margin: 0 auto;
+  }
+
+  .google-map-table
+  {
+    height: 100%;
   }
 }
 

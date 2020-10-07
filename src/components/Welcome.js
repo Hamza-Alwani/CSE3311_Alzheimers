@@ -15,7 +15,8 @@ import '../css/main.css';
 // Edits the body css element without making a global css file
 const GlobalStyle = createGlobalStyle`
   body{
-    background-image:url('https://www.washingtonpost.com/wp-apps/imrs.php?src=https://arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/NJQ4KWEWNUI6RAML5G3TJDGYPU.jpg');
+	background-image:url('https://s3.amazonaws.com/zweb-s3.uploads/ez2/wp-content/uploads/2014/01/cognitive-training-holistic-mnemonic-training-gettyimages1.jpg'); 
+    ${'' /* background-image:url('https://www.washingtonpost.com/wp-apps/imrs.php?src=https://arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/NJQ4KWEWNUI6RAML5G3TJDGYPU.jpg'); */}
     background-attachment:fixed;
     background-repeat: no-repeat;
     background-size: cover;
@@ -41,27 +42,30 @@ function Welcome() {
     
   	<div className="welcome-div">
 
-	  	<div className="main-component">
+		<div className="main-component">
 
-		    <div className="welcome">
-          <a className="find-facilities" href="/Community_Resources"><button className="btn btn-1 btn-1d">Find Facilities Near You</button></a>
-		    </div>
+			<div className="welcome-button">
+				<a className="find-facilities-button" href="/Community_Resources"><button className="btn btn-1 btn-1d">Find Facilities Near You</button></a>
+			</div>
+			
+			{/* seperates divs with space */}
+			<div className="welcome-divider">&nbsp;</div>
 
-        <div className="welcome-divider">&nbsp;</div>
+			<div class="container">
+				<section class="home-who-we-are">
+					<div class="home-who-we-are-textbox parallax--box">
+						<h1>Who we are</h1>
+						<p>A research team led by <strong>Dr. Kathy Lee</strong> at the University Of Texas at Arlington.</p>
+						<p>Our main goal is to spread awareness of dementia among the Asian Comunnities to improve the quality of lives </p>
+					</div>
+				</section>
+			</div>
 
-        <div class="container">
-          <section class="home-who-we-are">
-            <div class="home-who-we-are-textbox parallax--box">
-              <h1>Who we are</h1>
-              <p>A research team led by <strong>Dr. Kathy Lee</strong> at the University Of Texas at Arlington.</p>
-              <p>Our main goal is to spread awareness of dementia among the Asian Comunnities to improve the quality of our lives </p>
-            </div>
-          </section>
-        </div>
+			{/* seperates divs with space */}
+			<div className="welcome-divider">&nbsp;</div>
 
-
-		  </div>
-	  </div>
+		</div>
+	</div>
 
     
 	</WelcomeContainer>
@@ -75,19 +79,21 @@ export default Welcome;
 
 const WelcomeContainer = styled.nav`
 
+/* Initial CSS when loading up the site */
 .welcome-divider
 {
   position: relative;
   margin: 200px;
 }
 
-.welcome
+.welcome-button
 {
   margin: 20%;
+  margin-top: 35%;
   text-align: center
 }
 
-.welcome a
+.welcome-button a
 {
   color: black;
 }
@@ -100,6 +106,9 @@ a
   align-items: center;  
   margin:0 auto;
 }
+/* Finish Initial CSS */
+
+
 
 
 /* General Button Style */
@@ -107,13 +116,13 @@ a
 	border: solid;
 	font-family: inherit;
 	font-size: 2.5rem;
-	color: inherit;
+	color: var(--primaryTheme);
 	background: none;
 	cursor: pointer;
   /* Makes the red background bigger if you comment this */
 	${'' /* padding: 25px 80px; */} 
-  ${'' /* margin: 15px 30px; */}
-  padding: 0;
+  	${'' /* margin: 15px 30px; */}
+ 	padding: 0;
 	display: inline-block;
 	text-transform: uppercase;
 	letter-spacing: 1px;
@@ -123,7 +132,7 @@ a
 	-webkit-transition: all 0.3s;
 	-moz-transition: all 0.3s;
 	transition: all 0.3s;
-  width: 80%;
+  	width: 80%;
 }
 
 .btn:after {
@@ -134,7 +143,7 @@ a
 	-moz-transition: all 0.3s;
 	transition: all 0.3s;
 }
-/* End General */
+/* End General Button */
 
 /* Button Effects */
 .btn-1d {
@@ -170,22 +179,6 @@ a
 }
 /* Button Effects End */
 
-@media (max-width: 800px) {
-
-
-  .btn
-  {
-    font-size: 1rem;
-  }
-  .welcome-divider
-  {
-    position: relative;
-    margin: 0px;
-  }
-
-}
-
-/* End of Button CSS */
 
 
 
@@ -196,14 +189,14 @@ a
 	padding: 4em;
 	width: 100vw;
 	margin-left: -7%;
-	outline: 2px solid #dd3928;
+	outline: 2px solid var(--primaryTheme);
 	outline-offset: -2.5em;
 	color: black;
 	position: relative;
 }
 
 .home-who-we-are-textbox h1 {
-	color: #dd3928;
+	color: var(--primaryTheme);
 	position: absolute;
 	left: 50%;
 	transform: translateX(-50%);
@@ -213,7 +206,24 @@ a
   ${'' /* font-size: 1.5rem; */}
 }
 
-@media (min-width: 0rem) {
+/* End of Who We Are Section */
+
+
+@media (max-width: 800px) {
+
+	.btn
+	{
+	font-size: 1rem;
+	}
+	.welcome-divider
+	{
+	position: relative;
+	margin: 0px;
+	}
+
+}
+
+@media (min-width: 0px) {
 	h1 {
 		font-size: 1.5rem;
 	}
@@ -228,7 +238,7 @@ a
 	}
 }
 
-@media (min-width: 40rem) 
+@media (min-width: 640px) 
 {
 	h1 {
 		font-size: 2.5rem;
