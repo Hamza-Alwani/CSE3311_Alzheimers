@@ -61,10 +61,8 @@ body {
 /* used by big header */
 .gen_header{
   font-size: 2rem ;
-  /* text-align: center; */
-  position: top;
   background:none;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
   
 }
 
