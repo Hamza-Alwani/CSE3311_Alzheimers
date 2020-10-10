@@ -62,6 +62,8 @@ class Admin_Community_Resources_Page extends Component
   
    render()
    {
+
+ 
       return (
         
          <div>
@@ -156,3 +158,4 @@ function add_button_pressed(){
    }).catch(function(error){
    });
 }
+
