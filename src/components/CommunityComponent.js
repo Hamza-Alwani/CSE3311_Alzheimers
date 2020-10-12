@@ -45,8 +45,6 @@ function CommunityComponent() {
                 setStateList(stateList => [...stateList, childSnapshot.key]);
             });
           });
-    // The comment below disables a warning given to us because statelist isn't passed to the [] below
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   // Pulls the requested data once state/city are seleceted
