@@ -2,7 +2,7 @@
 ///   In development - main admin page where the admin can create, delete, edit features.
 /// summary
 
-import React from 'react';
+import React, { useEffect } from 'react';
 
 // components
 //css
@@ -15,10 +15,14 @@ import  firebase from '../components/firebase';
 
 
 
+
 function AdminPage_login()
 {
-   
-     
+ 
+    useEffect(() => {
+       firstcheck();
+    })
+
    return(
         <div>
           <Form className="contact-us-form">
@@ -32,9 +36,7 @@ function AdminPage_login()
                <Form.Control type="password" id="pass_txt" name="pass_txt" placeholder="Password" />
             </Form.Group>
 
-                  <Button varient="danger"  onClick={login_press} type="" className="submit">Login</Button>
-                  <Button varient="danger"  onClick={logout_pressed} type="" className="submit">logout</Button>
-                  <Button varient="danger"  onClick={go_pressed} type="" className="submit">pressed</Button>               
+                  <Button varient="red"  onClick={login_press} type="" className="submit">Login</Button>
                   </Form>
         </div>
    );
@@ -45,24 +47,25 @@ function AdminPage_login()
 
 export default AdminPage_login
 
-function login_press(){
+
+function firstcheck(){
+      if(localStorage.getItem("user"))
+      {
+         window.location.href="/admin_home"
+      }
+}
+
+function login_press(){ 
    
  const email= document.getElementById("email_txt").value;
  const pass = document.getElementById("pass_txt").value;
  const auth= firebase.auth();
 auth.signInWithEmailAndPassword(email,pass)
+.then(function(){
+   window.location.href="/admin_home"
+})
 .catch(function(error){
    window.alert(error)
 })
 }
 
-
-function logout_pressed(){
-   
-   firebase.auth().signOut()
-  
-}
-
-function go_pressed(){
-   window.location.href="/admin_home"
-}

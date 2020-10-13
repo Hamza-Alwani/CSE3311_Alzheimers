@@ -9,9 +9,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Navbar, Nav, NavDropdown} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import Button from 'react-bootstrap/Button';
 import styled from 'styled-components'
 
+import  firebase from '../components/firebase';
 // css
 import '../css/main.css';
 
@@ -58,11 +59,7 @@ function NavigationBar() {
 
           {/* Language drop down */}
           <Nav>
-            <NavDropdown title="Language" id="collasible-nav-dropdown">
-              <NavDropdown.Item href="#lang/EN">English</NavDropdown.Item>
-              <NavDropdown.Item href="#lang/KO">한국어</NavDropdown.Item>
-              <NavDropdown.Item href="#lang/ZH">中文</NavDropdown.Item>
-            </NavDropdown>
+          <Button varient="danger"  onClick={logout_pressed} type="" className="submit">Logout</Button>
           </Nav>
         </Navbar.Collapse>
       </Navbar>
@@ -72,6 +69,13 @@ function NavigationBar() {
 }
 
 export default NavigationBar;
+
+function logout_pressed(){
+   
+  firebase.auth().signOut()
+  window.location.href="/"
+ 
+}
 
 // 'style-component package used for infile css'
 const NavigationContainer = styled.div`

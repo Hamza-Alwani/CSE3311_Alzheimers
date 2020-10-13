@@ -30,33 +30,33 @@ import  firebase from './components/firebase';
 function  App(){
   
 
- firebase.auth().onAuthStateChanged( user => {
-  if (user) {
-      Auth.authenticate();
-      console.log("logged in")
-      }
-  else
-    {
-      Auth.signout();
-      console.log("not logged in")
-    }
-  })
 
-    
-  const Auth = {
-    isAuthenticated: false,
-    authenticate() {
-      this.isAuthenticated = true;
-    },
-    signout() {
-      this.isAuthenticated = false;
-    },
-    getAuth() {
-        console.log("i was called and i said")
-        console.log(this.isAuthenticated)
-        return this.isAuthenticated;
+  firebase.auth().onAuthStateChanged( user => {
+    if (user) {
+        console.log("logedin")
+        localStorage.setItem('user',user.uid)
+        console.log(localStorage.getItem('user'))
+        }
+    else
+      {
+        localStorage.clear("user")
+        console.log(localStorage.getItem('user'))
+        console.log("not logged in")
       }
-  };
+    })
+    
+  
+   function  getAuth() {
+    if(localStorage.getItem("user"))
+    {
+       return true
+    }
+    else
+    {
+      return false
+    }
+   }
+  
 
 
 
@@ -64,12 +64,12 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
   <Route
     {...rest} 
     render={props =>
-      Auth.getAuth() ? (
+      getAuth()? (
         <Component/>
       ) : (
         <Redirect
           to={{
-            pathname: "/contact_us"
+            pathname: "/admin_login"
           }}
         />
       )
