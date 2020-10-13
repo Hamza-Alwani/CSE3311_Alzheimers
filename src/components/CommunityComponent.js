@@ -45,22 +45,22 @@ function CommunityComponent() {
                 setStateList(stateList => [...stateList, childSnapshot.key]);
             });
           });
-    // The comment below disables a warning given to us because statelist isn't passed to the [] below
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   // Pulls the requested data once state/city are seleceted
-  // maybe change this to onload, so it only executes once ******************
   useEffect(() => {
     const database = firebase.database()
     const rootRef = database.ref("community/" + selectedState );
     
+    // Bug: Possible Future Bug - since we don't have more than one place in a city it's okay to use forEach right now
     rootRef.on('value', snap => {
-              setName(snap.child(selectedCity).child("name").val())
-              setPhone(snap.child(selectedCity).child("phone").val())
-              setAddress(snap.child(selectedCity).child("address").val())
-              setWebsite(snap.child(selectedCity).child("website").val())
-              setGoogleMap(snap.child(selectedCity).child("googleMap").val())
+              snap.child(selectedCity).forEach(place => {
+                setName(place.child("name").val());
+                setPhone(place.child("phone").val());
+                setAddress(place.child("address").val());
+                setWebsite(place.child("website").val());
+                setGoogleMap(place.child("googleMap").val());
+              })
     }); 
   }, [selectedState, selectedCity])
 
@@ -118,7 +118,7 @@ function CommunityComponent() {
 
       <CommunityContainer>
         {/* Drop down to pick citys */}
-        <Table striped bordered hover>
+        <Table striped bordered hover className="state-city-dropdown-table">
           <thead>
             <tr>
             
@@ -133,7 +133,7 @@ function CommunityComponent() {
         </Table>
 
         {/* Information about the city */}
-        <Table striped bordered hover>
+        <Table striped bordered hover className="google-map-table">
           <thead>
             <tr>
               <th>Google Map</th>
@@ -143,7 +143,7 @@ function CommunityComponent() {
             <tr>
               <td >
                 {/* yolo */}
-                <div dangerouslySetInnerHTML={{ __html:googleMap}}></div>
+                <div className="iframe-google-map" dangerouslySetInnerHTML={{ __html:googleMap}}></div>
               </td>
             </tr>
           </tbody>
@@ -160,7 +160,7 @@ function CommunityComponent() {
               <td>
                 <p><strong>Phone Number:</strong> {phone} </p>
                 <p><strong>Address:</strong> {address} </p>
-                <p><strong>Website:</strong> {website} </p>
+                <p><strong>Website:</strong> <a href={website}>{website}</a></p>
               </td>
             </tr>
           </tbody>
@@ -172,7 +172,7 @@ function CommunityComponent() {
 
 export default CommunityComponent;
 
-// Opening Drop down
+// Opening Drop down: CSS of dropdown
 const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
   <a
     href="/"
@@ -187,46 +187,41 @@ const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
     &#x25bc;
   </a>
 ));
-
-// Custom Menu - future work
-const CustomMenu = React.forwardRef(
-  ({ children, style, className, 'aria-labelledby': labeledBy }, ref) => {
-    const [value, setValue] = useState('');
-
-    return (
-      <div
-        ref={ref}
-        style={style}
-        className={className}
-        aria-labelledby={labeledBy}
-      >
-        {/* filter */}
-        <FormControl
-          autoFocus
-          className="mx-3 my-2 w-auto"
-          placeholder="Type to filter..."
-          onChange={(e) => setValue(e.target.value)}
-          value={value}
-        />
-
-        {/* listing city based on */}
-        <ul className="list-unstyled">
-          {React.Children.toArray(children).filter(
-            (child) =>
-              !value || child.props.children.toLowerCase().startsWith(value),
-          )}
-        </ul>
-
-      </div>
-    );
-  },
-);
+CustomToggle.propTypes = 
+{
+  children: String,
+  // onClick, I don't know what type this is 
+}
+CustomToggle.displayName="CustomDropdownToggle";
 
 // 'style-component package used for infile css'
 const CommunityContainer = styled.div`
+
+/* Maybe we're use it - centers the table and makes the drop down smaller */
+/* .state-city-dropdown-table
+{
+  width: 25%;
+  margin: 0 auto;
+  margin-bottom: 1rem;
+} */
+
+/* General */
 .community-div
 {
   flex: 1;
+}
+
+/* Downdown */
+.dropdown a
+{
+  color: var(--mainBlack);
+  margin: 0 auto;
+}
+
+/* Table */
+.google-map-table
+{
+  height:30rem;
 }
 
 th
@@ -234,10 +229,30 @@ th
   width: 50%;
 }
 
+.iframe-google-map
+{
+  height:100%;
+}
+
 iframe
 {
-  height: 100%;
-  width: 100%;
+  height:100%;
+  width:100%;
+}
+/* End Table */
+
+@media only screen and (max-width: 600px) {
+  .state-city-dropdown-table
+  {
+    height: 100%;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .google-map-table
+  {
+    height: 100%;
+  }
 }
 
 `;

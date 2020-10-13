@@ -26,39 +26,27 @@ function Footer() {
               <div className="row">
                 {/* Column 1 */}
                 <div className="col-md-3 col-sm-6">
-                  <h4> About Us </h4>
+                  <h4> <strong>About Us</strong> </h4>
                   <ul className="list-unstyled">
-                    <p>In metus vulputate eu scelerisque felis imperdiet proin.  </p>
+                    <p>Our main goal is to spread awareness of dementia among the Asian Comunnities to improve the quality of our lives</p>
                   </ul>
                 </div>
                 {/* Column 2 */}
                 <div className="col-md-3 col-sm-6">
-                  <h4> Lorem ipsum </h4>
-                  <ul className="list-unstyled">
-                    <li><a href="/">Lorem, ipsum</a></li>
-                    <li><a href="/">Lorem, ipsum</a></li>
-                    <li><a href="/">Lorem, ipsum</a></li>
-                    <li><a href="/">Lorem, ipsum</a></li>
-                  </ul>
                 </div>
                 {/* Column 3 */}
                 <div className="col-md-3 col-sm-6">
-                  <h4> Lorem ipsum </h4>
-                  <ul className="list-unstyled">
-                    <li><a href="/">Lorem, ipsum</a></li>
-                    <li><a href="/">Lorem, ipsum</a></li>
-                    <li><a href="/">Lorem, ipsum</a></li>
-                    <li><a href="/">Lorem, ipsum</a></li>
-                  </ul>
                 </div>
                 {/* Column 4 */}
                 <div className="col-md-3 col-sm-6">
-                  <h4> Lorem ipsum </h4>
+                  <h4> <strong>Link</strong> </h4>
                   <ul className="list-unstyled">
-                    <li><a href="/">Lorem, ipsum</a></li>
-                    <li><a href="/">Lorem, ipsum</a></li>
-                    <li><a href="/">Lorem, ipsum</a></li>
-                    <li><a href="/">Lorem, ipsum</a></li>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/Community_Resources">Community Resources</a></li>
+                    <li><a href="/Dementia_Information">Dementia Information</a></li>
+                    <li><a href="/Research">Research</a></li>
+                    <li><a href="/Outreach">Outreach</a></li>
+                    <li><a href="/contact_us">Contact Us</a></li>
                   </ul>
                 </div>        
               </div>
@@ -82,7 +70,7 @@ const FooterContainer = styled.footer`
 
 .spacer {
   ${'' /* Seperates the body from the footer so it doesn't touch */}
-  padding-top: 6rem;
+  padding-top: 8rem;
 }
 
 .footer-content
@@ -92,9 +80,9 @@ const FooterContainer = styled.footer`
 }
 .footer-middle 
 {
-  background: var(--primaryTheme);
+  background: var(--mainWhite);
   padding-top: 3rem; 
-  color: var(--mainWhite);
+  color: var(--primaryTheme);
   width: 100%;
 }
 
@@ -106,13 +94,13 @@ const FooterContainer = styled.footer`
 
 ul li a 
 {
-  color: var(--mainWhite);
+  color: var(--primaryTheme);
 }
 
 
 ul li a:hover
 {
-  color: var(--mainWhite)
+  color: var(--primaryTheme)
 }
 
 

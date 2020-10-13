@@ -9,7 +9,6 @@ import Button from 'react-bootstrap/Button'
 // css
 
 import '../css/main.css'; 
-import '../css/article.css'; 
 
 function Article( {props} ) {
     return (

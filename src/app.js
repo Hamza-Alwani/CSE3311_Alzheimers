@@ -19,9 +19,8 @@ import Admin_Contact_us_Page from './admin_pages/Admin_ContactUs'
 import Admin_Outreach_Page from './admin_pages/Admin_Outreach'
 import Admin_Research_Page from './admin_pages/Admin_Research'
 import Admin_Dementia_Information_Page from './admin_pages/Admin_DementiaInformation'
-import Admin_Community_Resources_Page from './admin_pages/Admin_CommunityResources'
+import Admin_Community_Resources_Page from './admin_pages/AdminCommunityResources/Admin_CommunityResources'
 import Admin_login from './admin_pages/Admin_login'
-
 
 import  firebase from './components/firebase';
 
@@ -88,7 +87,6 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
                <Route exact path="/Outreach" component={Outreach_Page} />
                <Route exact path="/Contact_us" component={Contact_us_Page} />
                <Route exact path ="/Admin_login" component={Admin_login} />
-               
                <PrivateRoute exact path ="/Admin_Home" component={Admin_Home} />
                <PrivateRoute exact path="/Admin_Community_Resources" component={Admin_Community_Resources_Page} />
                <PrivateRoute exact path="/Admin_Dementia_Information" component={Admin_Dementia_Information_Page} />
