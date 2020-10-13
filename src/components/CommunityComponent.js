@@ -52,12 +52,15 @@ function CommunityComponent() {
     const database = firebase.database()
     const rootRef = database.ref("community/" + selectedState );
     
+    // Bug: Possible Future Bug - since we don't have more than one place in a city it's okay to use forEach right now
     rootRef.on('value', snap => {
-              setName(snap.child(selectedCity).child("name").val())
-              setPhone(snap.child(selectedCity).child("phone").val())
-              setAddress(snap.child(selectedCity).child("address").val())
-              setWebsite(snap.child(selectedCity).child("website").val())
-              setGoogleMap(snap.child(selectedCity).child("googleMap").val())
+              snap.child(selectedCity).forEach(place => {
+                setName(place.child("name").val());
+                setPhone(place.child("phone").val());
+                setAddress(place.child("address").val());
+                setWebsite(place.child("website").val());
+                setGoogleMap(place.child("googleMap").val());
+              })
     }); 
   }, [selectedState, selectedCity])
 

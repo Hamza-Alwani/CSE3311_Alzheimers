@@ -159,7 +159,7 @@ function AdminUpdateCommunity() {
   const DropdownStates = ({ nameList }) => {
    return (
      <Dropdown>
-       <Dropdown.Toggle as={CustomToggle} id="dropdown-custom-components" className="dropdown-button">{selectedState}</Dropdown.Toggle>
+       <Dropdown.Toggle as={CustomStateToggle} id="dropdown-custom-components" className="dropdown-button">{selectedState}</Dropdown.Toggle>
        <Dropdown.Menu className="dropdown-menu">
          {nameList.map((state, index) => (
            <Dropdown.Item onClick={() => {setSelectedState(state); 
@@ -181,7 +181,7 @@ function AdminUpdateCommunity() {
   const DropdownCity = ({ nameList }) => {
     return (
         <Dropdown>
-          <Dropdown.Toggle as={CustomToggle} id="dropdown-custom-components" className="dropdown-button">{selectedCity}</Dropdown.Toggle>
+          <Dropdown.Toggle as={CustomCityToggle} id="dropdown-custom-components" className="dropdown-button">{selectedCity}</Dropdown.Toggle>
           <Dropdown.Menu className="dropdown-menu">
             {nameList.map((city, index) => (
               <Dropdown.Item onClick={() => setSelectedCity(city)} key={index}>{city}</Dropdown.Item>
@@ -195,7 +195,7 @@ function AdminUpdateCommunity() {
   const DropdownKey = ({ nameList }) => {
    return (
        <Dropdown>
-         <Dropdown.Toggle as={CustomToggle} id="dropdown-custom-components" className="dropdown-button">{selectedKey}</Dropdown.Toggle>
+         <Dropdown.Toggle as={CustomKeyToggle} id="dropdown-custom-components" className="dropdown-button">{selectedKey}</Dropdown.Toggle>
          <Dropdown.Menu className="dropdown-menu">
            {nameList.map((key, index) => (
              <Dropdown.Item onClick={() => {setSelectedKey(key)}} key={index}>{key}</Dropdown.Item>
@@ -207,28 +207,28 @@ function AdminUpdateCommunity() {
 
  const UpdateForms = () => {
    return (
-      <Form onSubmit={add_button_pressed} className="contact-us-form">
+      <Form className="contact-us-form">
          <Form.Group>
             <Form.Label>Name</Form.Label>
-            <Form.Control type="name" id="name"  defaultValue={name} />
+            <Form.Control type="name" id="name-update"  defaultValue={name} />
          </Form.Group>
          <Form.Group>
             <Form.Label>Address</Form.Label>
-            <Form.Control type="name" id="address" defaultValue={address} />
+            <Form.Control type="name" id="address-update" defaultValue={address} />
          </Form.Group>
          <Form.Group>
             <Form.Label>Google Map</Form.Label>
-            <Form.Control type="name" id="googleMap" defaultValue={googleMap}/>
+            <Form.Control type="name" id="googleMap-update" defaultValue={googleMap}/>
          </Form.Group>
          <Form.Group>
             <Form.Label>Phone</Form.Label>
-            <Form.Control type="name" id="phone" defaultValue={phone}/>
+            <Form.Control type="name" id="phone-update" defaultValue={phone}/>
          </Form.Group>
          <Form.Group>
             <Form.Label>Website</Form.Label>
-            <Form.Control type="name" id="website" defaultValue={website}/>
+            <Form.Control type="name" id="website-update" defaultValue={website}/>
          </Form.Group>
-         <Button variant="primary" type="submit" className="submit">Update</Button>
+         <Button onClick={() => update_button(selectedKey)} variant="primary" type="submit" className="submit">Update</Button>
       </Form>
    );
  }
@@ -242,7 +242,7 @@ function AdminUpdateCommunity() {
       <div className="PLACEHOLDER-CLASSNAME">
 
          <div className="form-div">
-            <CommunityContainer>
+            <StyleCommunityContainer>
                {/* Drop down to pick citys */}
                <Table striped bordered hover className="state-city-dropdown-table">
                   <thead>
@@ -261,35 +261,88 @@ function AdminUpdateCommunity() {
                </Table>
 
                {<UpdateForms/>}
-            </CommunityContainer>
+            </StyleCommunityContainer>
          </div>
       </div>
    );
  }
  export default AdminUpdateCommunity;
 
- const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
+ const CustomStateToggle = React.forwardRef(({ children, onClick }, ref) => (
    <a href="/" ref={ref} onClick={(e) => {e.preventDefault();onClick(e);}}>
-     <div id="state">{children}</div>
+     <div id="state-update">{children}</div>
    </a>
  ));
- CustomToggle.propTypes = 
+ CustomStateToggle.propTypes = 
  {
    // children: Array,
    // onClick, I don't know what type this is 
  }
- CustomToggle.displayName="CustomDropdownToggle";
- 
- const CommunityContainer = styled.div`
+ CustomStateToggle.displayName="CustomDropdownToggle";
+
+ const CustomCityToggle = React.forwardRef(({ children, onClick }, ref) => (
+   <a href="/" ref={ref} onClick={(e) => {e.preventDefault();onClick(e);}}>
+     <div id="city-update">{children}</div>
+   </a>
+ ));
+ CustomCityToggle.propTypes = 
+ {
+   // children: Array,
+   // onClick, I don't know what type this is 
+ }
+ CustomCityToggle.displayName="CustomDropdownToggle";
+
+ const CustomKeyToggle = React.forwardRef(({ children, onClick }, ref) => (
+   <a href="/" ref={ref} onClick={(e) => {e.preventDefault();onClick(e);}}>
+     <div id="key-update">{children}</div>
+   </a>
+ ));
+ CustomKeyToggle.propTypes = 
+ {
+   // children: Array,
+   // onClick, I don't know what type this is 
+ }
+ CustomKeyToggle.displayName="CustomDropdownToggle";
  
 
-/* Maybe we're use it - centers the table and makes the drop down smaller */
-/* .state-city-dropdown-table
-{
-  width: 25%;
-  margin: 0 auto;
-  margin-bottom: 1rem;
-} */
+
+
+ function update_button(selectedKeyInput)
+ { 
+    if(document.getElementById("name-update").value && 
+       document.getElementById("address-update").value &&
+       document.getElementById("googleMap-update").value &&
+       document.getElementById("phone-update").value &&
+       document.getElementById("website-update").value )
+    {
+ 
+       firebase.database().ref('community/'+document.getElementById("state-update").innerHTML+'/'+document.getElementById("city-update").innerHTML+'/'+selectedKeyInput).set({
+          name:      document.getElementById("name-update").value,
+          address:   document.getElementById("address-update").value,
+          googleMap: document.getElementById("googleMap-update").value,
+          phone:     document.getElementById("phone-update").value,
+          website:   document.getElementById("website-update").value,
+       },function(error){
+          if(error)
+          {
+             window.alert("failed");
+          }
+          else
+          {
+             window.alert("yes");
+             window.location.reload(false);
+          }
+       });
+    }
+    else
+    {
+       window.alert("Failed. Make sure all fields are full");
+    }
+ }
+
+// 'style-component package used for infile css'
+const StyleCommunityContainer = styled.div`
+ 
 
 /* General */
 .community-div
@@ -304,174 +357,4 @@ function AdminUpdateCommunity() {
   margin: 0 auto;
 }
 
-/* Table */
-.google-map-table
-{
-  height:30rem;
-}
-
-th
-{
-  width: 33%;
-}
-
-
-
 `;
-
- 
-// class Admin_Community_Resources_Page extends Component 
-// {
-
-//    constructor()
-//    {
-//       super()
-//       this.state = { 
-//          ref:[],
-//          name:[],
-//          address: [],
-//          city: [],
-//          stateLocation: [],
-//          languages:[],
-//          phone:[],
-//          website:[],  
-//       }
-//    }
-
-
-//    // Lists all the location's children
-//    // Store in this.state
-//    componentDidMount()
-//    {
-//       const listref = firebase.database().ref().child('location').orderByKey();
-      
-//       listref.once('value', snapshot => {
-//          snapshot.forEach(child =>{
-//             this.setState({
-//                 ref:this.state.ref.concat([child.key]),
-//                 name: this.state.name.concat(child.val().name),
-//                 address: this.state.address.concat(child.val().address),
-//                 city: this.state.city.concat(child.val().city),
-//                 languages: this.state.languages.concat(child.val().languages),
-//                 phone: this.state.phone.concat(child.val().phone),
-//                 website: this.state.website.concat(child.val().website),
-//                })
-//          });
-//       });
-//    }
-
-  
-//    render()
-//    {
-//       return (
-        
-//          <div>
-//             <Nav/>
-
-//             <Form onSubmit={add_button_pressed} className="contact-us-form">
-//                <Form.Group>
-//                   <Form.Label>Name</Form.Label>
-//                   <Form.Control type="name" id="name" placeholder="name" />
-//                </Form.Group>
-//                <Form.Group>
-//                   <Form.Label>Address</Form.Label>
-//                   <Form.Control type="name" id="address" placeholder="address" />
-//                </Form.Group>
-//                <Form.Group>
-//                   <Form.Label>City</Form.Label>
-//                   <Form.Control type="name" id="city"  placeholder="city"/>
-//                </Form.Group>
-//                <Form.Group>
-//                   <Form.Label>Languages</Form.Label>
-//                   <Form.Control type="name" id="languages" placeholder="languages"/>
-//                </Form.Group>
-//                <Form.Group>
-//                   <Form.Label>phone</Form.Label>
-//                   <Form.Control type="name" id="phone" placeholder="phone"/>
-//                </Form.Group>
-//                <Form.Group>
-//                   <Form.Label>Website</Form.Label>
-//                   <Form.Control type="name" id="website" placeholder="web url"/>
-//                </Form.Group>
-//                <Button variant="primary" type="submit" className="submit">Submit</Button>
-//             </Form>
-            
-//             <body>
-//               {
-//               this.state.ref.map((dataList,index)=>
-//                <div key={index} className="boundry">
-//                   <div className="body">
-//                      <p>
-//                         id= {this.state.ref[index]}
-//                         <br></br>
-//                         name={this.state.name[index]}
-//                         <br></br>
-//                         address={this.state.address[index]}
-//                         <br></br>
-//                         city={this.state.city[index]}
-//                         <br></br>
-//                         languages={this.state.languages[index]}
-//                         <br></br>
-//                         phone={this.state.phone[index]}
-//                         <br></br>
-//                         website={this.state.website[index]}
-//                         <br></br>
-//                      </p>     
-//                      <Button onClick={() => delete_button_pressed(this.state.ref[index])}>Delete</Button>
-//                   </div>            
-//                </div>
-//               )}
-//             </body>       
-//          </div>
-//       )
-//    }
-// }
-
-// export default Admin_Community_Resources_Page
-
-function add_button_pressed(){ 
-  if(document.getElementById("name").value && 
-     document.getElementById("address").value &&
-     document.getElementById("city").value &&
-     document.getElementById("googleMap").value &&
-     document.getElementById("phone").value &&
-     document.getElementById("website").value )
-     {
-        var key = firebase.database().ref('community/'+document.getElementById("state").innerHTML+'/'+document.getElementById("city").value).push().key;
-
-        firebase.database().ref('community/'+document.getElementById("state").innerHTML+'/'+document.getElementById("city").value+'/'+key).set({
-          name:      document.getElementById("name").value,
-          address:   document.getElementById("address").value,
-          googleMap: document.getElementById("googleMap").value,
-          phone:    document.getElementById("phone").value,
-          website:   document.getElementById("website").value,
-        },function(error){
-           if(error){
-              window.alert("failed");
-           }else{
-              window.alert("yes");
-              window.location.reload(false);
-           }
-        });
-     }
-     else
-     {
-        window.alert("Failed. Make sure all fields are full");
-     }
- 
- }
-
-function delete_button_pressed(obj){
-  firebase.database().ref('location').child(obj).remove().then(function(){
-      window.alert("Message Deleted");
-      window.location.reload(false);
-   }).catch(function(error){
-   });
-}
-
-// 'style-component package used for infile css'
-const AdminCommunityResourcesContainer = styled.nav`
-
-  
-
-`

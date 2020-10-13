@@ -52,8 +52,6 @@ function AdminDeleteCommunity() {
       const rootRef = database.ref("community/" + selectedState + '/' + selectedCity);
       
       rootRef.on('value', snap => {
-                  // new way of pulling
-                  // setName(snap.child(selectedCity).child(key).child("name").val())
                setName(snap.child(selectedCity).child("name").val())
                setPhone(snap.child(selectedCity).child("phone").val())
                setAddress(snap.child(selectedCity).child("address").val())
@@ -153,28 +151,40 @@ function AdminDeleteCommunity() {
 
  const UpdateForms = () => {
    return (
-      <Form  className="contact-us-form">
-         <Form.Group>
-            <Form.Label>Name: {name}</Form.Label>
-         </Form.Group>
-         <Form.Group>
-            <Form.Label>Address: {address}</Form.Label>
-         </Form.Group>
-         <Form.Group>
-            <Form.Label>Google Map: {googleMap}</Form.Label>
-         </Form.Group>
-         <Form.Group>
-            <Form.Label>Phone: {phone}</Form.Label>
-         </Form.Group>
-         <Form.Group>
-            <Form.Label>Website: {website}</Form.Label>
-         </Form.Group>
-         <Button onClick={() => delete_button_pressed(selectedState, selectedCity, selectedKey)} variant="danger" type="submit" className="submit">Delete</Button>
-      </Form>
+      <div className="delete-information">
+         <Form  className="location-general-info">
+            <Form.Group>
+               <Form.Label>Name: {name}</Form.Label>
+            </Form.Group>
+            <Form.Group>
+               <Form.Label>Address: {address}</Form.Label>
+            </Form.Group>
+            <Form.Group>
+               <Form.Label>Google Map: {googleMap}</Form.Label>
+            </Form.Group>
+            <Form.Group>
+               <Form.Label>Phone: {phone}</Form.Label>
+            </Form.Group>
+            <Form.Group>
+               <Form.Label>Website: {website}</Form.Label>
+            </Form.Group>
+            <Button onClick={() => delete_place(selectedState, selectedCity, selectedKey)} variant="danger" type="submit" className="submit">Delete</Button>
+         </Form>
+         <Form  className="location-city">
+            <Form.Group>
+               <Form.Label>City: {selectedCity}</Form.Label>
+            </Form.Group>
+            <Button onClick={() => delete_city(selectedState, selectedCity)} variant="danger" type="submit" className="submit">Delete</Button>
+         </Form>
+         <Form  className="location-state">
+            <Form.Group>
+               <Form.Label>State: {selectedState}</Form.Label>
+            </Form.Group>
+            <Button onClick={() => delete_state(selectedState)} variant="danger" type="submit" className="submit">Delete</Button>
+         </Form>
+      </div>
    );
  }
-
-   
 
  ///////////////////////////////////////////////////////////////////////////////////////
    
@@ -183,7 +193,7 @@ function AdminDeleteCommunity() {
       <div className="PLACEHOLDER-CLASSNAME">
 
          <div className="form-div">
-            <CommunityContainer>
+            <StyleCommunityContainer>
                {/* Drop down to pick citys */}
                <Table striped bordered hover className="state-city-dropdown-table">
                   <thead>
@@ -202,7 +212,7 @@ function AdminDeleteCommunity() {
                </Table>
 
                {<UpdateForms/>}
-            </CommunityContainer>
+            </StyleCommunityContainer>
          </div>
       </div>
    );
@@ -224,16 +234,40 @@ function AdminDeleteCommunity() {
  }
  CustomToggle.displayName="CustomDropdownToggle";
  
- const CommunityContainer = styled.div`
- 
 
-/* Maybe we're use it - centers the table and makes the drop down smaller */
-/* .state-city-dropdown-table
-{
-  width: 25%;
-  margin: 0 auto;
-  margin-bottom: 1rem;
-} */
+
+
+function delete_place(state, city, key){
+   firebase.database().ref('community/'+state+'/'+city+'/'+key).remove().then(function(){
+      window.alert("Message Deleted");
+      // window.location.reload(false);
+   }).catch(function(error){
+      console.log(error);
+   });
+}
+
+
+
+function delete_city(state, city){
+   firebase.database().ref('community/'+state+'/'+city).remove().then(function(){
+      window.alert("Deleted Selected City");
+      // window.location.reload(false);
+   }).catch(function(error){
+      console.log(error);
+   });
+}
+
+function delete_state(state){
+   firebase.database().ref('community/'+state).remove().then(function(){
+      window.alert("Deleted Selected State");
+      // window.location.reload(false);
+   }).catch(function(error){
+      console.log(error);
+   });
+}
+
+// 'style-component package used for infile css'
+const StyleCommunityContainer = styled.div`
 
 /* General */
 .community-div
@@ -248,67 +282,4 @@ function AdminDeleteCommunity() {
   margin: 0 auto;
 }
 
-/* Table */
-.google-map-table
-{
-  height:30rem;
-}
-
-th
-{
-  width: 33%;
-}
-
-
-
 `;
-
- 
-
-function add_button_pressed(){ 
-  if(document.getElementById("name").value && 
-     document.getElementById("address").value &&
-     document.getElementById("city").value &&
-     document.getElementById("googleMap").value &&
-     document.getElementById("phone").value &&
-     document.getElementById("website").value )
-     {
-        var key = firebase.database().ref('community/'+document.getElementById("state").innerHTML+'/'+document.getElementById("city").value).push().key;
-
-        firebase.database().ref('community/'+document.getElementById("state").innerHTML+'/'+document.getElementById("city").value+'/'+key).set({
-          name:      document.getElementById("name").value,
-          address:   document.getElementById("address").value,
-          googleMap: document.getElementById("googleMap").value,
-          phone:    document.getElementById("phone").value,
-          website:   document.getElementById("website").value,
-        },function(error){
-           if(error){
-              window.alert("failed");
-           }else{
-              window.alert("yes");
-              window.location.reload(false);
-           }
-        });
-     }
-     else
-     {
-        window.alert("Failed. Make sure all fields are full");
-     }
- 
- }
-
-function delete_button_pressed(state, city, key){
-   firebase.database().ref('community/'+state+'/'+city+'/'+key).remove().then(function(){
-      window.alert("Message Deleted");
-      // window.location.reload(false);
-   }).catch(function(error){
-      console.log(error);
-   });
-}
-
-// 'style-component package used for infile css'
-const AdminCommunityResourcesContainer = styled.nav`
-
-  
-
-`

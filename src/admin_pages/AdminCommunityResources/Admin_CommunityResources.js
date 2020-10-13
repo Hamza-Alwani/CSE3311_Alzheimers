@@ -16,16 +16,10 @@ import AdminAdd from '../AdminCommunityResources/AdminCommunityComponents/AdminA
 import AdminUpdate from './AdminCommunityComponents/AdminUpdateCommunity';
 import AdminDelete from './AdminCommunityComponents/AdminDeleteCommunity';
 
-
-
 //css
 import '../../css/main.css'
 
-
-
 function Admin_Community_Resources_Page() {
-
-   
    return (
       <div className="main-component">
          
