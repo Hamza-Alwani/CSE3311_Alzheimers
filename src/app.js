@@ -2,7 +2,7 @@
 Finished pages are stacked to enter routing 
 only add full pages no  components
 */
-import React, { Component } from 'react';
+import React, { Component, useEffect } from 'react';
 // components
 import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 //pages
@@ -21,47 +21,62 @@ import Admin_Research_Page from './admin_pages/Admin_Research'
 import Admin_Dementia_Information_Page from './admin_pages/Admin_DementiaInformation'
 import Admin_Community_Resources_Page from './admin_pages/Admin_CommunityResources'
 import Admin_login from './admin_pages/Admin_login'
-import Auth from './admin_pages/Auth'
+
 
 import  firebase from './components/firebase';
-import { auth } from 'firebase';
 
 
 
-
-  
 function  App(){
   
- var loggedin=false;
-  var firs=0;
-  var authFlag =true;
-  firebase.auth().onAuthStateChanged( user => {
-    if(authFlag) {
-      authFlag = false;
-    if (user) {
-      loggedin=!loggedin
-      window.location.href = "/Admin_Home";
+
+ firebase.auth().onAuthStateChanged( user => {
+  if (user) {
+      Auth.authenticate();
+      console.log("logged in")
       }
+  else
+    {
+      Auth.signout();
+      console.log("not logged in")
     }
   })
+
+    
+  const Auth = {
+    isAuthenticated: false,
+    authenticate() {
+      this.isAuthenticated = true;
+    },
+    signout() {
+      this.isAuthenticated = false;
+    },
+    getAuth() {
+        console.log("i was called and i said")
+        console.log(this.isAuthenticated)
+        return this.isAuthenticated;
+      }
+  };
+
 
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
   <Route
-    {...rest}
+    {...rest} 
     render={props =>
-      loggedin ? (
-        <Component {...props} />
+      Auth.getAuth() ? (
+        <Component/>
       ) : (
         <Redirect
           to={{
-            pathname: "/"
+            pathname: "/contact_us"
           }}
         />
       )
     }
   />
 );
+
 
    return(    
          <Router>
@@ -89,8 +104,4 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
       
       );
    }
-  
 export default App
-
-
- 

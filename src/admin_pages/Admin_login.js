@@ -5,7 +5,6 @@
 import React from 'react';
 
 // components
-import Auth from './Auth'
 //css
 import '../css/main.css'
 import Form from 'react-bootstrap/Form'
@@ -20,7 +19,6 @@ function AdminPage_login()
 {
    
      
-         
    return(
         <div>
           <Form className="contact-us-form">
@@ -34,8 +32,10 @@ function AdminPage_login()
                <Form.Control type="password" id="pass_txt" name="pass_txt" placeholder="Password" />
             </Form.Group>
 
-                  <Button varient="danger"  onClick={submit_button_pressed} type="" className="submit">Login</Button>
-               </Form>
+                  <Button varient="danger"  onClick={login_press} type="" className="submit">Login</Button>
+                  <Button varient="danger"  onClick={logout_pressed} type="" className="submit">logout</Button>
+                  <Button varient="danger"  onClick={go_pressed} type="" className="submit">pressed</Button>               
+                  </Form>
         </div>
    );
    
@@ -45,7 +45,7 @@ function AdminPage_login()
 
 export default AdminPage_login
 
-function submit_button_pressed(){
+function login_press(){
    
  const email= document.getElementById("email_txt").value;
  const pass = document.getElementById("pass_txt").value;
@@ -54,8 +54,15 @@ auth.signInWithEmailAndPassword(email,pass)
 .catch(function(error){
    window.alert(error)
 })
+}
 
-  
+
+function logout_pressed(){
+   
+   firebase.auth().signOut()
   
 }
 
+function go_pressed(){
+   window.location.href="/admin_home"
+}
