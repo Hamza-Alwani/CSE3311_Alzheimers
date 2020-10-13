@@ -169,7 +169,7 @@ function CommunityComponent() {
 
 export default CommunityComponent;
 
-// Opening Drop down
+// Opening Drop down: CSS of dropdown
 const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
   <a
     href="/"
@@ -184,6 +184,12 @@ const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
     &#x25bc;
   </a>
 ));
+CustomToggle.propTypes = 
+{
+  children: String,
+  // onClick, I don't know what type this is 
+}
+CustomToggle.displayName="CustomDropdownToggle";
 
 // 'style-component package used for infile css'
 const CommunityContainer = styled.div`

@@ -21,7 +21,7 @@ import logo from '../pictures/logo1.png';
 
 
 
-function NavigationBar() {
+function AdminNavigationBar() {
   return (
     // NavigationContainer is a style-component used to give the Nav bar css styles.
     <NavigationContainer>
@@ -75,7 +75,7 @@ function NavigationBar() {
   );
 }
 
-export default NavigationBar;
+export default AdminNavigationBar;
 
 // 'style-component package used for infile css'
 const NavigationContainer = styled.div`

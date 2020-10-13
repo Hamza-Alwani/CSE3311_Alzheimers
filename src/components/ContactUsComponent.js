@@ -29,15 +29,15 @@ function ContactUsComponent() {
 
             <ContactUsContainer>
                <Form onSubmit={sendEmail} className="contact-us-form">
-                  <Form.Group controlId="exampleForm.ControlInput1">
+                  <Form.Group>
                      <Form.Label>Name</Form.Label>
                      <Form.Control type="name" id="name" name="from_name" placeholder="Enter your name" />
                   </Form.Group>
-                  <Form.Group controlId="exampleForm.ControlInput1">
+                  <Form.Group>
                      <Form.Label>Email address</Form.Label>
                      <Form.Control type="email" id="email_address" name="from_email" placeholder="name@example.com" />
                   </Form.Group>
-                  <Form.Group controlId="exampleForm.ControlTextarea1">
+                  <Form.Group>
                      <Form.Label>Message</Form.Label>
                      <Form.Control as="textarea" id="email_body" rows="3" name="message" placeholder="Type your message"/>
                   </Form.Group>
@@ -115,14 +115,5 @@ const ContactUsContainer = styled.nav`
          margin:0 auto;
       }
    }
-
-   ${'' /* .submit
-   {
-      margin:0 auto;
-      color: black;
-      background: white;
-      border-color: black;
-   } */}
-
 
 `
