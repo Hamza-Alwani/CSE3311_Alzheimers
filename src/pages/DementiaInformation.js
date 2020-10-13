@@ -20,9 +20,6 @@ function DementiaInformation() {
       <div className="all-content">
          {/* Components */}
          <Nav></Nav>
-         <div className="gen_header">
-            Dementia Information
-         </div>
          <DisplayArticle></DisplayArticle>
          <Footer></Footer>
        </div>

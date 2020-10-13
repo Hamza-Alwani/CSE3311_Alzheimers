@@ -23,25 +23,25 @@ function ContactUsComponent() {
       <div className="contact-div">
          <div className="main-component">
 
-            <div className="gen_header">
+            <div className="contact-us-header">
                Contact Us
             </div>
 
             <ContactUsContainer>
                <Form onSubmit={sendEmail} className="contact-us-form">
-                  <Form.Group controlId="exampleForm.ControlInput1">
+                  <Form.Group>
                      <Form.Label>Name</Form.Label>
                      <Form.Control type="name" id="name" name="from_name" placeholder="Enter your name" />
                   </Form.Group>
-                  <Form.Group controlId="exampleForm.ControlInput1">
+                  <Form.Group>
                      <Form.Label>Email address</Form.Label>
                      <Form.Control type="email" id="email_address" name="from_email" placeholder="name@example.com" />
                   </Form.Group>
-                  <Form.Group controlId="exampleForm.ControlTextarea1">
+                  <Form.Group>
                      <Form.Label>Message</Form.Label>
                      <Form.Control as="textarea" id="email_body" rows="3" name="message" placeholder="Type your message"/>
                   </Form.Group>
-                  <Button varient="danger"  onClick={submit_button_pressed} type="submit" className="submit">submit</Button>
+                  <Button variant="danger"  onClick={submit_button_pressed} type="submit" className="submit">Submit</Button>
                </Form>
             </ContactUsContainer>
          </div>
@@ -89,6 +89,11 @@ function submit_button_pressed(){
 // 'style-component package used for infile css'
 const ContactUsContainer = styled.nav`
 
+   .gen_header
+   {
+      text-align: center;
+   }
+
    .contact-div
    {
       flex: 1;
@@ -109,19 +114,6 @@ const ContactUsContainer = styled.nav`
          position: relative;
          margin:0 auto;
       }
-   }
-
-   .submit
-   {
-      margin:0 auto;
-      color: black;
-      background: white;
-      border-color: black;
-   }
-
-   .submit:hover
-   {
-      background: red;
    }
 
 `
