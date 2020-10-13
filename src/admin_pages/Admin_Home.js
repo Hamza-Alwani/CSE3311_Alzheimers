@@ -6,6 +6,7 @@ import React from 'react';
 
 // components
 import Nav from '../components/Admin_nav';
+
 //css
 import '../css/main.css'
 
@@ -14,8 +15,9 @@ import '../css/main.css'
 
 
 
-function AdminPage()
+function Admin_Home()
 {
+
    return(
          <div>
             <Nav/>
@@ -26,4 +28,4 @@ function AdminPage()
 
 }
 
-export default AdminPage
+export default Admin_Home
