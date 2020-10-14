@@ -12,6 +12,8 @@ import { Button } from 'react-bootstrap';
 import Table from 'react-bootstrap/Table'
 import Form from 'react-bootstrap/Form'
 import Dropdown from 'react-bootstrap/Dropdown'
+import ToggleButtonGroup from 'react-bootstrap/ToggleButtonGroup'
+import ToggleButton from 'react-bootstrap/ToggleButton'
 
 //css
 import '../../../css/main.css'
@@ -70,10 +72,16 @@ const stateDropDownList = [
    'Wyoming',
  ] 
 
-function AdminAddCommunity() {
 
+
+
+function AdminAddCommunity() {
    // Data selected by user
    const [selectedState, setSelectedState] = useState('Texas');
+
+   // language can only be 'EN' 'KO' 'ZH'
+   const [selectedLang, setSelectedLang] = useState('EN');
+   const handleChange = (val) => setSelectedLang(val); // use with id='lang-buttons' to select the correct language on the website
 
    // Pulls all the U.S States on firebase that exist and creates a dropdown list to select from
    const DropdownStates = ({ nameList }) => {
@@ -99,14 +107,19 @@ function AdminAddCommunity() {
          <StyleCommunityContainer>
 
             {/* Drop down to pick citys */}
-            <Form onSubmit={add_button_pressed} className="contact-us-form">
+            <Form className="contact-us-form">
+                  <ToggleButtonGroup  id="lang-buttons" type="radio" name="lang-button-name" value={selectedLang} onChange={handleChange}>
+                     <ToggleButton value={'EN'}>English</ToggleButton>
+                     <ToggleButton value={'KO'}>Korean</ToggleButton>
+                     <ToggleButton value={'ZH'}>Chinese</ToggleButton>
+                  </ToggleButtonGroup>
                   <Form.Group>
                      <Form.Label>Name</Form.Label>
-                     <Form.Control type="name" id="name" placeholder="name" />
+                     <Form.Control type="name" id="name"  />
                   </Form.Group>
                   <Form.Group>
                      <Form.Label>Address</Form.Label>
-                     <Form.Control type="name" id="address" placeholder="address" />
+                     <Form.Control type="name" id="address"  />
                   </Form.Group>
                   <Form.Group>
                      <Form.Label>State</Form.Label>
@@ -122,21 +135,21 @@ function AdminAddCommunity() {
                   </Form.Group>
                   <Form.Group>
                      <Form.Label>City</Form.Label>
-                     <Form.Control type="name" id="city"  placeholder="city"/>
+                     <Form.Control type="name" id="city"  />
                   </Form.Group>
                   <Form.Group>
                      <Form.Label>Google Map</Form.Label>
-                     <Form.Control type="name" id="googleMap" placeholder="<iframe>Long Link</iframe>"/>
+                     <Form.Control type="name" id="googleMap" />
                   </Form.Group>
                   <Form.Group>
                      <Form.Label>Phone</Form.Label>
-                     <Form.Control type="name" id="phone" placeholder="phone"/>
+                     <Form.Control type="name" id="phone" />
                   </Form.Group>
                   <Form.Group>
                      <Form.Label>Website</Form.Label>
-                     <Form.Control type="name" id="website" placeholder="web url"/>
+                     <Form.Control type="name" id="website" />
                   </Form.Group>
-                  <Button variant="primary" type="submit" className="submit">Add</Button>
+                  <Button onClick={() => add_button_pressed(selectedLang)} variant="primary" type="" className="submit">Add</Button>
                </Form>
          </StyleCommunityContainer>
       </div>
@@ -164,7 +177,7 @@ CustomToggle.displayName="CustomDropdownToggle";
 
 
 
-function add_button_pressed()
+function add_button_pressed(selectedLang)
 { 
    if(document.getElementById("name").value && 
       document.getElementById("address").value &&
@@ -175,7 +188,7 @@ function add_button_pressed()
    {
       var key = firebase.database().ref('community/'+document.getElementById("state").innerHTML+'/'+document.getElementById("city").value).push().key;
 
-      firebase.database().ref('community/'+document.getElementById("state").innerHTML+'/'+document.getElementById("city").value+'/'+key).set({
+      firebase.database().ref('community/'+document.getElementById("state").innerHTML+'/'+document.getElementById("city").value+'/'+key+'/'+selectedLang).set({
          name:      document.getElementById("name").value,
          address:   document.getElementById("address").value,
          googleMap: document.getElementById("googleMap").value,

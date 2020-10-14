@@ -72,13 +72,6 @@ function AdminAddCommunity() {
  }
  export default AdminAddCommunity;
 
-//  <div>
-//                <ul><input type="text" id="title"          placeholder="title"        /></ul>
-//                <ul><input type="text" id="description" placeholder="Description"/></ul>
-//                <ul><input type="text" id="pic"    placeholder="pic url"  /></ul>
-//                <ul><input type="text" id="website"    placeholder="web url"  /></ul>
-//                <Button onClick={() => add_button_pressed()}>add</Button>
-//             </div>
 
 const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
    <a href="/" ref={ref} onClick={(e) => {e.preventDefault();onClick(e);}}>
@@ -114,8 +107,6 @@ function add_button_pressed(){
             }else{
             window.alert("yes");
             window.location.reload(false);
-
-
             }
         });
     }

@@ -51,13 +51,13 @@ function AdminDeleteCommunity() {
       const database = firebase.database()
       const rootRef = database.ref("community/" + selectedState + '/' + selectedCity);
       
-      rootRef.on('value', snap => {
-               setName(snap.child(selectedCity).child("name").val())
-               setPhone(snap.child(selectedCity).child("phone").val())
-               setAddress(snap.child(selectedCity).child("address").val())
-               setWebsite(snap.child(selectedCity).child("website").val())
-               setGoogleMap(snap.child(selectedCity).child("googleMap").val())
-      }); 
+      // rootRef.on('value', snap => {
+      //          setName(snap.child(selectedCity).child("name").val())
+      //          setPhone(snap.child(selectedCity).child("phone").val())
+      //          setAddress(snap.child(selectedCity).child("address").val())
+      //          setWebsite(snap.child(selectedCity).child("website").val())
+      //          setGoogleMap(snap.child(selectedCity).child("googleMap").val())
+      // }); 
 
       // sets the new key list when new city is selected
       setKeyList([])
@@ -87,12 +87,14 @@ function AdminDeleteCommunity() {
       const database = firebase.database()
       const rootRef = database.ref("community/" + selectedState + '/' + selectedCity + '/' + selectedKey);
       
-      rootRef.on('value', snap => {
-               setName(snap.child("name").val())
-               setPhone(snap.child("phone").val())
-               setAddress(snap.child("address").val())
-               setWebsite(snap.child("website").val())
-               setGoogleMap(snap.child("googleMap").val())
+      rootRef.on('value', id => {
+               id.forEach(function(lang){
+                  setName(lang.child("name").val())
+                  setPhone(lang.child("phone").val())
+                  setAddress(lang.child("address").val())
+                  setWebsite(lang.child("website").val())
+                  setGoogleMap(lang.child("googleMap").val())
+               })
       }); 
 
    }, [selectedKey])
@@ -281,5 +283,11 @@ const StyleCommunityContainer = styled.div`
   color: var(--mainBlack);
   margin: 0 auto;
 }
+
+th
+{
+   width: 33.33%
+}
+
 
 `;
