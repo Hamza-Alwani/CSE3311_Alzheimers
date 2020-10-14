@@ -16,6 +16,7 @@ import Dropdown from 'react-bootstrap/Dropdown'
 //css
 import '../../../css/main.css'
 
+   const lang = ['EN','KO','ZH'];
    // maybe think of a better way of doing this
    const stateDropDownList = [
       'Alabama',
@@ -82,11 +83,14 @@ function AdminUpdateCommunity() {
    const [stateList, setStateList] = useState([]); // list of all states in firebase
    const [cityList, setCityList] = useState([]); // list of all city based on state in firebase
    const [keyList, setKeyList] = useState([]); // list of all key based on state in firebase
+   const [langList, setLangList] = useState([]); // list of all key based on state in firebase
 
    // Data selected by user
    const [selectedState, setSelectedState] = useState('Texas');
    const [selectedCity, setSelectedCity] = useState('Dallas');
    const [selectedKey, setSelectedKey] = useState('nothign yet');
+   // language can only be 'EN' 'KO' 'ZH'
+   const [selectedLang, setSelectedLang] = useState('EN');
 
   // Pulls a list of all the U.S States in firebase - works
   useEffect(() => {
@@ -115,12 +119,19 @@ function AdminUpdateCommunity() {
                setGoogleMap(snap.child(selectedCity).child("googleMap").val())
       }); 
 
-      // sets the new key list when new city is selected
+
       setKeyList([])
+      setLangList([])
       setSelectedKey('Pick a specific location')
+      // sets the new key list when new city is selected
       rootRef.on('value', snap => {
-            snap.forEach(function(childSnapshot) {
-               setKeyList(keyList => [...keyList, childSnapshot.key]);
+            snap.forEach(function(id) {
+               setKeyList(keyList => [...keyList, id.key]);
+               id.forEach(function(lang){
+                  // lang.forEach(function(lang){
+                     setLangList(langList => [...langList, lang.key]);
+                  // })
+               });
          });
       }); 
 
@@ -144,11 +155,15 @@ function AdminUpdateCommunity() {
       const rootRef = database.ref("community/" + selectedState + '/' + selectedCity + '/' + selectedKey);
       
       rootRef.on('value', snap => {
-               setName(snap.child("name").val())
-               setPhone(snap.child("phone").val())
-               setAddress(snap.child("address").val())
-               setWebsite(snap.child("website").val())
-               setGoogleMap(snap.child("googleMap").val())
+         snap.forEach(function(lang){
+            setSelectedLang(lang.key);
+            setName(lang.child("name").val())
+            setPhone(lang.child("phone").val())
+            setAddress(lang.child("address").val())
+            setWebsite(lang.child("website").val())
+            setGoogleMap(lang.child("googleMap").val())
+
+         })
       }); 
 
    }, [selectedKey])
@@ -191,7 +206,7 @@ function AdminUpdateCommunity() {
     );
   }
 
-  // Pulls all the key of the state
+  // Pulls all the key of the city
   const DropdownKey = ({ nameList }) => {
    return (
        <Dropdown>
@@ -205,9 +220,32 @@ function AdminUpdateCommunity() {
    );
  }
 
+ // Pulls all the lang of the id
+ const DropdownLang = ({ nameList }) => {
+   return (
+       <Dropdown>
+         <Dropdown.Toggle as={CustomKeyToggle} id="dropdown-custom-components" className="dropdown-button">{selectedLang}</Dropdown.Toggle>
+         <Dropdown.Menu className="dropdown-menu">
+           {nameList.map((lang, index) => (
+             <Dropdown.Item onClick={() => {setSelectedLang(lang)}} key={index}>{lang}</Dropdown.Item>
+           ))}
+         </Dropdown.Menu>
+       </Dropdown>
+   );
+ }
+
  const UpdateForms = () => {
    return (
       <Form className="contact-us-form">
+      <Table striped bordered hover className="state-city-dropdown-table">
+                  <thead>
+                     <tr>
+                        <th>
+                           <DropdownLang nameList={lang} />
+                        </th>
+                     </tr>
+                  </thead>
+               </Table>
          <Form.Group>
             <Form.Label>Name</Form.Label>
             <Form.Control type="name" id="name-update"  defaultValue={name} />
@@ -228,7 +266,7 @@ function AdminUpdateCommunity() {
             <Form.Label>Website</Form.Label>
             <Form.Control type="name" id="website-update" defaultValue={website}/>
          </Form.Group>
-         <Button onClick={() => update_button(selectedKey)} variant="primary" type="submit" className="submit">Update</Button>
+         <Button onClick={() => update_button(selectedKey,selectedLang)} variant="primary" type="submit" className="submit">Update</Button>
       </Form>
    );
  }
@@ -307,7 +345,7 @@ function AdminUpdateCommunity() {
 
 
 
- function update_button(selectedKeyInput)
+ function update_button(selectedKeyInput, selectedLang)
  { 
     if(document.getElementById("name-update").value && 
        document.getElementById("address-update").value &&
@@ -315,8 +353,8 @@ function AdminUpdateCommunity() {
        document.getElementById("phone-update").value &&
        document.getElementById("website-update").value )
     {
- 
-       firebase.database().ref('community/'+document.getElementById("state-update").innerHTML+'/'+document.getElementById("city-update").innerHTML+'/'+selectedKeyInput).set({
+       firebase.database().ref('community/'+document.getElementById("state-update").innerHTML+'/'+document.getElementById("city-update").innerHTML+'/'+selectedKeyInput).remove();
+       firebase.database().ref('community/'+document.getElementById("state-update").innerHTML+'/'+document.getElementById("city-update").innerHTML+'/'+selectedKeyInput+'/'+selectedLang).set({
           name:      document.getElementById("name-update").value,
           address:   document.getElementById("address-update").value,
           googleMap: document.getElementById("googleMap-update").value,
@@ -355,6 +393,11 @@ const StyleCommunityContainer = styled.div`
 {
   color: var(--mainBlack);
   margin: 0 auto;
+}
+
+th
+{
+   width: 33.33%
 }
 
 `;
