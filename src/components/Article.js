@@ -11,6 +11,7 @@ import Button from 'react-bootstrap/Button'
 import '../css/main.css'; 
 
 function Article( {props} ) {
+
     return (
 
             <Card style={{ width: '18rem' }}>
@@ -18,7 +19,7 @@ function Article( {props} ) {
                 <Card.Body>
                     <Card.Title> {props.title} </Card.Title>
                     <Card.Text> {props.disc} </Card.Text>
-                    <Button variant="primary">Go somewhere</Button>
+                    <a href={props.website} target="_blank"> <Button variant="primary">Go </Button></a>
                 </Card.Body>
             </Card>
     );
