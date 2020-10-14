@@ -18,7 +18,7 @@ import Admin_Home from './admin_pages/Admin_Home'
 import Admin_Contact_us_Page from './admin_pages/Admin_ContactUs'
 import Admin_Outreach_Page from './admin_pages/Admin_Outreach'
 import Admin_Research_Page from './admin_pages/Admin_Research'
-import Admin_Dementia_Information_Page from './admin_pages/Admin_DementiaInformation'
+import Admin_Dementia_Information_Page from './admin_pages/AdminDementiaInformation/Admin_DementiaInformation'
 import Admin_Community_Resources_Page from './admin_pages/AdminCommunityResources/Admin_CommunityResources'
 import Admin_login from './admin_pages/Admin_login'
 

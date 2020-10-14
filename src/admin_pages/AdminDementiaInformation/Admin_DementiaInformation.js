@@ -6,15 +6,25 @@
 import React, { Component } from 'react';
 
 // components
-import Nav from '../components/Admin_nav';
-import Footer from '../components/Footer'; 
+import Nav from '../../components/Admin_nav';
+import Footer from '../../components/Footer'; 
+
 //import  '../components/EmailViewerBundler';
-import  firebase from '../components/firebase';
-import  Admin_DemInfoViewer from '../components/DemInfoViewer';
+import  firebase from '../../components/firebase';
+// import  Admin_DemInfoViewer from '../../components/DemInfoViewer';
+
+// bootstrap
+import Tabs from 'react-bootstrap/Tabs'
+import Tab from 'react-bootstrap/Tab'
 import { Button } from 'react-bootstrap';
+
 //css
-import '../css/main.css'
-import '../css/email_viewer.css'
+import '../../css/main.css'
+// import '../../css/email_viewer.css' // delete the file later
+
+import AdminAddDementia from './AdminDementiaComponents/AdminAddDementia';
+import AdminUpdateDementia from './AdminDementiaComponents/AdminUpdateDementia';
+import AdminDeleteDementia from './AdminDementiaComponents/AdminDeleteDementia';
 
 
 
@@ -59,9 +69,31 @@ class Admin_Dementia_Information_Page extends Component
    render()
    {
       return (
+
+         <div className="main-component">
+         
+         <Nav/>
+
+         {/* Header */}
+         <div className="gen_header">
+                  Admin Powers Dementia Information
+         </div>
+         <Tabs defaultActiveKey="add" id="uncontrolled-tab-example">
+            <Tab eventKey="add" title="Add">
+               <AdminAddDementia />
+            </Tab>
+            <Tab eventKey="update" title="Update">
+               <AdminUpdateDementia />
+            </Tab>
+            <Tab eventKey="delete" title="Delete">
+               {/* <AdminDeleteDementia /> */}
+            </Tab>
+         </Tabs>
+                     
+      </div>
         
-         <div>
-            <Nav/>
+         // <div>
+            /* <Nav/>
           
             <div>
                <ul><input type="text" id="title"          placeholder="title"        /></ul>
@@ -71,12 +103,12 @@ class Admin_Dementia_Information_Page extends Component
                <Button onClick={() => add_button_pressed()}>add</Button>
             </div>
             
-           <body>
+           {/* <body>
                  {
               this.state.ref.map((dataList,index)=>
               <div>
               <Admin_DemInfoViewer
-              id= {this.state.ref[index]}
+               id= {this.state.ref[index]}
                disc={this.state.disc[index]}
                pic={this.state.pic[index]}
                title={this.state.title[index]}
@@ -85,42 +117,11 @@ class Admin_Dementia_Information_Page extends Component
               </div>
               )
            } 
-            </body>       
-         <Footer/>
-         </div>
+            </body>        */
+         // <Footer/>
+         // </div> */}
       )
    }
 }
 
 export default Admin_Dementia_Information_Page
-
-function add_button_pressed(){ 
-
-   if(document.getElementById("title").value && 
-    document.getElementById("description").value &&
-     document.getElementById("pic").value &&
-      document.getElementById("website").value)
-      {
-         var key=firebase.database().ref('Article').push().key;
-         firebase.database().ref('Article/'+key).set({
-            title:document.getElementById("title").value,
-            disc:document.getElementById("description").value,
-            pic:document.getElementById("pic").value,
-            website:document.getElementById("website").value,
-         },function(error){
-            if(error){
-               window.alert("failed");
-            }else{
-               window.alert("yes");
-               window.location.reload(false);
-
-
-            }
-         });
-      }
-      else
-      {
-         window.alert("failed. Make sure all fields are full");
-      }
-  
-  }
