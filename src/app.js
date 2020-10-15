@@ -1,8 +1,8 @@
 /*
-Finished pages are stacked to enter routing 
-only add full pages no  components
+  Finished pages are stacked to enter routing 
+  only add full pages no components
 */
-import React, { Component, useEffect } from 'react';
+import React from 'react';
 // components
 import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 //pages

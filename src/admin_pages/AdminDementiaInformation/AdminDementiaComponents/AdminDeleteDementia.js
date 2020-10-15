@@ -9,62 +9,102 @@ import styled from 'styled-components'
 // components
 import  firebase from '../../../components/firebase';
 import { Button } from 'react-bootstrap';
-import Table from 'react-bootstrap/Table'
 import Form from 'react-bootstrap/Form'
 import Dropdown from 'react-bootstrap/Dropdown'
+import Table from 'react-bootstrap/Table'
 
 //css
-import '../../../css/main.css'
+import '../../../css/admin.css'
 
 
 function AdminAddCommunity() {
 
-   // Data selected by user
-   const [selectedState, setSelectedState] = useState('Texas');
+    // Data pulled from server
+    const [title, setTitle] = useState('');
+    const [description, setDescription] = useState('');
+    const [picture, setPicture] = useState('');
+    const [website, setWebsite] = useState('');
 
-   // Pulls all the U.S States on firebase that exist and creates a dropdown list to select from
-   const DropdownStates = ({ nameList }) => {
-     return (
-       <Dropdown>
-         <Dropdown.Toggle as={CustomToggle} id="dropdown-custom-components" className="dropdown-button">{selectedState}</Dropdown.Toggle>
-         <Dropdown.Menu className="dropdown-menu">
-           {nameList.map((state, index) => (
-             <Dropdown.Item  onClick={() => {setSelectedState(state)}} key={index}>{state}</Dropdown.Item>
-           ))}
-         </Dropdown.Menu>
-       </Dropdown>
-     );
-   };
-   
+    const [titleList, setTitleList] = useState([]);
+
+    const [articleKey, setArticleKey] = useState('');
+    const [articleList, setArticleList] = useState([]);
+
+     // Onload fill titleList and articleList
+    useEffect(() => {
+        const database = firebase.database()
+        const rootRef = database.ref("Article/");
+        rootRef.on('value', snap => {
+                    snap.forEach(function(childSnapshot) {
+                        setArticleList(articleList => [...articleList, childSnapshot.key]);
+                        setTitleList(titleList => [...titleList, childSnapshot.child("title").val()]);
+                });
+            });
+    }, [])
+
+    // Pulls the requested data
+    useEffect(() => {
+        const database = firebase.database()
+        const rootRef = database.ref("Article/" + articleKey);
+        rootRef.on('value', snap => {
+                setTitle(snap.child("title").val());
+                setPicture(snap.child("pic").val());
+                setDescription(snap.child("disc").val());
+                setWebsite(snap.child("website").val());
+            });
+    }, [articleKey])
+
+    // Pulls all the article titles
+    const DropdownCity = ({ nameList }) => {
+        return (
+            <Dropdown>
+                <Dropdown.Toggle as={CustomToggle} id="dropdown-custom-components" className="dropdown-button">Pick an article</Dropdown.Toggle>
+                <Dropdown.Menu className="dropdown-menu">
+                    {nameList.map((title, index) => (
+                        <Dropdown.Item onClick={() => {setTitle(title); setArticleKey(articleList[index])}} key={index}>{title}</Dropdown.Item>
+                    ))}
+                </Dropdown.Menu>
+            </Dropdown>
+        );
+    }
+
+
 
  ///////////////////////////////////////////////////////////////////////////////////////
    
    // HTML
    return (
-      <div className="PLACEHOLDER-CLASSNAME">
+      <div className="admin-community">
  
          <StyleCommunityContainer>
+            
+                {/* Drop down to pick citys */}
+                <Form className="admin-form">
+                    
+                    <Table striped bordered hover className="state-city-dropdown-table">
+                        <thead>
+                            <tr>
+                                <th>
+                                    <DropdownCity nameList={titleList}/>
+                                </th>
+                            </tr>
+                        </thead>
+                    </Table>
 
-            {/* Drop down to pick citys */}
-            <Form onSubmit={add_button_pressed} className="contact-us-form">
-                  <Form.Group>
-                     <Form.Label>Name</Form.Label>
-                     <Form.Control type="name" id="title" placeholder="name" />
-                  </Form.Group>
-                  <Form.Group>
-                     <Form.Label>Description</Form.Label>
-                     <Form.Control type="name" id="description" placeholder="address" />
-                  </Form.Group>
-                  <Form.Group>
-                     <Form.Label>Picture URL</Form.Label>
-                     <Form.Control type="name" id="pic" placeholder="address" />
-                  </Form.Group>
-                  <Form.Group>
-                     <Form.Label>Website URL</Form.Label>
-                     <Form.Control type="name" id="website" placeholder="address" />
-                  </Form.Group>
-                  
-                  <Button onClick={() => add_button_pressed}variant="primary" type="submit" className="submit">Add</Button>
+                    <Form.Group>
+                        <Form.Label>Name: {title}</Form.Label>
+                    </Form.Group>
+                    <Form.Group>
+                        <Form.Label>Description: {description}</Form.Label>
+                    </Form.Group>
+                    <Form.Group>
+                        <Form.Label>Picture URL: {picture}</Form.Label>
+                    </Form.Group>
+                    <Form.Group>
+                        <Form.Label>Website URL: {website}</Form.Label>
+                    </Form.Group>
+                    
+                    <Button onClick={() => delete_button(articleKey)} variant="danger" type="submit" className="submit">Delete</Button>
                </Form>
          </StyleCommunityContainer>
       </div>
@@ -75,7 +115,7 @@ function AdminAddCommunity() {
 
 const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
    <a href="/" ref={ref} onClick={(e) => {e.preventDefault();onClick(e);}}>
-      <div id="state">{children}</div>
+      <div id="title">{children}</div>
    </a>
    ));
 CustomToggle.propTypes = 
@@ -86,38 +126,9 @@ CustomToggle.propTypes =
 }
 CustomToggle.displayName="CustomDropdownToggle";
 
-
-
-function add_button_pressed(){ 
-
-    if( document.getElementById("title").value && 
-        document.getElementById("description").value &&
-        document.getElementById("pic").value &&
-        document.getElementById("website").value)
-    {
-        var key=firebase.database().ref('Article').push().key;
-        firebase.database().ref('Article/'+key).set({
-            title:document.getElementById("title").value,
-            disc:document.getElementById("description").value,
-            pic:document.getElementById("pic").value,
-            website:document.getElementById("website").value,
-        },function(error){
-            if(error){
-            window.alert("failed");
-            }else{
-            window.alert("yes");
-            window.location.reload(false);
-            }
-        });
-    }
-    else
-    {
-        window.alert("failed. Make sure all fields are full");
-    }
-
+function delete_button(articleKey){ 
+        firebase.database().ref('Article/'+articleKey).remove();
 }
-
-
 
 // 'style-component package used for infile css'
 const StyleCommunityContainer = styled.nav`

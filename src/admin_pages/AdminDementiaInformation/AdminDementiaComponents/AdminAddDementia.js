@@ -14,7 +14,7 @@ import Form from 'react-bootstrap/Form'
 import Dropdown from 'react-bootstrap/Dropdown'
 
 //css
-import '../../../css/main.css'
+import '../../../css/admin.css'
 
 
 function AdminAddCommunity() {
@@ -41,12 +41,12 @@ function AdminAddCommunity() {
    
    // HTML
    return (
-      <div className="PLACEHOLDER-CLASSNAME">
+      <div className="admin-community">
  
          <StyleCommunityContainer>
 
             {/* Drop down to pick citys */}
-            <Form onSubmit={add_button_pressed} className="contact-us-form">
+            <Form onSubmit={add_button_pressed} className="admin-form">
                   <Form.Group>
                      <Form.Label>Name</Form.Label>
                      <Form.Control type="name" id="title" placeholder="name" />

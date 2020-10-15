@@ -16,7 +16,7 @@ import ToggleButtonGroup from 'react-bootstrap/ToggleButtonGroup'
 import ToggleButton from 'react-bootstrap/ToggleButton'
 
 //css
-import '../../../css/main.css'
+import '../../../css/admin.css'
 
 // maybe think of a better way of doing this
 const stateDropDownList = [
@@ -102,55 +102,60 @@ function AdminAddCommunity() {
    
    // HTML
    return (
-      <div className="PLACEHOLDER-CLASSNAME">
- 
+      <div className="admin-community">
          <StyleCommunityContainer>
-
             {/* Drop down to pick citys */}
-            <Form className="contact-us-form">
-                  <ToggleButtonGroup  id="lang-buttons" type="radio" name="lang-button-name" value={selectedLang} onChange={handleChange}>
-                     <ToggleButton value={'EN'}>English</ToggleButton>
-                     <ToggleButton value={'KO'}>Korean</ToggleButton>
-                     <ToggleButton value={'ZH'}>Chinese</ToggleButton>
+            <Form className="admin-form">
+               
+      
+               <Form.Group>
+                  <Form.Label>Name</Form.Label>
+                  <Form.Control type="name" id="name"  />
+               </Form.Group>
+               <Form.Group>
+                  <Form.Label>State</Form.Label>
+                  <Table striped bordered hover className="state-dropdown-table">
+                     <thead>
+                        <tr>
+                           <th>
+                              <DropdownStates nameList={stateDropDownList} />
+                           </th>
+                        </tr>
+                     </thead>
+                  </Table>
+               </Form.Group>
+               <Form.Group>
+                  <Form.Label>City</Form.Label>
+                  <Form.Control type="name" id="city"  />
+               </Form.Group>
+               <Form.Group>
+                  <Form.Label>Address</Form.Label>
+                  <Form.Control type="name" id="address"  />
+               </Form.Group>
+               <div className="language-button-group">
+                  <Form.Group className="language-label">
+                     <Form.Label>Language</Form.Label>
+                  </Form.Group>
+                  <ToggleButtonGroup  className="lang-buttons" id="lang-buttons" type="radio" name="lang-button-name" value={selectedLang} onChange={handleChange}>
+                        <ToggleButton value={'EN'}>English</ToggleButton>
+                        <ToggleButton value={'KO'}>Korean</ToggleButton>
+                        <ToggleButton value={'ZH'}>Chinese</ToggleButton>
                   </ToggleButtonGroup>
-                  <Form.Group>
-                     <Form.Label>Name</Form.Label>
-                     <Form.Control type="name" id="name"  />
-                  </Form.Group>
-                  <Form.Group>
-                     <Form.Label>Address</Form.Label>
-                     <Form.Control type="name" id="address"  />
-                  </Form.Group>
-                  <Form.Group>
-                     <Form.Label>State</Form.Label>
-                     <Table striped bordered hover className="state-city-dropdown-table">
-                        <thead>
-                           <tr>
-                              <th>
-                                 <DropdownStates nameList={stateDropDownList} />
-                              </th>
-                           </tr>
-                        </thead>
-                     </Table>
-                  </Form.Group>
-                  <Form.Group>
-                     <Form.Label>City</Form.Label>
-                     <Form.Control type="name" id="city"  />
-                  </Form.Group>
-                  <Form.Group>
-                     <Form.Label>Google Map</Form.Label>
-                     <Form.Control type="name" id="googleMap" />
-                  </Form.Group>
-                  <Form.Group>
-                     <Form.Label>Phone</Form.Label>
-                     <Form.Control type="name" id="phone" />
-                  </Form.Group>
-                  <Form.Group>
-                     <Form.Label>Website</Form.Label>
-                     <Form.Control type="name" id="website" />
-                  </Form.Group>
-                  <Button onClick={() => add_button_pressed(selectedLang)} variant="primary" type="" className="submit">Add</Button>
-               </Form>
+               </div>
+               <Form.Group>
+                  <Form.Label>Google Map</Form.Label>
+                  <Form.Control type="name" id="googleMap" />
+               </Form.Group>
+               <Form.Group>
+                  <Form.Label>Phone</Form.Label>
+                  <Form.Control type="name" id="phone" />
+               </Form.Group>
+               <Form.Group>
+                  <Form.Label>Website</Form.Label>
+                  <Form.Control type="name" id="website" />
+               </Form.Group>
+               <Button onClick={() => add_button_pressed(selectedLang)} variant="primary" type="" className="submit">Add</Button>
+            </Form>
          </StyleCommunityContainer>
       </div>
    );
@@ -215,19 +220,14 @@ function add_button_pressed(selectedLang)
 
 // 'style-component package used for infile css'
 const StyleCommunityContainer = styled.nav`
- 
- /* General */
- .community-div
- {
-   flex: 1;
- }
- 
- /* Downdown */
- .dropdown a
- {
+
+/* Downdown */
+.dropdown a
+{
    color: var(--mainBlack);
    margin: 0 auto;
- }
- 
+}
+
+
  `;
  

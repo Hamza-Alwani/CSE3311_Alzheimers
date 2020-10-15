@@ -237,15 +237,7 @@ function AdminUpdateCommunity() {
  const UpdateForms = () => {
    return (
       <Form className="contact-us-form">
-      <Table striped bordered hover className="state-city-dropdown-table">
-                  <thead>
-                     <tr>
-                        <th>
-                           <DropdownLang nameList={lang} />
-                        </th>
-                     </tr>
-                  </thead>
-               </Table>
+         
          <Form.Group>
             <Form.Label>Name</Form.Label>
             <Form.Control type="name" id="name-update"  defaultValue={name} />
@@ -254,6 +246,20 @@ function AdminUpdateCommunity() {
             <Form.Label>Address</Form.Label>
             <Form.Control type="name" id="address-update" defaultValue={address} />
          </Form.Group>
+         <div className="language-button-group">
+            <Form.Group className="language-label">
+               <Form.Label>Language</Form.Label>
+            </Form.Group>
+            <Table striped bordered hover className="state-city-dropdown-table">
+               <thead>
+                  <tr>
+                     <th>
+                        <DropdownLang nameList={lang} />
+                     </th>
+                  </tr>
+               </thead>
+            </Table>
+         </div>
          <Form.Group>
             <Form.Label>Google Map</Form.Label>
             <Form.Control type="name" id="googleMap-update" defaultValue={googleMap}/>
@@ -277,9 +283,9 @@ function AdminUpdateCommunity() {
    
    // HTML
    return (
-      <div className="PLACEHOLDER-CLASSNAME">
+      <div className="admin-community">
 
-         <div className="form-div">
+         <div className="admin-form">
             <StyleCommunityContainer>
                {/* Drop down to pick citys */}
                <Table striped bordered hover className="state-city-dropdown-table">
@@ -382,11 +388,7 @@ function AdminUpdateCommunity() {
 const StyleCommunityContainer = styled.div`
  
 
-/* General */
-.community-div
-{
-  flex: 1;
-}
+
 
 /* Downdown */
 .dropdown a

@@ -58,16 +58,16 @@ function firstcheck(){
 }
 
 function login_press(){ 
- const email= document.getElementById("email_txt").value;
- const pass = document.getElementById("pass_txt").value;
- const auth= firebase.auth();
-auth.signInWithEmailAndPassword(email,pass)
-.then(function(){
-   window.location.href="/admin_home"
-})
-.catch(function(error){
-   window.alert(error)
-})
+   const email= document.getElementById("email_txt").value;
+   const pass = document.getElementById("pass_txt").value;
+   const auth= firebase.auth();
+   auth.signInWithEmailAndPassword(email,pass)
+   .then(function(){
+      window.location.href="/admin_home"
+   })
+   .catch(function(error){
+      window.alert(error)
+   })
 }
 
 const AdminLoginStyle = styled.nav`

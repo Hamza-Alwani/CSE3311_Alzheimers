@@ -14,25 +14,25 @@ import Form from 'react-bootstrap/Form'
 import Dropdown from 'react-bootstrap/Dropdown'
 
 //css
-import '../../../css/main.css'
+import '../../../css/admin.css'
 
 function AdminDeleteCommunity() {
 
    // Data from firebase
-   const [name, setName] = useState('Error: No title set');
-   const [phone, setPhone] = useState('Error: No phone number pulled');
-   const [address, setAddress] = useState('Error: No address pulled');
-   const [website, setWebsite] = useState('Error: No website pulled');
-   const [googleMap, setGoogleMap] = useState('Error: No website pulled'); // doing the hard way because the normal google maps api cost money
+   const [name, setName] = useState('');
+   const [phone, setPhone] = useState('');
+   const [address, setAddress] = useState('');
+   const [website, setWebsite] = useState('');
+   const [googleMap, setGoogleMap] = useState(''); // doing the hard way because the normal google maps api cost money
 
    const [stateList, setStateList] = useState([]); // list of all states in firebase
    const [cityList, setCityList] = useState([]); // list of all city based on state in firebase
    const [keyList, setKeyList] = useState([]); // list of all key based on state in firebase
 
    // Data selected by user
-   const [selectedState, setSelectedState] = useState('Texas');
-   const [selectedCity, setSelectedCity] = useState('Dallas');
-   const [selectedKey, setSelectedKey] = useState('nothign yet');
+   const [selectedState, setSelectedState] = useState('Pick a State');
+   const [selectedCity, setSelectedCity] = useState('Pick a City');
+   const [selectedKey, setSelectedKey] = useState('No Key Selected');
 
   // Pulls a list of all the U.S States in firebase - works
   useEffect(() => {
@@ -50,14 +50,6 @@ function AdminDeleteCommunity() {
    useEffect(() => {
       const database = firebase.database()
       const rootRef = database.ref("community/" + selectedState + '/' + selectedCity);
-      
-      // rootRef.on('value', snap => {
-      //          setName(snap.child(selectedCity).child("name").val())
-      //          setPhone(snap.child(selectedCity).child("phone").val())
-      //          setAddress(snap.child(selectedCity).child("address").val())
-      //          setWebsite(snap.child(selectedCity).child("website").val())
-      //          setGoogleMap(snap.child(selectedCity).child("googleMap").val())
-      // }); 
 
       // sets the new key list when new city is selected
       setKeyList([])
@@ -170,20 +162,25 @@ function AdminDeleteCommunity() {
             <Form.Group>
                <Form.Label>Website: {website}</Form.Label>
             </Form.Group>
-            <Button onClick={() => delete_place(selectedState, selectedCity, selectedKey)} variant="danger" type="submit" className="submit">Delete</Button>
+            <Button onClick={() => delete_place(selectedState, selectedCity, selectedKey)} variant="danger" type="submit" className="submit">Delete Information</Button>
          </Form>
-         <Form  className="location-city">
-            <Form.Group>
-               <Form.Label>City: {selectedCity}</Form.Label>
-            </Form.Group>
-            <Button onClick={() => delete_city(selectedState, selectedCity)} variant="danger" type="submit" className="submit">Delete</Button>
-         </Form>
-         <Form  className="location-state">
-            <Form.Group>
-               <Form.Label>State: {selectedState}</Form.Label>
-            </Form.Group>
-            <Button onClick={() => delete_state(selectedState)} variant="danger" type="submit" className="submit">Delete</Button>
-         </Form>
+
+         <div className="too-much-power">
+            <Form  className="location-city">
+               <Form.Group className="city-label">
+                  <Form.Label>City: {selectedCity}</Form.Label>
+               </Form.Group>
+               <Button onClick={() => delete_city(selectedState, selectedCity)} variant="danger" type="submit" className="delete-power">Delete City</Button>
+            </Form>
+
+
+            <Form  className="location-state">
+               <Form.Group className="state-label">
+                  <Form.Label>State: {selectedState}</Form.Label>
+               </Form.Group>
+               <Button onClick={() => delete_state(selectedState)} variant="danger" type="submit" className="delete-power">Delete State</Button>
+            </Form>
+         </div>
       </div>
    );
  }
@@ -192,9 +189,9 @@ function AdminDeleteCommunity() {
    
    // HTML
    return (
-      <div className="PLACEHOLDER-CLASSNAME">
+      <div className="admin-community">
 
-         <div className="form-div">
+         <div className="admin-form">
             <StyleCommunityContainer>
                {/* Drop down to pick citys */}
                <Table striped bordered hover className="state-city-dropdown-table">
@@ -271,11 +268,7 @@ function delete_state(state){
 // 'style-component package used for infile css'
 const StyleCommunityContainer = styled.div`
 
-/* General */
-.community-div
-{
-  flex: 1;
-}
+/
 
 /* Downdown */
 .dropdown a
@@ -289,5 +282,29 @@ th
    width: 33.33%
 }
 
+
+.too-much-power
+{
+   margin-top: 10rem;
+}
+
+
+
+.city-label
+{
+   margin: 0;
+}
+
+
+
+.state-label
+{
+   margin: 0;
+}
+
+.delete-power
+{
+   margin-bottom: 1rem;
+}
 
 `;
