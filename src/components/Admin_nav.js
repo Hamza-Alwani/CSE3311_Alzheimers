@@ -56,9 +56,9 @@ function AdminNavigationBar() {
           <Nav className="mr-auto">
             <Nav.Link href="/Admin_Community_Resources"> Community Resources  </Nav.Link>
             <Nav.Link href="/Admin_Dementia_Information">Dementia Information </Nav.Link>
-            <Nav.Link href="/Admin_Research">            Research             </Nav.Link>
-            <Nav.Link href="/Admin_Outreach">            Outreach             </Nav.Link>
-            <Nav.Link href="/Admin_contact_us">          Contact Us           </Nav.Link>
+            {/* <Nav.Link href="/Admin_Research">            Research             </Nav.Link> */}
+            {/* <Nav.Link href="/Admin_Outreach">            Outreach             </Nav.Link> */}
+            {/* <Nav.Link href="/Admin_contact_us">          Contact Us           </Nav.Link> */}
           </Nav> 
 
           {/* Language drop down */}
@@ -117,7 +117,7 @@ ${'' /* Creates a push below the navigation below so nothing is touching */}
   color: #fbfbfb; 
 }
 .navbar .navbar-nav .nav-link {
-  color: #dd3928;
+  color: #007bff;
   border-radius: .25rem;
   margin: 0 1rem;
 }

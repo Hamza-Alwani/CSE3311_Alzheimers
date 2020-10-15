@@ -86,40 +86,12 @@ class Admin_Dementia_Information_Page extends Component
                <AdminUpdateDementia />
             </Tab>
             <Tab eventKey="delete" title="Delete">
-               {/* <AdminDeleteDementia /> */}
+               <AdminDeleteDementia />
             </Tab>
          </Tabs>
                      
       </div>
         
-         // <div>
-            /* <Nav/>
-          
-            <div>
-               <ul><input type="text" id="title"          placeholder="title"        /></ul>
-               <ul><input type="text" id="description" placeholder="Description"/></ul>
-               <ul><input type="text" id="pic"    placeholder="pic url"  /></ul>
-               <ul><input type="text" id="website"    placeholder="web url"  /></ul>
-               <Button onClick={() => add_button_pressed()}>add</Button>
-            </div>
-            
-           {/* <body>
-                 {
-              this.state.ref.map((dataList,index)=>
-              <div>
-              <Admin_DemInfoViewer
-               id= {this.state.ref[index]}
-               disc={this.state.disc[index]}
-               pic={this.state.pic[index]}
-               title={this.state.title[index]}
-               website={this.state.website[index]}
-              />
-              </div>
-              )
-           } 
-            </body>        */
-         // <Footer/>
-         // </div> */}
       )
    }
 }

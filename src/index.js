@@ -1,6 +1,5 @@
 /// summary
 ///
-///	This should be the homepage 
 ///
 /// summary
 

@@ -14,7 +14,7 @@ import Dropdown from 'react-bootstrap/Dropdown'
 import Table from 'react-bootstrap/Table'
 
 //css
-import '../../../css/main.css'
+import '../../../css/admin.css'
 
 
 function AdminAddCommunity() {
@@ -74,12 +74,12 @@ function AdminAddCommunity() {
    
    // HTML
    return (
-      <div className="PLACEHOLDER-CLASSNAME">
+      <div className="admin-community">
  
          <StyleCommunityContainer>
             
                 {/* Drop down to pick citys */}
-                <Form className="contact-us-form">
+                <Form className="admin-form">
                     
                     <Table striped bordered hover className="state-city-dropdown-table">
                         <thead>

@@ -16,7 +16,6 @@ import { Button } from 'react-bootstrap';
 
 //css
 import '../css/main.css'
-import '../css/email_viewer.css'
 
 
 // Currently spams all the articles and gives the admin the ability to delete the article 
