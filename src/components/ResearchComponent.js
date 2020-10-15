@@ -42,19 +42,17 @@ function ResearchComponent() {
               <a href="https://dementiacaregiving.questionpro.com" class="survey-button"> Online Survey </a>
             </div> */}
     
-            <div class="divider"/>
 
-            {/* Main content of the website below the gaint survey button */}
             <div className="research-section">
 
-            <div className="calendly-div">
-              
-              <div 
-                class="calendly-inline-widget" 
-                data-url="https://calendly.com/dementiacaregiving/30min?background_color=ffffff&text_color=000000&primary_color=dd3928" 
-                style={{ width:"100%", height:"750px" }}>
+              {/* Calendly - Embed directly into the code  */}
+              <div className="calendly-div">
+                <div 
+                  className="calendly-inline-widget" 
+                  data-url="https://calendly.com/dementiacaregiving/30min?text_color=363738&primary_color=ff8400"
+                  style={{ width:"100%", height:"750px" }}>
+                </div>
               </div>
-            </div>
 
             </div>
           </ResearchContainer>

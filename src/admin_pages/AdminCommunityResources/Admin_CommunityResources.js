@@ -27,7 +27,7 @@ function Admin_Community_Resources_Page() {
 
          {/* Header */}
          <div className="gen_header">
-                  Admin Powers on Community Resources
+                  Admin Powers Community Resources
          </div>
          <Tabs defaultActiveKey="add" id="uncontrolled-tab-example">
             <Tab eventKey="add" title="Add">
