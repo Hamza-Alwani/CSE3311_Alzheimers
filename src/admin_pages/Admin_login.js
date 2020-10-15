@@ -18,11 +18,9 @@ import  firebase from '../components/firebase';
 
 function AdminPage_login()
 {
- 
     useEffect(() => {
        firstcheck();
     })
-
    return(
         <div>
           <Form className="contact-us-form">
@@ -40,23 +38,18 @@ function AdminPage_login()
                   </Form>
         </div>
    );
-   
-   
-
 }
 
 export default AdminPage_login
 
-
 function firstcheck(){
-      if(localStorage.getItem("user"))
+      if(sessionStorage.getItem("user"))
       {
          window.location.href="/admin_home"
       }
 }
 
 function login_press(){ 
-   
  const email= document.getElementById("email_txt").value;
  const pass = document.getElementById("pass_txt").value;
  const auth= firebase.auth();

@@ -33,20 +33,17 @@ function  App(){
   firebase.auth().onAuthStateChanged( user => {
     if (user) {
         console.log("logedin")
-        localStorage.setItem('user',user.uid)
-        console.log(localStorage.getItem('user'))
+        sessionStorage.setItem('user',true)
         }
     else
       {
-        localStorage.clear("user")
-        console.log(localStorage.getItem('user'))
-        console.log("not logged in")
+        sessionStorage.clear("user")
       }
     })
     
   
    function  getAuth() {
-    if(localStorage.getItem("user"))
+    if(sessionStorage.getItem("user"))
     {
        return true
     }
