@@ -33,7 +33,7 @@ function  App(){
   firebase.auth().onAuthStateChanged( user => {
     if (user) {
         console.log("logedin")
-        sessionStorage.setItem('user',true)
+        sessionStorage.setItem('user',user.uid)
         }
     else
       {
@@ -43,7 +43,7 @@ function  App(){
     
   
    function  getAuth() {
-    if(sessionStorage.getItem("user"))
+    if(sessionStorage.getItem("user")==='6GlRm12v5gbheHzYP9jXq38bNjf2')
     {
        return true
     }
