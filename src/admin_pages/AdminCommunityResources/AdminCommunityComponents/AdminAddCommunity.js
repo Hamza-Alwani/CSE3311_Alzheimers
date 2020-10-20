@@ -137,7 +137,7 @@ function AdminAddCommunity() {
                      <Form.Label>Language</Form.Label>
                   </Form.Group>
                   <ToggleButtonGroup  className="lang-buttons" id="lang-buttons" type="radio" name="lang-button-name" value={selectedLang} onChange={handleChange}>
-                        <ToggleButton value={'EN'}>English</ToggleButton>
+                        
                         <ToggleButton value={'KO'}>Korean</ToggleButton>
                         <ToggleButton value={'ZH'}>Chinese</ToggleButton>
                   </ToggleButtonGroup>
@@ -224,7 +224,7 @@ const StyleCommunityContainer = styled.nav`
 /* Downdown */
 .dropdown a
 {
-   color: var(--mainBlack);
+   ${'' /* color: var(--mainBlack); */}
    margin: 0 auto;
 }
 

@@ -16,7 +16,7 @@ import Dropdown from 'react-bootstrap/Dropdown'
 //css
 import '../../../css/main.css'
 
-   const lang = ['EN','KO','ZH'];
+   const lang = ['KO','ZH'];
    // maybe think of a better way of doing this
    const stateDropDownList = [
       'Alabama',
@@ -90,7 +90,7 @@ function AdminUpdateCommunity() {
    const [selectedCity, setSelectedCity] = useState('Dallas');
    const [selectedKey, setSelectedKey] = useState('nothign yet');
    // language can only be 'EN' 'KO' 'ZH'
-   const [selectedLang, setSelectedLang] = useState('EN');
+   const [selectedLang, setSelectedLang] = useState('Pick a Language');
 
   // Pulls a list of all the U.S States in firebase - works
   useEffect(() => {
@@ -393,7 +393,7 @@ const StyleCommunityContainer = styled.div`
 /* Downdown */
 .dropdown a
 {
-  color: var(--mainBlack);
+  ${'' /* color: var(--mainBlack); */}
   margin: 0 auto;
 }
 

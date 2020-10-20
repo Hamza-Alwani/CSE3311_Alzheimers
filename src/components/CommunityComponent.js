@@ -38,7 +38,7 @@ function CommunityComponent() {
   const [selectedCity, setSelectedCity] = useState('Dallas'); // Bug - list doesn't load up if 'Dallas' doesn't exist anymore in firebase 
 
   // language can only be 'EN' 'KO' 'ZH'
-  const [selectedLang, setSelectedLang] = useState('EN');
+  const [selectedLang, setSelectedLang] = useState('ALL');
   const handleChange = (val) => setSelectedLang(val); // use with id='lang-buttons' to select the correct language on the website
 
   // Pulls a list of all the U.S States in firebase - works
@@ -49,9 +49,9 @@ function CommunityComponent() {
     setStateList([])
     setCityList([])
     console.log(stateList);
-    if(selectedLang == 'EN')
+    if(selectedLang == 'ALL')
     {
-      console.log("english");
+      console.log("all");
       rootRef.on('value', snap => {
           snap.forEach(function(state) {
             setStateList(stateList => [...stateList, state.key]);
@@ -115,11 +115,13 @@ function CommunityComponent() {
     // Bug: Possible Future Bug - since we don't have more than one place in a city it's okay to use forEach right now
     rootRef.on('value', snap => {
               snap.child(selectedCity).forEach(id => {
-                setName(id.child(selectedLang).child("name").val());
-                setPhone(id.child(selectedLang).child("phone").val());
-                setAddress(id.child(selectedLang).child("address").val());
-                setWebsite(id.child(selectedLang).child("website").val());
-                setGoogleMap(id.child(selectedLang).child("googleMap").val());
+                id.forEach(lang => {
+                  setName(lang.child("name").val());
+                  setPhone(lang.child("phone").val());
+                  setAddress(lang.child("address").val());
+                  setWebsite(lang.child("website").val());
+                  setGoogleMap(lang.child("googleMap").val());
+                })
               })
     }); 
   }, [selectedState, selectedCity, selectedLang])
@@ -179,7 +181,7 @@ function CommunityComponent() {
                 Community Resources
         </div>
         <ToggleButtonGroup style={{float:"right"}} id="lang-buttons" type="radio" name="lang-button-name" value={selectedLang} onChange={handleChange}>
-          <ToggleButton value={'EN'}>English</ToggleButton>
+          <ToggleButton value={'ALL'}>All</ToggleButton>
           <ToggleButton value={'KO'}>Korean</ToggleButton>
           <ToggleButton value={'ZH'}>Chinese</ToggleButton>
         </ToggleButtonGroup>
