@@ -49,19 +49,19 @@ function AdminAddCommunity() {
             <Form onSubmit={add_button_pressed} className="admin-form">
                   <Form.Group>
                      <Form.Label>Name</Form.Label>
-                     <Form.Control type="name" id="title" placeholder="name" />
+                     <Form.Control type="name" id="title" placeholder="Name" />
                   </Form.Group>
                   <Form.Group>
                      <Form.Label>Description</Form.Label>
-                     <Form.Control type="name" id="description" placeholder="address" />
+                     <Form.Control type="name" id="description" placeholder="Text" />
                   </Form.Group>
                   <Form.Group>
                      <Form.Label>Picture URL</Form.Label>
-                     <Form.Control type="name" id="pic" placeholder="address" />
+                     <Form.Control type="name" id="pic" placeholder="URL.jpg" />
                   </Form.Group>
                   <Form.Group>
                      <Form.Label>Website URL</Form.Label>
-                     <Form.Control type="name" id="website" placeholder="address" />
+                     <Form.Control type="name" id="website" placeholder="URL" />
                   </Form.Group>
                   
                   <Button onClick={() => add_button_pressed}variant="primary" type="submit" className="submit">Add</Button>
@@ -87,9 +87,8 @@ CustomToggle.propTypes =
 CustomToggle.displayName="CustomDropdownToggle";
 
 
-
+// Once all the text are filled out then this function is called to submit the information to firebase.
 function add_button_pressed(){ 
-
     if( document.getElementById("title").value && 
         document.getElementById("description").value &&
         document.getElementById("pic").value &&

@@ -94,19 +94,19 @@ function AdminAddCommunity() {
 
                     <Form.Group>
                         <Form.Label>Name</Form.Label>
-                        <Form.Control type="name" id="title"  defaultValue={title} />
+                        <Form.Control type="name" id="title-update"  defaultValue={title} />
                     </Form.Group>
                     <Form.Group>
                         <Form.Label>Description</Form.Label>
-                        <Form.Control type="name" id="description" defaultValue={description}  />
+                        <Form.Control type="name" id="description-update" defaultValue={description}  />
                     </Form.Group>
                     <Form.Group>
                         <Form.Label>Picture URL</Form.Label>
-                        <Form.Control type="name" id="pic" defaultValue={picture}  />
+                        <Form.Control type="name" id="pic-update" defaultValue={picture}  />
                     </Form.Group>
                     <Form.Group>
                         <Form.Label>Website URL</Form.Label>
-                        <Form.Control type="name" id="website" defaultValue={website} />
+                        <Form.Control type="name" id="website-update" defaultValue={website} />
                     </Form.Group>
                     
                     <Button onClick={() => update_button(articleKey)} variant="primary" type="submit" className="submit">Update</Button>
@@ -135,17 +135,17 @@ CustomToggle.displayName="CustomDropdownToggle";
 
 function update_button(articleKey){ 
 
-    if( document.getElementById("title").value && 
-        document.getElementById("description").value &&
-        document.getElementById("pic").value &&
-        document.getElementById("website").value)
+    if( document.getElementById("title-update").innerHTML && 
+        document.getElementById("description-update").innerHTML &&
+        document.getElementById("pic-update").innerHTML &&
+        document.getElementById("website-update").innerHTML)
     {
         // var key=firebase.database().ref('Article').push().key;
         firebase.database().ref('Article/'+articleKey).set({
-            title:      document.getElementById("title").value,
-            disc:       document.getElementById("description").value,
-            pic:        document.getElementById("pic").value,
-            website:    document.getElementById("website").value,
+            title:      document.getElementById("title-update").value,
+            disc:       document.getElementById("description-update").value,
+            pic:        document.getElementById("pic-update").value,
+            website:    document.getElementById("website-update").value,
         },function(error){
             if(error){
             window.alert("failed");
