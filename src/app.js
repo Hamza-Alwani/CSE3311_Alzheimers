@@ -32,10 +32,8 @@ import  firebase from './components/firebase';
 
 
 function  App(){
-  
-
-
-
+ 
+ 
   firebase.auth().onAuthStateChanged( user => {
     if (user) {
         console.log("logedin")
@@ -43,7 +41,7 @@ function  App(){
         }
     else
       {
-        sessionStorage.clear("user")
+        sessionStorage.removeItem("user")
       }
     })
     
