@@ -1,12 +1,12 @@
 /// summary
-///   In development - admin page where the admin can create, delete, edit features fpr CommunityResources Page.
+///   Component of Admin_CommunityResources.js
+///      Used to add a new facility to firebase
 /// summary
 
-// import React, { Component } from 'react';
-import React, {useState, useEffect } from 'react';
+import React, {useState} from 'react';
 import styled from 'styled-components'
 
-// components
+// bootstrap components
 import  firebase from '../../../components/firebase';
 import { Button } from 'react-bootstrap';
 import Table from 'react-bootstrap/Table'
@@ -18,7 +18,7 @@ import ToggleButton from 'react-bootstrap/ToggleButton'
 //css
 import '../../../css/admin.css'
 
-// maybe think of a better way of doing this
+// Used with state dropdown and forces the admin to only pick from this list.
 const stateDropDownList = [
    'Alabama',
    'Alaska',
@@ -76,14 +76,15 @@ const stateDropDownList = [
 
 
 function AdminAddCommunity() {
-   // Data selected by user
+   // Initialize the first State the user will see and eventually allow them to select their own State to see facility 
    const [selectedState, setSelectedState] = useState('Texas');
 
-   // language can only be 'EN' 'KO' 'ZH'
+   // Language can only be 'EN' 'KO' 'ZH' and is updated via eventhandler one line below
    const [selectedLang, setSelectedLang] = useState('EN');
    const handleChange = (val) => setSelectedLang(val); // use with id='lang-buttons' to select the correct language on the website
 
-   // Pulls all the U.S States on firebase that exist and creates a dropdown list to select from
+
+   // Pulls all existing U.S States on firebase creates a dropdown list to select from
    const DropdownStates = ({ nameList }) => {
      return (
        <Dropdown>
@@ -104,14 +105,17 @@ function AdminAddCommunity() {
    return (
       <div className="admin-community">
          <StyleCommunityContainer>
-            {/* Drop down to pick citys */}
+            
+
             <Form className="admin-form">
-               
-      
+
+               {/* Form for Name */}
                <Form.Group>
                   <Form.Label>Name</Form.Label>
                   <Form.Control type="name" id="name"  />
                </Form.Group>
+
+               {/* Drop down to pick a State form */}
                <Form.Group>
                   <Form.Label>State</Form.Label>
                   <Table striped bordered hover className="state-dropdown-table">
@@ -124,36 +128,49 @@ function AdminAddCommunity() {
                      </thead>
                   </Table>
                </Form.Group>
+
+               {/* Form for city */}
                <Form.Group>
                   <Form.Label>City</Form.Label>
                   <Form.Control type="name" id="city"  />
                </Form.Group>
+
+               {/* Form for address */}
                <Form.Group>
                   <Form.Label>Address</Form.Label>
                   <Form.Control type="name" id="address"  />
                </Form.Group>
+
+               {/* Form for langauge */}
                <div className="language-button-group">
                   <Form.Group className="language-label">
                      <Form.Label>Language</Form.Label>
                   </Form.Group>
                   <ToggleButtonGroup  className="lang-buttons" id="lang-buttons" type="radio" name="lang-button-name" value={selectedLang} onChange={handleChange}>
-                        
                         <ToggleButton value={'KO'}>Korean</ToggleButton>
                         <ToggleButton value={'ZH'}>Chinese</ToggleButton>
                   </ToggleButtonGroup>
                </div>
+
+               {/* Form for google map */}
                <Form.Group>
                   <Form.Label>Google Map</Form.Label>
                   <Form.Control type="name" id="googleMap" />
                </Form.Group>
+
+               {/* Form for phone number */}
                <Form.Group>
                   <Form.Label>Phone</Form.Label>
                   <Form.Control type="name" id="phone" />
                </Form.Group>
+
+               {/* Form for website */}
                <Form.Group>
                   <Form.Label>Website</Form.Label>
                   <Form.Control type="name" id="website" />
                </Form.Group>
+
+               {/* Button to submit the form - additional information: used with the add_button_pressed function defined in this file. */}
                <Button onClick={() => add_button_pressed(selectedLang)} variant="primary" type="" className="submit">Add</Button>
             </Form>
          </StyleCommunityContainer>
@@ -163,6 +180,10 @@ function AdminAddCommunity() {
  export default AdminAddCommunity;
 
 
+// Customize how the dropdown menu looks
+//    Additonal Information
+//       - Defines propType so information passed in is double checked before used.
+//       - React requires a displayName to tell components apart
 const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
    <a href="/" ref={ref} onClick={(e) => {e.preventDefault();onClick(e);}}>
       <div id="state">{children}</div>
@@ -170,7 +191,7 @@ const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
    ));
 CustomToggle.propTypes = 
 {
-   // fixing prop type erros but idk how too yet 
+   // Need correct propType below - warning currently unknown how to solve.
    // children: Array,
    // onClick, I don't know what type this is 
 }
@@ -181,7 +202,7 @@ CustomToggle.displayName="CustomDropdownToggle";
 
 
 
-
+// When called looks for specific IDs in the HTML and pulls the values to be sent to firebase
 function add_button_pressed(selectedLang)
 { 
    if(document.getElementById("name").value && 

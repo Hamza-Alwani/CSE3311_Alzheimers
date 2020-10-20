@@ -1,5 +1,6 @@
 /// summary
-///   In development - main admin page where the admin can create, delete, edit features.
+///   Admin home page
+///      -  Currently the admin home page features nothing but will be used to display statistics about the website in the future
 /// summary
 
 import React from 'react';
@@ -10,22 +11,13 @@ import Nav from '../components/Admin_nav';
 //css
 import '../css/main.css'
 
-
-
-
-
-
 function Admin_Home()
 {
-
    return(
          <div>
             <Nav/>
-            
          </div>
-   
    )
-
 }
 
 export default Admin_Home

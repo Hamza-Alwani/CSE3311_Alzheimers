@@ -17,25 +17,7 @@ import Dropdown from 'react-bootstrap/Dropdown'
 import '../../../css/admin.css'
 
 
-function AdminAddCommunity() {
-
-   // Data selected by user
-   const [selectedState, setSelectedState] = useState('Texas');
-
-   // Pulls all the U.S States on firebase that exist and creates a dropdown list to select from
-   const DropdownStates = ({ nameList }) => {
-     return (
-       <Dropdown>
-         <Dropdown.Toggle as={CustomToggle} id="dropdown-custom-components" className="dropdown-button">{selectedState}</Dropdown.Toggle>
-         <Dropdown.Menu className="dropdown-menu">
-           {nameList.map((state, index) => (
-             <Dropdown.Item  onClick={() => {setSelectedState(state)}} key={index}>{state}</Dropdown.Item>
-           ))}
-         </Dropdown.Menu>
-       </Dropdown>
-     );
-   };
-   
+function AdminAddDementia() {
 
  ///////////////////////////////////////////////////////////////////////////////////////
    
@@ -47,32 +29,40 @@ function AdminAddCommunity() {
 
             {/* Drop down to pick citys */}
             <Form onSubmit={add_button_pressed} className="admin-form">
-                  <Form.Group>
-                     <Form.Label>Name</Form.Label>
-                     <Form.Control type="name" id="title" placeholder="Name" />
-                  </Form.Group>
-                  <Form.Group>
-                     <Form.Label>Description</Form.Label>
-                     <Form.Control type="name" id="description" placeholder="Text" />
-                  </Form.Group>
-                  <Form.Group>
-                     <Form.Label>Picture URL</Form.Label>
-                     <Form.Control type="name" id="pic" placeholder="URL.jpg" />
-                  </Form.Group>
-                  <Form.Group>
-                     <Form.Label>Website URL</Form.Label>
-                     <Form.Control type="name" id="website" placeholder="URL" />
-                  </Form.Group>
-                  
-                  <Button onClick={() => add_button_pressed}variant="primary" type="submit" className="submit">Add</Button>
-               </Form>
+               {/* Form for Name */}
+               <Form.Group>
+                  <Form.Label>Name</Form.Label>
+                  <Form.Control type="name" id="title" placeholder="Name" />
+               </Form.Group>
+
+               {/* Form for Description */}
+               <Form.Group>
+                  <Form.Label>Description</Form.Label>
+                  <Form.Control type="name" id="description" placeholder="Text" />
+               </Form.Group>
+
+               {/* Form for Picture URL */}
+               <Form.Group>
+                  <Form.Label>Picture URL</Form.Label>
+                  <Form.Control type="name" id="pic" placeholder="URL.jpg" />
+               </Form.Group>
+
+               {/* Form for Website URL */}
+               <Form.Group>
+                  <Form.Label>Website URL</Form.Label>
+                  <Form.Control type="name" id="website" placeholder="URL" />
+               </Form.Group>
+               
+               {/* Button to submit the form - additional information: used with the add_button_pressed function defined in this file. */}
+               <Button onClick={() => add_button_pressed}variant="primary" type="submit" className="submit">Add</Button>
+            </Form>
          </StyleCommunityContainer>
       </div>
    );
  }
- export default AdminAddCommunity;
+ export default AdminAddDementia;
 
-
+// Customize style of dropdowns
 const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
    <a href="/" ref={ref} onClick={(e) => {e.preventDefault();onClick(e);}}>
       <div id="state">{children}</div>
@@ -113,7 +103,6 @@ function add_button_pressed(){
     {
         window.alert("failed. Make sure all fields are full");
     }
-
 }
 
 

@@ -17,9 +17,8 @@ import Table from 'react-bootstrap/Table'
 import '../../../css/admin.css'
 
 
-function AdminAddCommunity() {
+function AdminDeleteDementia() {
 
-    // Data pulled from server
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [picture, setPicture] = useState('');
@@ -91,28 +90,36 @@ function AdminAddCommunity() {
                         </thead>
                     </Table>
 
+                    {/* Form for Name */}
                     <Form.Group>
                         <Form.Label>Name: {title}</Form.Label>
                     </Form.Group>
+
+                    {/* Form for Description */}
                     <Form.Group>
                         <Form.Label>Description: {description}</Form.Label>
                     </Form.Group>
+
+                    {/* Form for Picture URL */}
                     <Form.Group>
                         <Form.Label>Picture URL: {picture}</Form.Label>
                     </Form.Group>
+
+                    {/* Form for Website URL */}
                     <Form.Group>
                         <Form.Label>Website URL: {website}</Form.Label>
                     </Form.Group>
                     
+                    {/* Button used to delete the selected article ID once the key are selected */}
                     <Button onClick={() => delete_button(articleKey)} variant="danger" type="submit" className="submit">Delete</Button>
                </Form>
          </StyleCommunityContainer>
       </div>
    );
  }
- export default AdminAddCommunity;
+ export default AdminDeleteDementia;
 
-
+// Customize style of dropdowns
 const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
    <a href="/" ref={ref} onClick={(e) => {e.preventDefault();onClick(e);}}>
       <div id="title">{children}</div>

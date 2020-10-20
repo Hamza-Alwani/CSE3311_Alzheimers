@@ -1,5 +1,5 @@
 /// summary
-///   In development - main admin page where the admin can create, delete, edit features.
+///   Admin Login page - must enter in correct credentials to modify pages of Community Resources and Dementia Information
 /// summary
 
 import React, { useEffect } from 'react';
@@ -14,42 +14,43 @@ import Button from 'react-bootstrap/Button';
 // css
 import '../css/main.css'
 
-
-
-
 function AdminPage_login()
 {
-    useEffect(() => {
-       firstcheck();
-    })
+   useEffect(() => {
+      firstcheck();
+   })
+
    return(
-<AdminLoginStyle>
+      <AdminLoginStyle>
+         <div className="admin-login-container">
+            {/* Header of the page */}
+            <div className="login-header">
+               Admin Login
+            </div>
 
-   <div className="admin-login-container">
-      <div className="login-header">
-         Admin Login
-      </div>
-      <div className="login-divider"></div>
-      <Form className="admin-login-form">
-         <Form.Group controlId="exampleForm.ControlInput1">
-            <Form.Label>Email</Form.Label>
-            <Form.Control type="Emailaddress" id="email_txt" name="email_txt" placeholder="Email" />
-         </Form.Group>
+            {/* Admin login form */}
+            <div className="login-divider"></div>
+               <Form className="admin-login-form">
+                  <Form.Group controlId="exampleForm.ControlInput1">
+                     <Form.Label>Email</Form.Label>
+                     <Form.Control type="Emailaddress" id="email_txt" name="email_txt" placeholder="Email" />
+                  </Form.Group>
 
-         <Form.Group controlId="exampleForm.ControlInput1">
-            <Form.Label>Password</Form.Label>
-            <Form.Control type="password" id="pass_txt" name="pass_txt" placeholder="Password" />
-         </Form.Group>
+                  <Form.Group controlId="exampleForm.ControlInput1">
+                     <Form.Label>Password</Form.Label>
+                     <Form.Control type="password" id="pass_txt" name="pass_txt" placeholder="Password" />
+                  </Form.Group>
 
-         <Button varient="red"  onClick={login_press} type="" className="admin-login">Login</Button>
-      </Form>
-   </div>
-</AdminLoginStyle>
+                  <Button varient="red"  onClick={login_press} type="" className="admin-login">Login</Button>
+               </Form>
+            </div>
+      </AdminLoginStyle>
    );
 }
 
 export default AdminPage_login
 
+// Check if the user is already logged in
 function firstcheck(){
       if(sessionStorage.getItem("user"))
       {
@@ -57,6 +58,7 @@ function firstcheck(){
       }
 }
 
+// Login function to check with firebase so the user can login
 function login_press(){ 
    const email= document.getElementById("email_txt").value;
    const pass = document.getElementById("pass_txt").value;
@@ -70,6 +72,8 @@ function login_press(){
    })
 }
 
+
+// 'style-component package used for infile css'
 const AdminLoginStyle = styled.nav`
 
 .login-header

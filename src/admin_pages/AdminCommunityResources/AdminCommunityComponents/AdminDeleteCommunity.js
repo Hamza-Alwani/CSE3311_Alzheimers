@@ -23,18 +23,18 @@ function AdminDeleteCommunity() {
    const [phone, setPhone] = useState('');
    const [address, setAddress] = useState('');
    const [website, setWebsite] = useState('');
-   const [googleMap, setGoogleMap] = useState(''); // doing the hard way because the normal google maps api cost money
+   const [googleMap, setGoogleMap] = useState('');
 
-   const [stateList, setStateList] = useState([]); // list of all states in firebase
-   const [cityList, setCityList] = useState([]); // list of all city based on state in firebase
-   const [keyList, setKeyList] = useState([]); // list of all key based on state in firebase
+   const [stateList, setStateList] = useState([]);
+   const [cityList, setCityList] = useState([]);
+   const [keyList, setKeyList] = useState([]);
 
    // Data selected by user
    const [selectedState, setSelectedState] = useState('Pick a State');
    const [selectedCity, setSelectedCity] = useState('Pick a City');
    const [selectedKey, setSelectedKey] = useState('No Key Selected');
 
-  // Pulls a list of all the U.S States in firebase - works
+  // Pulls a list of all the U.S States that exist in firebase
   useEffect(() => {
     const database = firebase.database()
     const rootRef = database.ref("community");
@@ -46,7 +46,7 @@ function AdminDeleteCommunity() {
           });
   }, [])
 
-  // Pulls the requested data once state/city are selected
+  // Pulls a list of IDs once State/City are selected
    useEffect(() => {
       const database = firebase.database()
       const rootRef = database.ref("community/" + selectedState + '/' + selectedCity);
@@ -62,7 +62,7 @@ function AdminDeleteCommunity() {
 
   }, [selectedState, selectedCity])
 
-   // Pulls list of city for the specific state for the dropdown 
+   // Pulls list of city for the dropdown once the specific State is selected 
    useEffect(() => {
       const database = firebase.database()
       const rootRef = database.ref("community/" + selectedState );
@@ -74,7 +74,7 @@ function AdminDeleteCommunity() {
          });
    }, [selectedState])
 
-   // Pulls the requested data of the specific key
+   // Pulls the ID's informtion once ID is selected
    useEffect(() => {
       const database = firebase.database()
       const rootRef = database.ref("community/" + selectedState + '/' + selectedCity + '/' + selectedKey);
@@ -91,9 +91,8 @@ function AdminDeleteCommunity() {
 
    }, [selectedKey])
 
-
   
-  // Pulls all the U.S States on firebase that exist and creates a dropdown list to select from
+  // Creates a dropdown of all the States upon loading up the page
   const DropdownStates = ({ nameList }) => {
    return (
      <Dropdown>
@@ -115,7 +114,7 @@ function AdminDeleteCommunity() {
    );
  };
 
-  // Pulls all the city of the state
+  // Creates a dropdown of all the cities of the selected state
   const DropdownCity = ({ nameList }) => {
     return (
         <Dropdown>
@@ -129,7 +128,7 @@ function AdminDeleteCommunity() {
     );
   }
 
-  // Pulls all the key of the state
+  // Creates a dropdown of all the key of the selected city
   const DropdownKey = ({ nameList }) => {
    return (
        <Dropdown>
@@ -147,30 +146,46 @@ function AdminDeleteCommunity() {
    return (
       <div className="delete-information">
          <Form  className="location-general-info">
+            {/* Form for Name */}
             <Form.Group>
                <Form.Label>Name: {name}</Form.Label>
             </Form.Group>
+
+            {/* Form for Address */}
             <Form.Group>
                <Form.Label>Address: {address}</Form.Label>
             </Form.Group>
+
+            {/* Form for Google Map */}
             <Form.Group>
                <Form.Label>Google Map: {googleMap}</Form.Label>
             </Form.Group>
+
+            {/* Form for Phone */}
             <Form.Group>
                <Form.Label>Phone: {phone}</Form.Label>
             </Form.Group>
+
+            {/* Form for Website */}
             <Form.Group>
                <Form.Label>Website: {website}</Form.Label>
             </Form.Group>
+
+            {/* Button used to delete the selected ID once state, city, key are selected */}
             <Button onClick={() => delete_place(selectedState, selectedCity, selectedKey)} variant="danger" type="submit" className="submit">Delete Information</Button>
          </Form>
 
-         <div className="too-much-power">
+
+         {/* Seperate form for destructive actions
+               - Deleting entire City subtree
+               - Deleting entire State subtree
+          */}
+         <div className="delete-city-state-section">
             <Form  className="location-city">
                <Form.Group className="city-label">
                   <Form.Label>City: {selectedCity}</Form.Label>
                </Form.Group>
-               <Button onClick={() => delete_city(selectedState, selectedCity)} variant="danger" type="submit" className="delete-power">Delete City</Button>
+               <Button onClick={() => delete_city(selectedState, selectedCity)} variant="danger" type="submit" className="delete-button">Delete City</Button>
             </Form>
 
 
@@ -178,7 +193,7 @@ function AdminDeleteCommunity() {
                <Form.Group className="state-label">
                   <Form.Label>State: {selectedState}</Form.Label>
                </Form.Group>
-               <Button onClick={() => delete_state(selectedState)} variant="danger" type="submit" className="delete-power">Delete State</Button>
+               <Button onClick={() => delete_state(selectedState)} variant="danger" type="submit" className="delete-button">Delete State</Button>
             </Form>
          </div>
       </div>
@@ -221,17 +236,22 @@ function AdminDeleteCommunity() {
 
  
 
- const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
+// Customize how the dropdown menu looks
+//    Additonal Information
+//       - Defines propType so information passed in is double checked before used.
+//       - React requires a displayName to tell components apart
+const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
    <a href="/" ref={ref} onClick={(e) => {e.preventDefault();onClick(e);}}>
-     <div id="state">{children}</div>
+      <div id="state">{children}</div>
    </a>
- ));
- CustomToggle.propTypes = 
- {
+));
+CustomToggle.propTypes = 
+{
+   // Need correct propType below - warning currently unknown how to solve.
    // children: Array,
    // onClick, I don't know what type this is 
- }
- CustomToggle.displayName="CustomDropdownToggle";
+}
+CustomToggle.displayName="CustomDropdownToggle";
  
 
 
@@ -282,27 +302,22 @@ th
    width: 33.33%
 }
 
-
-.too-much-power
+.delete-city-state-section
 {
    margin-top: 10rem;
 }
-
-
 
 .city-label
 {
    margin: 0;
 }
 
-
-
 .state-label
 {
    margin: 0;
 }
 
-.delete-power
+.delete-button
 {
    margin-bottom: 1rem;
 }

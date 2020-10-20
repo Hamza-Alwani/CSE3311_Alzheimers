@@ -15,7 +15,6 @@ import Community_Resources_Page from './pages/CommunityResources'
 import Paget_Not_Found_Page from './pages/PageNotFound'
 //admins
 import Admin_Home from './admin_pages/Admin_Home'
-import Admin_Contact_us_Page from './admin_pages/Admin_ContactUs'
 import Admin_Outreach_Page from './admin_pages/Admin_Outreach'
 import Admin_Research_Page from './admin_pages/Admin_Research'
 import Admin_Dementia_Information_Page from './admin_pages/AdminDementiaInformation/Admin_DementiaInformation'
@@ -89,7 +88,6 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
                <PrivateRoute exact path="/Admin_Dementia_Information" component={Admin_Dementia_Information_Page} />
                <PrivateRoute exact path="/Admin_Research" component={Admin_Research_Page} />
                <PrivateRoute exact path="/Admin_Outreach" component={Admin_Outreach_Page} />
-               <PrivateRoute exact path="/Admin_Contact_us" component={Admin_Contact_us_Page} />
       
                <Route exact path ="/404" component={Paget_Not_Found_Page} />
                <Redirect to ="/404"/>
