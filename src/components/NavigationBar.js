@@ -52,7 +52,7 @@ function NavigationBar() {
         <Navbar.Collapse id="responsive-navbar-nav">
           {/* Main Navigation Bar - links to pages in use for the user. */}
           <Nav className="ml-auto">
-            <Nav.Link href="/"> Home </Nav.Link>
+            <Nav.Link href="/home"> Home </Nav.Link>
             <Nav.Link href="/Community_Resources"> Community Resources  </Nav.Link>
             <Nav.Link href="/Dementia_Information">Dementia Information </Nav.Link>
             <Nav.Link href="/Research">            Research             </Nav.Link>

@@ -1,42 +1,41 @@
-import React, {useState, useEffect } from 'react';
+import React, {useState} from 'react';
 
 import {Modal, Button} from 'react-bootstrap'
-import { render } from 'react-dom';
 
-function Example() {
+
+function LanguagePopUp() {
     const [show, setShow] = useState(false);
   
     function English(){
         sessionStorage.setItem('lang','en')
         setShow(false)
+        window.location.href="/home"
 
     }
 
     function Chinese(){
         sessionStorage.setItem('lang','ch')
         setShow(false)
+        window.location.href="/home"
     }
 
     function Korean()
     {
         sessionStorage.setItem("lang",'ko')
         setShow(false)
+        window.location.href="/home"
     }
-    
-    const handleShow = () => setShow(true);
   
 
     return (
       <>
-        <Button variant="primary" onClick={handleShow}>
-          Launch demo modal
-        </Button>
-  
-        <Modal show={show} onHide={English}>
+        <Modal show={true} onHide={English}>
           <Modal.Header closeButton>
-            <Modal.Title>Modal heading</Modal.Title>
+            <Modal.Title> Select a langugae </Modal.Title>
           </Modal.Header>
-          <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+          <Modal.Body>Please Select a language 
+            <br></br>请选择语言
+            <br></br>언어를 선택하세요  </Modal.Body>
           <Modal.Footer>
             
             <Button variant="primary" onClick={English}>
@@ -44,11 +43,11 @@ function Example() {
             </Button>
 
             <Button variant="primary" onClick={Chinese}>
-                Chinese
+              中文
             </Button>
 
-            <Button variant="primary" onClick={Korean}>
-                Korean
+            <Button variant="primary" onClick={Korean}>             
+              한국어
             </Button>
           </Modal.Footer>
         </Modal>
@@ -57,4 +56,4 @@ function Example() {
   }
  
 
-  export default Example
+  export default LanguagePopUp

@@ -21,22 +21,18 @@ import Admin_Research_Page from './admin_pages/Admin_Research'
 import Admin_Dementia_Information_Page from './admin_pages/AdminDementiaInformation/Admin_DementiaInformation'
 import Admin_Community_Resources_Page from './admin_pages/AdminCommunityResources/Admin_CommunityResources'
 import Admin_login from './admin_pages/Admin_login'
+import LanguagePopUp from './components/LanguagePopUp'
 
 import  firebase from './components/firebase';
 
 
-import Example from './components/LanguagePopUp'
 
-import LanguagePopUp from './components/LanguagePopUp'
+
 
 
 
 function  App(){
   
-  if(sessionStorage.getItem('lang'))
-  {
-    return      <LanguagePopUp/>
-  }
 
 
 
@@ -63,6 +59,19 @@ function  App(){
     }
    }
   
+  
+
+   function islang(){
+    if(sessionStorage.getItem("lang"))
+    {
+       return true
+    }
+    else
+    {
+      return false
+    }
+   }
+   
 
 
 
@@ -84,16 +93,36 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
 );
 
 
+
+const LangCheck = ({ component: Component, ...rest }) => (
+  <Route
+    {...rest} 
+    render={props =>
+      islang()? (
+        <Component/>
+      ) : (
+        <Redirect
+          to={{
+            pathname: "/"
+          }}
+        />
+      )
+    }
+  />
+);
+
+
    return(    
          <Router>
             <Switch>
-               <Route exact path="/" component={Example} />
-               <Route exact path="/Community_Resources" component={Community_Resources_Page} />
-               <Route exact path="/Dementia_Information" component={Dementia_Information_Page} />
-               <Route exact path="/Research" component={Research_Page} />
-               <Route exact path="/Outreach" component={Outreach_Page} />
-               <Route exact path="/Contact_us" component={Contact_us_Page} />
-               <Route exact path ="/Admin_login" component={Admin_login} />
+               <Route exact path="/" component={LanguagePopUp}/>
+               <LangCheck exact path="/home" component={Main_Page} />
+               <LangCheck exact path="/Community_Resources" component={Community_Resources_Page} />
+               <LangCheck exact path="/Dementia_Information" component={Dementia_Information_Page} />
+               <LangCheck exact path="/Research" component={Research_Page} />
+               <LangCheck exact path="/Outreach" component={Outreach_Page} />
+               <LangCheck exact path="/Contact_us" component={Contact_us_Page} />
+               <LangCheck exact path ="/Admin_login" component={Admin_login} />
                <PrivateRoute exact path ="/Admin_Home" component={Admin_Home} />
                <PrivateRoute exact path="/Admin_Community_Resources" component={Admin_Community_Resources_Page} />
                <PrivateRoute exact path="/Admin_Dementia_Information" component={Admin_Dementia_Information_Page} />
