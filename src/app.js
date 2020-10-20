@@ -25,9 +25,19 @@ import Admin_login from './admin_pages/Admin_login'
 import  firebase from './components/firebase';
 
 
+import Example from './components/LanguagePopUp'
+
+import LanguagePopUp from './components/LanguagePopUp'
+
+
 
 function  App(){
   
+  if(sessionStorage.getItem('lang'))
+  {
+    return      <LanguagePopUp/>
+  }
+
 
 
   firebase.auth().onAuthStateChanged( user => {
@@ -77,7 +87,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
    return(    
          <Router>
             <Switch>
-               <Route exact path="/" component={Main_Page} />
+               <Route exact path="/" component={Example} />
                <Route exact path="/Community_Resources" component={Community_Resources_Page} />
                <Route exact path="/Dementia_Information" component={Dementia_Information_Page} />
                <Route exact path="/Research" component={Research_Page} />

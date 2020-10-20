@@ -42,7 +42,6 @@ function OutreachComponent() {
            */}
           <OutreachContainer>
             <div className="kakaochat-div">
-
               <Card>
                 <Card.Header>KaKaoTalk</Card.Header>
                 <Card.Body>
@@ -60,6 +59,7 @@ function OutreachComponent() {
               </Card>
             </div>
           </OutreachContainer>
+          <b>test</b>
         </div>
   );
 }

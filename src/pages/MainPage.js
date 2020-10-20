@@ -12,8 +12,11 @@ import Welcome from '../components/Welcome';
 import Footer from '../components/Footer';
 
 
+
+
+
 function MainPage (){
-      return(
+   return(
          <div className="all-content">
             {/* Components */}
             <Nav></Nav>
@@ -22,5 +25,4 @@ function MainPage (){
          </div>
       );
    }
-
 export default MainPage
