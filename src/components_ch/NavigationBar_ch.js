@@ -50,13 +50,13 @@ function NavigationBar() {
         <Navbar.Collapse id="responsive-navbar-nav">
           {/* Main Navigation Bar - links to pages in use for the user. */}
           <Nav className="ml-auto">
-            <Nav.Link href="/home_ch"> Home </Nav.Link>
-            <Nav.Link href="/Community_Resources_ch"> Community Resources  </Nav.Link>
-            <Nav.Link href="/Dementia_Information_ch">Dementia Information </Nav.Link>
-            <Nav.Link href="/Research_ch">            Research             </Nav.Link>
-            <Nav.Link href="/Outreach_ch">            Outreach             </Nav.Link>
-            <Nav.Link href="/contact_us_ch">          Contact Us           </Nav.Link>
-            <Nav.Link href="/about_us_ch">            About Us           </Nav.Link>
+            <Nav.Link href="/home_ch"> 家 </Nav.Link>
+            <Nav.Link href="/Community_Resources_ch">  社区资源  </Nav.Link>
+            <Nav.Link href="/Dementia_Information_ch"> 痴呆症信息  </Nav.Link>
+            <Nav.Link href="/Research_ch">            研究            </Nav.Link>
+            <Nav.Link href="/Outreach_ch">            外展             </Nav.Link>
+            <Nav.Link href="/contact_us_ch">          联系我们           </Nav.Link>
+            <Nav.Link href="/about_us_ch">            关于我们           </Nav.Link>
           </Nav> 
 
           {/* Language drop down */}
