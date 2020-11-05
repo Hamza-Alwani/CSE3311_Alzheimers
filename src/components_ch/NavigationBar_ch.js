@@ -1,29 +1,25 @@
 /// summary
 ///
-///	Admin Navigation bar 
-///   - This component is used to navigate accross only the admin's pages website.
+///	Navigation bar 
+///   - This component is used to navigate accross the entire website.
 ///
 /// summary
 
 import React from 'react';
 import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Button from 'react-bootstrap/Button';
 import styled from 'styled-components'
 
-import  firebase from '../components/firebase';
 // bootstrap components
 import { Navbar, Nav, NavDropdown} from 'react-bootstrap';
 
 // css
 import '../css/main.css';
 
-// image - Used later when we find a permanent image
-import logo from '../pictures/logo1.png';
 
 
 
-function AdminNavigationBar() {
+function NavigationBar() {
   return (
     // NavigationContainer is a style-component used to give the Nav bar css styles.
     <NavigationContainer>
@@ -53,18 +49,25 @@ function AdminNavigationBar() {
         {/* Links below */}
         <Navbar.Collapse id="responsive-navbar-nav">
           {/* Main Navigation Bar - links to pages in use for the user. */}
-          <Nav className="mr-auto">
-            <Nav.Link href="/Admin_Community_Resources"> Community Resources  </Nav.Link>
-            <Nav.Link href="/Admin_Dementia_Information">Dementia Information </Nav.Link>
-            {/* <Nav.Link href="/Admin_Research">            Research             </Nav.Link> */}
-            {/* <Nav.Link href="/Admin_Outreach">            Outreach             </Nav.Link> */}
-            {/* <Nav.Link href="/Admin_contact_us">          Contact Us           </Nav.Link> */}
+          <Nav className="ml-auto">
+            <Nav.Link href="/home_ch"> Home </Nav.Link>
+            <Nav.Link href="/Community_Resources_ch"> Community Resources  </Nav.Link>
+            <Nav.Link href="/Dementia_Information_ch">Dementia Information </Nav.Link>
+            <Nav.Link href="/Research_ch">            Research             </Nav.Link>
+            <Nav.Link href="/Outreach_ch">            Outreach             </Nav.Link>
+            <Nav.Link href="/contact_us_ch">          Contact Us           </Nav.Link>
+            <Nav.Link href="/about_us_ch">            About Us           </Nav.Link>
           </Nav> 
 
           {/* Language drop down */}
-          <Nav>
-          <Button varient="danger"  onClick={logout_pressed} type="" className="submit">Logout</Button>
-          </Nav>
+          {/* Move this later */}
+          {/* <Nav>
+            <NavDropdown title="Language" id="collasible-nav-dropdown">
+              <NavDropdown.Item href="#lang/EN">English</NavDropdown.Item>
+              <NavDropdown.Item href="#lang/KO">한국어</NavDropdown.Item>
+              <NavDropdown.Item href="#lang/ZH">中文</NavDropdown.Item>
+            </NavDropdown>
+          </Nav> */}
         </Navbar.Collapse>
       </Navbar>
       <div className="nav-spacer"></div>
@@ -72,14 +75,7 @@ function AdminNavigationBar() {
   );
 }
 
-export default AdminNavigationBar;
-
-function logout_pressed(){
-   
-  firebase.auth().signOut()
-  window.location.href="/"
- 
-}
+export default NavigationBar;
 
 // 'style-component package used for infile css'
 const NavigationContainer = styled.div`
@@ -117,7 +113,7 @@ ${'' /* Creates a push below the navigation below so nothing is touching */}
   color: #fbfbfb; 
 }
 .navbar .navbar-nav .nav-link {
-  color: #007bff;
+  color: #dd3928;
   border-radius: .25rem;
   margin: 0 1rem;
 }

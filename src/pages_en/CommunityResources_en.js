@@ -8,9 +8,9 @@
 import React from 'react';
 
 // components
-import Nav from '../components/NavigationBar';
-import CommunityComponent from '../components/CommunityComponent';
-import Footer from '../components/Footer'; 
+import Nav from '../components_en/NavigationBar_en';
+import CommunityComponent from '../components_en/CommunityComponent_en';
+import Footer from '../components_en/Footer_en'; 
 
 //css
 import '../css/main.css'

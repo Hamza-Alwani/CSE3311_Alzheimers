@@ -9,21 +9,21 @@ function LanguagePopUp() {
     function English(){
         sessionStorage.setItem('lang','en')
         setShow(false)
-        window.location.href="/home"
+        window.location.href="/home_en"
 
     }
 
     function Chinese(){
         sessionStorage.setItem('lang','ch')
         setShow(false)
-        window.location.href="/home"
+        window.location.href="/home_ch"
     }
 
     function Korean()
     {
         sessionStorage.setItem("lang",'ko')
         setShow(false)
-        window.location.href="/home"
+        window.location.href="/home_ko"
     }
   
 

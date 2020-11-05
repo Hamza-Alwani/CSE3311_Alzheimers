@@ -7,9 +7,9 @@
 
 import React from 'react';
 // components
-import Nav from '../components/NavigationBar';
-import Welcome from '../components/Welcome';
-import Footer from '../components/Footer';
+import Nav from '../components_ko/NavigationBar_ko';
+import Welcome from '../components_ko/Welcome_ko';
+import Footer from '../components_ko/Footer_ko';
 
 
 

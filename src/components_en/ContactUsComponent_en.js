@@ -7,8 +7,11 @@
 
 import React from 'react';
 import styled from 'styled-components'
-import firebase from'../components/firebase'
 import emailjs from 'emailjs-com'
+
+
+//firebase
+import firebase from'../shared_comps/firebase'
 
 // bootstrap 
 import Form from 'react-bootstrap/Form'
@@ -16,6 +19,8 @@ import Button from 'react-bootstrap/Button';
 
 // css
 import '../css/main.css'; 
+
+
 
 // Basic form component used to take the user's input and later send to admin page/email
 function ContactUsComponent() {

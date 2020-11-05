@@ -17,7 +17,7 @@ import { Navbar, Nav, NavDropdown} from 'react-bootstrap';
 import '../css/main.css';
 
 // image - Used later when we find a permanent image
-import logo from '../pictures/logo1.png';
+
 
 
 
@@ -52,12 +52,13 @@ function NavigationBar() {
         <Navbar.Collapse id="responsive-navbar-nav">
           {/* Main Navigation Bar - links to pages in use for the user. */}
           <Nav className="ml-auto">
-            <Nav.Link href="/home"> Home </Nav.Link>
-            <Nav.Link href="/Community_Resources"> Community Resources  </Nav.Link>
-            <Nav.Link href="/Dementia_Information">Dementia Information </Nav.Link>
-            <Nav.Link href="/Research">            Research             </Nav.Link>
-            <Nav.Link href="/Outreach">            Outreach             </Nav.Link>
-            <Nav.Link href="/contact_us">          Contact Us           </Nav.Link>
+            <Nav.Link href="/home_en"> Home </Nav.Link>
+            <Nav.Link href="/Community_Resources_en"> Community Resources  </Nav.Link>
+            <Nav.Link href="/Dementia_Information_en">Dementia Information </Nav.Link>
+            <Nav.Link href="/Research_en">            Research             </Nav.Link>
+            <Nav.Link href="/Outreach_en">            Outreach             </Nav.Link>
+            <Nav.Link href="/contact_us_en">          Contact Us           </Nav.Link>
+            <Nav.Link href="/about_us_en">            About Us           </Nav.Link>
           </Nav> 
 
           {/* Language drop down */}

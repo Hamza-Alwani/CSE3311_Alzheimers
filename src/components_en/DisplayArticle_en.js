@@ -9,11 +9,11 @@ import React, {useState, useEffect} from 'react';
 import styled from 'styled-components'
 
 // components
-import Article from '../components/Article'
+import Article from '../components_en/Article_en'
 import CardDeck from 'react-bootstrap/CardDeck'
 
 // firebase imports
-import firebase from '../components/firebase';
+ import firebase from '../shared_comps/firebase';
 
 // css
 import '../css/main.css'; 

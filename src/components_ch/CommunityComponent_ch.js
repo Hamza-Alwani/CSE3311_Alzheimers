@@ -9,7 +9,7 @@ import React, {useState, useEffect } from 'react';
 import styled from 'styled-components'
 
 // firebase imports
-import firebase from '../components/firebase';
+ import firebase from '../shared_comps/firebase';
 
 // bootstrap components
 import Table from 'react-bootstrap/Table'

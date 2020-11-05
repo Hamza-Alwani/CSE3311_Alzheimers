@@ -7,11 +7,10 @@
 
 import React from 'react';
 // components
-import Nav from '../components/NavigationBar';
-import ContactUsComponent from '../components/ContactUsComponent';
-import Footer from '../components/Footer';
+import Nav from '../components_en/NavigationBar_en';
+import ContactUsComponent from '../components_en/ContactUsComponent_en';
+import Footer from '../components_en/Footer_en';
 
-// firebase 
 
 
 function ContactUs() { 

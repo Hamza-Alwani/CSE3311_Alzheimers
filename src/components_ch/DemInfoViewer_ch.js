@@ -9,7 +9,7 @@
 import React from 'react';
 
 // components
-import  firebase from '../components/firebase';
+import firebase from '../shared_comps/firebase';
 
 // bootstrap components
 import { Button } from 'react-bootstrap';

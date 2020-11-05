@@ -11,11 +11,11 @@
 // import React, { Component } from 'react';
 
 // // components
-// import Nav from '../components/Admin_nav';
-// import Footer from '../components/Footer'; 
+// import Nav from '../shared_comps/Admin_nav';
+// import Footer from '../components_en/Footer_en'; 
 // import EmailViewer from '../components/EmailViewer';
 // //import  '../components/EmailViewerBundler';
-// import  firebase from '../components/firebase';
+// import  firebase import firebase from '../shared_comps/firebase';
 // //css
 // import '../css/main.css'
 // import '../css/email_viewer.css'
