@@ -1,17 +1,19 @@
 /*
-messes up all bodys
-body.aboutus{
+body {
     margin: 0;
     padding: 100px 0px;
     height: 100%;
     box-sizing: border-box;
-    font-family: sans-serif;
+    font-family: 'Raleway', sans-serif;
 }
 */
-H1{
+H1 {
     text-align: center;
     color: #dd3928;
     font-size: 45px;
+    font-style: bold;
+    font-weight: bolder;
+    margin-bottom: 23px;
 }
 
 .container {
