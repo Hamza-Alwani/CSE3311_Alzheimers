@@ -18,9 +18,6 @@ import { Navbar, Nav, NavDropdown} from 'react-bootstrap';
 // css
 import '../css/main.css';
 
-// image - Used later when we find a permanent image
-import logo from '../pictures/logo1.png';
-
 
 
 function AdminNavigationBar() {
@@ -33,18 +30,6 @@ function AdminNavigationBar() {
         that allows us to give a modern look for the website and not reinvent the wheel
       */}
       <Navbar collapseOnSelect expand="lg" className="bg-transparent">
-        {/* Logo picture - picture needs to be replaced*/}
-        {/* <Navbar.Brand> 
-          <Link to ="/">
-            <img
-                src={logo}
-                width="80"
-                height="80"
-                className="d-inline-block align-top "
-                alt="logo"
-                />
-          </Link> 
-        </Navbar.Brand> */}
 
         {/* When the resolution is too low, the navigation bar will collapse into a button usually for mobile users. */}
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -58,7 +43,6 @@ function AdminNavigationBar() {
             <Nav.Link href="/Admin_Dementia_Information">Dementia Information </Nav.Link>
             {/* <Nav.Link href="/Admin_Research">            Research             </Nav.Link> */}
             {/* <Nav.Link href="/Admin_Outreach">            Outreach             </Nav.Link> */}
-            {/* <Nav.Link href="/Admin_contact_us">          Contact Us           </Nav.Link> */}
           </Nav> 
 
           {/* Language drop down */}

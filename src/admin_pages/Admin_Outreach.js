@@ -1,5 +1,5 @@
 /// summary
-///   In development - admin page where the admin can create, delete, edit features fpr Outreach Page.
+///   Not used currently - will be updated iteration 3
 /// summary
 
 import React from 'react';

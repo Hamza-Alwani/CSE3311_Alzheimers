@@ -167,7 +167,7 @@ const LangCheck = ({ component: Component, ...rest }) => (
                <PrivateRoute exact path="/Admin_Dementia_Information" component={Admin_Dementia_Information_Page} />
                <PrivateRoute exact path="/Admin_Research" component={Admin_Research_Page} />
                <PrivateRoute exact path="/Admin_Outreach" component={Admin_Outreach_Page} />
-  
+
 
                <Route exact path ="/404" component={Paget_Not_Found_Page} />
                <Redirect to ="/404"/>

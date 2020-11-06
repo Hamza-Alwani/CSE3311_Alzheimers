@@ -1,3 +1,7 @@
+/// summary
+///   Used to display Articles on Dementia Information page
+/// summary
+
 import React from 'react';
 
 import styled from 'styled-components'

@@ -17,7 +17,7 @@ import Table from 'react-bootstrap/Table'
 import '../../../css/admin.css'
 
 
-function AdminAddCommunity() {
+function AdminUpdateDementia() {
 
     // Data pulled from server
     const [title, setTitle] = useState('');
@@ -30,7 +30,7 @@ function AdminAddCommunity() {
     const [articleKey, setArticleKey] = useState('');
     const [articleList, setArticleList] = useState([]);
 
-     // Onload fill titleList and articleList
+     // On loading up the website - fill titleList and articleList with existing articles from firebase
     useEffect(() => {
         const database = firebase.database()
         const rootRef = database.ref("Article/");
@@ -42,7 +42,7 @@ function AdminAddCommunity() {
             });
     }, [])
 
-    // Pulls the requested data
+    // Once the Key of the article is selected, fill the fields with values from that article
     useEffect(() => {
         const database = firebase.database()
         const rootRef = database.ref("Article/" + articleKey);
@@ -54,8 +54,8 @@ function AdminAddCommunity() {
             });
     }, [articleKey])
 
-    // Pulls all the article titles
-    const DropdownCity = ({ nameList }) => {
+    // Creates a dropdown of article titles 
+    const DropdownTitle = ({ nameList }) => {
         return (
             <Dropdown>
                 <Dropdown.Toggle as={CustomToggle} id="dropdown-custom-components" className="dropdown-button">Pick an article</Dropdown.Toggle>
@@ -73,51 +73,58 @@ function AdminAddCommunity() {
  ///////////////////////////////////////////////////////////////////////////////////////
    
    // HTML
-   return (
-      <div className="admin-community">
- 
-         <StyleCommunityContainer>
-            
-                {/* Drop down to pick citys */}
-                <Form className="admin-form">
-                    
-                    <Table striped bordered hover className="state-city-dropdown-table">
-                        <thead>
-                            <tr>
-                                <th>
-                                    <DropdownCity nameList={titleList}/>
-                                </th>
-                            </tr>
-                        </thead>
-                    </Table>
+    return (
+        <div className="admin-community">
+    
+            <StyleCommunityContainer>
+                
+                    <Form className="admin-form">
+                        
+                        {/* Dropdown for list of Title of Articles */}
+                        <Table striped bordered hover className="state-city-dropdown-table">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        <DropdownTitle nameList={titleList}/>
+                                    </th>
+                                </tr>
+                            </thead>
+                        </Table>
 
+                        {/* Form for Name */}
+                        <Form.Group>
+                            <Form.Label>Name</Form.Label>
+                            <Form.Control type="name" id="title-update"  defaultValue={title} />
+                        </Form.Group>
 
-                    <Form.Group>
-                        <Form.Label>Name</Form.Label>
-                        <Form.Control type="name" id="title"  defaultValue={title} />
-                    </Form.Group>
-                    <Form.Group>
-                        <Form.Label>Description</Form.Label>
-                        <Form.Control type="name" id="description" defaultValue={description}  />
-                    </Form.Group>
-                    <Form.Group>
-                        <Form.Label>Picture URL</Form.Label>
-                        <Form.Control type="name" id="pic" defaultValue={picture}  />
-                    </Form.Group>
-                    <Form.Group>
-                        <Form.Label>Website URL</Form.Label>
-                        <Form.Control type="name" id="website" defaultValue={website} />
-                    </Form.Group>
-                    
-                    <Button onClick={() => update_button(articleKey)} variant="primary" type="submit" className="submit">Update</Button>
-               </Form>
-         </StyleCommunityContainer>
-      </div>
-   );
- }
- export default AdminAddCommunity;
+                        {/* Form for Description */}
+                        <Form.Group>
+                            <Form.Label>Description</Form.Label>
+                            <Form.Control type="name" id="description-update" defaultValue={description}  />
+                        </Form.Group>
 
+                        {/* Form for Picture URL */}
+                        <Form.Group>
+                            <Form.Label>Picture URL</Form.Label>
+                            <Form.Control type="name" id="pic-update" defaultValue={picture}  />
+                        </Form.Group>
 
+                        {/* Form for Website URL */}
+                        <Form.Group>
+                            <Form.Label>Website URL</Form.Label>
+                            <Form.Control type="name" id="website-update" defaultValue={website} />
+                        </Form.Group>
+                        
+                        {/* Button used to update the page once all the fields are filled out */}
+                        <Button onClick={() => update_button(articleKey)} variant="primary" type="submit" className="submit">Update</Button>
+                </Form>
+            </StyleCommunityContainer>
+        </div>
+    );
+}
+export default AdminUpdateDementia;
+
+// Customize style of dropdowns
 const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
    <a href="/" ref={ref} onClick={(e) => {e.preventDefault();onClick(e);}}>
       <div id="title">{children}</div>
@@ -132,20 +139,19 @@ CustomToggle.propTypes =
 CustomToggle.displayName="CustomDropdownToggle";
 
 
-
+// Used with the Button component in the main rendering function to update the select article with the new fields. 
 function update_button(articleKey){ 
 
-    if( document.getElementById("title").value && 
-        document.getElementById("description").value &&
-        document.getElementById("pic").value &&
-        document.getElementById("website").value)
+    if( document.getElementById("title-update").innerHTML && 
+        document.getElementById("description-update").innerHTML &&
+        document.getElementById("pic-update").innerHTML &&
+        document.getElementById("website-update").innerHTML)
     {
-        // var key=firebase.database().ref('Article').push().key;
         firebase.database().ref('Article/'+articleKey).set({
-            title:      document.getElementById("title").value,
-            disc:       document.getElementById("description").value,
-            pic:        document.getElementById("pic").value,
-            website:    document.getElementById("website").value,
+            title:      document.getElementById("title-update").value,
+            disc:       document.getElementById("description-update").value,
+            pic:        document.getElementById("pic-update").value,
+            website:    document.getElementById("website-update").value,
         },function(error){
             if(error){
             window.alert("failed");

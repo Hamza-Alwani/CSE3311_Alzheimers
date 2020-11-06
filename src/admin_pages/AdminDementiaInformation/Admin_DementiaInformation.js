@@ -1,5 +1,5 @@
 /// summary
-///   In development - admin page where the admin can create, delete, edit features fpr DementiaInformation Page.
+///   Dementia information page to host the add, update, delete tabs for dementia information data
 /// summary
 
 
@@ -16,12 +16,11 @@ import  firebase from '../../shared_comps/firebase';
 // bootstrap
 import Tabs from 'react-bootstrap/Tabs'
 import Tab from 'react-bootstrap/Tab'
-import { Button } from 'react-bootstrap';
 
 //css
 import '../../css/main.css'
-// import '../../css/email_viewer.css' // delete the file later
 
+// components for add, delete, update.
 import AdminAddDementia from './AdminDementiaComponents/AdminAddDementia';
 import AdminUpdateDementia from './AdminDementiaComponents/AdminUpdateDementia';
 import AdminDeleteDementia from './AdminDementiaComponents/AdminDeleteDementia';
@@ -31,6 +30,7 @@ import AdminDeleteDementia from './AdminDementiaComponents/AdminDeleteDementia';
 class Admin_Dementia_Information_Page extends Component 
 {
 
+   // constructor used to store data once an article is pulled
    constructor()
    {
       super()
@@ -43,7 +43,7 @@ class Admin_Dementia_Information_Page extends Component
       }
    }
 
-
+   // On loading up the page - this will create a list of articles from firebases
    componentDidMount()
    {
       const listref=firebase.database().ref().child('Article').orderByKey();
@@ -65,7 +65,7 @@ class Admin_Dementia_Information_Page extends Component
    }
 
    
-
+// main page to host the tabs 
    render()
    {
       return (

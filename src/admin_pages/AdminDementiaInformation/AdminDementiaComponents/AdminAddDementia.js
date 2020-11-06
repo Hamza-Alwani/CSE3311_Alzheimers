@@ -32,8 +32,8 @@ function change_k()
 {
    k=!k
 }
-function AdminAddCommunity() {
 
+function AdminAddDementia() {
    // Data selected by user
    const [selectedState, setSelectedState] = useState('Texas');
 
@@ -51,6 +51,7 @@ function AdminAddCommunity() {
      );
    };
    
+
 
  ///////////////////////////////////////////////////////////////////////////////////////
    
@@ -110,9 +111,9 @@ function AdminAddCommunity() {
       </div>
    );
  }
- export default AdminAddCommunity;
+ export default AdminAddDementia;
 
-
+// Customize style of dropdowns
 const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
    <a href="/" ref={ref} onClick={(e) => {e.preventDefault();onClick(e);}}>
       <div id="state">{children}</div>
@@ -127,7 +128,7 @@ CustomToggle.propTypes =
 CustomToggle.displayName="CustomDropdownToggle";
 
 
-
+// Once all the text are filled out then this function is called to submit the information to firebase.
 function add_button_pressed(){ 
 
    
