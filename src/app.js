@@ -13,6 +13,8 @@ import Research_Page from './pages/Research'
 import Dementia_Information_Page from './pages/DementiaInformation'
 import Community_Resources_Page from './pages/CommunityResources'
 import Paget_Not_Found_Page from './pages/PageNotFound'
+import About_Us_Page from './pages/AboutUs'
+
 //admins
 import Admin_Home from './admin_pages/Admin_Home'
 import Admin_Outreach_Page from './admin_pages/Admin_Outreach'
@@ -82,6 +84,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
                <Route exact path="/Research" component={Research_Page} />
                <Route exact path="/Outreach" component={Outreach_Page} />
                <Route exact path="/Contact_us" component={Contact_us_Page} />
+               <Route exact path="/About_Us" component={About_Us_Page} />
                <Route exact path ="/Admin_login" component={Admin_login} />
                <PrivateRoute exact path ="/Admin_Home" component={Admin_Home} />
                <PrivateRoute exact path="/Admin_Community_Resources" component={Admin_Community_Resources_Page} />
