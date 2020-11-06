@@ -41,12 +41,13 @@ function Footer() {
                 <div className="col-md-3 col-sm-6">
                   <h4> <strong>Link</strong> </h4>
                   <ul className="list-unstyled">
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/Community_Resources">Community Resources</a></li>
-                    <li><a href="/Dementia_Information">Dementia Information</a></li>
-                    <li><a href="/Research">Research</a></li>
-                    <li><a href="/Outreach">Outreach</a></li>
-                    <li><a href="/contact_us">Contact Us</a></li>
+                    <li><a href="/home_ko">Home</a></li>
+                    <li><a href="/Community_Resources_ko">Community Resources</a></li>
+                    <li><a href="/Dementia_Information_ko">Dementia Information</a></li>
+                    <li><a href="/Research_ko">Research</a></li>
+                    <li><a href="/Outreach_ko">Outreach</a></li>
+                    <li><a href="/contact_us_ko">Contact Us</a></li>
+                    <li><a href="/">Choose Language</a></li>
                     <li><a href="/admin_home">Admin</a></li>
                   </ul>
                 </div>        

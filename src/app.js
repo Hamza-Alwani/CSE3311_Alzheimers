@@ -61,7 +61,7 @@ function  App(){
         }
     else
       {
-        sessionStorage.clear("user")
+        sessionStorage.removeItem("user")
       }
     })
     

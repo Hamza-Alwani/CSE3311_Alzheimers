@@ -45,7 +45,7 @@ function Welcome() {
 		<div className="main-component">
 
 			<div className="welcome-button">
-				<a className="find-facilities-button" href="/Community_Resources"><button className="btn btn-1 btn-1d">Find Facilities Near You</button></a>
+				<a className="find-facilities-button" href="/Community_Resources_en"><button className="btn btn-1 btn-1d">Find Facilities Near You</button></a>
 			</div>
 			
 			{/* seperates divs with space */}
