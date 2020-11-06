@@ -4,7 +4,7 @@
 
 import React, { useEffect } from 'react';
 import styled from 'styled-components'
-import  firebase from '../components/firebase';
+import firebase from '../shared_comps/firebase';
 
 // bootstrap
 import Form from 'react-bootstrap/Form'

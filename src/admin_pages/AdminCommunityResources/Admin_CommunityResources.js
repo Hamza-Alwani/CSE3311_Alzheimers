@@ -11,7 +11,7 @@ import Tabs from 'react-bootstrap/Tabs'
 import Tab from 'react-bootstrap/Tab'
 
 // components
-import Nav from '../../components/Admin_nav';
+import Nav from '../../shared_comps/Admin_nav';
 import AdminAdd from '../AdminCommunityResources/AdminCommunityComponents/AdminAddCommunity';
 import AdminUpdate from './AdminCommunityComponents/AdminUpdateCommunity';
 import AdminDelete from './AdminCommunityComponents/AdminDeleteCommunity';

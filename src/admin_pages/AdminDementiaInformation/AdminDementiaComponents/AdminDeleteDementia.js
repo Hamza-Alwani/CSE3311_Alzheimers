@@ -7,7 +7,7 @@ import React, {useState, useEffect } from 'react';
 import styled from 'styled-components'
 
 // components
-import  firebase from '../../../components/firebase';
+import  firebase from '../../../shared_comps/firebase';
 import { Button } from 'react-bootstrap';
 import Form from 'react-bootstrap/Form'
 import Dropdown from 'react-bootstrap/Dropdown'
