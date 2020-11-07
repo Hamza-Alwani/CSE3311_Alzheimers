@@ -49,7 +49,7 @@ function ResearchComponent() {
               <div className="calendly-div">
                 <div 
                   className="calendly-inline-widget" 
-                  data-url="https://calendly.com/dementiacaregiving/30min?text_color=363738&primary_color=ff8400"
+                  data-url="https://calendly.com/dementiacaregiving/60min?text_color=363738&primary_color=ff8400"
                   style={{ width:"100%", height:"750px" }}>
                 </div>
               </div>

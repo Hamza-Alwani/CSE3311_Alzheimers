@@ -62,7 +62,7 @@ function DisplayArticle() {
         return (
             <CardDeck>
                 {props.map((state, index) => (
-                <Article props={state} key={index}></Article>
+                    <Article props={state} key={index}></Article>
                 ))}
             </CardDeck>
         );
@@ -77,6 +77,7 @@ function DisplayArticle() {
                 </div>
                 <DisplayArticleContainer>
                             <SpamArticle props ={articleList}></SpamArticle>
+                            
                 </DisplayArticleContainer>
             </div>
         </div>

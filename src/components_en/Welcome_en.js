@@ -50,19 +50,19 @@ function Welcome() {
 			
 			{/* seperates divs with space */}
 			<div className="welcome-divider">&nbsp;</div>
+			{/* seperates divs with space */}
 
-			<div class="container">
-				<section class="home-who-we-are">
-					<div class="home-who-we-are-textbox parallax--box">
-						<h1>Who we are</h1>
-						<p>A research team led by <strong>Dr. Kathy Lee</strong> at the University Of Texas at Arlington.</p>
-						<p>Our main goal is to spread awareness of dementia among the Asian Comunnities to improve the quality of lives </p>
-					</div>
-				</section>
-			</div>
+			<section class="home-who-we-are">
+				<div class="home-who-we-are-textbox parallax--box">
+					<h1>Who we are</h1>
+					<p>A research team led by <strong>Dr. Kathy Lee</strong> at the University Of Texas at Arlington.</p>
+					<p>Our main goal is to spread awareness of dementia among the Asian Comunnities to improve the quality of lives </p>
+				</div>
+			</section>
 
 			{/* seperates divs with space */}
 			<div className="welcome-divider">&nbsp;</div>
+			{/* seperates divs with space */}
 
 		</div>
 	</div>
@@ -119,7 +119,7 @@ a
 	color: var(--primaryTheme);
 	background: none;
 	cursor: pointer;
-  /* Makes the red background bigger if you comment this */
+  	/* Makes the red background bigger if you comment this */
 	${'' /* padding: 25px 80px; */} 
   	${'' /* margin: 15px 30px; */}
  	padding: 0;
