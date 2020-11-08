@@ -20,8 +20,12 @@ function Article( {props} ) {
                         <div className="article-text-info">
                             <h3>{props.title}</h3>
                             <p>{props.disc}</p>
+                            <div className="text-date-posted">
+                                <p>Posted November 8th, 2020</p>
+                            </div>
                         </div>
                     </div>
+                    
                 </a>
             </ArticleContainer>
     );
@@ -73,14 +77,24 @@ const ArticleContainer = styled.div`
 .flex-child
 {
     ${'' /* border: 2px solid yellow; */}
-    height: 200px;
-    width: 80%;
+    ${'' /* height: 200px; */}
+    width: 100%;
+    position: relative;
 }
 
 .article-text-info
 {   
-    margin-top:1rem;
+    margin-top: 1rem;
     margin-left: 2rem;
+}
+
+.text-date-posted
+{
+    font-size: 12px;
+    float: right;
+    position: absolute;
+    bottom: 0;
+    z-index:1;
 }
 
 `;
