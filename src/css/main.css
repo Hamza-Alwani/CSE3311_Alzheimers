@@ -62,7 +62,6 @@ body {
   font-size: 2rem ;
   background:none;
   margin-bottom: 2rem;
-  
 }
 
 .contact-us-header
@@ -115,5 +114,8 @@ input[type=text], select {
 }
 
 
-
-  
+@media only screen and (max-width: 1000px) {
+  .gen_header{
+    font-size: 1.5rem ;
+  }
+}

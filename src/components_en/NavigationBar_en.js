@@ -90,6 +90,15 @@ ${'' /* Creates a push below the navigation below so nothing is touching */}
 }
 
 
+/* On screens that are 1000px or less, set the background color to blue */
+@media only screen and (max-width: 1000px) {
+  .nav-spacer
+  {
+    padding-bottom: 1rem;
+  }
+}
+
+
 /* Theme builder below */
 /* https://work.smarchal.com/twbscolor/css/e74c3cc0392becf0f1ffbbbc0 */
 /* Use the link above to change the code below */

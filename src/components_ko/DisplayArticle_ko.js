@@ -10,7 +10,6 @@ import styled from 'styled-components'
 
 // components
 import Article from '../components_en/Article_en'
-import CardDeck from 'react-bootstrap/CardDeck'
 
 // firebase imports
  import firebase from '../shared_comps/firebase';
@@ -60,11 +59,13 @@ function DisplayArticle() {
     // Spams articles onto the page depending on how many articles there are on firebase. - we can add a limited in the future when needed
     const SpamArticle = ({ props }) => {
         return (
-            <CardDeck>
+            <div>
                 {props.map((state, index) => (
-                <Article props={state} key={index}></Article>
+                    
+                    <Article props={state} key={index}></Article>
+
                 ))}
-            </CardDeck>
+            </div>
         );
     };
 
@@ -77,6 +78,7 @@ function DisplayArticle() {
                 </div>
                 <DisplayArticleContainer>
                             <SpamArticle props ={articleList}></SpamArticle>
+                            
                 </DisplayArticleContainer>
             </div>
         </div>
