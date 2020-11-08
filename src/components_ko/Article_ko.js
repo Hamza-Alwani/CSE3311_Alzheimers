@@ -15,11 +15,11 @@ function Article( {props} ) {
     return (
             <ArticleContainer>
                 <a className="article-text-container"  href={props.website}>
-                    <img className="flex-child" style={{ width:"300px", height:"200px" }} src={props.pic} ></img>
+                    <img className="article-image" src={props.pic} ></img>
                     <div className="flex-child">
                         <div className="article-text-info">
-                            <h3>{props.title}</h3>
-                            <p>{props.disc}</p>
+                            <h3 className="article-title">{props.title}</h3>
+                            <p className="article-discription">{props.disc}</p>
                             <div className="text-date-posted">
                                 <p>Posted November 8th, 2020</p>
                             </div>
@@ -74,10 +74,15 @@ const ArticleContainer = styled.div`
     opacity: 1;
 }
 
+.article-image
+{
+    width:300px;
+    height:200px;
+}
+
 .flex-child
 {
     ${'' /* border: 2px solid yellow; */}
-    ${'' /* height: 200px; */}
     width: 100%;
     position: relative;
 }
@@ -95,6 +100,42 @@ const ArticleContainer = styled.div`
     position: absolute;
     bottom: 0;
     z-index:1;
+}
+
+/* On screens that are 1000px or less, set the background color to blue */
+@media only screen and (max-width: 1000px) {
+    .article-text-container {
+        margin-left: 0rem;
+        margin-bottom: 1rem;
+    }
+
+    .article-text-info
+    {   
+        margin-top: 1rem;
+        margin-left: 1rem;
+    }
+
+    .article-image
+    {
+        width:150px;
+        height:100px;
+    }
+
+    .article-title
+    {
+        font-size: 1rem;
+    }
+
+    .article-discription
+    {
+        display:none;
+    }
+
+    .text-date-posted
+    {
+        font-size: 10px;
+    }
+
 }
 
 `;
