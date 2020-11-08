@@ -38,7 +38,7 @@ function CommunityComponent() {
   const [selectedCity, setSelectedCity] = useState('Dallas'); // Bug - list doesn't load up if 'Dallas' doesn't exist anymore in firebase 
 
   // language can only be 'EN' 'KO' 'ZH'
-  const [selectedLang, setSelectedLang] = useState('ALL');
+  const [selectedLang, setSelectedLang] = useState('EN');
   const handleChange = (val) => setSelectedLang(val); // use with id='lang-buttons' to select the correct language on the website
 
   // Pulls a list of all the U.S States in firebase - works
@@ -49,9 +49,9 @@ function CommunityComponent() {
     setStateList([])
     setCityList([])
     console.log(stateList);
-    if(selectedLang == 'ALL')
+    if(selectedLang == 'EN')
     {
-      console.log("all");
+      console.log("english");
       rootRef.on('value', snap => {
           snap.forEach(function(state) {
             setStateList(stateList => [...stateList, state.key]);
@@ -88,7 +88,7 @@ function CommunityComponent() {
     // Queries for any Chinese Subtrees in firebase, if yes then it will compile a new list of available States and Cities 
     else if(selectedLang == 'ZH')
     {
-      console.log("Chinese selected");
+      console.log("chinese");
       rootRef.on('value', snap => {
         snap.forEach(function(state) {
           state.forEach(function(city){
@@ -112,10 +112,10 @@ function CommunityComponent() {
     const database = firebase.database()
     const rootRef = database.ref("community/" + selectedState );
     
-    // Bug: Possible Future Bug - since we don't have more than one place in a city it's okay to use forEach right now
     rootRef.on('value', snap => {
               snap.child(selectedCity).forEach(id => {
-                id.forEach(lang => {
+                id.forEach(function(lang)
+                {
                   setName(lang.child("name").val());
                   setPhone(lang.child("phone").val());
                   setAddress(lang.child("address").val());
@@ -125,19 +125,6 @@ function CommunityComponent() {
               })
     }); 
   }, [selectedState, selectedCity, selectedLang])
-
-  // saving for now inccase we need this code for later, will delete in the next update
-  // Pulls list of city once state is selected
-  // useEffect(() => {
-  //   const database = firebase.database()
-  //   const rootRef = database.ref("community/" + selectedState );
-  //   setCityList([])
-  //   rootRef.on('value', snap => {
-  //             snap.forEach(function(childSnapshot) {
-  //               setCityList(cityList => [...cityList, childSnapshot.key]);
-  //           });
-  //         });
-  // }, [selectedState])
 
   // Pulls all the city of the state
   const DropdownCity = ({ nameList }) => {
@@ -181,7 +168,7 @@ function CommunityComponent() {
                 Community Resources
         </div>
         <ToggleButtonGroup style={{float:"right"}} id="lang-buttons" type="radio" name="lang-button-name" value={selectedLang} onChange={handleChange}>
-          <ToggleButton value={'ALL'}>All</ToggleButton>
+          <ToggleButton value={'EN'}>English</ToggleButton>
           <ToggleButton value={'KO'}>Korean</ToggleButton>
           <ToggleButton value={'ZH'}>Chinese</ToggleButton>
         </ToggleButtonGroup>

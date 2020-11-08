@@ -88,7 +88,7 @@ function CommunityComponent() {
     // Queries for any Chinese Subtrees in firebase, if yes then it will compile a new list of available States and Cities 
     else if(selectedLang == 'ZH')
     {
-      console.log("Chinese selected");
+      console.log("chinese");
       rootRef.on('value', snap => {
         snap.forEach(function(state) {
           state.forEach(function(city){
@@ -112,30 +112,19 @@ function CommunityComponent() {
     const database = firebase.database()
     const rootRef = database.ref("community/" + selectedState );
     
-    // Bug: Possible Future Bug - since we don't have more than one place in a city it's okay to use forEach right now
     rootRef.on('value', snap => {
               snap.child(selectedCity).forEach(id => {
-                setName(id.child(selectedLang).child("name").val());
-                setPhone(id.child(selectedLang).child("phone").val());
-                setAddress(id.child(selectedLang).child("address").val());
-                setWebsite(id.child(selectedLang).child("website").val());
-                setGoogleMap(id.child(selectedLang).child("googleMap").val());
+                id.forEach(function(lang)
+                {
+                  setName(lang.child("name").val());
+                  setPhone(lang.child("phone").val());
+                  setAddress(lang.child("address").val());
+                  setWebsite(lang.child("website").val());
+                  setGoogleMap(lang.child("googleMap").val());
+                })
               })
     }); 
   }, [selectedState, selectedCity, selectedLang])
-
-  // saving for now inccase we need this code for later, will delete in the next update
-  // Pulls list of city once state is selected
-  // useEffect(() => {
-  //   const database = firebase.database()
-  //   const rootRef = database.ref("community/" + selectedState );
-  //   setCityList([])
-  //   rootRef.on('value', snap => {
-  //             snap.forEach(function(childSnapshot) {
-  //               setCityList(cityList => [...cityList, childSnapshot.key]);
-  //           });
-  //         });
-  // }, [selectedState])
 
   // Pulls all the city of the state
   const DropdownCity = ({ nameList }) => {
