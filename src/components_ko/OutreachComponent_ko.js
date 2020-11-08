@@ -59,7 +59,6 @@ function OutreachComponent() {
               </Card>
             </div>
           </OutreachContainer>
-          <b>test</b>
         </div>
   );
 }
