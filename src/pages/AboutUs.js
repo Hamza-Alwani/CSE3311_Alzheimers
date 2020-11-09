@@ -3,6 +3,7 @@
 import React from 'react';
 // components
 import AboutUsComponent from '../components/AboutUsComponent';
+import CoolBeansComponent from '../components/CoolBeansComponent';
 import Footer from '../components/Footer';
 import Nav from '../components/NavigationBar';
 
@@ -15,6 +16,7 @@ function AboutUs() {
          {/*  Components  */}
          <Nav></Nav>
          <AboutUsComponent></AboutUsComponent>
+         <CoolBeansComponent></CoolBeansComponent>
          <Footer></Footer>
       </div>
    );
