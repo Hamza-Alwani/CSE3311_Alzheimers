@@ -36,7 +36,7 @@ import About_Us_Page_ko from './pages_ko/AboutUs_ko'
 
 //Shared pages
 import Paget_Not_Found_Page from './shared_page/PageNotFound'
-import LanguagePopUp from './shared_comps/LanguagePopUp'
+import LanguageSelection from './shared_page/LanguageSelection'
 
 //admins
 import Admin_Home from './admin_pages/Admin_Home'
@@ -109,55 +109,40 @@ function islang(){
 
 }
 
-const LangCheck = ({ component: Component, ...rest }) => (
-  <Route
-    {...rest} 
-    render={props =>
-      islang()? (
-        <Component/>
-      ) : (
-        <Redirect
-          to={{
-            pathname: "/"
-          }}
-        />
-      )
-    }
-  />
-);
+
 
 
    return(    
          <Router>
             <Switch>
-               <Route exact path="/" component={LanguagePopUp}/>
+               <Route exact path="/" component={LanguageSelection}/>
 
 
-               <LangCheck exact path="/home_en" component={Main_Page_en} />
-               <LangCheck exact path="/Community_Resources_en" component={Community_Resources_Page_en} />
-               <LangCheck exact path="/Dementia_Information_en" component={Dementia_Information_Page_en} />
-               <LangCheck exact path="/Research_en" component={Research_Page_en} />
-               <LangCheck exact path="/Outreach_en" component={Outreach_Page_en} />
-               <LangCheck exact path="/Contact_us_en" component={Contact_us_Page_en} />
-               <LangCheck exact path="/About_Us_en" component={About_Us_Page_en} />
+               <Route exact path="/home_en" component={Main_Page_en} />
+               <Route exact path="/Community_Resources_en" component={Community_Resources_Page_en} />
+               <Route exact path="/Dementia_Information_en" component={Dementia_Information_Page_en} />
+               <Route exact path="/Research_en" component={Research_Page_en} />
+               <Route exact path="/Outreach_en" component={Outreach_Page_en} />
+               <Route exact path="/Contact_us_en" component={Contact_us_Page_en} />
+               <Route exact path="/About_Us_en" component={About_Us_Page_en} />
 
-               <LangCheck exact path="/home_ch" component={Main_Page_ch} />
-               <LangCheck exact path="/Community_Resources_ch" component={Community_Resources_Page_ch} />
-               <LangCheck exact path="/Dementia_Information_ch" component={Dementia_Information_Page_ch} />
-               <LangCheck exact path="/Research_ch" component={Research_Page_ch} />
-               <LangCheck exact path="/Outreach_ch" component={Outreach_Page_ch} />
-               <LangCheck exact path="/Contact_us_ch" component={Contact_us_Page_ch} />
-               <LangCheck exact path="/About_Us_ch" component={About_Us_Page_ch} />
+               <Route exact path="/home_ch" component={Main_Page_ch} />
+               <Route exact path="/Community_Resources_ch" component={Community_Resources_Page_ch} />
+               <Route exact path="/Dementia_Information_ch" component={Dementia_Information_Page_ch} />
+               <Route exact path="/Research_ch" component={Research_Page_ch} />
+               <Route exact path="/Outreach_ch" component={Outreach_Page_ch} />
+               <Route exact path="/Contact_us_ch" component={Contact_us_Page_ch} />
+               <Route exact path="/About_Us_ch" component={About_Us_Page_ch} />
                
 
 
-               <LangCheck exact path="/home_ko" component={Main_Page_ko} />
-               <LangCheck exact path="/Community_Resources_ko" component={Community_Resources_Page_ko} />
-               <LangCheck exact path="/Dementia_Information_ko" component={Dementia_Information_Page_ko} />
-               <LangCheck exact path="/Research_ko" component={Research_Page_ko} />
-               <LangCheck exact path="/Outreach_ko" component={Outreach_Page_ko} />
-               <LangCheck exact path="/Contact_us_ko" component={Contact_us_Page_ko} />
-               <LangCheck exact path="/About_Us_ko" component={About_Us_Page_ko} />
+               <Route exact path="/home_ko" component={Main_Page_ko} />
+               <Route exact path="/Community_Resources_ko" component={Community_Resources_Page_ko} />
+               <Route exact path="/Dementia_Information_ko" component={Dementia_Information_Page_ko} />
+               <Route exact path="/Research_ko" component={Research_Page_ko} />
+               <Route exact path="/Outreach_ko" component={Outreach_Page_ko} />
+               <Route exact path="/Contact_us_ko" component={Contact_us_Page_ko} />
+               <Route exact path="/About_Us_ko" component={About_Us_Page_ko} />
                
 
 

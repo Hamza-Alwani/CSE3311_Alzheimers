@@ -7,21 +7,18 @@ function LanguagePopUp() {
     const [show, setShow] = useState(false);
   
     function English(){
-        sessionStorage.setItem('lang','en')
         setShow(false)
         window.location.href="/home_en"
 
     }
 
     function Chinese(){
-        sessionStorage.setItem('lang','ch')
         setShow(false)
         window.location.href="/home_ch"
     }
 
     function Korean()
     {
-        sessionStorage.setItem("lang",'ko')
         setShow(false)
         window.location.href="/home_ko"
     }
@@ -29,7 +26,8 @@ function LanguagePopUp() {
 
     return (
       <>
-        <Modal show={true} onHide={English}>
+        <Modal show={true} onHide={English} aria-labelledby="contained-modal-title-vcenter"
+      centered>
           <Modal.Header closeButton>
             <Modal.Title> Select a langugae </Modal.Title>
           </Modal.Header>
