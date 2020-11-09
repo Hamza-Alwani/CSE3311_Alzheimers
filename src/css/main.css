@@ -113,9 +113,13 @@ input[type=text], select {
   position: relative;
 }
 
-
-@media only screen and (max-width: 1000px) {
+/* On screens that are 600px or less, set the background color to blue */
+@media only screen and (max-width: 600px) {
   .gen_header{
     font-size: 1.5rem ;
+    margin: auto;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 1rem;
   }
 }
