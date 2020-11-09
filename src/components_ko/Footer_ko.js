@@ -47,6 +47,7 @@ function Footer() {
                     <li><a href="/Research_ko">Research</a></li>
                     <li><a href="/Outreach_ko">Outreach</a></li>
                     <li><a href="/contact_us_ko">Contact Us</a></li>
+                    <li><a href="/about_us_ko">About Us</a></li>
                     <li><a href="/">Choose Language</a></li>
                     <li><a href="/admin_home">Admin</a></li>
                   </ul>
