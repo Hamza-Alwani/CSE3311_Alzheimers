@@ -1,6 +1,7 @@
 import React from 'react';
 // components
 import AboutUsComponent from '../components_ko/AboutUsComponent_ko';
+import AdboutUsDevs from '../shared_comps/AboutUsDevs';
 import Footer from '../components_ko/Footer_ko';
 import Nav from '../components_ko/NavigationBar_ko';
 
@@ -13,6 +14,7 @@ function AboutUs() {
          {/*  Components  */}
          <Nav></Nav>
          <AboutUsComponent></AboutUsComponent>
+         <AdboutUsDevs></AdboutUsDevs>
          <Footer></Footer>
       </div>
    );
