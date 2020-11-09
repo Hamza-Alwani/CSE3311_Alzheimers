@@ -9,7 +9,7 @@ import React, {useState, useEffect} from 'react';
 import styled from 'styled-components'
 
 // components
-import Article from '../components_en/Article_en'
+import Article from '../shared_comps/Article'
 
 // firebase imports
  import firebase from '../shared_comps/firebase';
@@ -24,7 +24,8 @@ function DisplayArticle() {
                 disc: "",
                 pic: "",
                 title: "",
-                website: ""
+                website: "",
+                language: ""
         });
     const [articleList, setArticleList] = useState([]); // list of all city based on state in firebase
 
@@ -39,7 +40,8 @@ function DisplayArticle() {
                             disc: childSnapshot.child("disc").val(),
                             pic: childSnapshot.child("pic").val(),
                             title: childSnapshot.child("title").val(),
-                            website: childSnapshot.child("website").val()
+                            website: childSnapshot.child("website").val(),
+                            language: childSnapshot.child("language").val()
                     })
                 });
             });
@@ -49,11 +51,12 @@ function DisplayArticle() {
 
     // Once a change is detected for the article object, it will be added to a list to be spamed onto the page
     useEffect(() => {
-        if((article.disc !== "") && (article.pic !== "") && (article.title !== "") && (article.website !== ""))
+        if((article.disc !== "") && (article.pic !== "") && (article.title !== "") && (article.website !== ""), (article.language==="ko"))
         {
             setArticleList(articleList => [...articleList, article]);
         }
     },[article])
+
 
 
     // Spams articles onto the page depending on how many articles there are on firebase. - we can add a limited in the future when needed

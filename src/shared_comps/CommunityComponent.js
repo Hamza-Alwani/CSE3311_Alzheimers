@@ -9,7 +9,7 @@ import React, {useState, useEffect } from 'react';
 import styled from 'styled-components'
 
 // firebase imports
- import firebase from '../shared_comps/firebase';
+ import firebase from './firebase';
 
 // bootstrap components
 import Table from 'react-bootstrap/Table'
@@ -205,23 +205,6 @@ function CommunityComponent() {
             </tr>
           </tbody>
         </Table>
-        
-        <Table striped bordered hover>
-          <thead>
-            <tr>
-              <th>{name}</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>
-                <p><strong>Phone Number:</strong> {phone} </p>
-                <p><strong>Address:</strong> {address} </p>
-                <p><strong>Website:</strong> <a href={website}>{website}</a></p>
-              </td>
-            </tr>
-          </tbody>
-        </Table>
       </CommunityContainer>
     </div>
   );
@@ -277,7 +260,7 @@ const CommunityContainer = styled.div`
 /* Table */
 .google-map-table
 {
-  height:30rem;
+  height:45rem;
 }
 
 th

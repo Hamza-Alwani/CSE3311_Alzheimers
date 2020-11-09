@@ -9,7 +9,7 @@ import React from 'react';
 
 // components
 import Nav from '../components_en/NavigationBar_en';
-import CommunityComponent from '../components_en/CommunityComponent_en';
+import CommunityComponent from '../shared_comps/CommunityComponent';
 import Footer from '../components_en/Footer_en'; 
 
 //css
