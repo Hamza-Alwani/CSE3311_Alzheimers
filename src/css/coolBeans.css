@@ -1,0 +1,120 @@
+/*body {
+    margin: 0;
+    padding: 100px 0px;
+    height: 100%;
+    box-sizing: content-box;
+    font-family: 'Raleway', sans-serif;
+}*/
+
+H3 {
+    text-align: center;
+    color: #dd3928;
+    font-size: 25px;
+    font-style: bold;
+    font-weight: bolder;
+    margin-bottom: 23px;
+    margin-top: 23px;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin: auto;
+}
+
+.our-team{
+    background: #f7f5ec;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+    padding: 20px 0 30px;
+    margin: 10px 20px;
+    width: 50%;
+    }
+    
+.our-team .pic{
+    display: inline-block;
+    width: 130px;
+    height: 130px;
+    margin-bottom: 23px;
+    z-index: 1;
+    position: relative;
+    }
+    
+.our-team .pic:before{
+    content: "";
+    width: 100%;
+    height: 0;
+    border-radius: 50%;
+    background: #dd3928;
+    position: absolute;
+    bottom: 135%;
+    right: 0;
+    left: 0;
+    opacity: 0.2;
+    transform: scale(3);
+    transition: all 0.3s linear 0s;
+    }
+    
+.our-team:hover .pic:before {
+    height: 100%; 
+} 
+
+.our-team .pic:after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: #dd3928;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    }
+
+.our-team .pic img{
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+    transform: scale(1);
+    transition: all 0.9s ease 0s;
+    }
+
+.our-team:hover .pic img{
+    box-shadow: 0 0 0 14px #f7f5ec;
+    transform: scale(0.7);
+    }
+    
+.our-team .team-content { 
+    margin-bottom: 30px; 
+}
+
+.our-team .title{
+    font-size: 22px;
+    font-weight: 700;
+    color: black;
+    letter-spacing: 1px;
+    text-transform: capitalize;
+    margin-bottom: 5px;
+
+    }
+.our-team .post{
+    display: block;
+    font-size: 15px;
+    color: black;
+    text-transform:capitalize;
+    }
+
+    @media (max-width: 780px){
+   .container {
+       flex-direction: column;
+   }
+
+   .our-team {
+       width: 80%;
+       margin-top: 30px;
+   }
+
+    }
