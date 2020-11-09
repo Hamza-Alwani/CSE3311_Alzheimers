@@ -83,6 +83,7 @@ export default NavigationBar;
 const NavigationContainer = styled.div`
 
 
+
 ${'' /* Creates a push below the navigation below so nothing is touching */}
 .nav-spacer
 {
@@ -111,17 +112,17 @@ ${'' /* Creates a push below the navigation below so nothing is touching */}
 }
 .navbar .navbar-brand:hover,
 .navbar .navbar-brand:focus {
-  color: #fbfbfb;
+  color: #000000;
 }
 .navbar .navbar-text {
   color: #dd3928;
 }
 .navbar .navbar-text a {
-  color: #fbfbfb;
+  color: #000000;
 }
 .navbar .navbar-text a:hover,
 .navbar .navbar-text a:focus {
-  color: #fbfbfb; 
+  color: #000000; 
 }
 .navbar .navbar-nav .nav-link {
   color: #dd3928;
@@ -130,7 +131,7 @@ ${'' /* Creates a push below the navigation below so nothing is touching */}
 }
 .navbar .navbar-nav .nav-link:not(.disabled):hover,
 .navbar .navbar-nav .nav-link:not(.disabled):focus {
-  color: #fbfbfb;
+  color: #000000;
 }
 .navbar .navbar-nav .nav-item.active .nav-link,
 .navbar .navbar-nav .nav-item.active .nav-link:hover,
@@ -138,7 +139,7 @@ ${'' /* Creates a push below the navigation below so nothing is touching */}
 .navbar .navbar-nav .nav-item.show .nav-link,
 .navbar .navbar-nav .nav-item.show .nav-link:hover,
 .navbar .navbar-nav .nav-item.show .nav-link:focus {
-  color: #fbfbfb;
+  color: #000000;
   background-color: #000000;
 }
 .navbar .navbar-toggle {
@@ -159,7 +160,7 @@ ${'' /* Creates a push below the navigation below so nothing is touching */}
   color: #dd3928;
 }
 .navbar .navbar-link:hover {
-  color: #fbfbfb;
+  color: #000000;
 }
 
 @media (max-width: 575px) {
