@@ -188,7 +188,7 @@ a
 	background-color: white;
 	padding: 4em;
 	width: 100vw;
-	margin-left: -7%;
+	margin-left: -2.5%;
 	outline: 2px solid var(--primaryTheme);
 	outline-offset: -2.5em;
 	color: black;
