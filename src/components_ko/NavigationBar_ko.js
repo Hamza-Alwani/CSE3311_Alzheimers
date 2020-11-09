@@ -52,13 +52,13 @@ function NavigationBar() {
         <Navbar.Collapse id="responsive-navbar-nav">
           {/* Main Navigation Bar - links to pages in use for the user. */}
           <Nav className="ml-auto">
-            <Nav.Link href="/home_en"> Home </Nav.Link>
-            <Nav.Link href="/Community_Resources_en"> Community Resources  </Nav.Link>
-            <Nav.Link href="/Dementia_Information_en">Dementia Information </Nav.Link>
-            <Nav.Link href="/Research_en">            Research             </Nav.Link>
-            <Nav.Link href="/Outreach_en">            Outreach             </Nav.Link>
-            <Nav.Link href="/contact_us_en">          Contact Us           </Nav.Link>
-            <Nav.Link href="/about_us_en">            About Us           </Nav.Link>
+            <Nav.Link href="/home_ko"> 집 </Nav.Link>
+            <Nav.Link href="/Community_Resources_ko"> 커뮤니티 리소스  </Nav.Link>
+            <Nav.Link href="/Dementia_Information_ko">치매 정보 </Nav.Link>
+            <Nav.Link href="/Research_ko">            연구             </Nav.Link>
+            <Nav.Link href="/Outreach_ko">            지원 활동             </Nav.Link>
+            <Nav.Link href="/contact_us_ko">          문의하기           </Nav.Link>
+            <Nav.Link href="/about_us_ko">            우리에 대해           </Nav.Link>
           </Nav> 
 
           {/* Language drop down */}
