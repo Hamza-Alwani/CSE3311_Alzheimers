@@ -18,10 +18,10 @@ function Article( {props} ) {
                     <img className="article-image" src={props.pic} ></img>
                     <div className="flex-child">
                         <div className="article-text-info">
-                            <h3 className="article-title">{props.title}</h3>
-                            <p className="article-discription">{props.disc}</p>
+                            <div className="article-title">{props.title}</div>
+                            <div className="article-discription">{props.disc}</div>
                             <div className="text-date-posted">
-                                <p>Posted November 8th, 2020</p>
+                                Posted November 8th, 2020
                             </div>
                         </div>
                     </div>
@@ -93,6 +93,12 @@ const ArticleContainer = styled.div`
     margin-left: 2rem;
 }
 
+.article-title
+{
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
 .text-date-posted
 {
     font-size: 12px;
@@ -100,6 +106,7 @@ const ArticleContainer = styled.div`
     position: absolute;
     bottom: 0;
     z-index:1;
+    margin-bottom: 1rem;
 }
 
 /* On screens that are 1000px or less, set the background color to blue */
