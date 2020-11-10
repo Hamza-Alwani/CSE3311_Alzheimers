@@ -1,15 +1,29 @@
-import React from "react"
+/// summary
+///
+///	Article_xx  
+/// - A template that will be useed by DisplayArticle_XX to create card like information
+///
+/// summary
+
+
+
+import React from 'react';
 import ReactPlayer from "react-player"
 
+import styled from 'styled-components'
+import '../css/video.css'; 
 
-
-function video( ) {
-  return (
-    <div>
+function Article( {props} ) {
+    return (
+    <div className="center">
       <ReactPlayer
-        url="https://www.youtube.com/watch?v=ug50zmP9I7s"
-      />
+        url={props.url}
+      />         
     </div>
-  )
+               
+          
+    );
 }
-export default video
+
+export default Article;
+
