@@ -6,7 +6,7 @@
     font-family: 'Raleway', sans-serif;
 }*/
 
-H3 {
+H2 {
     text-align: center;
     color: #dd3928;
     font-size: 25px;
@@ -24,7 +24,7 @@ H3 {
     margin: auto;
 }
 
-.our-team{
+.us{
     background: #f7f5ec;
     text-align: center;
     overflow: hidden;
@@ -34,7 +34,7 @@ H3 {
     width: 50%;
     }
     
-.our-team .pic{
+.us .pic{
     display: inline-block;
     width: 130px;
     height: 130px;
@@ -43,7 +43,7 @@ H3 {
     position: relative;
     }
     
-.our-team .pic:before{
+.us .pic:before{
     content: "";
     width: 100%;
     height: 0;
@@ -58,11 +58,11 @@ H3 {
     transition: all 0.3s linear 0s;
     }
     
-.our-team:hover .pic:before {
+.us:hover .pic:before {
     height: 100%; 
 } 
 
-.our-team .pic:after {
+.us .pic:after {
     content: "";
     width: 100%;
     height: 100%;
@@ -74,7 +74,7 @@ H3 {
     z-index: -1;
     }
 
-.our-team .pic img{
+.us .pic img{
     width: 100%;
     height: auto;
     border-radius: 50%;
@@ -82,16 +82,16 @@ H3 {
     transition: all 0.9s ease 0s;
     }
 
-.our-team:hover .pic img{
+.us:hover .pic img{
     box-shadow: 0 0 0 14px #f7f5ec;
     transform: scale(0.7);
     }
     
-.our-team .team-content { 
+.us .us-content { 
     margin-bottom: 30px; 
 }
 
-.our-team .title{
+.us .usTitle{
     font-size: 22px;
     font-weight: 700;
     color: black;
@@ -100,7 +100,7 @@ H3 {
     margin-bottom: 5px;
 
     }
-.our-team .post{
+.us .post{
     display: block;
     font-size: 15px;
     color: black;

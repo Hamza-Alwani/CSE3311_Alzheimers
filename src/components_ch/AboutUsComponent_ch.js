@@ -25,7 +25,7 @@ function AboutUsComponent() {
             <div class="team-content">
                 <h3 class="title">Kathy Lee</h3>
                 <h3 class="title">PhD, MSW</h3>
-                <span class="post">Assistant Professor, School of Social Work, University of Texas at Arlington.</span>
+                <span class="post">Program Coordinator, Assistant Professor, School of Social Work, University of Texas at Arlington.</span>
             </div>
             {/* intro? */}
         </div>
@@ -38,7 +38,7 @@ function AboutUsComponent() {
             <div class="team-content">
                 <h3 class="title">Chang Hyun Seo</h3>
                 <h3 class="title">PhD, MSW</h3>
-                <span class="post">School of Social Work, University of Texas at Arlington.</span>
+                <span class="post">Partner Program Coordinator, School of Social Work, University of Texas at Arlington.</span>
             </div>
         </div>
         
@@ -50,7 +50,7 @@ function AboutUsComponent() {
             <div class="team-content">
                 <h3 class="title">Joe Zhao</h3>
                 <h3 class="title">MSW</h3>
-                <span class="post">Graduate College of Social Work, University of Houston.</span>
+                <span class="post">Research Assistant, Graduate College of Social Work, University of Houston.</span>
             </div>
         </div>
 
@@ -62,7 +62,7 @@ function AboutUsComponent() {
             <div class="team-content">
                 <h3 class="title">Jessica Cassidy</h3>
                 <h3 class="title">MSW</h3>
-                <span class="post">PhD student, School of Social Work, University of Texas at Arlington. </span>
+                <span class="post">Research Assistant, PhD student, School of Social Work, University of Texas at Arlington. </span>
             </div>
         </div>
     </div>
