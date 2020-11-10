@@ -15,45 +15,45 @@ import pic4 from '../pictures/thy.jpg';
 function CoolBeansComponent() {
     return (
 <body>
-    <h3>WEB DEVELOPERS</h3>
+    <h2>WEB DEVELOPERS</h2>
     <div class="container">
-        <div class="our-team">
+        <div class="us">
             <div class="pic">
                 <img src={pic1} alt=""/>
             </div>
-            <div class="team-content">
-                <h3 class="title">Hamza Alwani</h3>
+            <div class="us-content">
+                <h4 class="usTitle">Hamza Alwani</h4>
             </div>
             {/* intro? */}
         </div>
 
         
-        <div class="our-team">
+        <div class="us">
             <div class="pic">
                 <img src={pic2} alt=""/>
             </div>
-            <div class="team-content">
-                <h3 class="title">Arman Bhandari</h3>
+            <div class="us-content">
+                <h4 class="usTitle">Arman Bhandari</h4>
             </div>
         </div>
         
         
-        <div class="our-team">
+        <div class="us">
             <div class="pic">
                 <img src={pic3} alt=""/>
             </div>
-            <div class="team-content">
-                <h3 class="title">Henry Tang</h3>
+            <div class="us-content">
+                <h4 class="usTitle">Henry Tang</h4>
             </div>
         </div>
 
         
-        <div class="our-team">
+        <div class="us">
             <div class="pic">
                 <img src={pic4} alt=""/>
             </div>
-            <div class="team-content">
-                <h3 class="title">Thy Tran</h3>
+            <div class="us-content">
+                <h4 class="usTitle">Thy Tran</h4>
             </div>
         </div>
     </div>
