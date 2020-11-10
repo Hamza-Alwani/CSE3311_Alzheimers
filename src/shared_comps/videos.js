@@ -16,6 +16,7 @@ import '../css/video.css';
 function Article( {props} ) {
     return (
     <div className="center">
+      <h3>{props.title}</h3>
       <ReactPlayer
         url={props.url}
       />         

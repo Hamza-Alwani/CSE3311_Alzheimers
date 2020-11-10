@@ -23,6 +23,8 @@ function DisplayArticle() {
     const [article, setArticle] = useState(
         {
                 url: "",
+                title: "",
+                language:"",
                 
         });
     const [articleList, setArticleList] = useState([]); // list of all city based on state in firebase
@@ -30,7 +32,7 @@ function DisplayArticle() {
     // Pulls each article and links with the other useEffect below this one.
     useEffect(() => {
         const database = firebase.database()
-        const rootRef = database.ref("Outreach/ko");
+        const rootRef = database.ref("Outreach");
         
     
         
@@ -38,6 +40,8 @@ function DisplayArticle() {
                 snap.forEach(function(childSnapshot) {
                     setArticle({...article, 
                             url: childSnapshot.child("url").val(),
+                            title: childSnapshot.child("title").val(),
+                            language:  childSnapshot.child("language").val(),
                     })
                 });
             });
@@ -47,7 +51,7 @@ function DisplayArticle() {
 
     // Once a change is detected for the article object, it will be added to a list to be spamed onto the page
     useEffect(() => {
-        if(article.url)
+        if(article.url && article.language==="ko")
         {
             setArticleList(articleList => [...articleList, article]);
         }

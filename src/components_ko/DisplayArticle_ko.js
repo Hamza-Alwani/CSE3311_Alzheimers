@@ -9,7 +9,8 @@ import React, {useState, useEffect} from 'react';
 import styled from 'styled-components'
 
 // components
-import Article from '../shared_comps/Article'
+import Video from '../shared_comps/videos'
+
 
 // firebase imports
  import firebase from '../shared_comps/firebase';
@@ -21,27 +22,26 @@ function DisplayArticle() {
     // Creates an object later used by firebase to store data the user will see once the page is done loading.
     const [article, setArticle] = useState(
         {
-                disc: "",
-                pic: "",
+                url: "",
                 title: "",
-                website: "",
-                language: ""
+                language:"",
+                
         });
     const [articleList, setArticleList] = useState([]); // list of all city based on state in firebase
 
     // Pulls each article and links with the other useEffect below this one.
     useEffect(() => {
         const database = firebase.database()
-        const rootRef = database.ref("Article");
+        const rootRef = database.ref("Outreach");
+        
+    
         
         rootRef.on('value', snap => {
                 snap.forEach(function(childSnapshot) {
                     setArticle({...article, 
-                            disc: childSnapshot.child("disc").val(),
-                            pic: childSnapshot.child("pic").val(),
+                            url: childSnapshot.child("url").val(),
                             title: childSnapshot.child("title").val(),
-                            website: childSnapshot.child("website").val(),
-                            language: childSnapshot.child("language").val()
+                            language:  childSnapshot.child("language").val(),
                     })
                 });
             });
@@ -51,12 +51,11 @@ function DisplayArticle() {
 
     // Once a change is detected for the article object, it will be added to a list to be spamed onto the page
     useEffect(() => {
-        if((article.disc !== "") && (article.pic !== "") && (article.title !== "") && (article.website !== ""), (article.language==="ko"))
+        if(article.url && article.language==="ko")
         {
             setArticleList(articleList => [...articleList, article]);
         }
     },[article])
-
 
 
     // Spams articles onto the page depending on how many articles there are on firebase. - we can add a limited in the future when needed
@@ -65,7 +64,7 @@ function DisplayArticle() {
             <div>
                 {props.map((state, index) => (
                     
-                    <Article props={state} key={index}></Article>
+                    <Video props={state} key={index}></Video>
 
                 ))}
             </div>
@@ -77,11 +76,10 @@ function DisplayArticle() {
         <div className="all-content">
             <div className="main-component">
                 <div className="gen_header">
-                    Dementia Information
                 </div>
+                
                 <DisplayArticleContainer>
                             <SpamArticle props ={articleList}></SpamArticle>
-                            
                 </DisplayArticleContainer>
             </div>
         </div>
