@@ -51,7 +51,7 @@ function DisplayArticle() {
 
     // Once a change is detected for the article object, it will be added to a list to be spamed onto the page
     useEffect(() => {
-        if(article.url && article.language==="ko")
+        if(article.url && article.language==="ch")
         {
             setArticleList(articleList => [...articleList, article]);
         }
