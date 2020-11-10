@@ -38,7 +38,7 @@ function AboutUsComponent() {
             <div class="team-content">
                 <h3 class="title">Chang Hyun Seo</h3>
                 <h3 class="title">PhD, MSW</h3>
-                <span class="post">School of Social Work, University of Texas at Arlington.</span>
+                <span class="post">Partner Program Coordinator, School of Social Work, University of Texas at Arlington.</span>
             </div>
         </div>
         
