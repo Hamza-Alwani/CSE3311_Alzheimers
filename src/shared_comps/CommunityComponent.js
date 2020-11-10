@@ -163,17 +163,18 @@ function CommunityComponent() {
     <div className="main-component">
 
       {/* Header */}
-      <div>
-        <div style={{float:"left"}} className="gen_header">
-                Community Resources
-        </div>
-        <ToggleButtonGroup style={{float:"right"}} id="lang-buttons" type="radio" name="lang-button-name" value={selectedLang} onChange={handleChange}>
-          <ToggleButton value={'EN'}>English</ToggleButton>
-          <ToggleButton value={'KO'}>Korean</ToggleButton>
-          <ToggleButton value={'ZH'}>Chinese</ToggleButton>
-        </ToggleButtonGroup>
-      </div>
       <CommunityContainer>
+      <div>
+        <div className="gen_header">Community Resources</div>
+        <div className="lang-buttons-div">
+          <ToggleButtonGroup className="lang-buttons" type="radio" name="lang-button-name" value={selectedLang} onChange={handleChange}>
+            <ToggleButton value={'EN'}>English</ToggleButton>
+            <ToggleButton value={'KO'}>Korean</ToggleButton>
+            <ToggleButton value={'ZH'}>Chinese</ToggleButton>
+          </ToggleButtonGroup>
+        </div>
+      </div>
+
         {/* Drop down to pick citys */}
         <Table striped bordered hover className="state-city-dropdown-table">
           <thead>
@@ -250,6 +251,17 @@ const CommunityContainer = styled.div`
   flex: 1;
 }
 
+.gen_header
+{
+  float: left;
+}
+
+.lang-buttons-div
+{
+  float: right;
+  margin-bottom: 1rem;
+}
+
 /* Downdown */
 .dropdown a
 {
@@ -280,7 +292,32 @@ iframe
 }
 /* End Table */
 
+/* On screens that are 600px or less, set the background color to blue */
 @media only screen and (max-width: 600px) {
+  
+  .gen_header
+  {
+    text-alignment: center;
+  }
+
+  .lang-buttons-div
+  {
+    float: left;
+    width: 100%;
+    position: relative;
+    margin-bottom: 2rem;
+    margin-top: 1rem;
+  }
+
+  .lang-buttons
+  {
+    position:absolute;
+    left:50%;
+    top:50%;
+
+    transform: translate(-50%,-50%);
+  }
+
   .state-city-dropdown-table
   {
     height: 100%;
@@ -290,7 +327,7 @@ iframe
 
   .google-map-table
   {
-    height: 100%;
+    height: 30rem;
   }
 }
 

@@ -106,5 +106,12 @@ ul li a:hover
   color: var(--primaryTheme)
 }
 
+/* On screens that are 600px or less */
+@media only screen and (max-width: 600px) {
+  .spacer {
+  ${'' /* Seperates the body from the footer so it doesn't touch */}
+    padding-top: 2rem;
+  }
+}
 
 `;
