@@ -7,10 +7,10 @@
 
 import React, {useState, useEffect} from 'react';
 import styled from 'styled-components'
+import PropTypes from 'prop-types';
 
 // components
-import Video from '../shared_comps/videos'
-
+import Article from '../shared_comps/Article'
 
 // firebase imports
  import firebase from '../shared_comps/firebase';
@@ -45,8 +45,6 @@ function DisplayArticle() {
                     })
                 });
             });
-        // The comment below disables a warning given to us because statelist isn't passed to the [] below
-        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     // Once a change is detected for the article object, it will be added to a list to be spamed onto the page
@@ -62,14 +60,24 @@ function DisplayArticle() {
     const SpamArticle = ({ props }) => {
         return (
             <div>
+                {/* eslint-disable-next-line react/prop-types */}
                 {props.map((state, index) => (
-                    
-                    <Video props={state} key={index}></Video>
-
+                    <Article props={state} key={index}></Article>
                 ))}
             </div>
         );
     };
+    SpamArticle.propTypes = {
+        props: PropTypes.arrayOf( 
+            PropTypes.shape({
+                disc: PropTypes.string,
+                pic: PropTypes.string,
+                title: PropTypes.string,
+                website: PropTypes.string,
+                language: PropTypes.string
+            }),
+        )
+    }
 
     // Main return of DisplayArticle(), uses all the function and UseEffects above to compile the page.
     return (

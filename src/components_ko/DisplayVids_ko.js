@@ -1,7 +1,7 @@
 /// summary
 ///
-///	DisplayArticle  
-/// - Will be used to display articles an admin has added and allow the user to click on them to read. 
+///	DisplayVideo 
+/// - Will be used to display videos an admin has added and allow the user to click on them to read. 
 ///
 /// summary
 
@@ -18,7 +18,7 @@ import Video from '../shared_comps/videos'
 // css
 import '../css/main.css'; 
 
-function DisplayArticle() { 
+function DisplayVideos() { 
     // Creates an object later used by firebase to store data the user will see once the page is done loading.
     const [article, setArticle] = useState(
         {
@@ -45,8 +45,6 @@ function DisplayArticle() {
                     })
                 });
             });
-        // The comment below disables a warning given to us because statelist isn't passed to the [] below
-        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     // Once a change is detected for the article object, it will be added to a list to be spamed onto the page
@@ -78,9 +76,9 @@ function DisplayArticle() {
                 <div className="gen_header">
                 </div>
                 
-                <DisplayArticleContainer>
+                <DisplayVideoContainer>
                             <SpamArticle props ={articleList}></SpamArticle>
-                </DisplayArticleContainer>
+                </DisplayVideoContainer>
             </div>
         </div>
     );
@@ -89,10 +87,10 @@ function DisplayArticle() {
 }
 
 
-export default DisplayArticle;
+export default DisplayVideos;
 
 // 'style-component package used for infile css'
-const DisplayArticleContainer = styled.div`
+const DisplayVideoContainer = styled.div`
 
 ${'' /* CSS if needed */}
 
