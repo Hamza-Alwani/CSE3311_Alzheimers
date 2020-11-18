@@ -67,29 +67,25 @@ class Admin_Dementia_Information_Page extends Component
    render()
    {
       return (
-
          <div className="main-component">
-         
-         <Nav/>
+            <Nav/>
 
-         {/* Header */}
-         <div className="gen_header">
-                  Admin Powers Outreach
+            {/* Header */}
+            <div className="gen_header">
+                     Admin Powers Outreach
+            </div>
+            <Tabs defaultActiveKey="add" id="uncontrolled-tab-example">
+               <Tab eventKey="add" title="Add">
+                  <AdminAddOutreach/>
+               </Tab>
+               <Tab eventKey="update" title="Update">
+                  <AdminUpdateOutreach />
+               </Tab>
+               <Tab eventKey="delete" title="Delete">
+                  <AdminDeleteOutreach />
+               </Tab>
+            </Tabs>
          </div>
-         <Tabs defaultActiveKey="add" id="uncontrolled-tab-example">
-            <Tab eventKey="add" title="Add">
-               <AdminAddOutreach/>
-            </Tab>
-            <Tab eventKey="update" title="Update">
-               <AdminUpdateOutreach />
-            </Tab>
-            <Tab eventKey="delete" title="Delete">
-               <AdminDeleteOutreach />
-            </Tab>
-         </Tabs>
-                     
-      </div>
-        
       )
    }
 }
