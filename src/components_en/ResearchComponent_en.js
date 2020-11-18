@@ -50,7 +50,7 @@ function ResearchComponent() {
                 <div 
                   className="calendly-inline-widget" 
                   data-url="https://calendly.com/dementiacaregiving/60min?text_color=363738&primary_color=ff8400"
-                  style={{ width:"100%", height:"750px" }}>
+                  style={{ width:"100%" }}>
                 </div>
               </div>
 
@@ -69,13 +69,15 @@ const ResearchContainer = styled.nav`
 
 .calendly-inline-widget
 {
+  flex: 1;
   height:100%;
   width:100%;
 }
 
 .calendly-div
 {
-  height:750px;
+  display: flex;
+  height: 900px;
   min-width: 320px;
 }
 

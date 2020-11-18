@@ -66,8 +66,8 @@ const ArticleContainer = styled.div`
 }
 
 .article-text-container:hover {
-    -webkit-transform: scale(1.25, 1.25);
-    transform: scale(1.25, 1.25);
+    -webkit-transform: scale(1.03, 1.03);
+    transform: scale(1.03, 1.03);
 }
 
 .article-text-container:hover::after {
