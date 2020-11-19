@@ -30,7 +30,7 @@ const GlobalStyle = createGlobalStyle`
     {
       font-size: 1rem;
     }
-  }
+}
 `
 
 function Welcome() {
@@ -39,7 +39,7 @@ function Welcome() {
     {/* Inject css into elements outside of this component's scope */}
     <GlobalStyle/> 
     
-  	<div className="welcome-div">
+	<div className="welcome-div">
 
 		<div className="main-component">
 
