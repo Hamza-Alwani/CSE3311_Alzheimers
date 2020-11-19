@@ -6,15 +6,15 @@
 import React from 'react';
 
 // components
-import Nav from '../shared_comps/Admin_nav';
+import Nav from '../../shared_comps/Admin_nav';
 
 //css
-import '../css/main.css'
+import '../../css/main.css'
 
 function Admin_Home()
 {
    return(
-         <div>
+         <div className="main-component">
             <Nav/>
          </div>
    )

@@ -37,8 +37,8 @@ function CommunityComponent() {
   const [selectedState, setSelectedState] = useState('Texas');
   const [selectedCity, setSelectedCity] = useState('Dallas'); // Bug - list doesn't load up if 'Dallas' doesn't exist anymore in firebase 
 
-  // language can only be 'EN' 'KO' 'ZH'
-  const [selectedLang, setSelectedLang] = useState('EN');
+  // language can only be 'ALL' 'KO' 'ZH'
+  const [selectedLang, setSelectedLang] = useState('ALL');
   const handleChange = (val) => setSelectedLang(val); // use with id='lang-buttons' to select the correct language on the website
 
   // Pulls a list of all the U.S States in firebase - works
@@ -49,7 +49,7 @@ function CommunityComponent() {
     setStateList([])
     setCityList([])
     console.log(stateList);
-    if(selectedLang == 'EN')
+    if(selectedLang == 'ALL')
     {
       console.log("english");
       rootRef.on('value', snap => {
@@ -168,9 +168,9 @@ function CommunityComponent() {
         <div className="gen_header">Community Resources</div>
         <div className="lang-buttons-div">
           <ToggleButtonGroup className="lang-buttons" type="radio" name="lang-button-name" value={selectedLang} onChange={handleChange}>
-            <ToggleButton value={'EN'}>English</ToggleButton>
-            <ToggleButton value={'KO'}>Korean</ToggleButton>
-            <ToggleButton value={'ZH'}>Chinese</ToggleButton>
+            <ToggleButton variant="light" value={'ALL'}><b> All</b> </ToggleButton>
+            <ToggleButton variant="light" value={'KO'}><b> Korean</b> </ToggleButton>
+            <ToggleButton variant="light" value={'ZH'}><b> Chinese</b></ToggleButton>
           </ToggleButtonGroup>
         </div>
       </div>

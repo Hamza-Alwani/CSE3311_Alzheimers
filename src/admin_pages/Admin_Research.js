@@ -13,15 +13,12 @@ import '../css/main.css'
 
 
 function Admin_Research_Page() {
-
-
   return(
     <div>
        <Nav/>
        <Footer/>
     </div>
-
-)
+  )
 }
 
 export default Admin_Research_Page;

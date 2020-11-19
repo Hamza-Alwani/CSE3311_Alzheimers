@@ -1,6 +1,7 @@
 /// summary
 ///
 ///	Contact Us section.  
+///   - Uses the emailjs-com package to send emails 
 ///   - Used to send questions/messages to the admins via email and admin dashboard
 ///
 /// summary

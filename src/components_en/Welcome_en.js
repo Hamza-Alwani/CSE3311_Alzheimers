@@ -1,6 +1,6 @@
 /// summary
 ///
-/// Welcome page component used to tell users entering that the site is currently in development.
+/// Welcome page used to tell users who we are and what we do.
 ///
 /// summary
 
@@ -16,7 +16,6 @@ import '../css/main.css';
 const GlobalStyle = createGlobalStyle`
   body{
 	background-image:url('https://s3.amazonaws.com/zweb-s3.uploads/ez2/wp-content/uploads/2014/01/cognitive-training-holistic-mnemonic-training-gettyimages1.jpg'); 
-    ${'' /* background-image:url('https://www.washingtonpost.com/wp-apps/imrs.php?src=https://arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/NJQ4KWEWNUI6RAML5G3TJDGYPU.jpg'); */}
     background-attachment:fixed;
     background-repeat: no-repeat;
     background-size: cover;
@@ -31,7 +30,7 @@ const GlobalStyle = createGlobalStyle`
     {
       font-size: 1rem;
     }
-  }
+}
 `
 
 function Welcome() {
@@ -40,7 +39,7 @@ function Welcome() {
     {/* Inject css into elements outside of this component's scope */}
     <GlobalStyle/> 
     
-  	<div className="welcome-div">
+	<div className="welcome-div">
 
 		<div className="main-component">
 
@@ -52,8 +51,8 @@ function Welcome() {
 			<div className="welcome-divider">&nbsp;</div>
 			{/* seperates divs with space */}
 
-			<section class="home-who-we-are">
-				<div class="home-who-we-are-textbox parallax--box">
+			<section className="home-who-we-are">
+				<div className="home-who-we-are-textbox parallax--box">
 					<h1>Who we are</h1>
 					<p>A research team led by <strong>Dr. Kathy Lee</strong> at the University Of Texas at Arlington.</p>
 					<p>Our main goal is to spread awareness of dementia among the Asian Comunnities to improve the quality of lives </p>

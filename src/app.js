@@ -5,6 +5,7 @@
 import React from 'react';
 // components
 import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
+
 //pages-English
 import Main_Page_en from './pages_en/MainPage_en'
 import Contact_us_Page_en from './pages_en/ContactUs_en'
@@ -23,8 +24,6 @@ import Dementia_Information_Page_ch from './pages_ch/DementiaInformation_ch'
 import Community_Resources_Page_ch from './pages_ch/CommunityResources_ch'
 import About_Us_Page_ch from './pages_ch/AboutUs_ch'
 
-//
-
 //pages-Korean
 import Main_Page_ko from './pages_ko/MainPage_ko'
 import Contact_us_Page_ko from './pages_ko/ContactUs_ko'
@@ -39,12 +38,12 @@ import Paget_Not_Found_Page from './shared_page/PageNotFound'
 import LanguageSelection from './shared_page/LanguageSelection'
 
 //admins
-import Admin_Home from './admin_pages/Admin_Home'
+import Admin_Home from './admin_pages/AdminHome/Admin_Home'
 import Admin_Outreach_Page from './admin_pages/AdminOutreach/Admin_Outreach'
 import Admin_Research_Page from './admin_pages/Admin_Research'
 import Admin_Dementia_Information_Page from './admin_pages/AdminDementiaInformation/Admin_DementiaInformation'
 import Admin_Community_Resources_Page from './admin_pages/AdminCommunityResources/Admin_CommunityResources'
-import Admin_login from './admin_pages/Admin_login'
+import Admin_Login from './admin_pages/Admin_Login'
 
 import  firebase from './shared_comps/firebase';
 
@@ -89,7 +88,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
       ) : (
         <Redirect
           to={{
-            pathname: "/admin_login"
+            pathname: "/Admin_Login"
           }}
         />
       )
@@ -146,7 +145,7 @@ function islang(){
                
 
 
-               <Route exact path ="/Admin_login" component={Admin_login} />
+               <Route exact path ="/Admin_Login" component={Admin_Login} />
                <PrivateRoute exact path ="/Admin_Home" component={Admin_Home} />
                <PrivateRoute exact path="/Admin_Community_Resources" component={Admin_Community_Resources_Page} />
                <PrivateRoute exact path="/Admin_Dementia_Information" component={Admin_Dementia_Information_Page} />

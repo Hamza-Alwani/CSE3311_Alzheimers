@@ -14,7 +14,7 @@ import Button from 'react-bootstrap/Button';
 // css
 import '../css/main.css'
 
-function AdminPage_login()
+function AdminPage_Login()
 {
    useEffect(() => {
       firstcheck();
@@ -48,7 +48,7 @@ function AdminPage_login()
    );
 }
 
-export default AdminPage_login
+export default AdminPage_Login
 
 // Check if the user is already logged in
 function firstcheck(){
