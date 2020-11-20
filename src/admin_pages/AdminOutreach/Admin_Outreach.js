@@ -7,7 +7,6 @@ import React, { Component } from 'react';
 
 // components
 import Nav from '../../shared_comps/Admin_nav';
-import Footer from '../../components_en/Footer_en'; 
 
 //import  '../components/EmailViewerBundler';
 import  firebase from '../../shared_comps/firebase';

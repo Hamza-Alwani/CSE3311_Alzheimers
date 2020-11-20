@@ -1,26 +1,28 @@
 /// summary
 ///
-///	Admin Navigation bar 
-///   - This component is used to navigate accross only the admin's pages website.
+///	Navigation bar 
+///   - This component is used to navigate accross the entire website.
 ///
 /// summary
 
 import React from 'react';
 // import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Button from 'react-bootstrap/Button';
 import styled from 'styled-components'
 
-import  firebase from '../shared_comps/firebase';
 // bootstrap components
-import { Navbar, Nav } from 'react-bootstrap';
+import { Navbar, Nav} from 'react-bootstrap';
 
 // css
 import '../css/main.css';
 
+// translations
+import strings from '../translation/NavigationLang.js'
+// maybe you don't need this unless you are on the LanguagePopUp - must check later 
+strings.setLanguage(localStorage.getItem("Language"));
 
 
-function AdminNavigationBar() {
+function NavigationBar() {
   return (
     // NavigationContainer is a style-component used to give the Nav bar css styles.
     <NavigationContainer>
@@ -30,6 +32,18 @@ function AdminNavigationBar() {
         that allows us to give a modern look for the website and not reinvent the wheel
       */}
       <Navbar collapseOnSelect expand="lg" className="bg-transparent">
+        {/* Logo picture - picture needs to be replaced*/}
+        {/* <Navbar.Brand> 
+          <Link to ="/">
+            <img
+                src={logo}
+                width="80"
+                height="80"
+                className="d-inline-block align-top "
+                alt="logo"
+                />
+          </Link> 
+        </Navbar.Brand> */}
 
         {/* When the resolution is too low, the navigation bar will collapse into a button usually for mobile users. */}
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -38,17 +52,25 @@ function AdminNavigationBar() {
         {/* Links below */}
         <Navbar.Collapse id="responsive-navbar-nav">
           {/* Main Navigation Bar - links to pages in use for the user. */}
-          <Nav className="mr-auto">
-            <Nav.Link href="/Admin_Community_Resources"> Community Resources  </Nav.Link>
-            <Nav.Link href="/Admin_Dementia_Information">Dementia Information </Nav.Link>
-            {/* <Nav.Link href="/Admin_Research">            Research             </Nav.Link> */}
-            <Nav.Link href="/Admin_Outreach">            Outreach             </Nav.Link>
+          <Nav className="ml-auto">
+            <Nav.Link href="/home_en"> {strings.Home} </Nav.Link>
+            <Nav.Link href="/Community_Resources_en"> {strings.Community} </Nav.Link>
+            <Nav.Link href="/Dementia_Information_en">{strings.Dementia} </Nav.Link>
+            <Nav.Link href="/Research_en">            {strings.Research}             </Nav.Link>
+            <Nav.Link href="/Outreach_en">            {strings.Outreach}             </Nav.Link>
+            <Nav.Link href="/contact_us_en">          {strings.ContactUs}          </Nav.Link>
+            <Nav.Link href="/about_us_en">            {strings.AboutUs}         </Nav.Link>
           </Nav> 
 
           {/* Language drop down */}
-          <Nav>
-          <Button varient="danger"  onClick={logout_pressed} type="" className="submit">Logout</Button>
-          </Nav>
+          {/* Move this later */}
+          {/* <Nav>
+            <NavDropdown title="Language" id="collasible-nav-dropdown">
+              <NavDropdown.Item href="#lang/EN">English</NavDropdown.Item>
+              <NavDropdown.Item href="#lang/KO">한국어</NavDropdown.Item>
+              <NavDropdown.Item href="#lang/ZH">中文</NavDropdown.Item>
+            </NavDropdown>
+          </Nav> */}
         </Navbar.Collapse>
       </Navbar>
       <div className="nav-spacer"></div>
@@ -56,14 +78,7 @@ function AdminNavigationBar() {
   );
 }
 
-export default AdminNavigationBar;
-
-function logout_pressed(){
-   
-  firebase.auth().signOut()
-  window.location.href="/"
- 
-}
+export default NavigationBar;
 
 // 'style-component package used for infile css'
 const NavigationContainer = styled.div`
@@ -73,6 +88,15 @@ ${'' /* Creates a push below the navigation below so nothing is touching */}
 .nav-spacer
 {
   padding-bottom: 4rem;
+}
+
+
+/* On screens that are 1000px or less, set the background color to blue */
+@media only screen and (max-width: 1000px) {
+  .nav-spacer
+  {
+    padding-bottom: 1rem;
+  }
 }
 
 
@@ -88,26 +112,26 @@ ${'' /* Creates a push below the navigation below so nothing is touching */}
 }
 .navbar .navbar-brand:hover,
 .navbar .navbar-brand:focus {
-  color: #fbfbfb;
+  color: #000000;
 }
 .navbar .navbar-text {
   color: #dd3928;
 }
 .navbar .navbar-text a {
-  color: #fbfbfb;
+  color: #000000;
 }
 .navbar .navbar-text a:hover,
 .navbar .navbar-text a:focus {
-  color: #fbfbfb; 
+  color: #000000; 
 }
 .navbar .navbar-nav .nav-link {
-  color: #007bff;
+  color: #dd3928;
   border-radius: .25rem;
   margin: 0 1rem;
 }
 .navbar .navbar-nav .nav-link:not(.disabled):hover,
 .navbar .navbar-nav .nav-link:not(.disabled):focus {
-  color: #fbfbfb;
+  color: #000000;
 }
 .navbar .navbar-nav .nav-item.active .nav-link,
 .navbar .navbar-nav .nav-item.active .nav-link:hover,
@@ -115,7 +139,7 @@ ${'' /* Creates a push below the navigation below so nothing is touching */}
 .navbar .navbar-nav .nav-item.show .nav-link,
 .navbar .navbar-nav .nav-item.show .nav-link:hover,
 .navbar .navbar-nav .nav-item.show .nav-link:focus {
-  color: #fbfbfb;
+  color: #000000;
   background-color: #000000;
 }
 .navbar .navbar-toggle {
@@ -136,7 +160,7 @@ ${'' /* Creates a push below the navigation below so nothing is touching */}
   color: #dd3928;
 }
 .navbar .navbar-link:hover {
-  color: #fbfbfb;
+  color: #000000;
 }
 
 @media (max-width: 575px) {
