@@ -47,7 +47,7 @@ function Footer() {
                   <ul className="list-unstyled">
                     <li><a href="/home_en">{strings.HomeLink}</a></li>
                     <li><a href="/Community_Resources_en">{strings.CommunityLink}</a></li>
-                    <li><a href="/Dementia_Information_en">{strings.DementiaLink}n</a></li>
+                    <li><a href="/Dementia_Information_en">{strings.DementiaLink}</a></li>
                     <li><a href="/Research_en">{strings.ResearchLink}</a></li>
                     <li><a href="/Outreach_en">{strings.OutreachLink}</a></li>
                     <li><a href="/contact_us_en">{strings.ContactUsLink}</a></li>

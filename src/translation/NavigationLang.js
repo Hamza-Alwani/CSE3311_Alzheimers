@@ -4,6 +4,7 @@ import korean from './KO/Navigation_ko.js'
 import chinese from './CH/Navigation_ch.js'
 
 let strings = new LocalizedStrings({
+    null: english,
     en: english,
     ko: korean,
     ch: chinese,
