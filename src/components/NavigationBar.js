@@ -53,13 +53,13 @@ function NavigationBar() {
         <Navbar.Collapse id="responsive-navbar-nav">
           {/* Main Navigation Bar - links to pages in use for the user. */}
           <Nav className="ml-auto">
-            <Nav.Link href="/home_en"> {strings.Home} </Nav.Link>
-            <Nav.Link href="/Community_Resources_en"> {strings.Community} </Nav.Link>
-            <Nav.Link href="/Dementia_Information_en">{strings.Dementia} </Nav.Link>
-            <Nav.Link href="/Research_en">            {strings.Research}             </Nav.Link>
-            <Nav.Link href="/Outreach_en">            {strings.Outreach}             </Nav.Link>
-            <Nav.Link href="/contact_us_en">          {strings.ContactUs}          </Nav.Link>
-            <Nav.Link href="/about_us_en">            {strings.AboutUs}         </Nav.Link>
+            <Nav.Link href="/home"> {strings.Home} </Nav.Link>
+            <Nav.Link href="/Community_Resources"> {strings.Community} </Nav.Link>
+            <Nav.Link href="/Dementia_Information">{strings.Dementia} </Nav.Link>
+            <Nav.Link href="/Research">            {strings.Research}             </Nav.Link>
+            <Nav.Link href="/Outreach">            {strings.Outreach}             </Nav.Link>
+            <Nav.Link href="/contact_us">          {strings.ContactUs}          </Nav.Link>
+            <Nav.Link href="/about_us">            {strings.AboutUs}         </Nav.Link>
           </Nav> 
 
           {/* Language drop down */}
