@@ -16,44 +16,44 @@ function CoolBeansComponent() {
     return (
 <body>
     <h2>WEB DEVELOPERS</h2>
-    <div class="container">
-        <div class="us">
-            <div class="pic">
+    <div className="container">
+        <div className="us">
+            <div className="pic">
                 <img src={pic1} alt=""/>
             </div>
-            <div class="us-content">
-                <h4 class="usTitle">Hamza Alwani</h4>
+            <div className="us-content">
+                <h4 className="usTitle">Hamza Alwani</h4>
             </div>
             {/* intro? */}
         </div>
 
         
-        <div class="us">
-            <div class="pic">
+        <div className="us">
+            <div className="pic">
                 <img src={pic2} alt=""/>
             </div>
-            <div class="us-content">
-                <h4 class="usTitle">Arman Bhandari</h4>
+            <div className="us-content">
+                <h4 className="usTitle">Arman Bhandari</h4>
             </div>
         </div>
         
         
-        <div class="us">
-            <div class="pic">
+        <div className="us">
+            <div className="pic">
                 <img src={pic3} alt=""/>
             </div>
-            <div class="us-content">
-                <h4 class="usTitle">Henry Tang</h4>
+            <div className="us-content">
+                <h4 className="usTitle">Henry Tang</h4>
             </div>
         </div>
 
         
-        <div class="us">
-            <div class="pic">
+        <div className="us">
+            <div className="pic">
                 <img src={pic4} alt=""/>
             </div>
-            <div class="us-content">
-                <h4 class="usTitle">Thy Tran</h4>
+            <div className="us-content">
+                <h4 className="usTitle">Thy Tran</h4>
             </div>
         </div>
     </div>

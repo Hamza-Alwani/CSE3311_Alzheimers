@@ -1,27 +1,26 @@
-import React, {useState} from 'react';
+import React from 'react';
 
 import {Modal, Button} from 'react-bootstrap'
 import styled from 'styled-components'
 
 
 function LanguagePopUp() {
-    const [show, setShow] = useState(false);
   
     function English(){
-        setShow(false)
-        window.location.href="/home_en"
+        localStorage.setItem("Language", "en");
+        window.location.href="/home"
 
     }
 
     function Chinese(){
-        setShow(false)
-        window.location.href="/home_ch"
+        localStorage.setItem("Language", "ch");
+        window.location.href="/home"
     }
 
     function Korean()
     {
-        setShow(false)
-        window.location.href="/home_ko"
+        localStorage.setItem("Language", "ko");
+        window.location.href="/home"
     }
     
 
