@@ -55,7 +55,7 @@ function DisplayArticle() {
 
     // Once a change is detected for the article object, it will be added to a list to be spamed onto the page
     useEffect(() => {
-        if((article.disc !== "") && (article.pic !== "") && (article.title !== "") && (article.website !== ""), (article.language==="en"))
+        if((article.disc !== "") && (article.pic !== "") && (article.title !== "") && (article.website !== ""), (article.language=== localStorage.getItem("Language") ))
         {
             setArticleList(articleList => [...articleList, article]);
         }
