@@ -1,3 +1,3 @@
 export default {
-    Header: "中文",
+    Header: "认知障碍症相关信息",
 }

@@ -1,20 +1,20 @@
 export default {
     // About Us
-    AboutUsTitle: "中文中文",
-    AboutDescription: "中文中文 中文中文中文 中文中文 中文中文中文 中文 中文中文中文",
+    AboutUsTitle: "关于我们",
+    AboutDescription: "我们的主要目标是在亚裔社区里传播认知障碍症的意识，从而提高生活质量",
 
     // Links
-    LinkTitle: "中文中文",
-    HomeLink: "中文",
-    CommunityLink: "中文",
-    DementiaLink: "中文",
-    ResearchLink: "中文",
-    OutreachLink: "中文",
-    ContactUsLink: "中文",
-    AboutUsLink: "中文",
-    ChooseLangLink: "中文中文中文",
-    AdminLink: "中文中文",
+    LinkTitle: "链接",
+    HomeLink: "主页",
+    CommunityLink: "社区资源",
+    DementiaLink: "认知障碍症相关信息",
+    ResearchLink: "研究",
+    OutreachLink: "外展",
+    ContactUsLink: "联系我们",
+    AboutUsLink: "关于我们",
+    ChooseLangLink: "选择语言",
+    AdminLink: "管理员",
 
     // Copyright
-    AppNameAndAllRightsReserved: "中文中文中文中文 中文中文 中文中文",
+    AppNameAndAllRightsReserved: "阿兹海默症的应用 – 保留所有版权",
 }

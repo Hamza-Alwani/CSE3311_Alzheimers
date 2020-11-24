@@ -1,9 +1,9 @@
 export default {
-    Home: "中文",
-    Community: "中文",
-    Dementia: "中文",
-    Research: "中文",
-    Outreach: "中文",
-    ContactUs: "中文",
-    AboutUs: "中文",
+    Home: "主页",
+    Community: "社区资源",
+    Dementia: "认知障碍症相关信息",
+    Research: "研究",
+    Outreach: "外展",
+    ContactUs: "联系我们",
+    AboutUs: "关于我们",
 }
