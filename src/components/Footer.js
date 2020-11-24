@@ -45,13 +45,13 @@ function Footer() {
                 <div className="col-md-3 col-sm-6">
                   <h4> <strong>{strings.LinkTitle}</strong> </h4>
                   <ul className="list-unstyled">
-                    <li><a href="/home_en">{strings.HomeLink}</a></li>
-                    <li><a href="/Community_Resources_en">{strings.CommunityLink}</a></li>
-                    <li><a href="/Dementia_Information_en">{strings.DementiaLink}</a></li>
-                    <li><a href="/Research_en">{strings.ResearchLink}</a></li>
-                    <li><a href="/Outreach_en">{strings.OutreachLink}</a></li>
-                    <li><a href="/contact_us_en">{strings.ContactUsLink}</a></li>
-                    <li><a href="/about_us_en">{strings.AboutUsLink}</a></li>
+                    <li><a href="/home">{strings.HomeLink}</a></li>
+                    <li><a href="/Community_Resources">{strings.CommunityLink}</a></li>
+                    <li><a href="/Dementia_Information">{strings.DementiaLink}</a></li>
+                    <li><a href="/Research">{strings.ResearchLink}</a></li>
+                    <li><a href="/Outreach">{strings.OutreachLink}</a></li>
+                    <li><a href="/contact_us">{strings.ContactUsLink}</a></li>
+                    <li><a href="/about_us">{strings.AboutUsLink}</a></li>
                     <li><a href="/">{strings.ChooseLangLink}</a></li>
                     <li><a href="/admin_home">{strings.AdminLink}</a></li>
                   </ul>
