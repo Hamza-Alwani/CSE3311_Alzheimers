@@ -14,7 +14,6 @@ import '../css/main.css';
 
 // translation
 import strings from '../translation/WelcomeLang.js'
-// maybe you don't need this unless you are on the LanguagePopUp - must check later 
 strings.setLanguage(localStorage.getItem("Language"));
 
 function Welcome() {

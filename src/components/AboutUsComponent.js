@@ -10,12 +10,15 @@ import pic2 from '../pictures/mem2.jpg';
 import pic3 from '../pictures/mem3.jpg';
 import pic4 from '../pictures/mem1.jpg';
 
+// translations
+import strings from '../translation/AboutUsLang.js'
+strings.setLanguage(localStorage.getItem("Language"));
 
 function AboutUsComponent() {
     return (
         <AboutUsContainer>
             <body>
-                <h1>MEET OUR TEAM</h1>
+                <h1>{strings.MeetOurTeam}</h1>
                 <div className="container">
                     {/* Dr. Lee */}
                     <div className="our-team">
@@ -23,9 +26,9 @@ function AboutUsComponent() {
                             <img src={pic1} alt=""/>
                         </div>
                         <div className="team-content">
-                            <h3 className="title">Kathy Lee</h3>
-                            <h3 className="title">PhD, MSW</h3>
-                            <span className="post">Principle Investigator, Assistant Professor, School of Social Work, University of Texas at Arlington.</span>
+                            <h3 className="title">{strings.KathyLee}</h3>
+                            <h3 className="title">{strings.KathyEducation}</h3>
+                            <span className="post">{strings.KathyPosition}</span>
                         </div>
                         {/* intro? */}
                     </div>
@@ -36,9 +39,9 @@ function AboutUsComponent() {
                             <img src={pic2} alt=""/>
                         </div>
                         <div className="team-content">
-                            <h3 className="title">Chang Hyun Seo</h3>
-                            <h3 className="title">PhD, MSW</h3>
-                            <span className="post">Program Coordinator, Research Associate, School of Social Work, University of Texas at Arlington.</span>
+                            <h3 className="title">{strings.ChangHyunSeo}</h3>
+                            <h3 className="title">{strings.ChangEducation}</h3>
+                            <span className="post">{strings.ChangPosition}</span>
                         </div>
                     </div>
                     
@@ -48,9 +51,9 @@ function AboutUsComponent() {
                             <img src={pic3} alt=""/>
                         </div>
                         <div className="team-content">
-                            <h3 className="title">Joe Zhao</h3>
-                            <h3 className="title">MSW</h3>
-                            <span className="post">Research Assistant (Chinese), Graduate College of Social Work, University of Houston.</span>
+                            <h3 className="title">{strings.JoeZhao}</h3>
+                            <h3 className="title">{strings.JoeEducation}</h3>
+                            <span className="post">{strings.JoePosition}</span>
                         </div>
                     </div>
 
@@ -60,9 +63,9 @@ function AboutUsComponent() {
                             <img src={pic4} alt=""/>
                         </div>
                         <div className="team-content">
-                            <h3 className="title">Jessica Cassidy</h3>
-                            <h3 className="title">MSW</h3>
-                            <span className="post">Research Assistant (English), PhD student, School of Social Work, University of Texas at Arlington. </span>
+                            <h3 className="title">{strings.JessicaCassidy}</h3>
+                            <h3 className="title">{strings.JessicaEducation}</h3>
+                            <span className="post">{strings.JessicaPosition}</span>
                         </div>
                     </div>
                 </div>

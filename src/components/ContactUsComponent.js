@@ -23,7 +23,6 @@ import '../css/main.css';
 
 // translations
 import strings from '../translation/ContactUsLang.js'
-// maybe you don't need this unless you are on the LanguagePopUp - must check later 
 strings.setLanguage(localStorage.getItem("Language"));
 
 // Basic form component used to take the user's input and later send to admin page/email

@@ -20,7 +20,6 @@ import '../css/main.css';
 
 // translations
 import strings from '../translation/DementiaLang.js'
-// maybe you don't need this unless you are on the LanguagePopUp - must check later 
 strings.setLanguage(localStorage.getItem("Language"));
 
 function DisplayArticle() { 

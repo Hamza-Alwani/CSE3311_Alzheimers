@@ -25,7 +25,6 @@ import KaKaoTalk from '../pictures/kakaotalk.png';
 
 // translations
 import strings from '../translation/ResearchLang.js'
-// maybe you don't need this unless you are on the LanguagePopUp - must check later 
 strings.setLanguage(localStorage.getItem("Language"));
 
 function OutreachComponent() {
