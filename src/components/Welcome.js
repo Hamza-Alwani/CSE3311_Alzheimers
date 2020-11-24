@@ -17,6 +17,8 @@ import strings from '../translation/WelcomeLang.js'
 // maybe you don't need this unless you are on the LanguagePopUp - must check later 
 strings.setLanguage(localStorage.getItem("Language"));
 
+console.log(strings)
+
 function Welcome() {
   return (
 	<WelcomeContainer>
@@ -29,7 +31,7 @@ function Welcome() {
 		<div className="main-component">
 
 			<div className="welcome-button">
-				<a className="find-facilities-button" href="/Community_Resources_en"><button className="btn btn-1 btn-1d">{strings.FindFacilities}</button></a>
+				<a className="find-facilities-button" href="/Community_Resources"><button className="btn btn-1 btn-1d">{strings.FindFacilities}</button></a>
 			</div>
 			
 			{/* seperates divs with space */}

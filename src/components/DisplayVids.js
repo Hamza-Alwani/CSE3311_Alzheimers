@@ -49,7 +49,7 @@ function DisplayVideos() {
 
     // Once a change is detected for the article object, it will be added to a list to be spamed onto the page
     useEffect(() => {
-        if(article.url && article.language==="en")
+        if(article.url && article.language=== localStorage.getItem("Language") )
         {
             setArticleList(articleList => [...articleList, article]);
         }

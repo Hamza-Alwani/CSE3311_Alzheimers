@@ -33,8 +33,10 @@ import  firebase from './shared_comps/firebase';
 
 
 function  App(){
-  
-
+  if(localStorage.getItem("Language") == null)
+  {
+    localStorage.setItem("Language", "en");
+  }
 
   firebase.auth().onAuthStateChanged( user => {
     if (user) {

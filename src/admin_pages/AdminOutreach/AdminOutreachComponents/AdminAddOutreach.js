@@ -124,10 +124,7 @@ CustomToggle.displayName="CustomDropdownToggle";
 function add_button_pressed(){ 
 
    
-   window.alert(document.getElementById("en").value)
-   window.alert(document.getElementById("ch").value)
-   window.alert(document.getElementById("ko").value)
-   
+
 
    if(document.getElementById("url").value && document.getElementById("title"))
    {

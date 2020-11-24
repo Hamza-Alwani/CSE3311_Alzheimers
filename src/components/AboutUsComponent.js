@@ -25,7 +25,7 @@ function AboutUsComponent() {
                         <div className="team-content">
                             <h3 className="title">Kathy Lee</h3>
                             <h3 className="title">PhD, MSW</h3>
-                            <span className="post">Program Coordinator, Assistant Professor, School of Social Work, University of Texas at Arlington.</span>
+                            <span className="post">Principle Investigator, Assistant Professor, School of Social Work, University of Texas at Arlington.</span>
                         </div>
                         {/* intro? */}
                     </div>
@@ -38,7 +38,7 @@ function AboutUsComponent() {
                         <div className="team-content">
                             <h3 className="title">Chang Hyun Seo</h3>
                             <h3 className="title">PhD, MSW</h3>
-                            <span className="post">Partner Program Coordinator, School of Social Work, University of Texas at Arlington.</span>
+                            <span className="post">Program Coordinator, Research Associate, School of Social Work, University of Texas at Arlington.</span>
                         </div>
                     </div>
                     
@@ -50,7 +50,7 @@ function AboutUsComponent() {
                         <div className="team-content">
                             <h3 className="title">Joe Zhao</h3>
                             <h3 className="title">MSW</h3>
-                            <span className="post">Research Assistant, Graduate College of Social Work, University of Houston.</span>
+                            <span className="post">Research Assistant (Chinese), Graduate College of Social Work, University of Houston.</span>
                         </div>
                     </div>
 
@@ -62,7 +62,7 @@ function AboutUsComponent() {
                         <div className="team-content">
                             <h3 className="title">Jessica Cassidy</h3>
                             <h3 className="title">MSW</h3>
-                            <span className="post">Research Assistant, PhD student, School of Social Work, University of Texas at Arlington. </span>
+                            <span className="post">Research Assistant (English), PhD student, School of Social Work, University of Texas at Arlington. </span>
                         </div>
                     </div>
                 </div>
