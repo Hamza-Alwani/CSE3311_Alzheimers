@@ -1,7 +1,7 @@
 /// summary
 ///
-///	Article_xx  
-/// - A template that will be useed by DisplayArticle_XX to create card like information
+///	Video  
+/// - A template that will be useed by DisplayVids to create card like information
 ///
 /// summary
 
@@ -10,21 +10,34 @@
 import React from 'react';
 import ReactPlayer from 'react-player';
 
+// css
 import styled from 'styled-components';
-import '../css/video.css'; 
 
-function Article( {props} ) {
+function Video( {props} ) {
     return (
-    <div className="center">
-      <h3>{props.title}</h3>
-      <ReactPlayer
-        url={props.url}
-      />         
-    </div>
-               
-          
+      <VideoContainer>
+        <div className="center">
+          <h3>{props.title}</h3>
+          <ReactPlayer
+            url={props.url}
+          />         
+        </div>
+      </VideoContainer>  
     );
 }
 
-export default Article;
+export default Video;
 
+const VideoContainer = styled.footer`
+
+.center {
+    display: block;
+     margin-left: auto;
+     margin-right: auto;
+     width: 40em;
+     height: auto;
+     margin-top: 2em;
+}
+  
+
+`

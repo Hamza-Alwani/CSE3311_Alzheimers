@@ -11,7 +11,6 @@ import styled from 'styled-components'
 // components
 import Video from '../shared_comps/videos'
 
-
 // firebase imports
  import firebase from '../shared_comps/firebase';
 
