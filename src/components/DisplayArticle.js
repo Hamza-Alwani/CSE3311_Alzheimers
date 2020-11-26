@@ -45,7 +45,7 @@ function DisplayArticle() {
 
     const [objectList, setobjectList] = useState([]); // list all postings: articles and videos
 
-    // Pulls each article and links with the other useEffect below this one.
+    // Pulls each article/video and links with the other useEffect below this one.
     useEffect(() => {
         const database = firebase.database()
         const rootRef = database.ref("Article");
@@ -84,6 +84,7 @@ function DisplayArticle() {
         }
     },[article])
 
+    // Once a change is detected for the video object, it will be added to a list to be spamed onto the page
     useEffect(() => {
         console.log(video.type)
         console.log(video.url)
@@ -98,7 +99,7 @@ function DisplayArticle() {
 
 
     // Spams articles onto the page depending on how many articles there are on firebase. - we can add a limited in the future when needed
-    const SpamArticle = ({ props }) => {
+    const SpamObjects = ({ props }) => {
         return (
             <div>
                 {/* eslint-disable-next-line react/prop-types */}
@@ -112,7 +113,7 @@ function DisplayArticle() {
             </div>
         );
     };
-    SpamArticle.propTypes = {
+    SpamObjects.propTypes = {
         props: PropTypes.arrayOf( 
             PropTypes.shape({
                 disc: PropTypes.string,
@@ -133,7 +134,7 @@ function DisplayArticle() {
                     {strings.Header}
                 </div>
                 <DisplayArticleContainer>
-                            <SpamArticle props ={objectList}></SpamArticle>
+                            <SpamObjects props ={objectList}></SpamObjects>
                 </DisplayArticleContainer>
             </div>
         </div>

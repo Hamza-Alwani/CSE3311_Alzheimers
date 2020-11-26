@@ -75,7 +75,7 @@ class Admin_Dementia_Information_Page extends Component
 
          {/* Header */}
          <div className="gen_header">
-                  Admin Powers Dementia Information
+            Admin Powers Dementia Information
          </div>
          <Tabs defaultActiveKey="add" id="uncontrolled-tab-example">
             <Tab eventKey="add" title="Add">

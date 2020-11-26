@@ -34,24 +34,7 @@ function change_k()
 }
 
 function AdminAddDementia() {
-   // Data selected by user
-   const [selectedState, setSelectedState] = useState('Texas');
-
-   // Pulls all the U.S States on firebase that exist and creates a dropdown list to select from
-   const DropdownStates = ({ nameList }) => {
-     return (
-       <Dropdown>
-         <Dropdown.Toggle as={CustomToggle} id="dropdown-custom-components" className="dropdown-button">{selectedState}</Dropdown.Toggle>
-         <Dropdown.Menu className="dropdown-menu">
-           {nameList.map((state, index) => (
-             <Dropdown.Item  onClick={() => {setSelectedState(state)}} key={index}>{state}</Dropdown.Item>
-           ))}
-         </Dropdown.Menu>
-       </Dropdown>
-     );
-   };
    
-
 
  ///////////////////////////////////////////////////////////////////////////////////////
    
