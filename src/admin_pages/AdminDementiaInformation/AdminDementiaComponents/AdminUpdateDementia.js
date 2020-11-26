@@ -3,7 +3,7 @@
 /// summary
 
 // import React, { Component } from 'react';
-import React, {useState, useEffect } from 'react';
+import React, {useState, useEffect} from 'react';
 import styled from 'styled-components'
 
 // components
@@ -70,6 +70,7 @@ function AdminUpdateDementia() {
                 snap.forEach(function(childSnapshot) {
                     if(childSnapshot.key == articleKey)
                     {
+                        console.log(articleKey)
                         if(childSnapshot.child("type").val() == "video")
                         {
                             setVideo({...video, 
@@ -78,7 +79,7 @@ function AdminUpdateDementia() {
                                 title: childSnapshot.child("title").val(),
                                 language: childSnapshot.child("language").val()
                             })
-                            setObject(video);
+                            // console.log(video);
                         }
                         else if(childSnapshot.child("type").val() == "article")
                         {
@@ -90,12 +91,21 @@ function AdminUpdateDementia() {
                                 website: childSnapshot.child("website").val(),
                                 language: childSnapshot.child("language").val()
                             })
-                            setObject(article);
+                            // console.log(article);
                         }
                     }
                 });
             });
     }, [articleKey])
+
+    // Once the article or video object is finished being created, set the object to be used
+    useEffect(() => {
+        setObject(video);
+    }, [video])
+
+    useEffect(() => {
+        setObject(article);
+    }, [article])
 
     // Creates a dropdown of article titles 
     const DropdownTitle = ({ nameList }) => {
@@ -114,6 +124,8 @@ function AdminUpdateDementia() {
 
     const SetFrame = ({obj}) => 
     {
+        console.log("hey we changed");
+        // console.log(obj)
         if(obj.type == "article")
         {
             return (
@@ -196,7 +208,7 @@ function AdminUpdateDementia() {
                     </Table>
                     
                     {/* After the article/video is select, create the form to edit */}
-                    <SetFrame obj={object}> </SetFrame>
+                    <SetFrame key={object }obj={object}> </SetFrame>
 
             </StyleCommunityContainer>
         </div>

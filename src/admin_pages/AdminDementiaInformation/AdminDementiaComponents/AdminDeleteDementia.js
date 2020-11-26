@@ -82,7 +82,6 @@ function AdminDeleteDementia() {
                                 title: childSnapshot.child("title").val(),
                                 language: childSnapshot.child("language").val()
                             })
-                            setObject(video);
                         }
                         else if(childSnapshot.child("type").val() == "article")
                         {
@@ -94,12 +93,20 @@ function AdminDeleteDementia() {
                                 website: childSnapshot.child("website").val(),
                                 language: childSnapshot.child("language").val()
                             })
-                            setObject(article);
                         }
                     }
                 });
             });
     }, [articleKey])
+
+    // Once the article or video object is finished being created, set the object to be used
+    useEffect(() => {
+        setObject(video);
+    }, [video])
+
+    useEffect(() => {
+        setObject(article);
+    }, [article])
 
     // Pulls all the article titles
     const DropdownCity = ({ nameList }) => {
