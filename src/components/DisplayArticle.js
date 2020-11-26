@@ -11,7 +11,7 @@ import PropTypes from 'prop-types';
 
 // components
 import Article from '../shared_comps/Article'
-import Video from '../shared_comps/videos'
+import Video from '../shared_comps/Video'
 
 // firebase imports
  import firebase from '../shared_comps/firebase';
