@@ -22,7 +22,6 @@ import LanguageSelection from './shared_page/LanguageSelection'
 
 //admins
 import Admin_Home from './admin_pages/AdminHome/Admin_Home'
-import Admin_Outreach_Page from './admin_pages/AdminOutreach/Admin_Outreach'
 import Admin_Research_Page from './admin_pages/Admin_Research'
 import Admin_Dementia_Information_Page from './admin_pages/AdminDementiaInformation/Admin_DementiaInformation'
 import Admin_Community_Resources_Page from './admin_pages/AdminCommunityResources/Admin_CommunityResources'
@@ -116,7 +115,6 @@ function islang(){
                <PrivateRoute exact path="/Admin_Community_Resources" component={Admin_Community_Resources_Page} />
                <PrivateRoute exact path="/Admin_Dementia_Information" component={Admin_Dementia_Information_Page} />
                <PrivateRoute exact path="/Admin_Research" component={Admin_Research_Page} />
-               <PrivateRoute exact path="/Admin_Outreach" component={Admin_Outreach_Page} />
 
 
                <Route exact path ="/404" component={Paget_Not_Found_Page} />
