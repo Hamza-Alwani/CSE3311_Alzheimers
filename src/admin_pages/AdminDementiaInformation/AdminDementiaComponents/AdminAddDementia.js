@@ -202,12 +202,12 @@ function add_article_button(){
       }
       if( !c && !k && !e)
       {
-         window.alert("failed. Make sure all fields are full");
+         window.alert("Failed, select a language");
       }
    }
    else
    {
-      window.alert("failed. Make sure all fields are full");
+      window.alert("Failed, make sure all fields are full");
    }
 }
 
@@ -268,13 +268,13 @@ function add_video_button(){
       }
       if( !c && !k && !e)
       {
-         window.alert("failed. Make sure all fields are full");
+         window.alert("Failed, select a language");
       }
    
    }
    else
    {
-      window.alert("failed. Make sure all fields are full");
+      window.alert("Failed, Make sure all fields are full");
    }
 }
 
