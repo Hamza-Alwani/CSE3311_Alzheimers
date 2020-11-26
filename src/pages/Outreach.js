@@ -11,7 +11,7 @@ import React from 'react';
 import Nav from '../components/NavigationBar';
 import OutreachComponent from '../components/OutreachComponent';
 import Footer from '../components/Footer';
-import Displayvids from '../components/DisplayVids'
+
 //css
 import '../css/main.css'
 
@@ -22,7 +22,6 @@ function Outreach (){
             {/* Components */}
             <Nav></Nav>
             <OutreachComponent></OutreachComponent>
-            <Displayvids></Displayvids>
             <Footer></Footer>
      </div>
    );
