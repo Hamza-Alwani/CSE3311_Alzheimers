@@ -29,6 +29,27 @@ function AdminDeleteDementia() {
     const [articleKey, setArticleKey] = useState('');
     const [articleList, setArticleList] = useState([]);
 
+    const [article, setArticle] = useState(
+        {
+            type: "", // video or articlee
+            disc: "",
+            pic: "",
+            title: "",
+            website: "",
+            language: ""
+        });
+
+    const [video, setVideo] = useState(
+        {
+            type: "", // video or articlee
+            url: "", 
+            title: "",
+            language:"",
+        });
+    
+    // Set which object (article or video) to display
+    const [object, setObject] = useState(article);
+
      // Onload fill titleList and articleList
     useEffect(() => {
         const database = firebase.database()
@@ -41,17 +62,51 @@ function AdminDeleteDementia() {
             });
     }, [])
 
-    // Pulls the requested data
+    // Once the Key of the article is selected, fill the fields with values from that article
     useEffect(() => {
         const database = firebase.database()
-        const rootRef = database.ref("Article/" + articleKey);
+        const rootRef = database.ref("Article");
+        // console.log("called")
         rootRef.on('value', snap => {
-                setTitle(snap.child("title").val());
-                setPicture(snap.child("pic").val());
-                setDescription(snap.child("disc").val());
-                setWebsite(snap.child("website").val());
+                snap.forEach(function(childSnapshot) {
+                    // console.log("The key was: " + childSnapshot.key)
+                    // console.log("The article key was: " + articleKey)
+                    if(childSnapshot.key === articleKey)
+                    {
+                        // console.log("Inside compare")
+                        if(childSnapshot.child("type").val() == "video")
+                        {
+                            setVideo({...video, 
+                                type: childSnapshot.child("type").val(),
+                                url: childSnapshot.child("url").val(),
+                                title: childSnapshot.child("title").val(),
+                                language: childSnapshot.child("language").val()
+                            })
+                        }
+                        else if(childSnapshot.child("type").val() == "article")
+                        {
+                            setArticle({...article, 
+                                type: childSnapshot.child("type").val(),
+                                disc: childSnapshot.child("disc").val(),
+                                pic: childSnapshot.child("pic").val(),
+                                title: childSnapshot.child("title").val(),
+                                website: childSnapshot.child("website").val(),
+                                language: childSnapshot.child("language").val()
+                            })
+                        }
+                    }
+                });
             });
     }, [articleKey])
+
+    // Once the article or video object is finished being created, set the object to be used
+    useEffect(() => {
+        setObject(video);
+    }, [video])
+
+    useEffect(() => {
+        setObject(article);
+    }, [article])
 
     // Pulls all the article titles
     const DropdownCity = ({ nameList }) => {
@@ -67,7 +122,59 @@ function AdminDeleteDementia() {
         );
     }
 
+    const SetDeleteComponent = ({obj}) => 
+    {
+        if(obj.type == "article")
+        {
+            return (
+                <Form className="admin-form">
+                    {/* Form for Name */}
+                    <Form.Group>
+                        <Form.Label>Name: {obj.title}</Form.Label>
+                    </Form.Group>
 
+                    {/* Form for Description */}
+                    <Form.Group>
+                        <Form.Label>Description: {obj.disc}</Form.Label>
+                    </Form.Group>
+
+                    {/* Form for Picture URL */}
+                    <Form.Group>
+                        <Form.Label>Picture URL: {obj.pic}</Form.Label>
+                    </Form.Group>
+
+                    {/* Form for Website URL */}
+                    <Form.Group>
+                        <Form.Label>Website URL: {obj.website}</Form.Label>
+                    </Form.Group>
+                    
+                    {/* Button used to update the page once all the fields are filled out */}
+                    <Button onClick={() => delete_button(articleKey)} variant="danger" type="submit" className="submit">Delete</Button>
+                </Form>
+            );
+        }
+        else if(obj.type == "video")
+        {
+            return (
+                <Form className="admin-form">
+                    {/* Form for Name */}
+                    <Form.Group>
+                        <Form.Label>Name: {obj.title}</Form.Label>
+                    </Form.Group>
+
+                    {/* Form for Website */}
+                    <Form.Group>
+                        <Form.Label>URL: {obj.url}</Form.Label>
+                    </Form.Group>
+
+                    
+                    {/* Button used to update the page once all the fields are filled out */}
+                    <Button onClick={() => delete_button(articleKey)} variant="danger" type="submit" className="submit">Delete</Button>
+                </Form>
+            );
+        }
+        return null
+    }
 
  ///////////////////////////////////////////////////////////////////////////////////////
    
@@ -78,7 +185,6 @@ function AdminDeleteDementia() {
          <StyleCommunityContainer>
             
                 {/* Drop down to pick citys */}
-                <Form className="admin-form">
                     
                     <Table striped bordered hover className="state-city-dropdown-table">
                         <thead>
@@ -90,29 +196,9 @@ function AdminDeleteDementia() {
                         </thead>
                     </Table>
 
-                    {/* Form for Name */}
-                    <Form.Group>
-                        <Form.Label>Name: {title}</Form.Label>
-                    </Form.Group>
+                    <SetDeleteComponent obj={object}></SetDeleteComponent>
 
-                    {/* Form for Description */}
-                    <Form.Group>
-                        <Form.Label>Description: {description}</Form.Label>
-                    </Form.Group>
 
-                    {/* Form for Picture URL */}
-                    <Form.Group>
-                        <Form.Label>Picture URL: {picture}</Form.Label>
-                    </Form.Group>
-
-                    {/* Form for Website URL */}
-                    <Form.Group>
-                        <Form.Label>Website URL: {website}</Form.Label>
-                    </Form.Group>
-                    
-                    {/* Button used to delete the selected article ID once the key are selected */}
-                    <Button onClick={() => delete_button(articleKey)} variant="danger" type="submit" className="submit">Delete</Button>
-               </Form>
          </StyleCommunityContainer>
       </div>
    );

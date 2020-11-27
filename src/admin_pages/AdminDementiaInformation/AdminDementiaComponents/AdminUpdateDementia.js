@@ -3,7 +3,7 @@
 /// summary
 
 // import React, { Component } from 'react';
-import React, {useState, useEffect } from 'react';
+import React, {useState, useEffect} from 'react';
 import styled from 'styled-components'
 
 // components
@@ -21,38 +21,91 @@ function AdminUpdateDementia() {
 
     // Data pulled from server
     const [title, setTitle] = useState('');
-    const [description, setDescription] = useState('');
-    const [picture, setPicture] = useState('');
-    const [website, setWebsite] = useState('');
 
     const [titleList, setTitleList] = useState([]);
 
     const [articleKey, setArticleKey] = useState('');
-    const [articleList, setArticleList] = useState([]);
+    const [objectList, setObjectList] = useState([]);
 
-     // On loading up the website - fill titleList and articleList with existing articles from firebase
+    const [article, setArticle] = useState(
+        {
+            type: "", // video or articlee
+            disc: "",
+            pic: "",
+            title: "",
+            website: "",
+            language: ""
+        });
+
+    const [video, setVideo] = useState(
+        {
+            type: "", // video or articlee
+            url: "", 
+            title: "",
+            language:"",
+        });
+
+    const [object, setObject] = useState(article);
+
+     // On loading up the website - fill titleList and objectList with existing articles from firebase
     useEffect(() => {
         const database = firebase.database()
         const rootRef = database.ref("Article/");
         rootRef.on('value', snap => {
                     snap.forEach(function(childSnapshot) {
-                        setArticleList(articleList => [...articleList, childSnapshot.key]);
+                        setObjectList(objectList => [...objectList, childSnapshot.key]);
                         setTitleList(titleList => [...titleList, childSnapshot.child("title").val()]);
                 });
             });
     }, [])
 
+    
+
     // Once the Key of the article is selected, fill the fields with values from that article
     useEffect(() => {
         const database = firebase.database()
-        const rootRef = database.ref("Article/" + articleKey);
+        const rootRef = database.ref("Article");
+
         rootRef.on('value', snap => {
-                setTitle(snap.child("title").val());
-                setPicture(snap.child("pic").val());
-                setDescription(snap.child("disc").val());
-                setWebsite(snap.child("website").val());
+                snap.forEach(function(childSnapshot) {
+                    if(childSnapshot.key == articleKey)
+                    {
+                        console.log(articleKey)
+                        if(childSnapshot.child("type").val() == "video")
+                        {
+                            setVideo({...video, 
+                                type: childSnapshot.child("type").val(),
+                                url: childSnapshot.child("url").val(),
+                                title: childSnapshot.child("title").val(),
+                                language: childSnapshot.child("language").val()
+                            })
+                            // console.log(video);
+                        }
+                        else if(childSnapshot.child("type").val() == "article")
+                        {
+                            setArticle({...article, 
+                                type: childSnapshot.child("type").val(),
+                                disc: childSnapshot.child("disc").val(),
+                                pic: childSnapshot.child("pic").val(),
+                                title: childSnapshot.child("title").val(),
+                                website: childSnapshot.child("website").val(),
+                                language: childSnapshot.child("language").val()
+                            })
+                            // console.log(article);
+                        }
+                    }
+                });
             });
     }, [articleKey])
+
+    // Once the article or video object is finished being created, set the object to be used
+    useEffect(() => {
+        setObject(video);
+    }, [video])
+
+    useEffect(() => {
+        setObject(article);
+    }, [article])
 
     // Creates a dropdown of article titles 
     const DropdownTitle = ({ nameList }) => {
@@ -61,7 +114,7 @@ function AdminUpdateDementia() {
                 <Dropdown.Toggle as={CustomToggle} id="dropdown-custom-components" className="dropdown-button">Pick an article</Dropdown.Toggle>
                 <Dropdown.Menu className="dropdown-menu">
                     {nameList.map((title, index) => (
-                        <Dropdown.Item onClick={() => {setTitle(title); setArticleKey(articleList[index])}} key={index}>{title}</Dropdown.Item>
+                        <Dropdown.Item onClick={() => {setTitle(title); setArticleKey(objectList[index]); /*console.log(objectList[index]);*/ }} key={index}>{title}</Dropdown.Item>
                     ))}
                 </Dropdown.Menu>
             </Dropdown>
@@ -69,7 +122,73 @@ function AdminUpdateDementia() {
     }
 
 
+    const SetFrame = ({obj}) => 
+    {
+        console.log("hey we changed");
+        // console.log(obj)
+        if(obj.type == "article")
+        {
+            return (
+                <Form className="admin-form">
+                    {/* Form for Name */}
+                    <Form.Group>
+                        <Form.Label>Name</Form.Label>
+                        <Form.Control type="name" id="article-title-update"  defaultValue={article.title} />
+                    </Form.Group>
 
+                    {/* Form for Description */}
+                    <Form.Group>
+                        <Form.Label>Description</Form.Label>
+                        <Form.Control type="name" id="article-description-update" defaultValue={article.disc}  />
+                    </Form.Group>
+
+                    {/* Form for Picture URL */}
+                    <Form.Group>
+                        <Form.Label>Picture URL</Form.Label>
+                        <Form.Control type="name" id="article-pic-update" defaultValue={article.pic}  />
+                    </Form.Group>
+
+                    {/* Form for Website URL */}
+                    <Form.Group>
+                        <Form.Label>Website URL</Form.Label>
+                        <Form.Control type="name" id="article-website-update" defaultValue={article.website} />
+                    </Form.Group>
+                    
+                    {/* Button used to update the page once all the fields are filled out */}
+                    <Button onClick={() => update_article_button(articleKey)} variant="primary" type="submit" className="submit">Update</Button>
+                </Form>
+            );
+        }
+        else if(obj.type == "video")
+        {
+            return (
+                <Form className="admin-form">
+                    {/* Form for Name */}
+                    <Form.Group>
+                        <Form.Label>Name</Form.Label>
+                        <Form.Control type="name" id="video-title-update"  defaultValue={video.title} />
+                    </Form.Group>
+
+                    {/* Form for Website */}
+                    <Form.Group>
+                        <Form.Label>Description</Form.Label>
+                        <Form.Control type="name" id="video-website-update" defaultValue={video.url}  />
+                    </Form.Group>
+
+                    {/* Someone update the language somehow it's 5am right now */}
+                    {/* <Form.Group>
+                        <Form.Label>Picture URL</Form.Label>
+                        <Form.Control type="name" id="article-pic-update" defaultValue={video.language}  />
+                    </Form.Group> */}
+
+                    
+                    {/* Button used to update the page once all the fields are filled out */}
+                    <Button onClick={() => update_video_button(articleKey)} variant="primary" type="submit" className="submit">Update</Button>
+                </Form>
+            );
+        }
+        return null
+    }
  ///////////////////////////////////////////////////////////////////////////////////////
    
    // HTML
@@ -77,11 +196,8 @@ function AdminUpdateDementia() {
         <div className="admin-community">
     
             <StyleCommunityContainer>
-                
-                    <Form className="admin-form">
-                        
-                        {/* Dropdown for list of Title of Articles */}
-                        <Table striped bordered hover className="state-city-dropdown-table">
+                    {/* Dropdown for list of Title of Articles */}
+                    <Table striped bordered hover className="state-city-dropdown-table">
                             <thead>
                                 <tr>
                                     <th>
@@ -89,35 +205,11 @@ function AdminUpdateDementia() {
                                     </th>
                                 </tr>
                             </thead>
-                        </Table>
+                    </Table>
+                    
+                    {/* After the article/video is select, create the form to edit */}
+                    <SetFrame key={object }obj={object}> </SetFrame>
 
-                        {/* Form for Name */}
-                        <Form.Group>
-                            <Form.Label>Name</Form.Label>
-                            <Form.Control type="name" id="title-update"  defaultValue={title} />
-                        </Form.Group>
-
-                        {/* Form for Description */}
-                        <Form.Group>
-                            <Form.Label>Description</Form.Label>
-                            <Form.Control type="name" id="description-update" defaultValue={description}  />
-                        </Form.Group>
-
-                        {/* Form for Picture URL */}
-                        <Form.Group>
-                            <Form.Label>Picture URL</Form.Label>
-                            <Form.Control type="name" id="pic-update" defaultValue={picture}  />
-                        </Form.Group>
-
-                        {/* Form for Website URL */}
-                        <Form.Group>
-                            <Form.Label>Website URL</Form.Label>
-                            <Form.Control type="name" id="website-update" defaultValue={website} />
-                        </Form.Group>
-                        
-                        {/* Button used to update the page once all the fields are filled out */}
-                        <Button onClick={() => update_button(articleKey)} variant="primary" type="submit" className="submit">Update</Button>
-                </Form>
             </StyleCommunityContainer>
         </div>
     );
@@ -139,19 +231,19 @@ CustomToggle.propTypes =
 CustomToggle.displayName="CustomDropdownToggle";
 
 
-// Used with the Button component in the main rendering function to update the select article with the new fields. 
-function update_button(articleKey){ 
+// Used with the article update section
+function update_article_button(articleKey){ 
 
-    if( document.getElementById("title-update").innerHTML && 
-        document.getElementById("description-update").innerHTML &&
-        document.getElementById("pic-update").innerHTML &&
-        document.getElementById("website-update").innerHTML)
+    if( document.getElementById("article-title-update").value && 
+        document.getElementById("article-description-update").value &&
+        document.getElementById("article-pic-update").value &&
+        document.getElementById("article-website-update").value)
     {
         firebase.database().ref('Article/'+articleKey).set({
-            title:      document.getElementById("title-update").value,
-            disc:       document.getElementById("description-update").value,
-            pic:        document.getElementById("pic-update").value,
-            website:    document.getElementById("website-update").value,
+            title:      document.getElementById("article-title-update").value,
+            disc:       document.getElementById("article-description-update").value,
+            pic:        document.getElementById("article-pic-update").value,
+            website:    document.getElementById("article-website-update").value,
         },function(error){
             if(error){
             window.alert("failed");
@@ -168,6 +260,30 @@ function update_button(articleKey){
 
 }
 
+// Used with the video update section
+function update_video_button(videoKey){ 
+
+    if( document.getElementById("video-title-update").value && 
+        document.getElementById("video-website-update").value)
+    {
+        firebase.database().ref('Article/'+videoKey).set({
+            title:      document.getElementById("video-title-update").value,
+            url:    document.getElementById("video-website-update").value,
+        },function(error){
+            if(error){
+            window.alert("failed");
+            }else{
+            window.alert("yes");
+            window.location.reload(false);
+            }
+        });
+    }
+    else
+    {
+        window.alert("failed. Make sure all fields are full");
+    }
+
+}
 
 
 // 'style-component package used for infile css'

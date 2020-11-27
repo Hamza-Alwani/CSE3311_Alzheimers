@@ -8,10 +8,12 @@ import styled from 'styled-components'
 
 // components
 import  firebase from '../../../shared_comps/firebase';
+
+// bootstrap
 import { Button } from 'react-bootstrap';
-import Table from 'react-bootstrap/Table'
 import Form from 'react-bootstrap/Form'
-import Dropdown from 'react-bootstrap/Dropdown'
+import Tabs from 'react-bootstrap/Tabs'
+import Tab from 'react-bootstrap/Tab'
 
 //css
 import '../../../css/admin.css'
@@ -34,24 +36,6 @@ function change_k()
 }
 
 function AdminAddDementia() {
-   // Data selected by user
-   const [selectedState, setSelectedState] = useState('Texas');
-
-   // Pulls all the U.S States on firebase that exist and creates a dropdown list to select from
-   const DropdownStates = ({ nameList }) => {
-     return (
-       <Dropdown>
-         <Dropdown.Toggle as={CustomToggle} id="dropdown-custom-components" className="dropdown-button">{selectedState}</Dropdown.Toggle>
-         <Dropdown.Menu className="dropdown-menu">
-           {nameList.map((state, index) => (
-             <Dropdown.Item  onClick={() => {setSelectedState(state)}} key={index}>{state}</Dropdown.Item>
-           ))}
-         </Dropdown.Menu>
-       </Dropdown>
-     );
-   };
-   
-
 
  ///////////////////////////////////////////////////////////////////////////////////////
    
@@ -61,52 +45,73 @@ function AdminAddDementia() {
  
          <StyleCommunityContainer>
 
-            {/* Drop down to pick citys */}
-            <Form onSubmit={add_button_pressed} className="admin-form">
-                  <Form.Group>
-                     <Form.Label>Name</Form.Label>
-                     <Form.Control type="name" id="title" placeholder="name" />
-                  </Form.Group>
-                  <Form.Group>
-                     <Form.Label>Description</Form.Label>
-                     <Form.Control type="name" id="description" placeholder="Description" />
-                  </Form.Group>
-                  <Form.Group>
-                     <Form.Label>Picture URL</Form.Label>
-                     <Form.Control type="name" id="pic" placeholder="picture url" />
-                  </Form.Group>
-                  <Form.Group>
-                     <Form.Label>Website URL</Form.Label>
-                     <Form.Control type="name" id="website" placeholder="web url" />
-                  </Form.Group>
-                 
-                  <Form.Group>
-                     <Form.Label>Language</Form.Label>
-                     <Form.Check
-                        type="switch"
-                        label="English"
-                        name="formHorizontalRadios"
-                        id="en"
-                        onChange={change_e}
-                     />
-                     <Form.Check
-                        type="switch"
-                        label="Chinese"
-                        name="formHorizontalRadios"
-                        id="ch"
-                        onChange={change_c}
-                     />
-                     <Form.Check
-                        type="switch"
-                        label="Korean"
-                        name="formHorizontalRadios"
-                        id="ko"
-                        onChange={change_k}
-                     />
-                  </Form.Group>
+            {/* Article Tab*/}
+            <Tabs defaultActiveKey="article" id="uncontrolled-tab-example">
+               <Tab eventKey="article" title="Article">
+                  <Form onSubmit={add_article_button} className="admin-form">
+                     <Form.Group>
+                        <Form.Label>Title</Form.Label>
+                        <Form.Control type="name" id="articleTitle" placeholder="Title" />
+                     </Form.Group>
+                     <Form.Group>
+                        <Form.Label>Description</Form.Label>
+                        <Form.Control type="name" id="articleDescription" placeholder="Description" />
+                     </Form.Group>
+                     <Form.Group>
+                        <Form.Label>Picture URL</Form.Label>
+                        <Form.Control type="name" id="articlePicture" placeholder="www.example.com/picture.jpg" />
+                     </Form.Group>
+                     <Form.Group>
+                        <Form.Label>Website URL</Form.Label>
+                        <Form.Control type="name" id="articleWebsite" placeholder="www.example.com" />
+                     </Form.Group>
                   
-                  <Button onClick={() => add_button_pressed}variant="primary" type="submit" className="submit">Add</Button>
-               </Form>
+                     
+                     
+                     <Button onClick={() => add_article_button}variant="primary" type="submit" className="submit">Add</Button>
+                  </Form>
+               </Tab>
+
+               {/* Video Tab */}
+               <Tab eventKey="video" title="Video">
+                  <Form onSubmit={add_video_button} className="admin-form">
+                        <Form.Group>
+                           <Form.Label>Title</Form.Label>
+                           <Form.Control type="name" id="videoTitle" placeholder="Title" />
+                        </Form.Group>
+                        <Form.Group>
+                           <Form.Label>Youtube link</Form.Label>
+                           <Form.Control type="name" id="videoURL" placeholder="www.youtube.com" />
+                        </Form.Group>
+                     
+                     <Button onClick={() => add_video_button}variant="primary" type="submit" className="submit">Add</Button>
+                  </Form>
+               </Tab>
+            </Tabs>
+            <Form.Group>
+               <Form.Label>Language</Form.Label>
+               <Form.Check
+                  type="switch"
+                  label="English"
+                  name="formHorizontalRadios"
+                  id="en"
+                  onChange={change_e}
+               />
+               <Form.Check
+                  type="switch"
+                  label="Chinese"
+                  name="formHorizontalRadios"
+                  id="ch"
+                  onChange={change_c}
+               />
+               <Form.Check
+                  type="switch"
+                  label="Korean"
+                  name="formHorizontalRadios"
+                  id="ko"
+                  onChange={change_k}
+               />
+            </Form.Group>
          </StyleCommunityContainer>
       </div>
    );
@@ -129,24 +134,95 @@ CustomToggle.displayName="CustomDropdownToggle";
 
 
 // Once all the text are filled out then this function is called to submit the information to firebase.
-function add_button_pressed(){ 
+function add_article_button(){ 
 
    
 
-   if(document.getElementById("title").value && 
-   document.getElementById("description").value &&
-   document.getElementById("pic").value &&
-   document.getElementById("website").value)
+   if(document.getElementById("articleTitle").value && 
+   document.getElementById("articleDescription").value &&
+   document.getElementById("articlePicture").value &&
+   document.getElementById("articleWebsite").value)
    {
       if(e) 
       {
          var key=firebase.database().ref('Article').push().key;
          firebase.database().ref('Article/'+key).set({
-             title:document.getElementById("title").value,
-             disc:document.getElementById("description").value,
-             pic:document.getElementById("pic").value,
-             website:document.getElementById("website").value,
-             language:"en",
+               type: "article",
+               title:document.getElementById("articleTitle").value,
+               disc:document.getElementById("articleDescription").value,
+               pic:document.getElementById("articlePicture").value,
+               website:document.getElementById("articleWebsite").value,
+               language:"en",
+         },function(error){
+               if(error){
+               window.alert("failed");
+               }else{
+               window.alert("yes");
+               window.location.reload(false);
+               }
+         });
+      }
+      if(c)
+      {
+         var key=firebase.database().ref('Article').push().key;
+         firebase.database().ref('Article/'+key).set({
+            type: "article",
+            title:document.getElementById("articleTitle").value,
+            disc:document.getElementById("articleDescription").value,
+            pic:document.getElementById("articlePicture").value,
+            website:document.getElementById("articleWebsite").value,
+            language:"ch",
+         },function(error){
+            if(error){
+            window.alert("failed");
+            }else{
+            window.alert("yes");
+            window.location.reload(false);
+            }
+         });
+      }
+      if(k)
+      {
+         var key=firebase.database().ref('Article').push().key;
+         firebase.database().ref('Article/'+key).set({
+            type: "article",
+            title:document.getElementById("articleTitle").value,
+            disc:document.getElementById("articleDescription").value,
+            pic:document.getElementById("articlePicture").value,
+            website:document.getElementById("articleWebsite").value,
+            language:"ko",
+      },function(error){
+         if(error){
+         window.alert("failed");
+         }else{
+         window.alert("yes");
+         window.location.reload(false);
+         }
+      });
+      }
+      if( !c && !k && !e)
+      {
+         window.alert("Failed, select a language");
+      }
+   }
+   else
+   {
+      window.alert("Failed, make sure all fields are full");
+   }
+}
+
+function add_video_button(){ 
+
+   if(document.getElementById("videoTitle").value && document.getElementById("videoURL"))
+   {
+      if(e) 
+      {
+         var key=firebase.database().ref('Article').push().key;
+         firebase.database().ref('Article/'+key).set({
+            type: "video",
+            title:document.getElementById("videoTitle").value,
+            url:document.getElementById("videoURL").value,
+            language:"en",
          },function(error){
              if(error){
              window.alert("failed");
@@ -156,58 +232,54 @@ function add_button_pressed(){
              }
          });
      }
-    if(c)
-    {
-        var key=firebase.database().ref('Article').push().key;
-        firebase.database().ref('Article/'+key).set({
-            title:document.getElementById("title").value,
-            disc:document.getElementById("description").value,
-            pic:document.getElementById("pic").value,
-            website:document.getElementById("website").value,
+      if(c)
+      {
+         var key=firebase.database().ref('Article').push().key;
+         firebase.database().ref('Article/'+key).set({
+            type: "video",
+            title:document.getElementById("videoTitle").value,
+            url:document.getElementById("videoURL").value,
             language:"ch",
-        },function(error){
+         },function(error){
             if(error){
             window.alert("failed");
             }else{
             window.alert("yes");
             window.location.reload(false);
             }
-        });
-    }
-   if(k)
-   {
-        var key=firebase.database().ref('Article').push().key;
-        firebase.database().ref('Article/'+key).set({
-        title:document.getElementById("title").value,
-        disc:document.getElementById("description").value,
-        pic:document.getElementById("pic").value,
-        website:document.getElementById("website").value,
-        language:"ko",
-    },function(error){
-        if(error){
-        window.alert("failed");
-        }else{
-        window.alert("yes");
-        window.location.reload(false);
-        }
-    });
-   }
-   if( !c && !k && !e)
-   {
-      window.alert("failed. Make sure all fields are full");
-   }
+         });
+      }
+      if(k)
+      {
+         var key=firebase.database().ref('Article').push().key;
+         firebase.database().ref('Article/'+key).set({
+            type: "video",
+            title:document.getElementById("videoTitle").value,
+            url:document.getElementById("videoURL").value,
+            language:"ko",
+         },function(error){
+         if(error){
+         window.alert("failed");
+         }else{
+         window.alert("yes");
+         window.location.reload(false);
+         }
+      });
+      }
+      if( !c && !k && !e)
+      {
+         window.alert("Failed, select a language");
+      }
    
+   }
+   else
+   {
+      window.alert("Failed, Make sure all fields are full");
+   }
 }
-else
-{
-    window.alert("failed. Make sure all fields are full");
-}
-}
-
-
 
 // 'style-component package used for infile css'
 const StyleCommunityContainer = styled.nav`
  
  
- `;
+`
