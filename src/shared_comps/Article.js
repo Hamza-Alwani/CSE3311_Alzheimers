@@ -25,7 +25,6 @@ function Article( {props} ) {
                             </div>
                         </div>
                     </div>
-                    
                 </a>
             </ArticleContainer>
     );
@@ -83,7 +82,7 @@ const ArticleContainer = styled.div`
 .flex-child
 {
     ${'' /* border: 2px solid yellow; */}
-    width: 100%;
+    ${'' /* width: 100%; */}
     position: relative;
 }
 

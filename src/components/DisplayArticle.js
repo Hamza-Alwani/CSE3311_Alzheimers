@@ -86,13 +86,8 @@ function DisplayArticle() {
 
     // Once a change is detected for the video object, it will be added to a list to be spamed onto the page
     useEffect(() => {
-        console.log(video.type)
-        console.log(video.url)
-        console.log(video.title)
-        console.log(video.language)
         if((video.type !== "") && (video.url !== "") && (video.title !== "") && (video.language === localStorage.getItem("Language")))
         {
-            console.log("video found")
             setobjectList(objectList => [...objectList, video]);
         }
     },[video])
