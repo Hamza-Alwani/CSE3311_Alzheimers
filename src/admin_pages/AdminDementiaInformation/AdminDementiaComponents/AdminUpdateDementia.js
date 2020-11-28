@@ -19,14 +19,16 @@ import '../../../css/admin.css'
 
 function AdminUpdateDementia() {
 
-    // Data pulled from server
-    const [title, setTitle] = useState('');
-
+    // List of article/video by name
     const [titleList, setTitleList] = useState([]);
 
+    // List of keys to pick from later 
     const [articleKey, setArticleKey] = useState('');
+
+    // Specific key to locate article/video in firebase
     const [objectList, setObjectList] = useState([]);
 
+    // Article/Video objects after key is select and information is pulled from firebase
     const [article, setArticle] = useState(
         {
             type: "", // video or articlee
@@ -70,7 +72,6 @@ function AdminUpdateDementia() {
                 snap.forEach(function(childSnapshot) {
                     if(childSnapshot.key == articleKey)
                     {
-                        console.log(articleKey)
                         if(childSnapshot.child("type").val() == "video")
                         {
                             setVideo({...video, 
@@ -79,7 +80,6 @@ function AdminUpdateDementia() {
                                 title: childSnapshot.child("title").val(),
                                 language: childSnapshot.child("language").val()
                             })
-                            // console.log(video);
                         }
                         else if(childSnapshot.child("type").val() == "article")
                         {
@@ -91,7 +91,6 @@ function AdminUpdateDementia() {
                                 website: childSnapshot.child("website").val(),
                                 language: childSnapshot.child("language").val()
                             })
-                            // console.log(article);
                         }
                     }
                 });
@@ -114,7 +113,7 @@ function AdminUpdateDementia() {
                 <Dropdown.Toggle as={CustomToggle} id="dropdown-custom-components" className="dropdown-button">Pick an article</Dropdown.Toggle>
                 <Dropdown.Menu className="dropdown-menu">
                     {nameList.map((title, index) => (
-                        <Dropdown.Item onClick={() => {setTitle(title); setArticleKey(objectList[index]); /*console.log(objectList[index]);*/ }} key={index}>{title}</Dropdown.Item>
+                        <Dropdown.Item onClick={() => { setArticleKey(objectList[index]); /*console.log(objectList[index]);*/ }} key={index}>{title}</Dropdown.Item>
                     ))}
                 </Dropdown.Menu>
             </Dropdown>
@@ -124,8 +123,6 @@ function AdminUpdateDementia() {
 
     const SetFrame = ({obj}) => 
     {
-        console.log("hey we changed");
-        // console.log(obj)
         if(obj.type == "article")
         {
             return (
