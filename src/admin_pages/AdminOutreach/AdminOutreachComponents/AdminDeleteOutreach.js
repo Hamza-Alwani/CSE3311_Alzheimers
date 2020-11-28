@@ -19,19 +19,19 @@ import '../../../css/admin.css'
 
 function AdminDeleteDementia() {
 
-    // List of article/video by name
+    // List of outreach by name
     const [titleList, setTitleList] = useState([]);
 
     // List of keys to pick from later 
-    const [articleKey, setArticleKey] = useState('');
+    const [outreachList, setOutreachList] = useState([]);
 
-    // Specific key to locate article/video in firebase
-    const [objectList, setObjectList] = useState([]);
+    // Specific key to locate outreach information in firebase
+    const [outreachKey, setOutreachKey] = useState('');
 
-    // Article/Video objects after key is select and information is pulled from firebase
-    const [article, setArticle] = useState(
+    // Outreach object after key is select and information is pulled from firebase
+    const [outreach, setOutreach] = useState(
         {
-            type: "", // video or articlee
+            type: "",
             disc: "",
             pic: "",
             title: "",
@@ -39,53 +39,36 @@ function AdminDeleteDementia() {
             language: ""
         });
 
-    const [video, setVideo] = useState(
-        {
-            type: "", // video or articlee
-            url: "", 
-            title: "",
-            language:"",
-        });
     
-    // Set which object (article or video) to display
-    const [object, setObject] = useState(article);
+    // Set which object (outreach or video) to display
+    const [object, setObject] = useState(outreach);
 
-     // Onload fill titleList and objectList
+     // Onload fill titleList and outreachList
     useEffect(() => {
         const database = firebase.database()
-        const rootRef = database.ref("Article/");
+        const rootRef = database.ref("Outreach/");
         rootRef.on('value', snap => {
                     snap.forEach(function(childSnapshot) {
-                        setObjectList(objectList => [...objectList, childSnapshot.key]);
+                        setOutreachList(outreachList => [...outreachList, childSnapshot.key]);
                         setTitleList(titleList => [...titleList, childSnapshot.child("title").val()]);
                 });
             });
     }, [])
 
-    // Once the Key of the article is selected, fill the fields with values from that article
+    // Once the Key of the outreach is selected, fill the fields with values from that outreach
     useEffect(() => {
         const database = firebase.database()
-        const rootRef = database.ref("Article");
+        const rootRef = database.ref("Outreach");
         // console.log("called")
         rootRef.on('value', snap => {
                 snap.forEach(function(childSnapshot) {
                     // console.log("The key was: " + childSnapshot.key)
-                    // console.log("The article key was: " + articleKey)
-                    if(childSnapshot.key === articleKey)
+                    // console.log("The outreach key was: " + outreachKey)
+                    if(childSnapshot.key === outreachKey)
                     {
-                        // console.log("Inside compare")
-                        if(childSnapshot.child("type").val() == "video")
+                        if(childSnapshot.child("type").val() == "outreach")
                         {
-                            setVideo({...video, 
-                                type: childSnapshot.child("type").val(),
-                                url: childSnapshot.child("url").val(),
-                                title: childSnapshot.child("title").val(),
-                                language: childSnapshot.child("language").val()
-                            })
-                        }
-                        else if(childSnapshot.child("type").val() == "article")
-                        {
-                            setArticle({...article, 
+                            setOutreach({...outreach, 
                                 type: childSnapshot.child("type").val(),
                                 disc: childSnapshot.child("disc").val(),
                                 pic: childSnapshot.child("pic").val(),
@@ -97,25 +80,21 @@ function AdminDeleteDementia() {
                     }
                 });
             });
-    }, [articleKey])
+    }, [outreachKey])
 
-    // Once the article or video object is finished being created, set the object to be used
+    // If the object outreach is changed, update the information to the select outreach 
     useEffect(() => {
-        setObject(video);
-    }, [video])
+        setObject(outreach);
+    }, [outreach])
 
-    useEffect(() => {
-        setObject(article);
-    }, [article])
-
-    // Pulls all the article titles
+    // Pulls all the outreach titles
     const DropdownCity = ({ nameList }) => {
         return (
             <Dropdown>
-                <Dropdown.Toggle as={CustomToggle} id="dropdown-custom-components" className="dropdown-button">Pick an article</Dropdown.Toggle>
+                <Dropdown.Toggle as={CustomToggle} id="dropdown-custom-components" className="dropdown-button">Pick an outreach</Dropdown.Toggle>
                 <Dropdown.Menu className="dropdown-menu">
                     {nameList.map((title, index) => (
-                        <Dropdown.Item onClick={() => { setArticleKey(objectList[index])}} key={index}>{title}</Dropdown.Item>
+                        <Dropdown.Item onClick={() => { setOutreachKey(outreachList[index])}} key={index}>{title}</Dropdown.Item>
                     ))}
                 </Dropdown.Menu>
             </Dropdown>
@@ -124,7 +103,7 @@ function AdminDeleteDementia() {
 
     const SetDeleteComponent = ({obj}) => 
     {
-        if(obj.type == "article")
+        if(obj.type == "outreach")
         {
             return (
                 <Form className="admin-form">
@@ -149,27 +128,7 @@ function AdminDeleteDementia() {
                     </Form.Group>
                     
                     {/* Button used to update the page once all the fields are filled out */}
-                    <Button onClick={() => delete_button(articleKey)} variant="danger" type="submit" className="submit">Delete</Button>
-                </Form>
-            );
-        }
-        else if(obj.type == "video")
-        {
-            return (
-                <Form className="admin-form">
-                    {/* Form for Name */}
-                    <Form.Group>
-                        <Form.Label>Name: {obj.title}</Form.Label>
-                    </Form.Group>
-
-                    {/* Form for Website */}
-                    <Form.Group>
-                        <Form.Label>URL: {obj.url}</Form.Label>
-                    </Form.Group>
-
-                    
-                    {/* Button used to update the page once all the fields are filled out */}
-                    <Button onClick={() => delete_button(articleKey)} variant="danger" type="submit" className="submit">Delete</Button>
+                    <Button onClick={() => delete_button(outreachKey)} variant="danger" type="submit" className="submit">Delete</Button>
                 </Form>
             );
         }
@@ -219,8 +178,8 @@ CustomToggle.propTypes =
 }
 CustomToggle.displayName="CustomDropdownToggle";
 
-function delete_button(articleKey){ 
-        firebase.database().ref('Article/'+articleKey).remove();
+function delete_button(outreachKey){ 
+        firebase.database().ref('Outreach/'+outreachKey).remove();
 }
 
 // 'style-component package used for infile css'
