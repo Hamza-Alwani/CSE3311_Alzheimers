@@ -7,9 +7,13 @@
 /// summary
 
 import React from 'react';
-// import { Link } from 'react-router-dom'; // not used
 import styled from 'styled-components'
 
+// bootstrap
+import Image from 'react-bootstrap/Image'
+
+// images
+import KaKaoTalk from '../pictures/kakaotalk.png';
 
 // css
 import '../css/main.css'; 
@@ -36,6 +40,12 @@ function Footer() {
                 </div>
                 {/* Column 2 */}
                 <div className="col-md-3 col-sm-6">
+                  <h4> <strong>Follow Us</strong> </h4>
+                  <ul className="list-unstyled">
+                    <a href="https://open.kakao.com/o/gPYKtsqc">
+                      <Image className="social-media-icons" src={KaKaoTalk} roundedCircle />
+                    </a>
+                  </ul>
                 </div>
                 {/* Column 3 */}
                 <div className="col-md-3 col-sm-6">
@@ -79,17 +89,24 @@ const FooterContainer = styled.footer`
   padding-top: 8rem;
 }
 
-.footer-content
-{
-  margin: 0 auto;
-  width:70%;
-}
 .footer-middle 
 {
   background: var(--mainWhite);
   padding-top: 3rem; 
   color: var(--primaryTheme);
   width: 100%;
+}
+
+.footer-content
+{
+  margin: 0 auto;
+  width:70%;
+}
+
+.social-media-icons
+{
+  width: 50px;
+  height: auto;
 }
 
 .footer-bottom
@@ -102,7 +119,6 @@ ul li a
 {
   color: var(--primaryTheme);
 }
-
 
 ul li a:hover
 {
