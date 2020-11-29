@@ -34,6 +34,7 @@ function ResearchComponent() {
   }, []);
 
   const [show, setShow] = useState(false);
+  setTimeout(function(){ setShow(true)}, 10000)
     
   return (
         // The div main-component is used to push against the footer
@@ -66,7 +67,6 @@ function ResearchComponent() {
 
           <PopupContainer>
             {/* After X seconds show the survey button */}
-            {setTimeout(function(){ setShow(true); console.log("bing")}, 10000)}
             <Toast className="popup-survey-container" onClose={() => setShow(false)} show={show} delay={10000} autohide>
                 <Toast.Header>
                   <img
@@ -74,10 +74,10 @@ function ResearchComponent() {
                     className="rounded mr-2"
                     alt=""
                   />
-                  <strong className="mr-auto">Survey<br></br></strong>
-                  
+                  <strong className="mr-auto">Dementia Survey<br></br></strong>
+                  {/* <small>UTA sponsor survey</small> */}
                 </Toast.Header>
-                <Toast.Body className="pop-survey-body"> <Button href="https://dementiacaregiving.questionpro.com" onClick={() => setShow(false)}>Link</Button> </Toast.Body>
+                <Toast.Body className="pop-survey-body"><Button href="https://dementiacaregiving.questionpro.com" onClick={() => setShow(false)}>Link</Button> </Toast.Body>
               </Toast>
           </PopupContainer>
         </div>
@@ -102,6 +102,14 @@ const PopupContainer = styled.nav`
   {
     margin-right: 100px;
   }
+
+  @media (max-width: 1000px) {
+    .popup-survey-container
+    {
+      right: 0;
+    }
+}
+
 `
 
 
@@ -118,7 +126,7 @@ const ResearchContainer = styled.nav`
 .calendly-div
 {
   display: flex;
-  height: 900px;
+  height: 950px;
   min-width: 320px;
 }
 
