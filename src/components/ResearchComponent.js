@@ -6,14 +6,17 @@
 /// summary
 
 
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components'
+
+// bootstrap
+import Toast from 'react-bootstrap/Toast'
+import Button from 'react-bootstrap/Button'
 
 // css
 import '../css/main.css'; 
 import '../css/survey.css'; 
 
-// translation 
 // translation
 import strings from '../translation/ResearchLang.js'
 strings.setLanguage(localStorage.getItem("Language"));
@@ -30,8 +33,10 @@ function ResearchComponent() {
     head.appendChild(script);
   }, []);
 
-
-  
+  const [firstTime, setFirstTime] = useState(true);
+  const [show, setShow] = useState(false);
+  setTimeout(function(){ if(firstTime === true){setShow(true); setFirstTime(false); console.log("bing")}}, 10000)
+    
   return (
         // The div main-component is used to push against the footer
         <div className="main-component">
@@ -48,7 +53,6 @@ function ResearchComponent() {
     
 
             <div className="research-section">
-
               {/* Calendly - Embed directly into the code  */}
               <div className="calendly-div">
                 <div 
@@ -57,9 +61,26 @@ function ResearchComponent() {
                   style={{ width:"100%" }}>
                 </div>
               </div>
-
             </div>
+
+
           </ResearchContainer>
+
+          <PopupContainer>
+            {/* After X seconds show the survey button */}
+            <Toast className="popup-survey-container" onClose={() => setShow(false)} show={show} delay={10000} autohide>
+                <Toast.Header>
+                  <img
+                    src="holder.js/20x20?text=%20"
+                    className="rounded mr-2"
+                    alt=""
+                  />
+                  <strong className="mr-auto">Dementia Survey<br></br></strong>
+                  {/* <small>UTA sponsor survey</small> */}
+                </Toast.Header>
+                <Toast.Body className="pop-survey-body"><Button href="https://dementiacaregiving.questionpro.com" onClick={() => setShow(false)}>Link</Button> </Toast.Body>
+              </Toast>
+          </PopupContainer>
         </div>
   );
 }
@@ -68,9 +89,34 @@ export default ResearchComponent;
 
 
 // 'style-component package used for infile css'
+const PopupContainer = styled.nav`
+  /* Survey popup */
+  .popup-survey-container
+  {
+    position: fixed;
+    bottom: 0;
+    right: 10%;
+    z-index: 10;
+  }
+
+  .pop-survey-body
+  {
+    margin-right: 100px;
+  }
+
+  @media (max-width: 1000px) {
+    .popup-survey-container
+    {
+      right: 0;
+    }
+}
+
+`
+
+
 const ResearchContainer = styled.nav`
 
-
+/* Calendly CSS */
 .calendly-inline-widget
 {
   flex: 1;
@@ -81,7 +127,7 @@ const ResearchContainer = styled.nav`
 .calendly-div
 {
   display: flex;
-  height: 900px;
+  height: 950px;
   min-width: 320px;
 }
 
@@ -90,10 +136,6 @@ const ResearchContainer = styled.nav`
   overflow: hidden;
 }
 
-select
-{
-  margin-top:0px;
-}
 
 @media (max-width: 1000px) {
   .main-component
