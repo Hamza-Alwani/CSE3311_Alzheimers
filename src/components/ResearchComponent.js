@@ -33,8 +33,9 @@ function ResearchComponent() {
     head.appendChild(script);
   }, []);
 
+  const [firstTime, setFirstTime] = useState(true);
   const [show, setShow] = useState(false);
-  setTimeout(function(){ setShow(true)}, 10000)
+  setTimeout(function(){ if(firstTime === true){setShow(true); setFirstTime(false); console.log("bing")}}, 10000)
     
   return (
         // The div main-component is used to push against the footer
