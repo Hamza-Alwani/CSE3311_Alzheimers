@@ -88,7 +88,7 @@ function AdminDeleteCommunity() {
                   setGoogleMap(lang.child("googleMap").val())
                })
       }); 
-
+   // eslint-disable-next-line react-hooks/exhaustive-deps,
    }, [selectedKey])
 
   

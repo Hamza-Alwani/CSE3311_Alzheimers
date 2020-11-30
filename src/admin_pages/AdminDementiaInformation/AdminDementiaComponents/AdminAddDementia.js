@@ -3,7 +3,7 @@
 /// summary
 
 // import React, { Component } from 'react';
-import React, {useState, useEffect } from 'react';
+import React from 'react';
 import styled from 'styled-components'
 
 // components
@@ -136,7 +136,7 @@ CustomToggle.displayName="CustomDropdownToggle";
 // Once all the text are filled out then this function is called to submit the information to firebase.
 function add_article_button(){ 
 
-   
+   var key;
 
    if(document.getElementById("articleTitle").value && 
    document.getElementById("articleDescription").value &&
@@ -145,7 +145,7 @@ function add_article_button(){
    {
       if(e) 
       {
-         var key=firebase.database().ref('Article').push().key;
+         key = firebase.database().ref('Article').push().key;
          firebase.database().ref('Article/'+key).set({
                type: "article",
                title:document.getElementById("articleTitle").value,
@@ -164,7 +164,7 @@ function add_article_button(){
       }
       if(c)
       {
-         var key=firebase.database().ref('Article').push().key;
+         key = firebase.database().ref('Article').push().key;
          firebase.database().ref('Article/'+key).set({
             type: "article",
             title:document.getElementById("articleTitle").value,
@@ -183,7 +183,7 @@ function add_article_button(){
       }
       if(k)
       {
-         var key=firebase.database().ref('Article').push().key;
+         key = firebase.database().ref('Article').push().key;
          firebase.database().ref('Article/'+key).set({
             type: "article",
             title:document.getElementById("articleTitle").value,
@@ -212,12 +212,13 @@ function add_article_button(){
 }
 
 function add_video_button(){ 
+   var key; 
 
    if(document.getElementById("videoTitle").value && document.getElementById("videoURL"))
    {
       if(e) 
       {
-         var key=firebase.database().ref('Article').push().key;
+         key = firebase.database().ref('Article').push().key;
          firebase.database().ref('Article/'+key).set({
             type: "video",
             title:document.getElementById("videoTitle").value,
@@ -234,7 +235,7 @@ function add_video_button(){
      }
       if(c)
       {
-         var key=firebase.database().ref('Article').push().key;
+         key = firebase.database().ref('Article').push().key;
          firebase.database().ref('Article/'+key).set({
             type: "video",
             title:document.getElementById("videoTitle").value,
@@ -251,7 +252,7 @@ function add_video_button(){
       }
       if(k)
       {
-         var key=firebase.database().ref('Article').push().key;
+         key = firebase.database().ref('Article').push().key;
          firebase.database().ref('Article/'+key).set({
             type: "video",
             title:document.getElementById("videoTitle").value,

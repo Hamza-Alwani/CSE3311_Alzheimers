@@ -82,7 +82,7 @@ function AdminDeleteDementia() {
                     // console.log("The outreach key was: " + outreachKey)
                     if(childSnapshot.key === outreachKey)
                     {
-                        if(childSnapshot.child("type").val() == "outreach")
+                        if(childSnapshot.child("type").val() === "outreach")
                         {
                             setOutreach({...outreach, 
                                 type: childSnapshot.child("type").val(),
@@ -96,6 +96,7 @@ function AdminDeleteDementia() {
                     }
                 });
             });
+    // eslint-disable-next-line react-hooks/exhaustive-deps,
     }, [outreachKey])
 
     // If the object outreach is changed, update the information to the select outreach 
@@ -119,7 +120,7 @@ function AdminDeleteDementia() {
 
     const SetDeleteComponent = ({obj}) => 
     {
-        if(obj.type == "outreach")
+        if(obj.type === "outreach")
         {
             return (
                 <Form className="admin-form">

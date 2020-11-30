@@ -112,7 +112,7 @@ CustomToggle.displayName="CustomDropdownToggle";
 // Once all the text are filled out then this function is called to submit the information to firebase.
 function add_outreach_button(){ 
 
-   
+   var key;
 
    if(document.getElementById("outreachTitle").value && 
    document.getElementById("outreachDescription").value &&
@@ -121,7 +121,7 @@ function add_outreach_button(){
    {
       if(e) 
       {
-         var key=firebase.database().ref('Outreach').push().key;
+         key = firebase.database().ref('Outreach').push().key;
          firebase.database().ref('Outreach/'+key).set({
                type: "outreach",
                title:document.getElementById("outreachTitle").value,
@@ -140,7 +140,7 @@ function add_outreach_button(){
       }
       if(c)
       {
-         var key=firebase.database().ref('Outreach').push().key;
+         key = firebase.database().ref('Outreach').push().key;
          firebase.database().ref('Outreach/'+key).set({
             type: "outreach",
             title:document.getElementById("outreachTitle").value,
@@ -159,7 +159,7 @@ function add_outreach_button(){
       }
       if(k)
       {
-         var key=firebase.database().ref('Outreach').push().key;
+         key = firebase.database().ref('Outreach').push().key;
          firebase.database().ref('Outreach/'+key).set({
             type: "outreach",
             title:document.getElementById("outreachTitle").value,

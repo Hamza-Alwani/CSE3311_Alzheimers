@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components'
-import { createGlobalStyle } from 'styled-components'
 
 // css
 import '../css/main.css'; 
 
+// images
 import pic1 from '../pictures/hamza.jpg';
 import pic2 from '../pictures/arman.jpg';
 import pic3 from '../pictures/henry.jpg';
