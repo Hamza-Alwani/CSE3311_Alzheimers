@@ -34,8 +34,6 @@ function DisplayOutreach() {
             language: ""
         });
 
-
-
     const [objectList, setobjectList] = useState([]); // list all postings: outreachs and videos
 
     // Pulls each outreach/video and links with the other useEffect below this one.
@@ -55,11 +53,12 @@ function DisplayOutreach() {
                         })
                 });
             });
+    // eslint-disable-next-line react-hooks/exhaustive-deps,
     }, [])
 
     // Once a change is detected for the outreach object, it will be added to a list to be spamed onto the page
     useEffect(() => {
-        if((outreach.type !== "") && (outreach.disc !== "") && (outreach.pic !== "") && (outreach.title !== "") && (outreach.website !== ""), (outreach.language=== localStorage.getItem("Language") ))
+        if((outreach.type !== "") && (outreach.disc !== "") && (outreach.pic !== "") && (outreach.title !== "") && (outreach.website !== "") && (outreach.language=== localStorage.getItem("Language") ))
         {
             setobjectList(objectList => [...objectList, outreach]);
         }
@@ -72,15 +71,15 @@ function DisplayOutreach() {
             <div>
                 {/* eslint-disable-next-line react/prop-types */}
                 {props.map((state, index) => {
-                    {/* console.log(state) */}
-                    if(state.type == "outreach")
+                    if(state.type === "outreach")
                         return <Article props={state} key={index}></Article>
+                    return null;
                 })}
             </div>
         );
     };
     SpamObjects.propTypes = {
-        props: PropTypes.arrayOf( 
+        props: PropTypes.arrayOf(
             PropTypes.shape({
                 disc: PropTypes.string,
                 pic: PropTypes.string,

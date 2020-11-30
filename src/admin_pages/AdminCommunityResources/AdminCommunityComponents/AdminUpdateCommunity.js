@@ -17,59 +17,7 @@ import Dropdown from 'react-bootstrap/Dropdown'
 import '../../../css/main.css'
 
    const lang = ['KO','ZH'];
-   // maybe think of a better way of doing this
-   const stateDropDownList = [
-      'Alabama',
-      'Alaska',
-      'Arizona',
-      'Arkansas',
-      'California',
-      'Colorado',
-      'Connecticut',
-      'Delaware',
-      'Florida',
-      'Georgia',
-      'Hawaii',
-      'Idaho',
-      'Illinois',
-      'Indiana',
-      'Iowa',
-      'Kansas',
-      'Kentucky',
-      'Louisiana',
-      'Maine',
-      'Maryland',
-      'Massachusetts',
-      'Michigan',
-      'Minnesota',
-      'Mississippi',
-      'Missouri',
-      'Montana',
-      'Nebraska',
-      'Nevada',
-      'New Hampshire',
-      'New Jersey',
-      'New Mexico',
-      'New York',
-      'North Carolina',
-      'North Dakota',
-      'Ohio',
-      'Oklahoma',
-      'Oregon',
-      'Pennsylvania',
-      'Rhode Island',
-      'South Carolina',
-      'South Dakota',
-      'Tennessee',
-      'Texas',
-      'Utah',
-      'Vermont',
-      'Virginia',
-      'Washington',
-      'West Virginia',
-      'Wisconsin',
-      'Wyoming',
-   ] 
+
 
 function AdminUpdateCommunity() {
 
@@ -83,7 +31,6 @@ function AdminUpdateCommunity() {
    const [stateList, setStateList] = useState([]);
    const [cityList, setCityList] = useState([]);
    const [keyList, setKeyList] = useState([]);
-   const [langList, setLangList] = useState([]); 
 
    // Data selected by user
    const [selectedState, setSelectedState] = useState('Texas');
@@ -118,15 +65,12 @@ function AdminUpdateCommunity() {
       }); 
 
       setKeyList([])
-      setLangList([])
       setSelectedKey('Pick a specific location')
       // Sets the new key list when new city is selected
       rootRef.on('value', snap => {
             snap.forEach(function(id) {
                setKeyList(keyList => [...keyList, id.key]);
-               id.forEach(function(lang){
-                  setLangList(langList => [...langList, lang.key]);
-               });
+
          });
       }); 
 
@@ -160,7 +104,7 @@ function AdminUpdateCommunity() {
 
          })
       }); 
-
+   // eslint-disable-next-line react-hooks/exhaustive-deps,
    }, [selectedKey])
 
 

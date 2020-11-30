@@ -52,7 +52,7 @@ function DisplayArticle() {
 
         rootRef.on('value', snap => {
                 snap.forEach(function(childSnapshot) {
-                    if(childSnapshot.child("type").val() == "video")
+                    if(childSnapshot.child("type").val() === "video")
                     {
                         setVideo({...video, 
                             type: childSnapshot.child("type").val(),
@@ -61,7 +61,7 @@ function DisplayArticle() {
                             language: childSnapshot.child("language").val()
                         })
                     }
-                    else if(childSnapshot.child("type").val() == "article")
+                    else if(childSnapshot.child("type").val() === "article")
                     {
                         setArticle({...article, 
                             type: childSnapshot.child("type").val(),
@@ -74,11 +74,12 @@ function DisplayArticle() {
                     }
                 });
             });
+    // eslint-disable-next-line react-hooks/exhaustive-deps,
     }, [])
 
     // Once a change is detected for the article object, it will be added to a list to be spamed onto the page
     useEffect(() => {
-        if((article.type !== "") && (article.disc !== "") && (article.pic !== "") && (article.title !== "") && (article.website !== ""), (article.language=== localStorage.getItem("Language") ))
+        if((article.type !== "") && (article.disc !== "") && (article.pic !== "") && (article.title !== "") && (article.website !== "") && (article.language=== localStorage.getItem("Language") ))
         {
             setobjectList(objectList => [...objectList, article]);
         }
@@ -99,11 +100,11 @@ function DisplayArticle() {
             <div>
                 {/* eslint-disable-next-line react/prop-types */}
                 {props.map((state, index) => {
-                    {/* console.log(state) */}
-                    if(state.type == "video")
+                    if(state.type === "video")
                         return <Video props={state} key={index}></Video>
-                    else if(state.type == "article")
+                    else if(state.type === "article")
                         return <Article props={state} key={index}></Article>
+                    return null;
                 })}
             </div>
         );

@@ -70,9 +70,9 @@ function AdminUpdateDementia() {
 
         rootRef.on('value', snap => {
                 snap.forEach(function(childSnapshot) {
-                    if(childSnapshot.key == articleKey)
+                    if(childSnapshot.key === articleKey)
                     {
-                        if(childSnapshot.child("type").val() == "video")
+                        if(childSnapshot.child("type").val() === "video")
                         {
                             setVideo({...video, 
                                 type: childSnapshot.child("type").val(),
@@ -81,7 +81,7 @@ function AdminUpdateDementia() {
                                 language: childSnapshot.child("language").val()
                             })
                         }
-                        else if(childSnapshot.child("type").val() == "article")
+                        else if(childSnapshot.child("type").val() === "article")
                         {
                             setArticle({...article, 
                                 type: childSnapshot.child("type").val(),
@@ -95,6 +95,7 @@ function AdminUpdateDementia() {
                     }
                 });
             });
+    // eslint-disable-next-line react-hooks/exhaustive-deps,
     }, [articleKey])
 
     // Once the article or video object is finished being created, set the object to be used
@@ -123,7 +124,7 @@ function AdminUpdateDementia() {
 
     const SetFrame = ({obj}) => 
     {
-        if(obj.type == "article")
+        if(obj.type === "article")
         {
             return (
                 <Form className="admin-form">
@@ -156,7 +157,7 @@ function AdminUpdateDementia() {
                 </Form>
             );
         }
-        else if(obj.type == "video")
+        else if(obj.type === "video")
         {
             return (
                 <Form className="admin-form">

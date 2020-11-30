@@ -14,8 +14,9 @@ import '../css/main.css';
 function Article( {props} ) {
     return (
             <ArticleContainer>
+                {console.log(props.type + "we're in outreach")}
                 <a className="article-text-container"  href={props.website}>
-                    <img className="article-image" src={props.pic} ></img>
+                    <img className="article-image" src={props.pic} alt={props.pic}></img>
                     <div className="flex-child">
                         <div className="article-text-info">
                             <div className="article-title">{props.title}</div>

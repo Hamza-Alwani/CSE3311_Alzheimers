@@ -74,7 +74,7 @@ function AdminDeleteDementia() {
                     if(childSnapshot.key === articleKey)
                     {
                         // console.log("Inside compare")
-                        if(childSnapshot.child("type").val() == "video")
+                        if(childSnapshot.child("type").val() === "video")
                         {
                             setVideo({...video, 
                                 type: childSnapshot.child("type").val(),
@@ -83,7 +83,7 @@ function AdminDeleteDementia() {
                                 language: childSnapshot.child("language").val()
                             })
                         }
-                        else if(childSnapshot.child("type").val() == "article")
+                        else if(childSnapshot.child("type").val() === "article")
                         {
                             setArticle({...article, 
                                 type: childSnapshot.child("type").val(),
@@ -97,6 +97,7 @@ function AdminDeleteDementia() {
                     }
                 });
             });
+    // eslint-disable-next-line react-hooks/exhaustive-deps,
     }, [articleKey])
 
     // Once the article or video object is finished being created, set the object to be used
@@ -124,7 +125,7 @@ function AdminDeleteDementia() {
 
     const SetDeleteComponent = ({obj}) => 
     {
-        if(obj.type == "article")
+        if(obj.type === "article")
         {
             return (
                 <Form className="admin-form">
@@ -153,7 +154,7 @@ function AdminDeleteDementia() {
                 </Form>
             );
         }
-        else if(obj.type == "video")
+        else if(obj.type === "video")
         {
             return (
                 <Form className="admin-form">

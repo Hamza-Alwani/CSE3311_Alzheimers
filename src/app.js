@@ -40,6 +40,7 @@ function  App(){
     localStorage.setItem("Language", "en");
   }
 
+  // Authicate users
   firebase.auth().onAuthStateChanged( user => {
     if (user) {
         console.log("logedin")
@@ -49,83 +50,66 @@ function  App(){
       {
         sessionStorage.removeItem("user")
       }
-    })
-    
+  })
   
-   function  getAuth() {
+
+  function  getAuth() {
     if(sessionStorage.getItem("user")==='6GlRm12v5gbheHzYP9jXq38bNjf2')
     {
-       return true
+        return true
     }
     else
     {
       return false
     }
-   }
-  
-
-
-
-const PrivateRoute = ({ component: Component, ...rest }) => (
-  <Route
-    {...rest} 
-    render={props =>
-      getAuth()? (
-        <Component/>
-      ) : (
-        <Redirect
-          to={{
-            pathname: "/Admin_Login"
-          }}
-        />
-      )
-    }
-  />
-);
-
-function islang(){
-  if(sessionStorage.getItem("lang"))
-  {
-     return true
   }
-  else
-  {
-    return false
+  // Authicate users
+
+
+
+
+  const PrivateRoute = ({ component: Component, ...rest }) => (
+    <Route
+      {...rest} 
+      render={props =>
+        getAuth()? (
+          <Component/>
+        ) : (
+          <Redirect
+            to={{
+              pathname: "/Admin_Login"
+            }}
+          />
+        )
+      }
+    />
+  );
+
+  return(    
+        <Router>
+          <Switch>
+              <Route exact path="/" component={LanguageSelection}/>
+
+              <Route exact path="/home" component={Main_Page} />
+              <Route exact path="/Community_Resources" component={Community_Resources_Page} />
+              <Route exact path="/Dementia_Information" component={Dementia_Information_Page} />
+              <Route exact path="/Research" component={Research_Page} />
+              <Route exact path="/Outreach" component={Outreach_Page} />
+              <Route exact path="/Contact_us" component={Contact_us_Page} />
+              <Route exact path="/About_Us" component={About_Us_Page} />
+
+              <Route exact path ="/Admin_Login" component={Admin_Login} />
+              <PrivateRoute exact path ="/Admin_Home" component={Admin_Home} />
+              <PrivateRoute exact path="/Admin_Community_Resources" component={Admin_Community_Resources_Page} />
+              <PrivateRoute exact path="/Admin_Dementia_Information" component={Admin_Dementia_Information_Page} />
+              <PrivateRoute exact path="/Admin_Research" component={Admin_Research_Page} />
+              <PrivateRoute exact path="/Admin_Outreach" component={Admin_Outreach_Page} />
+
+              <Route exact path ="/404" component={Paget_Not_Found_Page} />
+              <Redirect to ="/404"/>
+          </Switch>
+          
+        </Router>
+    );
   }
-
-}
-
-
-
-
-   return(    
-         <Router>
-            <Switch>
-                <Route exact path="/" component={LanguageSelection}/>
-
-
-                <Route exact path="/home" component={Main_Page} />
-                <Route exact path="/Community_Resources" component={Community_Resources_Page} />
-                <Route exact path="/Dementia_Information" component={Dementia_Information_Page} />
-                <Route exact path="/Research" component={Research_Page} />
-                <Route exact path="/Outreach" component={Outreach_Page} />
-                <Route exact path="/Contact_us" component={Contact_us_Page} />
-                <Route exact path="/About_Us" component={About_Us_Page} />
-
-
-                <Route exact path ="/Admin_Login" component={Admin_Login} />
-                <PrivateRoute exact path ="/Admin_Home" component={Admin_Home} />
-                <PrivateRoute exact path="/Admin_Community_Resources" component={Admin_Community_Resources_Page} />
-                <PrivateRoute exact path="/Admin_Dementia_Information" component={Admin_Dementia_Information_Page} />
-                <PrivateRoute exact path="/Admin_Research" component={Admin_Research_Page} />
-                <PrivateRoute exact path="/Admin_Outreach" component={Admin_Outreach_Page} />
-
-               <Route exact path ="/404" component={Paget_Not_Found_Page} />
-               <Redirect to ="/404"/>
-            </Switch>
-            
-         </Router>
-      
-      );
-   }
 export default App
