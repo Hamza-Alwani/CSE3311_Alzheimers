@@ -49,14 +49,14 @@ function CommunityComponent() {
     {
       // console.log("english");
       rootRef.on('value', snap => {
-          snap.forEach(function(state) {
-            setStateList(stateList => [...stateList, state.key]);
-            setCityList([]) // Idk why we need this but if not it will double the city list if we take it out
-            snap.child(selectedState).forEach(function(city){
-              setCityList(cityList => [...cityList, city.key]);
-              setSelectedState(state.key);
-              setSelectedCity(city.key);
-            })
+        snap.forEach(function(state) {
+          setStateList(stateList => [...stateList, state.key]);
+          setCityList([]) // Idk why we need this but if not it will double the city list if we take it out
+          snap.child(selectedState).forEach(function(city){
+            setCityList(cityList => [...cityList, city.key]);
+            setSelectedState(state.key);
+            setSelectedCity(city.key);
+          })
         });
       });
     }
@@ -64,19 +64,30 @@ function CommunityComponent() {
     // Queries for any Korean Subtrees in firebase, if yes then it will compile a new list of available States and Cities 
     else if(selectedLang === 'KO')
     {
-      // console.log("korean");
+      // Based on the current selected state, it will redo the city dropdown on the state 
+      rootRef.on('value', snap => {
+          snap.child(selectedState).forEach(function(city){
+              city.forEach(function(id){
+              if(id.hasChild("KO")){
+                setCityList(cityList => [...cityList, city.key]);
+                setSelectedCity(city.key);
+              }
+            })
+          })
+      });
+
+      // Redo the state dropdown list
+      setStateList([])
       rootRef.on('value', snap => {
         snap.forEach(function(state) {
-          state.forEach(function(city){
+          state.forEach(function(city) {
             city.forEach(function(id){
               if(id.hasChild("KO")){
                 setStateList(stateList => [...stateList, state.key]);
-                setCityList(cityList => [...cityList, city.key]);
-                setSelectedState(state.key);
-                setSelectedCity(city.key);
+                setSelectedState(state.key)
               }
-            });
-          });
+            })
+          })
         });
       });
     }
@@ -84,26 +95,37 @@ function CommunityComponent() {
     // Queries for any Chinese Subtrees in firebase, if yes then it will compile a new list of available States and Cities 
     else if(selectedLang === 'ZH')
     {
-      // console.log("chinese");
+      // Based on the current selected state, it will redo the city dropdown on the state 
+      rootRef.on('value', snap => {
+        snap.child(selectedState).forEach(function(city){
+            city.forEach(function(id){
+            if(id.hasChild("ZH")){
+              setCityList(cityList => [...cityList, city.key]);
+              setSelectedCity(city.key);
+            }
+          })
+        })
+      });
+
+      // Redo the state dropdown list
+      setStateList([])
       rootRef.on('value', snap => {
         snap.forEach(function(state) {
-          state.forEach(function(city){
+          state.forEach(function(city) {
             city.forEach(function(id){
               if(id.hasChild("ZH")){
                 setStateList(stateList => [...stateList, state.key]);
-                setCityList(cityList => [...cityList, city.key]);
-                setSelectedState(state.key);
-                setSelectedCity(city.key);
+                setSelectedState(state.key)
               }
-            });
-          });
+            })
+          })
         });
       });
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps,
   }, [selectedLang])
 
-  // Pulls the requested data once state/city are seleceted
+  // Pulls the embeded map when state/city is chosen
   useEffect(() => {
     const database = firebase.database()
     const rootRef = database.ref("community/" + selectedState );
@@ -118,6 +140,27 @@ function CommunityComponent() {
     }); 
   }, [selectedState, selectedCity, selectedLang])
 
+  // If selectedState is changed then we will requery the list of cities under that state based on selected langauge
+  useEffect(() => {
+    const database = firebase.database()
+    const rootRef = database.ref("community/" + selectedState );
+    setCityList([])
+    rootRef.on('value', state => {
+      state.forEach(city => {
+        city.forEach(id => {
+          id.forEach(function(lang)
+          {
+            if(lang.key === selectedLang || selectedLang === "ALL")
+            {
+              setCityList(cityList => [...cityList, city.key]);
+              setSelectedCity(city.key);
+            }
+          })
+        })
+      })
+    }); 
+  }, [selectedState] )
+
   // Pulls all the city of the state
   const DropdownCity = ({ nameList }) => {
     return (
@@ -131,6 +174,8 @@ function CommunityComponent() {
       </Dropdown>
     );
   }
+  // firebase.database().ref("community/"+state).orderByKey().limitToFirst(1).on('value', function(snap) { 
+  //   for(var key in snap.val()){setSelectedCity(key)}
 
   // Pulls all the U.S States on firebase that exist and creates a dropdown list to select from
   const DropdownStates = ({ nameList }) => {
@@ -139,7 +184,7 @@ function CommunityComponent() {
         <Dropdown.Toggle as={CustomToggle} id="dropdown-custom-components" className="dropdown-button">{selectedState}</Dropdown.Toggle>
         <Dropdown.Menu className="dropdown-menu">
           {nameList.map((state, index) => (
-            <Dropdown.Item onClick={() => {setSelectedState(state); firebase.database().ref("community/"+state).orderByKey().limitToFirst(1).on('value', function(snap) { for(var key in snap.val()){setSelectedCity(key)} }); } }  key={index}>{state}</Dropdown.Item>
+            <Dropdown.Item onClick={() => {setSelectedState(state); /*firebase.database().ref("community/"+state).orderByKey().limitToFirst(1).on('value', function(snap) { for(var key in snap.val()){setSelectedCity(key)} });*/ } }  key={index}>{state}</Dropdown.Item>
           ))}
         </Dropdown.Menu>
       </Dropdown>
