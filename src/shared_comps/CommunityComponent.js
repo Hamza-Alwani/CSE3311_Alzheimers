@@ -159,6 +159,7 @@ function CommunityComponent() {
         })
       })
     }); 
+  // eslint-disable-next-line react-hooks/exhaustive-deps,
   }, [selectedState] )
 
   // Pulls all the city of the state
