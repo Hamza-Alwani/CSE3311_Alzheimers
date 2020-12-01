@@ -8,8 +8,9 @@ import Carousel from 'react-bootstrap/Carousel'
 import '../css/main.css'; 
 
 import SomangLogo from '../pictures/somang2.png';
-import UTALogo from '../pictures/uta.png';
-import background1 from '../pictures/home6.jpg';
+import UTALogo from '../pictures/uta2.png';
+import background1 from '../pictures/home7.jpg';
+import background2 from '../pictures/uta.jpg';
 
 function newHomepageComponent() {
     return (
@@ -45,6 +46,7 @@ function newHomepageComponent() {
 						alt="First slide"
 						/>
 						<p className="carousel-caption">Partnership with University of Texas at Arlington</p>
+						
 					</Carousel.Caption>
 				</Carousel.Item>
 			</Carousel>
@@ -76,7 +78,7 @@ const HomePageContainer = styled.div`
 
 .carousel-item-2
 {
-	background: url('https://cdn.web.uta.edu/-/media/project/website/homepage/university-center-horses-wide-view.ashx?revision=1298802d-9c6c-4877-9ea9-005fef81ea6a');
+	background: url(${background2});
 	background-size: 100% 100%;
 	background-position: center;
 }
@@ -92,14 +94,14 @@ const HomePageContainer = styled.div`
 	position: relative;
 	vertical-align: middle;
 	top: 40%;
-	font-size: 50px;
+	font-size: 70px;
+	font-weight: 950;
 }	
 
 .carousel-logo
 {
 	width: 10%;
 	height: auto;
-
 }
 
 .carousel-caption

@@ -72,7 +72,7 @@ ${'' /* Put your css here buddy */}
 
 H2 {
     text-align: center;
-    color: #dd3928;
+    color: black;
     font-size: 25px;
     font-style: bold;
     font-weight: bolder;
@@ -112,7 +112,7 @@ H2 {
     width: 100%;
     height: 0;
     border-radius: 50%;
-    background: #dd3928;
+    background: #1E90FF;
     position: absolute;
     bottom: 135%;
     right: 0;
@@ -131,7 +131,7 @@ H2 {
     width: 100%;
     height: 100%;
     border-radius: 50%;
-    background: #dd3928;
+    background: #1E90FF;
     position: absolute;
     top: 0;
     left: 0;
