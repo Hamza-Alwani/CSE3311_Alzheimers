@@ -33,7 +33,7 @@ function Video( {props} ) {
                   <div className="article-title">{props.title}</div>
                   <div className="article-discription">{props.disc}</div>
                   <div className="text-date-posted">
-                      Posted November 8th, 2020
+                      {/* Posted November 8th, 2020 */}
                   </div>
               </div>
           </div>

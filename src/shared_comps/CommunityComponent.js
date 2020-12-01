@@ -21,7 +21,7 @@ import ToggleButton from 'react-bootstrap/ToggleButton'
 import '../css/main.css'; 
 
 // translations
-import strings from '../translation/ContactUsLang.js'
+import strings from '../translation/CommunityLang.js'
 strings.setLanguage(localStorage.getItem("Language"));
 
 function CommunityComponent() {
