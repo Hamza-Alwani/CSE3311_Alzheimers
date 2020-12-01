@@ -88,7 +88,7 @@ const FooterContainer = styled.footer`
 {
   background: var(--mainWhite);
   padding-top: 3rem; 
-  color: var(--primaryTheme);
+  color: var(--black);
   width: 100%;
 }
 
@@ -100,13 +100,13 @@ const FooterContainer = styled.footer`
 
 ul li a 
 {
-  color: var(--primaryTheme);
+  color: var(--black);
 }
 
 
 ul li a:hover
 {
-  color: var(--primaryTheme)
+  color: var(--black)
 }
 
 /* On screens that are 600px or less */

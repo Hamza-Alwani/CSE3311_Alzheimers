@@ -8,8 +8,7 @@
 import React from 'react';
 // components
 import Nav from '../components/NavigationBar';
-import NewHomepage from '../components/newHomepage1';
-import Footer from '../components/Footer';
+import Homepage from '../components/Homepage';
 
 
 
@@ -17,9 +16,8 @@ function MainPage (){
       return(
          <div className="all-content">
             {/* Components */}
-            {/*<Nav></Nav>*/}
-            <NewHomepage></NewHomepage>
-            {/*<Footer></Footer>*/}
+            <Nav></Nav>
+            <Homepage></Homepage>
          </div>
       );
    }
