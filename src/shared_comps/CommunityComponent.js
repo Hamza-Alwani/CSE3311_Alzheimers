@@ -20,7 +20,9 @@ import ToggleButton from 'react-bootstrap/ToggleButton'
 // css
 import '../css/main.css'; 
 
-
+// translations
+import strings from '../translation/ContactUsLang.js'
+strings.setLanguage(localStorage.getItem("Language"));
 
 function CommunityComponent() {
 
@@ -217,7 +219,7 @@ function CommunityComponent() {
       {/* Header */}
       <CommunityContainer>
       <div>
-        <div className="gen_header">Community Resources</div>
+        <div className="gen_header">{strings.Header}</div>
         <div className="lang-buttons-div">
           <ToggleButtonGroup className="lang-buttons" type="radio" name="lang-button-name" value={selectedLang} onChange={handleChange}>
             <ToggleButton variant="light" value={'ALL'}><b> All</b> </ToggleButton>
@@ -245,9 +247,7 @@ function CommunityComponent() {
         {/* Information about the city */}
         <Table striped bordered hover className="google-map-table">
           <thead>
-            <tr>
-              <th>Google Map</th>
-            </tr>
+
           </thead>
           <tbody>
             <tr>
