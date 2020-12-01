@@ -28,7 +28,7 @@ function newHomepageComponent() {
 						src={SomangLogo}
 						alt="First slide"
 						/>
-						<p>Partnership with Somang Society</p>
+						<p className="carousel-caption">Partnership with Somang Society</p>
 					</Carousel.Caption>
 				</Carousel.Item>
 				<Carousel.Item className="carousel-item-2">
@@ -44,7 +44,7 @@ function newHomepageComponent() {
 						src={UTALogo}
 						alt="First slide"
 						/>
-						<p>Partnership with University of Texas at Arlington</p>
+						<p className="carousel-caption">Partnership with University of Texas at Arlington</p>
 					</Carousel.Caption>
 				</Carousel.Item>
 			</Carousel>
@@ -100,6 +100,11 @@ const HomePageContainer = styled.div`
 	width: 10%;
 	height: auto;
 
+}
+
+.carousel-caption
+{
+	color: black;
 }
 
 /* When height is 1000px or less */
