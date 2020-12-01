@@ -147,29 +147,14 @@ function AdminDeleteCommunity() {
       <div className="delete-information">
          <Form  className="location-general-info">
             {/* Form for Name */}
-            <Form.Group>
-               <Form.Label>Name: {name}</Form.Label>
-            </Form.Group>
-
-            {/* Form for Address */}
-            <Form.Group>
-               <Form.Label>Address: {address}</Form.Label>
-            </Form.Group>
+           
 
             {/* Form for Google Map */}
             <Form.Group>
                <Form.Label>Google Map: {googleMap}</Form.Label>
             </Form.Group>
 
-            {/* Form for Phone */}
-            <Form.Group>
-               <Form.Label>Phone: {phone}</Form.Label>
-            </Form.Group>
-
-            {/* Form for Website */}
-            <Form.Group>
-               <Form.Label>Website: {website}</Form.Label>
-            </Form.Group>
+            
 
             {/* Button used to delete the selected ID once state, city, key are selected */}
             <Button onClick={() => delete_place(selectedState, selectedCity, selectedKey)} variant="danger" type="submit" className="submit">Delete Information</Button>

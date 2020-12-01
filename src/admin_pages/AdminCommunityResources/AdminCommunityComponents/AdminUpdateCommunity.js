@@ -16,16 +16,13 @@ import Dropdown from 'react-bootstrap/Dropdown'
 //css
 import '../../../css/main.css'
 
-   const lang = ['KO','ZH'];
+   const lang = ['ALL','KO','ZH'];
 
 
 function AdminUpdateCommunity() {
 
    // Data from firebase
-   const [name, setName] = useState('Error: No title set');
-   const [phone, setPhone] = useState('Error: No phone number pulled');
-   const [address, setAddress] = useState('Error: No address pulled');
-   const [website, setWebsite] = useState('Error: No website pulled');
+   
    const [googleMap, setGoogleMap] = useState('Error: No website pulled');
 
    const [stateList, setStateList] = useState([]);
@@ -57,10 +54,6 @@ function AdminUpdateCommunity() {
       const rootRef = database.ref("community/" + selectedState + '/' + selectedCity);
       
       rootRef.on('value', snap => {
-               setName(snap.child(selectedCity).child("name").val())
-               setPhone(snap.child(selectedCity).child("phone").val())
-               setAddress(snap.child(selectedCity).child("address").val())
-               setWebsite(snap.child(selectedCity).child("website").val())
                setGoogleMap(snap.child(selectedCity).child("googleMap").val())
       }); 
 
@@ -96,10 +89,6 @@ function AdminUpdateCommunity() {
       rootRef.on('value', snap => {
          snap.forEach(function(lang){
             setSelectedLang(lang.key);
-            setName(lang.child("name").val())
-            setPhone(lang.child("phone").val())
-            setAddress(lang.child("address").val())
-            setWebsite(lang.child("website").val())
             setGoogleMap(lang.child("googleMap").val())
 
          })
@@ -178,17 +167,7 @@ function AdminUpdateCommunity() {
       return (
          <Form className="contact-us-form">
 
-            {/* Form for Name */}
-            <Form.Group>
-               <Form.Label>Name</Form.Label>
-               <Form.Control type="name" id="name-update"  defaultValue={name} />
-            </Form.Group>
-
-            {/* Form for Address */}
-            <Form.Group>
-               <Form.Label>Address</Form.Label>
-               <Form.Control type="name" id="address-update" defaultValue={address} />
-            </Form.Group>
+           
 
             {/* Form for Language */}
             <div className="language-button-group">
@@ -212,17 +191,7 @@ function AdminUpdateCommunity() {
                <Form.Control type="name" id="googleMap-update" defaultValue={googleMap}/>
             </Form.Group>
 
-            {/* Form for Phone Number */}
-            <Form.Group>
-               <Form.Label>Phone</Form.Label>
-               <Form.Control type="name" id="phone-update" defaultValue={phone}/>
-            </Form.Group>
-
-            {/* Form for Website */}
-            <Form.Group>
-               <Form.Label>Website</Form.Label>
-               <Form.Control type="name" id="website-update" defaultValue={website}/>
-            </Form.Group>
+            
 
             {/* Button used to update the facility once all the fields are fill out */}
             <Button onClick={() => update_button(selectedKey,selectedLang)} variant="primary" type="submit" className="submit">Update</Button>
@@ -310,19 +279,13 @@ function AdminUpdateCommunity() {
 // Used with the buttom div to send the filled out form to firebase for update.
    function update_button(selectedKeyInput, selectedLang)
    { 
-      if(document.getElementById("name-update").value && 
-         document.getElementById("address-update").value &&
-         document.getElementById("googleMap-update").value &&
-         document.getElementById("phone-update").value &&
-         document.getElementById("website-update").value )
+      if(document.getElementById("googleMap-update").value)
+  
       {
          firebase.database().ref('community/'+document.getElementById("state-update").innerHTML+'/'+document.getElementById("city-update").innerHTML+'/'+selectedKeyInput).remove();
          firebase.database().ref('community/'+document.getElementById("state-update").innerHTML+'/'+document.getElementById("city-update").innerHTML+'/'+selectedKeyInput+'/'+selectedLang).set({
-            name:      document.getElementById("name-update").value,
-            address:   document.getElementById("address-update").value,
             googleMap: document.getElementById("googleMap-update").value,
-            phone:     document.getElementById("phone-update").value,
-            website:   document.getElementById("website-update").value,
+            
          },function(error){
             if(error)
             {

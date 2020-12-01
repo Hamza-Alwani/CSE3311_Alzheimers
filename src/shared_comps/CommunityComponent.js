@@ -49,17 +49,32 @@ function CommunityComponent() {
     {
       // console.log("english");
       rootRef.on('value', snap => {
-        snap.forEach(function(state) {
-          setStateList(stateList => [...stateList, state.key]);
-          setCityList([]) // Idk why we need this but if not it will double the city list if we take it out
-          snap.child(selectedState).forEach(function(city){
-            setCityList(cityList => [...cityList, city.key]);
-            setSelectedState(state.key);
-            setSelectedCity(city.key);
+        snap.child(selectedState).forEach(function(city){
+            city.forEach(function(id){
+            if(id.hasChild("ALL")){
+              setCityList(cityList => [...cityList, city.key]);
+              setSelectedCity(city.key);
+            }
           })
-        });
+        })
+    });
+
+    // Redo the state dropdown list
+    setStateList([])
+    rootRef.on('value', snap => {
+      snap.forEach(function(state) {
+        state.forEach(function(city) {
+          city.forEach(function(id){
+            if(id.hasChild("ALL")){
+              setStateList(stateList => [...stateList, state.key]);
+              setSelectedState(state.key)
+            }
+          })
+        })
       });
-    }
+    });
+  }
+    
 
     // Queries for any Korean Subtrees in firebase, if yes then it will compile a new list of available States and Cities 
     else if(selectedLang === 'KO')

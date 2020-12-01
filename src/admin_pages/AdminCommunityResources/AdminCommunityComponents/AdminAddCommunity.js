@@ -18,6 +18,24 @@ import ToggleButton from 'react-bootstrap/ToggleButton'
 //css
 import '../../../css/admin.css'
 
+
+var e=false;
+var c=false;
+var k=false;
+
+function change_e()
+{
+   e=!e
+}
+function change_c()
+{
+   c=!c
+}
+function change_k()
+{
+   k=!k
+}
+
 // Used with state dropdown and forces the admin to only pick from this list.
 const stateDropDownList = [
    'Alabama',
@@ -110,10 +128,7 @@ function AdminAddCommunity() {
             <Form className="admin-form">
 
                {/* Form for Name */}
-               <Form.Group>
-                  <Form.Label>Name</Form.Label>
-                  <Form.Control type="name" id="name"  />
-               </Form.Group>
+               
 
                {/* Drop down to pick a State form */}
                <Form.Group>
@@ -135,40 +150,43 @@ function AdminAddCommunity() {
                   <Form.Control type="name" id="city"  />
                </Form.Group>
 
-               {/* Form for address */}
-               <Form.Group>
-                  <Form.Label>Address</Form.Label>
-                  <Form.Control type="name" id="address"  />
-               </Form.Group>
-
-               {/* Form for langauge */}
-               <div className="language-button-group">
-                  <Form.Group className="language-label">
-                     <Form.Label>Language</Form.Label>
-                  </Form.Group>
-                  <ToggleButtonGroup  className="lang-buttons" id="lang-buttons" type="radio" name="lang-button-name" value={selectedLang} onChange={handleChange}>
-                        <ToggleButton value={'KO'}>Korean</ToggleButton>
-                        <ToggleButton value={'ZH'}>Chinese</ToggleButton>
-                  </ToggleButtonGroup>
-               </div>
-
-               {/* Form for google map */}
-               <Form.Group>
+              {/* Form for google map */}
+              <Form.Group>
                   <Form.Label>Google Map</Form.Label>
                   <Form.Control type="name" id="googleMap" />
                </Form.Group>
 
-               {/* Form for phone number */}
+               {/* Form for langauge */}
+               <div className="language-button-group">
                <Form.Group>
-                  <Form.Label>Phone</Form.Label>
-                  <Form.Control type="name" id="phone" />
-               </Form.Group>
+               <Form.Label>Language</Form.Label>
+               <Form.Check
+                  type="switch"
+                  label="All"
+                  name="formHorizontalRadios"
+                  id="en"
+                  onChange={change_e}
+               />
+               <Form.Check
+                  type="switch"
+                  label="Chinese"
+                  name="formHorizontalRadios"
+                  id="ch"
+                  onChange={change_c}
+               />
+               <Form.Check
+                  type="switch"
+                  label="Korean"
+                  name="formHorizontalRadios"
+                  id="ko"
+                  onChange={change_k}
+               />
+            </Form.Group>
+               </div>
 
-               {/* Form for website */}
-               <Form.Group>
-                  <Form.Label>Website</Form.Label>
-                  <Form.Control type="name" id="website" />
-               </Form.Group>
+               
+
+         
 
                {/* Button to submit the form - additional information: used with the add_button_pressed function defined in this file. */}
                <Button onClick={() => add_button_pressed(selectedLang)} variant="primary" type="" className="submit">Add</Button>
@@ -205,37 +223,73 @@ CustomToggle.displayName="CustomDropdownToggle";
 // When called looks for specific IDs in the HTML and pulls the values to be sent to firebase
 function add_button_pressed(selectedLang)
 { 
-   if(document.getElementById("name").value && 
-      document.getElementById("address").value &&
+   if(
       document.getElementById("city").value &&
-      document.getElementById("googleMap").value &&
-      document.getElementById("phone").value &&
-      document.getElementById("website").value )
+      document.getElementById("googleMap").value )
    {
-      var key = firebase.database().ref('community/'+document.getElementById("state").innerHTML+'/'+document.getElementById("city").value).push().key;
+      if(e)
+      {
+            var key = firebase.database().ref('community/'+document.getElementById("state").innerHTML+'/'+document.getElementById("city").value).push().key;
+            firebase.database().ref('community/'+document.getElementById("state").innerHTML+'/'+document.getElementById("city").value+'/'+key+'/'+"ALL").set({
+               googleMap: document.getElementById("googleMap").value,
+            },function(error){
+               if(error)
+               {
+                  window.alert("failed");
+               }
+               else
+               {
+                  window.alert("yes");
+                  window.location.reload(false);
+               }
+            });
+    
+         }
+         
+      if(c)
+      {
+         var key = firebase.database().ref('community/'+document.getElementById("state").innerHTML+'/'+document.getElementById("city").value).push().key;
+         firebase.database().ref('community/'+document.getElementById("state").innerHTML+'/'+document.getElementById("city").value+'/'+key+'/'+"CH").set({
+            googleMap: document.getElementById("googleMap").value,
+         },function(error){
+            if(error)
+            {
+               window.alert("failed");
+            }
+            else
+            {
+               window.alert("yes");
+               window.location.reload(false);
+            }
+         });
+      }
 
-      firebase.database().ref('community/'+document.getElementById("state").innerHTML+'/'+document.getElementById("city").value+'/'+key+'/'+selectedLang).set({
-         name:      document.getElementById("name").value,
-         address:   document.getElementById("address").value,
-         googleMap: document.getElementById("googleMap").value,
-         phone:    document.getElementById("phone").value,
-         website:   document.getElementById("website").value,
-      },function(error){
-         if(error)
-         {
-            window.alert("failed");
-         }
-         else
-         {
-            window.alert("yes");
-            window.location.reload(false);
-         }
-      });
+
+
+      
+      if(k)
+      {
+         var key = firebase.database().ref('community/'+document.getElementById("state").innerHTML+'/'+document.getElementById("city").value).push().key;
+         firebase.database().ref('community/'+document.getElementById("state").innerHTML+'/'+document.getElementById("city").value+'/'+key+'/'+"KO").set({
+            googleMap: document.getElementById("googleMap").value,
+         },function(error){
+            if(error)
+            {
+               window.alert("failed");
+            }
+            else
+            {
+               window.alert("yes");
+               window.location.reload(false);
+            }
+         });
+      }
    }
    else
    {
       window.alert("Failed. Make sure all fields are full");
    }
+
 }
 
 
