@@ -6,15 +6,15 @@ import Nav from '../components/NavigationBar';
 
 //css
 import '../css/main.css'
-import Welcome from '../components/Welcome';
+import Homepage from '../components/Homepage';
 
 function langauageselection() {
    return (
        <div>
         <Nav></Nav>
-        <Welcome></Welcome>
+        <Homepage></Homepage>
         <Langaugepopup> </Langaugepopup>
-        <Footer></Footer>
+        
        </div>
  
    
