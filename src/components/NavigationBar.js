@@ -31,18 +31,6 @@ function NavigationBar() {
         that allows us to give a modern look for the website and not reinvent the wheel
       */}
       <Navbar collapseOnSelect expand="lg" className="bg-transparent">
-        {/* Logo picture - picture needs to be replaced*/}
-        {/* <Navbar.Brand> 
-          <Link to ="/">
-            <img
-                src={logo}
-                width="80"
-                height="80"
-                className="d-inline-block align-top "
-                alt="logo"
-                />
-          </Link> 
-        </Navbar.Brand> */}
 
         {/* When the resolution is too low, the navigation bar will collapse into a button usually for mobile users. */}
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -82,6 +70,10 @@ export default NavigationBar;
 // 'style-component package used for infile css'
 const NavigationContainer = styled.div`
 
+.bg-transparent
+{
+  z-index: 2;
+}
 
 ${'' /* Creates a push below the navigation below so nothing is touching */}
 .nav-spacer
@@ -107,30 +99,30 @@ ${'' /* Creates a push below the navigation below so nothing is touching */}
   background-color: #fffffe;
 }
 .navbar .navbar-brand {
-  color: #dd3928;
+  color: #000000;
 }
 .navbar .navbar-brand:hover,
 .navbar .navbar-brand:focus {
-  color: #000000;
+  color: white;
 }
 .navbar .navbar-text {
-  color: #dd3928;
+  color: #000000;
 }
 .navbar .navbar-text a {
-  color: #000000;
+  color: white;
 }
 .navbar .navbar-text a:hover,
 .navbar .navbar-text a:focus {
-  color: #000000; 
+  color: white; 
 }
 .navbar .navbar-nav .nav-link {
-  color: #dd3928;
+  color: #000000;
   border-radius: .25rem;
   margin: 0 1rem;
 }
 .navbar .navbar-nav .nav-link:not(.disabled):hover,
 .navbar .navbar-nav .nav-link:not(.disabled):focus {
-  color: #000000;
+  color: #4f4f4f;
 }
 .navbar .navbar-nav .nav-item.active .nav-link,
 .navbar .navbar-nav .nav-item.active .nav-link:hover,
@@ -149,14 +141,14 @@ ${'' /* Creates a push below the navigation below so nothing is touching */}
   background-color: #000000;
 }
 .navbar .navbar-toggle .navbar-toggler-icon {
-  color: #dd3928;
+  color: #000000;
 }
 .navbar .navbar-collapse,
 .navbar .navbar-form {
-  border-color: #dd3928;
+  border-color: #000000;
 }
 .navbar .navbar-link {
-  color: #dd3928;
+  color: #000000;
 }
 .navbar .navbar-link:hover {
   color: #000000;
@@ -164,7 +156,7 @@ ${'' /* Creates a push below the navigation below so nothing is touching */}
 
 @media (max-width: 575px) {
   .navbar-expand-sm .navbar-nav .show .dropdown-menu .dropdown-item {
-    color: #dd3928;
+    color: #000000;
   }
   .navbar-expand-sm .navbar-nav .show .dropdown-menu .dropdown-item:hover,
   .navbar-expand-sm .navbar-nav .show .dropdown-menu .dropdown-item:focus {
@@ -178,7 +170,7 @@ ${'' /* Creates a push below the navigation below so nothing is touching */}
 
 @media (max-width: 767px) {
   .navbar-expand-md .navbar-nav .show .dropdown-menu .dropdown-item {
-    color: #dd3928;
+    color: #000000;
   }
   .navbar-expand-md .navbar-nav .show .dropdown-menu .dropdown-item:hover,
   .navbar-expand-md .navbar-nav .show .dropdown-menu .dropdown-item:focus {
@@ -192,7 +184,7 @@ ${'' /* Creates a push below the navigation below so nothing is touching */}
 
 @media (max-width: 991px) {
   .navbar-expand-lg .navbar-nav .show .dropdown-menu .dropdown-item {
-    color: #dd3928;
+    color: #000000;
   }
   .navbar-expand-lg .navbar-nav .show .dropdown-menu .dropdown-item:hover,
   .navbar-expand-lg .navbar-nav .show .dropdown-menu .dropdown-item:focus {
@@ -206,7 +198,7 @@ ${'' /* Creates a push below the navigation below so nothing is touching */}
 
 @media (max-width: 1199px) {
   .navbar-expand-xl .navbar-nav .show .dropdown-menu .dropdown-item {
-    color: #dd3928;
+    color: #000000;
   }
   .navbar-expand-xl .navbar-nav .show .dropdown-menu .dropdown-item:hover,
   .navbar-expand-xl .navbar-nav .show .dropdown-menu .dropdown-item:focus {
@@ -219,7 +211,7 @@ ${'' /* Creates a push below the navigation below so nothing is touching */}
 }
 
 .navbar-expand .navbar-nav .show .dropdown-menu .dropdown-item {
-  color: #dd3928;
+  color: #000000;
 }
 .navbar-expand .navbar-nav .show .dropdown-menu .dropdown-item:hover,
 .navbar-expand .navbar-nav .show .dropdown-menu .dropdown-item:focus {

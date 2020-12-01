@@ -15,7 +15,6 @@ import Button from 'react-bootstrap/Button'
 
 // css
 import '../css/main.css'; 
-import '../css/survey.css'; 
 
 // translation
 import strings from '../translation/ResearchLang.js'

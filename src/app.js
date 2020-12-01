@@ -7,7 +7,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 
 //pages
-import Main_Page from './pages/MainPage'
+import Homepage from './pages/Homepage'
 import Contact_us_Page from './pages/ContactUs'
 import Outreach_Page from './pages/Outreach'
 import Research_Page from './pages/Research'
@@ -90,7 +90,7 @@ function  App(){
           <Switch>
               <Route exact path="/" component={LanguageSelection}/>
 
-              <Route exact path="/home" component={Main_Page} />
+              <Route exact path="/home" component={Homepage} />
               <Route exact path="/Community_Resources" component={Community_Resources_Page} />
               <Route exact path="/Dementia_Information" component={Dementia_Information_Page} />
               <Route exact path="/Research" component={Research_Page} />

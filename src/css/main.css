@@ -4,7 +4,7 @@
 /* used with styled components to keeps themes consistent in react project */
 :root{
   --primaryTheme: #dd3928;
-  
+  --black: #000000;
   --mainDark: #343a40;
   --mainGrey: rgba(109,109,109);
   --mainLightGrey: rgba(172,172,172);

@@ -8,20 +8,18 @@
 import React from 'react';
 // components
 import Nav from '../components/NavigationBar';
-import Welcome from '../components/Welcome';
-import Footer from '../components/Footer';
-
+import Homepage from '../components/Homepage';
 
 
 
 function MainPage (){
-   return(
+      return(
          <div className="all-content">
             {/* Components */}
             <Nav></Nav>
-            <Welcome></Welcome>
-            <Footer></Footer>
+            <Homepage></Homepage>
          </div>
       );
    }
+
 export default MainPage
