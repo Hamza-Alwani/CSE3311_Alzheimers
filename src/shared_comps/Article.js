@@ -130,7 +130,7 @@ const ArticleContainer = styled.div`
 
     .article-title
     {
-        font-size: 1rem;
+        font-size: 12px;
     }
 
     .article-discription
