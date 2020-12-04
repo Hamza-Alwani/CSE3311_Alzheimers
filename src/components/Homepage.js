@@ -9,7 +9,7 @@ import '../css/main.css';
 
 import SomangLogo from '../pictures/somang2.png';
 import UTALogo from '../pictures/uta2.png';
-import background1 from '../pictures/home7.jpg';
+import background1 from '../pictures/bg.jpg';
 import background2 from '../pictures/uta.jpg';
 
 function newHomepageComponent() {
@@ -24,11 +24,14 @@ function newHomepageComponent() {
 					
 					<Carousel.Caption>
 						{/* <h3>First slide label</h3> */}
+						<a href="https://www.somangsociety.org/">
 						<img
 						className="carousel-logo"
 						src={SomangLogo}
 						alt="First slide"
 						/>
+						</a>
+						
 						<p className="carousel-caption">Partnership with Somang Society</p>
 					</Carousel.Caption>
 				</Carousel.Item>
@@ -45,7 +48,7 @@ function newHomepageComponent() {
 						src={UTALogo}
 						alt="First slide"
 						/>
-						<p className="carousel-caption">Partnership with University of Texas at Arlington</p>
+						<p className="carousel-caption">Affiliated with the University of Texas at Arlington</p>
 						
 					</Carousel.Caption>
 				</Carousel.Item>
@@ -96,6 +99,8 @@ const HomePageContainer = styled.div`
 	top: 40%;
 	font-size: 70px;
 	font-weight: 950;
+	float: left;
+	margin-left: 220px;
 }	
 
 .carousel-logo

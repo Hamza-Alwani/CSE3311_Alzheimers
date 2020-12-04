@@ -120,7 +120,7 @@ H1 {
     width: 100%;
     height: 0;
     border-radius: 50%;
-    background: #1E90FF;
+    background: #dd3928;
     position: absolute;
     bottom: 135%;
     right: 0;
@@ -139,7 +139,7 @@ H1 {
     width: 100%;
     height: 100%;
     border-radius: 50%;
-    background: #1E90FF;
+    background: #dd3928;
     position: absolute;
     top: 0;
     left: 0;
