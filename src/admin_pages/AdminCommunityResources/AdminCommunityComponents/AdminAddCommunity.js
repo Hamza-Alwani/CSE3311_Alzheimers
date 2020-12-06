@@ -12,8 +12,6 @@ import { Button } from 'react-bootstrap';
 import Table from 'react-bootstrap/Table'
 import Form from 'react-bootstrap/Form'
 import Dropdown from 'react-bootstrap/Dropdown'
-import ToggleButtonGroup from 'react-bootstrap/ToggleButtonGroup'
-import ToggleButton from 'react-bootstrap/ToggleButton'
 
 //css
 import '../../../css/admin.css'
