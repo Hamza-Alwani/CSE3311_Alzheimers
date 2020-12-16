@@ -96,8 +96,8 @@ function AdminAddCommunity() {
    const [selectedState, setSelectedState] = useState('Texas');
 
    // Language can only be 'EN' 'KO' 'ZH' and is updated via eventhandler one line below
-   const [selectedLang, setSelectedLang] = useState('EN');
-   const handleChange = (val) => setSelectedLang(val); // use with id='lang-buttons' to select the correct language on the website
+   
+   // use with id='lang-buttons' to select the correct language on the website
 
 
    // Pulls all existing U.S States on firebase creates a dropdown list to select from
@@ -187,7 +187,7 @@ function AdminAddCommunity() {
          
 
                {/* Button to submit the form - additional information: used with the add_button_pressed function defined in this file. */}
-               <Button onClick={() => add_button_pressed(selectedLang)} variant="primary" type="" className="submit">Add</Button>
+               <Button onClick={() => add_button_pressed()} variant="primary" type="" className="submit">Add</Button>
             </Form>
          </StyleCommunityContainer>
       </div>
@@ -219,7 +219,7 @@ CustomToggle.displayName="CustomDropdownToggle";
 
 
 // When called looks for specific IDs in the HTML and pulls the values to be sent to firebase
-function add_button_pressed(selectedLang)
+function add_button_pressed()
 { 
    if(
       document.getElementById("city").value &&

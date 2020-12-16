@@ -109,7 +109,7 @@ function CommunityComponent() {
   // Filter the state list for duplicates 
   useEffect(() => {
     const tempUniqueStateList = stateList.filter((val, id, array) => {
-      return array.indexOf(val) == id;  
+      return array.indexOf(val) === id;  
     });
     setUniqueStateList(tempUniqueStateList);
     setSelectedState(tempUniqueStateList[0]);
@@ -123,7 +123,7 @@ function CommunityComponent() {
     const database = firebase.database()
     const rootRef = database.ref("community");
 
-    if(selectedState != null && selectedState != '' && selectedState != undefined) 
+    if(selectedState !== null && selectedState !== '' && selectedState !== undefined) 
     {
       rootRef.on('value', snap => {
         snap.child(selectedState).forEach(function(city){
@@ -141,7 +141,7 @@ function CommunityComponent() {
   // Filter the city list for duplicates 
   useEffect(() => {
     const tempUniqueCityList = cityList.filter((val, id, array) => {
-      return array.indexOf(val) == id;  
+      return array.indexOf(val) === id;  
     });
     setUniqueCityList(tempUniqueCityList);
     setSelectedCity(tempUniqueCityList[0]);
@@ -150,7 +150,7 @@ function CommunityComponent() {
 
   // When State, City, or Language is changed, pull a new embeded map
   useEffect(() => {
-    if(selectedState != null && selectedState != '' && selectedState != undefined) 
+    if(selectedState !== null && selectedState !== '' && selectedState !== undefined) 
     {
       const database = firebase.database()
       const rootRef = database.ref("community/" + selectedState );

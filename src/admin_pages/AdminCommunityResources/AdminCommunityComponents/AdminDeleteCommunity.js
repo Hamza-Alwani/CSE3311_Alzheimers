@@ -19,10 +19,6 @@ import '../../../css/admin.css'
 function AdminDeleteCommunity() {
 
    // Data from firebase
-   const [name, setName] = useState('');
-   const [phone, setPhone] = useState('');
-   const [address, setAddress] = useState('');
-   const [website, setWebsite] = useState('');
    const [googleMap, setGoogleMap] = useState('');
 
    const [stateList, setStateList] = useState([]);
@@ -81,10 +77,6 @@ function AdminDeleteCommunity() {
       
       rootRef.on('value', id => {
                id.forEach(function(lang){
-                  setName(lang.child("name").val())
-                  setPhone(lang.child("phone").val())
-                  setAddress(lang.child("address").val())
-                  setWebsite(lang.child("website").val())
                   setGoogleMap(lang.child("googleMap").val())
                })
       }); 
