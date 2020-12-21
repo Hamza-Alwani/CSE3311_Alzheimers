@@ -117,5 +117,34 @@ ul li a:hover
   }
 }
 
+/* When height is 1000px or less */
+@media (max-width: 1000px) 
+{
+  
+  .spacer {
+  ${'' /* Seperates the body from the footer so it doesn't touch */}
+    padding-top: 0rem;
+  }
+
+  *
+  {
+    font-size: 16px;
+  }
+
+  .fullbody
+  {
+    font-weight: 100;
+  }
+
+  h4
+  {
+    /* text-align: center; */
+    color: var(--mainDar);
+    font-weight: 1000;
+  }
+
+  
+}
+
 
 `;
