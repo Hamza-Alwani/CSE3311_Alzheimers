@@ -44,11 +44,10 @@ function ResearchComponent() {
           <div className="gen_header">
           {strings.Header}
           </div>
-
           <ResearchContainer>
-            {/* <div className="survey">
-              <a href="https://dementiacaregiving.questionpro.com" class="survey-button"> Online Survey </a>
-            </div> */}
+             <div className="survey">
+             <Button variant="dark"  size="lg" href="https://dementiacaregiving.questionpro.com" target="_blank" type="submit">{strings.Survey}</Button>
+            </div> 
     
 
             <div className="research-section">
@@ -65,21 +64,8 @@ function ResearchComponent() {
 
           </ResearchContainer>
 
-          <PopupContainer>
-            {/* After X seconds show the survey button */}
-            <Toast className="popup-survey-container" onClose={() => setShow(false)} show={show} delay={10000} autohide>
-                <Toast.Header>
-                  <img
-                    src="holder.js/20x20?text=%20"
-                    className="rounded mr-2"
-                    alt=""
-                  />
-                  <strong className="mr-auto">Dementia Survey<br></br></strong>
-                  {/* <small>UTA sponsor survey</small> */}
-                </Toast.Header>
-                <Toast.Body className="pop-survey-body"><Button href="https://dementiacaregiving.questionpro.com" onClick={() => setShow(false)}>Link</Button> </Toast.Body>
-              </Toast>
-          </PopupContainer>
+
+
         </div>
   );
 }
@@ -88,32 +74,20 @@ export default ResearchComponent;
 
 
 // 'style-component package used for infile css'
-const PopupContainer = styled.nav`
-  /* Survey popup */
-  .popup-survey-container
-  {
-    position: fixed;
-    bottom: 0;
-    right: 10%;
-    z-index: 10;
-  }
 
-  .pop-survey-body
-  {
-    margin-right: 100px;
-  }
-
-  @media (max-width: 1000px) {
-    .popup-survey-container
-    {
-      right: 0;
-    }
-}
-
-`
 
 
 const ResearchContainer = styled.nav`
+//survey button
+
+.survey
+{
+  margin: auto;
+  width:fit-content;
+  text-align:center;
+  background-color: blue;
+  
+}
 
 /* Calendly CSS */
 .calendly-inline-widget
@@ -145,3 +119,50 @@ const ResearchContainer = styled.nav`
 
 
 `;
+
+
+
+//removed:
+
+  //-all popup
+/*
+<PopupContainer>
+<Toast className="popup-survey-container" onClose={() => setShow(false)} show={show} delay={10000} autohide>
+    <Toast.Header>
+      <img
+        src="holder.js/20x20?text=%20"
+        className="rounded mr-2"
+        alt=""
+      />
+      <strong className="mr-auto">Dementia Survey<br></br></strong>
+    </Toast.Header>
+    <Toast.Body className="pop-survey-body"><Button href="https://dementiacaregiving.questionpro.com" onClick={() => setShow(false)}>Link</Button> </Toast.Body>
+  </Toast>
+</PopupContainer>
+*/
+
+  //-pop up css
+/*
+const PopupContainer = styled.nav`
+  .popup-survey-container
+  {
+    position: fixed;
+    bottom: 0;
+    right: 10%;
+    z-index: 10;
+  }
+
+  .pop-survey-body
+  {
+    margin-right: 100px;
+  }
+
+  @media (max-width: 1000px) {
+    .popup-survey-container
+    {
+      right: 0;
+    }
+}
+
+`
+*/
