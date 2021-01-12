@@ -13,6 +13,9 @@ import '../../css/main.css';
 // images
 import SomangLogo from '../../pictures/somang2.png';
 import UTALogo from '../../pictures/uta.png';
+import img from '../../pictures/bg.jpg';
+
+
 
 
 function BottomHalf() {
@@ -29,11 +32,7 @@ function BottomHalf() {
                         <p>DEMENTIA COMMUNITY</p>
                         <p>FOR ASIAN CAREGIVERS</p>
                     </div>
-                    
-                    
-
-
-                    
+                
                     <div className="banner">
                         <div className="video-wrapper">
                             <ReactPlayer 
@@ -89,12 +88,11 @@ position: relative;
 }
 div.top
 {
-    margin-top: 5rem;
-    
+    margin-top: -2rem;
     display: block;
     position: relative;
     width: 100%;
-    height: 60%;
+    height: 62%;
 
 }
 
@@ -105,7 +103,7 @@ div.bottom
     display:block;
     width: 100%;
     height: 100%;  
-    background: url(../pictures/bg.jpg);
+    background: url(${img});  
     background-size:cover;
     background-repeat: no-repeat ;
     background-position: 85% 0% ;
@@ -239,7 +237,7 @@ div.bottom
     display:block;
     width: 100%;
     height: 100%;  
-    background: url(../pictures/bg.jpg);
+    background-image: url();
     background-size:cover;
     background-repeat: no-repeat ;
     background-position: 85% 0% ;
