@@ -8,32 +8,28 @@
 	text-align: center;
 	background: white;
 	position: absolute;
-	padding-bottom: 1px;
+
 	
 	
 	
 }
 
 
-.carousel-item-1
-{
-	background: url(../pictures/ann1.png);
-	background-size: 100% 100%;
-	background-position: center;
-}
 
-.carousel-item-2
-{
-	background: url(../pictures/ann2.png);
-	background-size: 100% 100%;
-	background-position: center;
-}
 
 .carousel-inner
 {
 	display: flex;
 	height: 100%;
 }
+
+
+.pictures 
+{
+	width: 100%;
+	height: 100%;
+}
+
 
 
 
@@ -43,6 +39,7 @@
 {
 	.carousel-homepage
 {
+	
 	display:block;
 	z-index: 1;
 	width: 100%;
@@ -50,7 +47,6 @@
 	text-align: center;
 	background: white;
 	position: absolute;
-	padding-bottom: 1px;
 	//top: 0;
 	
 	

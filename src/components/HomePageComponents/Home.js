@@ -42,12 +42,12 @@ function BottomHalf() {
                 
                     <br></br>
                     
-                    {/*}
+                    {/*
                     <div className="buttons">
-                        <a href="/Community_Resources"><u><i>see facilites near you</i></u></a>
+                        <a href="/Community_Resources"><i>see facilites near you</i></a>
                         <br></br>
                         <br></br>
-                        <a href="/Community_Resources"><u><i>see facilites near you</i></u></a>
+                        <a href="/Community_Resources"><i>see facilites near you</i></a>
                     </div>
                     */}
                 </div>
@@ -55,14 +55,14 @@ function BottomHalf() {
 
                 <div className="logocont">
                         {/* <p>lorem ipsum</p>*/ }           
-                        <a href="https://www.somangsociety.org/">
+                        <a href="https://www.somangsociety.org/" target="_blank">
                             <img
                             className="logos"
                             src={SomangLogo}
                             alt="First slide"
                             />
                         </a>
-                        <a>
+                        <a href="https://www.uta.edu/" target="_blank">
                             <img className="logos"
                             src={UTALogo}
                             alt="First slide"
