@@ -9,7 +9,7 @@ import React from 'react';
 // components
 import Nav from '../components/NavigationBar';
 import Home from '../components/HomePageComponents/Home';
-
+import Footer from '../components/Footer';
 
 
 function MainPage (){
@@ -18,6 +18,7 @@ function MainPage (){
             {/* Components */}
             <Nav></Nav>
             <Home></Home>
+            
             
 
          </div>

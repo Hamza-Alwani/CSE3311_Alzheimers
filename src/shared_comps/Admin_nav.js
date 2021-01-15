@@ -39,6 +39,7 @@ function AdminNavigationBar() {
         <Navbar.Collapse id="responsive-navbar-nav">
           {/* Main Navigation Bar - links to pages in use for the user. */}
           <Nav className="mr-auto">
+            <Nav.Link href="/Admin_Announcements"> Announcements  </Nav.Link>
             <Nav.Link href="/Admin_Community_Resources"> Community Resources  </Nav.Link>
             <Nav.Link href="/Admin_Dementia_Information">Dementia Information </Nav.Link>
             {/* <Nav.Link href="/Admin_Research">            Research             </Nav.Link> */}

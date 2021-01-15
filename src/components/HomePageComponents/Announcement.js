@@ -7,26 +7,19 @@ import Carousel from 'react-bootstrap/Carousel'
 // css
 import '../../css/main.css'; 
 import '../../css/announcement.css'
-import pic1 from '../../pictures/ann2.png';
-import pic2 from '../../pictures/ann1.png';
 
-function Announcement() {
+
+function Announcement( {props} ) {
     return (
-		
-			<Carousel className="carousel-homepage" >
-				<Carousel.Item>
-					<a href="https://google.com" target="_blank">
-						<img src={pic1} alt="" className="pictures"/>
+		<Carousel className="carousel-homepage" >
+			<Carousel.Item>
+					<a href={props.website} target="_blank">
+						<img src={props.pic} alt="" className="pictures"/>
 					</a>
-				</Carousel.Item>
-				<Carousel.Item>
-				<a>
-				<img src={pic2} alt="" className="pictures"/>
-				</a>
-				</Carousel.Item>
+			</Carousel.Item>
 			</Carousel>
-		
 
+ 
 );
 }
 export default Announcement;
