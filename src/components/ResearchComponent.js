@@ -46,7 +46,7 @@ function ResearchComponent() {
           </div>
           <ResearchContainer>
              <div className="survey">
-             <Button variant="dark"  size="lg" href="https://dementiacaregiving.questionpro.com" target="_blank" type="submit">{strings.Survey}</Button>
+             <Button variant="dark"  size="lg" href="https://dementiacaregiving.questionpro.com" target="_blank" rel="noopener noreferrer"  type="submit">{strings.Survey}</Button>
             </div> 
     
 

@@ -45,25 +45,25 @@ function BottomHalf() {
                         <br></br>
                         
                         
-                        <div className="buttons">
+     {/*                   <div className="buttons">
                             <a href="/Community_Resources"><i>see facilites near you</i></a>
                             <br></br>
                             <br></br>
                             <a href="/Community_Resources"><i>see facilites near you</i></a>
                         </div>
-                       
+        */}                
                     </div>
-                    
+            
 
                     <div className="logocont">
-                            <a href="https://www.somangsociety.org/" target="_blank">
+                            <a href="https://www.somangsociety.org/" target="_blank" rel="noopener noreferrer" >
                                 <img
                                 className="logos"
                                 src={SomangLogo}
                                 alt="First slide"
                                 />
                             </a>
-                            <a href="https://www.uta.edu/" target="_blank">
+                            <a href="https://www.uta.edu/" target="_blank" rel="noopener noreferrer" >
                                 <img className="logos"
                                 src={UTALogo}
                                 alt="First slide"

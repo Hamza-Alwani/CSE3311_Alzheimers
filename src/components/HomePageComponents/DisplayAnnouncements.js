@@ -15,6 +15,8 @@ import Carousel from 'react-bootstrap/Carousel'
 // firebase imports
  import firebase from '../../shared_comps/firebase'
 
+// css
+import '../../css/main.css'; 
 
 // translations
 
@@ -57,36 +59,17 @@ function DisplayAnnouncement() {
 
 
     // Spams announcements onto the page depending on how many announcements there are on firebase. - we can add a limited in the future when needed
-    const SpamObjects = ({ props }) => {
-        return (
-            <div>
-                {/* eslint-disable-next-line react/prop-types */}
-                {props.map((state, index) => {
-                        return <Announcement props={state} key={index}></Announcement>
-                })}
-            </div>
-        );
-    };
 
-    SpamObjects.propTypes = {
-        props: PropTypes.arrayOf( 
-            PropTypes.shape({
-                pic: PropTypes.string,
-                website: PropTypes.string,
-                language: PropTypes.string
-            }),
-        )
-    }
 
     // Main return of DisplayAnnouncement(), uses all the function and UseEffects above to compile the page.
     return (
-
-                <div class="slideshow-container">
-                    <SpamObjects props ={objectList}></SpamObjects>
-                </div>
+        <div class="slideshow-container">  
+            <Announcement props ={objectList}></Announcement>
+        </div>
                
                     
                
+
     );
 
 
