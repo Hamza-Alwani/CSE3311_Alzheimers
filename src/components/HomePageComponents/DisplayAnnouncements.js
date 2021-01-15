@@ -15,8 +15,6 @@ import Carousel from 'react-bootstrap/Carousel'
 // firebase imports
  import firebase from '../../shared_comps/firebase'
 
-// css
-import '../../css/main.css'; 
 
 // translations
 
@@ -82,19 +80,13 @@ function DisplayAnnouncement() {
 
     // Main return of DisplayAnnouncement(), uses all the function and UseEffects above to compile the page.
     return (
-        <div className="all-content">
-            <div className="main-component">
-                <div className="gen_header">
-                </div>
+
                 <div class="slideshow-container">
-                    
-                <SpamObjects props ={objectList}></SpamObjects>
+                    <SpamObjects props ={objectList}></SpamObjects>
                 </div>
                
                     
                
-            </div>
-        </div>
     );
 
 

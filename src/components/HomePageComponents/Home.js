@@ -23,8 +23,9 @@ function BottomHalf() {
     return (
         <HomePageContainer>
             <div className="whole">
+                
                 <div className="top">
-                <DisplayAnnouncement></DisplayAnnouncement>
+                    <DisplayAnnouncement></DisplayAnnouncement>
                 </div>
 
                 <div className="bottom">
@@ -43,19 +44,18 @@ function BottomHalf() {
                     
                         <br></br>
                         
-                        {/*
+                        
                         <div className="buttons">
                             <a href="/Community_Resources"><i>see facilites near you</i></a>
                             <br></br>
                             <br></br>
                             <a href="/Community_Resources"><i>see facilites near you</i></a>
                         </div>
-                        */}
+                       
                     </div>
                     
 
                     <div className="logocont">
-                            {/* <p>lorem ipsum</p>*/ }           
                             <a href="https://www.somangsociety.org/" target="_blank">
                                 <img
                                 className="logos"
