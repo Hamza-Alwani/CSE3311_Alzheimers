@@ -1,0 +1,78 @@
+
+.carousel-homepage
+{
+	display:block;
+	z-index: 1;
+	width: 100%;
+	height: 100%;  
+	text-align: center;
+	background: white;
+	position: absolute;
+
+	
+	
+	
+}
+
+
+
+
+.carousel-inner
+{
+	display: flex;
+	height: 100%;
+}
+
+
+.pictures 
+{
+	width: 100%;
+	height: 100%;
+}
+
+
+
+
+/* When height is 1000px or less */
+
+@media (max-width: 1000px) 
+{
+	.carousel-homepage
+{
+	
+	display:block;
+	z-index: 1;
+	width: 100%;
+	height: 100%;  
+	text-align: center;
+	background: white;
+	position: absolute;
+	//top: 0;
+	
+	
+}
+
+
+.carousel-item-1
+{
+	background: url(../pictures/ann1.png);
+	background-size: 100% 100%;
+	background-position: center;
+}
+
+.carousel-item-2
+{
+	background: url(../pictures/ann2.png);
+	background-size: 100% 100%;
+	background-position: center;
+}
+
+.carousel-inner
+{
+	display: flex;
+	height: 100%;
+}
+
+}
+
+
