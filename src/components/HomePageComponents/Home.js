@@ -30,8 +30,9 @@ function BottomHalf() {
 
                 <div className="bottom">
                     <div className="title">
-                        <p>DEMENTIA COMMUNITY</p>
-                        <p>FOR ASIAN CAREGIVERS</p>
+                        <p>Kare: Online Community for </p>
+                        <p> Asian-American Family Caregivers </p>
+                        <br></br>
                     </div>
                 
                     <div className="banner">
@@ -45,13 +46,15 @@ function BottomHalf() {
                         <br></br>
                         
                         
-     {/*                   <div className="buttons">
+                        <div className="buttons">
                             <a href="/Community_Resources"><i>see facilites near you</i></a>
                             <br></br>
                             <br></br>
+                            <br></br>
+
                             <a href="/Community_Resources"><i>see facilites near you</i></a>
                         </div>
-        */}                
+                     
                     </div>
             
 
@@ -115,7 +118,7 @@ div.title
 {
     position: relative;
     display: block;
-    font-size: 4.0vw;
+    font-size: 2.0vw;
     font-weight: 950;
     margin-left: 5%;
 }
@@ -191,10 +194,12 @@ width: 100%;
 .buttons a
 {
 //background-color: black;
-
-color: white;
+border-width:5px;  
+    border-style:double;
+    border-width: 10px;
+color: black;
 padding: 1%;
-font-size: 5vw;
+font-size: 1.5vw;
 
 }
 
