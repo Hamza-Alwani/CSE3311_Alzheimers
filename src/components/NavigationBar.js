@@ -12,6 +12,7 @@ import styled from 'styled-components'
 
 // bootstrap components
 import { Navbar, Nav} from 'react-bootstrap';
+import logo from '../pictures/logo.png'
 
 // css
 import '../css/main.css';
@@ -30,7 +31,16 @@ function NavigationBar() {
         Below we used Navbar, a bootstrap component package, 
         that allows us to give a modern look for the website and not reinvent the wheel
       */}
-      <Navbar collapseOnSelect expand="lg" className="bg-transparent">
+      <Navbar collapseOnSelect expand="lg" className="bg-transparent" >
+
+      <Navbar.Brand href="/home">
+          <img
+            src={logo}
+            width="auto"
+            height="80px"
+            alt="React Bootstrap logo"
+          />
+    </Navbar.Brand>
 
         {/* When the resolution is too low, the navigation bar will collapse into a button usually for mobile users. */}
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -39,7 +49,9 @@ function NavigationBar() {
         {/* Links below */}
         <Navbar.Collapse id="responsive-navbar-nav">
           {/* Main Navigation Bar - links to pages in use for the user. */}
-          <Nav className="ml-auto">
+
+          <Nav className="ml-auto"> 
+
             <Nav.Link href="/home"> {strings.Home} </Nav.Link>
             <Nav.Link href="/Community_Resources"> {strings.Community} </Nav.Link>
             <Nav.Link href="/Dementia_Information">{strings.Dementia} </Nav.Link>
@@ -78,7 +90,7 @@ const NavigationContainer = styled.div`
 ${'' /* Creates a push below the navigation below so nothing is touching */}
 .nav-spacer
 {
-  padding-bottom: 4rem;
+  padding-bottom: 2rem;
 }
 
 
