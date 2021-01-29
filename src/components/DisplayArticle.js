@@ -40,6 +40,7 @@ function DisplayArticle() {
             type: "", // video or articlee
             url: "", 
             title: "",
+            disc: "",
             language:"",
         });
 
@@ -58,6 +59,7 @@ function DisplayArticle() {
                             type: childSnapshot.child("type").val(),
                             url: childSnapshot.child("url").val(),
                             title: childSnapshot.child("title").val(),
+                            disc: childSnapshot.child("disc").val(),
                             language: childSnapshot.child("language").val()
                         })
                     }
@@ -87,7 +89,7 @@ function DisplayArticle() {
 
     // Once a change is detected for the video object, it will be added to a list to be spamed onto the page
     useEffect(() => {
-        if((video.type !== "") && (video.url !== "") && (video.title !== "") && (video.language === localStorage.getItem("Language")))
+        if((video.type !== "") &&(video.disc!== "") && (video.url !== "") && (video.title !== "") && (video.language === localStorage.getItem("Language")))
         {
             setobjectList(objectList => [...objectList, video]);
         }

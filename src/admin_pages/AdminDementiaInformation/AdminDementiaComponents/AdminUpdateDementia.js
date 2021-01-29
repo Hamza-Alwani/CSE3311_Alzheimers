@@ -43,6 +43,7 @@ function AdminUpdateDementia() {
         {
             type: "", // video or articlee
             url: "", 
+            disc: "",
             title: "",
             language:"",
         });
@@ -78,6 +79,7 @@ function AdminUpdateDementia() {
                                 type: childSnapshot.child("type").val(),
                                 url: childSnapshot.child("url").val(),
                                 title: childSnapshot.child("title").val(),
+                                disc: childSnapshot.child("disc").val(),
                                 language: childSnapshot.child("language").val()
                             })
                         }
@@ -152,6 +154,10 @@ function AdminUpdateDementia() {
                         <Form.Control type="name" id="article-website-update" defaultValue={article.website} />
                     </Form.Group>
                     
+                    <Form.Group>
+                        <Form.Label>language</Form.Label>
+                        <Form.Control type="name" id="article-language-update" defaultValue={article.language}  />
+                    </Form.Group>
                     {/* Button used to update the page once all the fields are filled out */}
                     <Button onClick={() => update_article_button(articleKey)} variant="primary" type="submit" className="submit">Update</Button>
                 </Form>
@@ -169,8 +175,17 @@ function AdminUpdateDementia() {
 
                     {/* Form for Website */}
                     <Form.Group>
-                        <Form.Label>Description</Form.Label>
+                        <Form.Label>Webstie</Form.Label>
                         <Form.Control type="name" id="video-website-update" defaultValue={video.url}  />
+                    </Form.Group>
+
+                    <Form.Group>
+                        <Form.Label>Description</Form.Label>
+                        <Form.Control type="name" id="video-description-update" defaultValue={video.disc}  />
+                    </Form.Group>
+                    <Form.Group>
+                        <Form.Label>language</Form.Label>
+                        <Form.Control type="name" id="video-language-update" defaultValue={video.language}  />
                     </Form.Group>
 
                     {/* Someone update the language somehow it's 5am right now */}
@@ -232,16 +247,20 @@ CustomToggle.displayName="CustomDropdownToggle";
 // Used with the article update section
 function update_article_button(articleKey){ 
 
-    if( document.getElementById("article-title-update").value && 
+    if( document.getElementById("article-title-update").value       && 
         document.getElementById("article-description-update").value &&
-        document.getElementById("article-pic-update").value &&
-        document.getElementById("article-website-update").value)
+        document.getElementById("article-pic-update").value         &&
+        document.getElementById("article-website-update").value     &&
+        document.getElementById("article-language-update").value
+        )
     {
         firebase.database().ref('Article/'+articleKey).set({
             title:      document.getElementById("article-title-update").value,
             disc:       document.getElementById("article-description-update").value,
             pic:        document.getElementById("article-pic-update").value,
             website:    document.getElementById("article-website-update").value,
+            language:   document.getElementById("article-language-update").value,
+            type: "article"
         },function(error){
             if(error){
             window.alert("failed");
@@ -261,12 +280,18 @@ function update_article_button(articleKey){
 // Used with the video update section
 function update_video_button(videoKey){ 
 
-    if( document.getElementById("video-title-update").value && 
-        document.getElementById("video-website-update").value)
+    if( document.getElementById("video-title-update").value   && 
+        document.getElementById("video-website-update").value &&
+        document.getElementById("video-description-update").value)
+
     {
         firebase.database().ref('Article/'+videoKey).set({
             title:      document.getElementById("video-title-update").value,
-            url:    document.getElementById("video-website-update").value,
+            url:        document.getElementById("video-website-update").value,
+            disc:       document.getElementById("video-description-update").value,
+            language:   document.getElementById("video-language-update").value,
+            type: "video"
+
         },function(error){
             if(error){
             window.alert("failed");

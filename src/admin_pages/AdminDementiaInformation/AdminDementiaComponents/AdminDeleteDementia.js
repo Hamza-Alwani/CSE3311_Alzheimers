@@ -44,6 +44,7 @@ function AdminDeleteDementia() {
             type: "", // video or articlee
             url: "", 
             title: "",
+            disc: "",
             language:"",
         });
     
@@ -80,6 +81,7 @@ function AdminDeleteDementia() {
                                 type: childSnapshot.child("type").val(),
                                 url: childSnapshot.child("url").val(),
                                 title: childSnapshot.child("title").val(),
+                                disc: childSnapshot.child("disc").val(),
                                 language: childSnapshot.child("language").val()
                             })
                         }
@@ -112,7 +114,7 @@ function AdminDeleteDementia() {
     // Pulls all the article titles
     const DropdownCity = ({ nameList }) => {
         return (
-            <Dropdown>
+            <Dropdown overflowy>
                 <Dropdown.Toggle as={CustomToggle} id="dropdown-custom-components" className="dropdown-button">Pick an article</Dropdown.Toggle>
                 <Dropdown.Menu className="dropdown-menu">
                     {nameList.map((title, index) => (
@@ -166,6 +168,9 @@ function AdminDeleteDementia() {
                     {/* Form for Website */}
                     <Form.Group>
                         <Form.Label>URL: {obj.url}</Form.Label>
+                    </Form.Group>
+                    <Form.Group>
+                        <Form.Label>disc: {obj.disc}</Form.Label>
                     </Form.Group>
 
                     

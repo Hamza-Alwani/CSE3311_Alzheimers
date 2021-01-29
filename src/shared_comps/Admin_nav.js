@@ -39,14 +39,13 @@ function AdminNavigationBar() {
         <Navbar.Collapse id="responsive-navbar-nav">
           {/* Main Navigation Bar - links to pages in use for the user. */}
           <Nav className="mr-auto">
-            <Nav.Link href="/Admin_Announcements"> Announcements  </Nav.Link>
-            <Nav.Link href="/Admin_Community_Resources"> Community Resources (MAP)  </Nav.Link>
-            <Nav.Link href="/Admin_Places">Places</Nav.Link>
-            <Nav.Link href="/Admin_Dementia_Information">Dementia Information </Nav.Link>
-            {/* <Nav.Link href="/Admin_Research">            Research             </Nav.Link> */}
-            <Nav.Link href="/Admin_Outreach">            Outreach             </Nav.Link>
-          </Nav> 
-
+            <Nav.Link href="/Admin_Announcements">          Announcements               </Nav.Link>
+            <Nav.Link href="/Admin_Community_Resources">    Community Resources (MAP)   </Nav.Link>
+            <Nav.Link href="/Admin_Places">                 Places                      </Nav.Link>
+            <Nav.Link href="/Admin_Dementia_Information">   Dementia Information        </Nav.Link>
+            <Nav.Link href="/Admin_Outreach">               Outreach                    </Nav.Link>
+          </Nav>  
+      
           {/* Language drop down */}
           <Nav>
           <Button varient="danger"  onClick={logout_pressed} type="" className="submit">Logout</Button>
@@ -90,17 +89,17 @@ ${'' /* Creates a push below the navigation below so nothing is touching */}
 }
 .navbar .navbar-brand:hover,
 .navbar .navbar-brand:focus {
-  color: #fbfbfb;
+  color: #000000;
 }
 .navbar .navbar-text {
   color: #dd3928;
 }
 .navbar .navbar-text a {
-  color: #fbfbfb;
+  color: #000000;
 }
 .navbar .navbar-text a:hover,
 .navbar .navbar-text a:focus {
-  color: #fbfbfb; 
+  color: #000000; 
 }
 .navbar .navbar-nav .nav-link {
   color: #007bff;
@@ -109,7 +108,7 @@ ${'' /* Creates a push below the navigation below so nothing is touching */}
 }
 .navbar .navbar-nav .nav-link:not(.disabled):hover,
 .navbar .navbar-nav .nav-link:not(.disabled):focus {
-  color: #fbfbfb;
+  color: #000000;
 }
 .navbar .navbar-nav .nav-item.active .nav-link,
 .navbar .navbar-nav .nav-item.active .nav-link:hover,
@@ -117,7 +116,7 @@ ${'' /* Creates a push below the navigation below so nothing is touching */}
 .navbar .navbar-nav .nav-item.show .nav-link,
 .navbar .navbar-nav .nav-item.show .nav-link:hover,
 .navbar .navbar-nav .nav-item.show .nav-link:focus {
-  color: #fbfbfb;
+  color: #000000;
   background-color: #000000;
 }
 .navbar .navbar-toggle {
@@ -138,7 +137,7 @@ ${'' /* Creates a push below the navigation below so nothing is touching */}
   color: #dd3928;
 }
 .navbar .navbar-link:hover {
-  color: #fbfbfb;
+  color: #000000;
 }
 
 @media (max-width: 575px) {
@@ -147,10 +146,10 @@ ${'' /* Creates a push below the navigation below so nothing is touching */}
   }
   .navbar-expand-sm .navbar-nav .show .dropdown-menu .dropdown-item:hover,
   .navbar-expand-sm .navbar-nav .show .dropdown-menu .dropdown-item:focus {
-    color: #fbfbfb;
+    color: #000000;
   }
   .navbar-expand-sm .navbar-nav .show .dropdown-menu .dropdown-item.active {
-    color: #fbfbfb;
+    color: #000000;
     background-color: #000000;
   }
 }
@@ -161,10 +160,10 @@ ${'' /* Creates a push below the navigation below so nothing is touching */}
   }
   .navbar-expand-md .navbar-nav .show .dropdown-menu .dropdown-item:hover,
   .navbar-expand-md .navbar-nav .show .dropdown-menu .dropdown-item:focus {
-    color: #fbfbfb;
+    color: #000000;
   }
   .navbar-expand-md .navbar-nav .show .dropdown-menu .dropdown-item.active {
-    color: #fbfbfb;
+    color: #000000;
     background-color: #000000;
   }
 }
@@ -175,10 +174,10 @@ ${'' /* Creates a push below the navigation below so nothing is touching */}
   }
   .navbar-expand-lg .navbar-nav .show .dropdown-menu .dropdown-item:hover,
   .navbar-expand-lg .navbar-nav .show .dropdown-menu .dropdown-item:focus {
-    color: #fbfbfb;
+    color: #000000;
   }
   .navbar-expand-lg .navbar-nav .show .dropdown-menu .dropdown-item.active {
-    color: #fbfbfb;
+    color: #000000;
     background-color: #000000;
   }
 }
@@ -189,10 +188,10 @@ ${'' /* Creates a push below the navigation below so nothing is touching */}
   }
   .navbar-expand-xl .navbar-nav .show .dropdown-menu .dropdown-item:hover,
   .navbar-expand-xl .navbar-nav .show .dropdown-menu .dropdown-item:focus {
-    color: #fbfbfb;
+    color: #000000;
   }
   .navbar-expand-xl .navbar-nav .show .dropdown-menu .dropdown-item.active {
-    color: #fbfbfb;
+    color: #000000;
     background-color: #000000;
   }
 }
@@ -202,10 +201,10 @@ ${'' /* Creates a push below the navigation below so nothing is touching */}
 }
 .navbar-expand .navbar-nav .show .dropdown-menu .dropdown-item:hover,
 .navbar-expand .navbar-nav .show .dropdown-menu .dropdown-item:focus {
-  color: #fbfbfb;
+  color: #000000;
 }
 .navbar-expand .navbar-nav .show .dropdown-menu .dropdown-item.active {
-  color: #fbfbfb;
+  color: #000000;
   background-color: #000000;
 }
 

@@ -80,6 +80,10 @@ function AdminAddDementia() {
                            <Form.Control type="name" id="videoTitle" placeholder="Title" />
                         </Form.Group>
                         <Form.Group>
+                        <Form.Label>Description</Form.Label>
+                        <Form.Control type="name" id="videoDescription" placeholder="Description" />
+                     </Form.Group>
+                        <Form.Group>
                            <Form.Label>Youtube link</Form.Label>
                            <Form.Control type="name" id="videoURL" placeholder="www.youtube.com" />
                         </Form.Group>
@@ -223,6 +227,7 @@ function add_video_button(){
             type: "video",
             title:document.getElementById("videoTitle").value,
             url:document.getElementById("videoURL").value,
+            disc: document.getElementById("videoDescription").value,
             language:"en",
          },function(error){
              if(error){
@@ -240,6 +245,7 @@ function add_video_button(){
             type: "video",
             title:document.getElementById("videoTitle").value,
             url:document.getElementById("videoURL").value,
+            disc: document.getElementById("videoDescription").value,
             language:"ch",
          },function(error){
             if(error){
@@ -257,6 +263,7 @@ function add_video_button(){
             type: "video",
             title:document.getElementById("videoTitle").value,
             url:document.getElementById("videoURL").value,
+            disc: document.getElementById("videoDescription").value,
             language:"ko",
          },function(error){
          if(error){
