@@ -84,8 +84,8 @@ const HomePageContainer = styled.div`
 div.whole
 {
 width: 100%;
-height: 100vh;
-display: block;
+display: flex;
+flex-direction: column;
 position: relative;
 
 }
@@ -95,7 +95,7 @@ div.top
     display: block;
     position: relative;
     width: 100%;
-    height: 62%;
+    height: 70vh;
 
 }
 

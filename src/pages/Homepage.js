@@ -18,7 +18,7 @@ function MainPage (){
             {/* Components */}
             <Nav></Nav>
             <Home></Home>
-            
+            <Footer></Footer>
             
 
          </div>
