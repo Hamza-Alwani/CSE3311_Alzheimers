@@ -17,77 +17,80 @@ import Table from 'react-bootstrap/Table'
 import '../../../css/admin.css'
 
 
-function AdminDeleteAnnouncements() {
+function AdminDeletePlaces() {
 
-    // List of announcements by name
+    // List of places by name
     const [titleList, setTitleList] = useState([]);
 
     // List of keys to pick from later 
-    const [announcementsList, setAnnouncementsList] = useState([]);
+    const [placesList, setPlacesList] = useState([]);
 
-    // Specific key to locate announcements information in firebase
-    const [announcementsKey, setAnnouncementsKey] = useState('');
+    // Specific key to locate places information in firebase
+    const [placesKey, setPlacesKey] = useState('');
 
-    // Announcements object after key is select and information is pulled from firebase
-    const [announcements, setAnnouncements] = useState(
+    // Places object after key is select and information is pulled from firebase
+    const [places, setPlaces] = useState(
         {
-            pic: "",
-            website: "",
-            language: ""
+            name:"",
+            address:"",
+            website:"",
+            phone:"",
         });
 
     
-    // Set which object (announcements or video) to display
-    const [object, setObject] = useState(announcements);
+    // Set which object (places or video) to display
+    const [object, setObject] = useState(places);
 
-     // Onload fill titleList and announcementsList
+     // Onload fill titleList and placesList
     useEffect(() => {
         const database = firebase.database()
-        const rootRef = database.ref("Announcements/");
+        const rootRef = database.ref("Places/");
         rootRef.on('value', snap => {
                     snap.forEach(function(childSnapshot) {
-                        setAnnouncementsList(announcementsList => [...announcementsList, childSnapshot.key]);
-                        setTitleList(titleList => [...titleList, childSnapshot.child("pic").val()]);
+                        setPlacesList(placesList => [...placesList, childSnapshot.key]);
+                        setTitleList(titleList => [...titleList, childSnapshot.child("name").val()]);
                 });
             });
     }, [])
 
-    // Once the Key of the announcements is selected, fill the fields with values from that announcements
+    // Once the Key of the places is selected, fill the fields with values from that places
     useEffect(() => {
         const database = firebase.database()
-        const rootRef = database.ref("Announcements");
+        const rootRef = database.ref("Places");
         // console.log("called")
         rootRef.on('value', snap => {
                 snap.forEach(function(childSnapshot) {
                     // console.log("The key was: " + childSnapshot.key)
-                    // console.log("The announcements key was: " + announcementsKey)
-                    if(childSnapshot.key === announcementsKey)
+                    // console.log("The places key was: " + placesKey)
+                    if(childSnapshot.key === placesKey)
                     {
-                            setAnnouncements({...announcements, 
-                                pic: childSnapshot.child("pic").val(),
-                                website: childSnapshot.child("website").val(),
-                                language: childSnapshot.child("language").val()
+                            setPlaces({...places, 
+                                name:childSnapshot.child("name").val(),
+                                address:childSnapshot.child("address").val(),
+                                website:childSnapshot.child("website").val(),
+                                phone:childSnapshot.child("phone").val(),
+                                
                             })
                         
                     }
                 });
             });
     // eslint-disable-next-line react-hooks/exhaustive-deps,
-    }, [announcementsKey])
+    }, [placesKey])
 
-    // If the object announcements is changed, update the information to the select announcements 
+    // If the object places is changed, update the information to the select places 
     useEffect(() => {
-        setObject(announcements);
-    }, [announcements])
+        setObject(places);
+    }, [places])
 
-    // Pulls all the announcements titles
+    // Pulls all the places titles
     const DropdownCity = ({ nameList }) => {
         return (
             <Dropdown>
-                <Dropdown.Toggle as={CustomToggle} id="dropdown-custom-components" className="dropdown-button">Pick an announcements</Dropdown.Toggle>
+                <Dropdown.Toggle as={CustomToggle} id="dropdown-custom-components" className="dropdown-button">Pick an places</Dropdown.Toggle>
                 <Dropdown.Menu className="dropdown-menu">
                     {nameList.map((title, index) => (
-                        <Dropdown.Item onClick={() => { setAnnouncementsKey(announcementsList[index])}} key={index}>{title}</Dropdown.Item>
+                        <Dropdown.Item onClick={() => { setPlacesKey(placesList[index])}} key={index}>{title}</Dropdown.Item>
                     ))}
                 </Dropdown.Menu>
             </Dropdown>
@@ -101,21 +104,22 @@ function AdminDeleteAnnouncements() {
                 <Form className="admin-form">
                     {/* Form for Name */}
                     {/* Form for Picture URL */}
+                    
                     <Form.Group>
-                        <Form.Label>Picture URL: {obj.pic}</Form.Label>
+                        <Form.Label>Name: {obj.name}</Form.Label>
                     </Form.Group>
                     <Form.Group>
-                        <Form.Label>language: {obj.language}</Form.Label>
+                        <Form.Label>Address: {obj.address}</Form.Label>
                     </Form.Group>
-                    <img  width='30%' src={obj.pic}/>
-
-                    {/* Form for Website URL */}
                     <Form.Group>
                         <Form.Label>Website URL: {obj.website}</Form.Label>
                     </Form.Group>
+                    <Form.Group>
+                        <Form.Label>Phone Number: {obj.phone}</Form.Label>
+                    </Form.Group>
                     
                     {/* Button used to update the page once all the fields are filled out */}
-                    <Button onClick={() => delete_button(announcementsKey,obj.pic)} variant="danger" className="submit">Delete</Button>
+                    <Button onClick={() => delete_button(placesKey)} variant="danger" className="submit">Delete</Button>
                 </Form>
             );
         
@@ -149,7 +153,7 @@ function AdminDeleteAnnouncements() {
       </div>
    );
  }
- export default AdminDeleteAnnouncements;
+ export default AdminDeletePlaces;
 
 // Customize style of dropdowns
 const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
@@ -165,22 +169,9 @@ CustomToggle.propTypes =
 }
 CustomToggle.displayName="CustomDropdownToggle";
 
-function delete_button(announcementsKey, pic){ 
+function delete_button(placesKey){ 
 
-   {/* var httpsReference = firebase.storage().refFromURL(pic)
-
-
-
-
-    httpsReference.delete().then(function() {
-        window.alert("woooo!! :)")
-      }).catch(function(error) {
-        // Uh-oh, an error occurred!
-        window.alert("noooo :(")
-      });
-
-    */}
-        firebase.database().ref('Announcements/'+announcementsKey).remove();
+        firebase.database().ref('Places/'+placesKey).remove();
         window.location.reload();
 }
 

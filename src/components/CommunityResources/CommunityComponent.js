@@ -9,19 +9,20 @@ import React, {useState, useEffect } from 'react';
 import styled from 'styled-components'
 
 // firebase imports
- import firebase from './firebase';
+ import firebase from '../../shared_comps/firebase';
 
 // bootstrap components
 import Table from 'react-bootstrap/Table'
 import Dropdown from 'react-bootstrap/Dropdown'
 import ToggleButtonGroup from 'react-bootstrap/ToggleButtonGroup'
 import ToggleButton from 'react-bootstrap/ToggleButton'
+import DisplayPlaces from  './DisplayPlaces'
 
 // css
-import '../css/main.css'; 
+import '../../css/main.css'; 
 
 // translations
-import strings from '../translation/CommunityLang.js'
+import strings from '../../translation/CommunityLang.js'
 strings.setLanguage(localStorage.getItem("Language"));
 
 function CommunityComponent() {
@@ -249,6 +250,7 @@ function CommunityComponent() {
           </tbody>
         </Table>
       </CommunityContainer>
+      <DisplayPlaces></DisplayPlaces>
     </div>
   );
 }

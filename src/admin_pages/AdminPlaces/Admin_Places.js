@@ -12,9 +12,9 @@ import Tab from 'react-bootstrap/Tab'
 
 // components
 import Nav from '../../shared_comps/Admin_nav';
-import AdminAdd from '../AdminAnnouncements/AdminAnnouncementsComponents/AdminAddAnnouncements'
-import AdminUpdate from '../AdminAnnouncements/AdminAnnouncementsComponents/AdminUpdateAnnouncements';
-import AdminDelete from '../AdminAnnouncements/AdminAnnouncementsComponents/AdminDeleteAnnouncements';
+import AdminAdd from '../AdminPlaces/AdminPlacesComponents/AdminAddPlaces'
+import AdminUpdate from '../AdminPlaces/AdminPlacesComponents/AdminUpdatePlaces';
+import AdminDelete from '../AdminPlaces/AdminPlacesComponents/AdminDeletePlaces';
 
 //css
 import '../../css/main.css'
@@ -27,7 +27,7 @@ function Admin_Announcements_Page() {
 
          {/* Header */}
          <div className="gen_header">
-                  Admin Powers Announcements
+                  Admin Powers Places
          </div>
          <AdminCommunityResourcesContainer>
             {/* Seperate tabs for add, update, delete */}
@@ -35,7 +35,9 @@ function Admin_Announcements_Page() {
                <Tab eventKey="add" title="Add">
                   <AdminAdd />
                </Tab>
-              
+               <Tab eventKey="update" title="Update">
+                  <AdminUpdate />
+               </Tab>
                <Tab eventKey="delete" title="Delete">
                   <AdminDelete />
                </Tab>

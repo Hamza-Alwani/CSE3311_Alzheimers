@@ -25,6 +25,7 @@ import Admin_Login from './admin_pages/Admin_Login'
 import Admin_Home from './admin_pages/AdminHome/Admin_Home'
 import Admin_Announcements from './admin_pages/AdminAnnouncements/Admin_Announcements'
 import Admin_Community_Resources_Page from './admin_pages/AdminCommunityResources/Admin_CommunityResources'
+import Admin_Places_Page from './admin_pages/AdminPlaces/Admin_Places'
 import Admin_Dementia_Information_Page from './admin_pages/AdminDementiaInformation/Admin_DementiaInformation'
 import Admin_Research_Page from './admin_pages/Admin_Research'
 import Admin_Outreach_Page from './admin_pages/AdminOutreach/Admin_Outreach'
@@ -105,6 +106,7 @@ function  App(){
               <PrivateRoute exact path ="/Admin_Home" component={Admin_Home} />
               <PrivateRoute exact path ="/Admin_Announcements" component={Admin_Announcements} />
               <PrivateRoute exact path="/Admin_Community_Resources" component={Admin_Community_Resources_Page} />
+              <PrivateRoute exact path="/Admin_Places" component={Admin_Places_Page} />
               <PrivateRoute exact path="/Admin_Dementia_Information" component={Admin_Dementia_Information_Page} />
               <PrivateRoute exact path="/Admin_Research" component={Admin_Research_Page} />
               <PrivateRoute exact path="/Admin_Outreach" component={Admin_Outreach_Page} />
