@@ -30,8 +30,8 @@ function Places( {props} ) {
                 </tr>
                  </thead>
              {props.map((state, index) => {
-                 // eslint-disable-next-line react/jsx-key
-                 return(    // eslint-disable-next-line react/jsx-key
+                 // oldESlint-dis removed
+                 return(    // oldESlint-dis removed
                  <tbody>
                     <tr>
                         <td>{props[index].name}</td>

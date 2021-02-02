@@ -14,7 +14,7 @@ function Announcement( {props} ) {
 	return (
 		<Carousel className="carousel-homepage" >
 			{props.map((state, index) => {
-				// eslint-disable-next-line react/jsx-key
+				// oldESlint-dis removed
 				return <Carousel.Item > 
 					<a href={props[index].website} target="_blank"  rel="noopener noreferrer" >
 						<img src={props[index].pic} alt="" className="pictures"/>
