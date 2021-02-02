@@ -12,7 +12,6 @@ import '../../css/announcement.css'
 function Announcement( {props} ) {
 	
 	return (
-		
 		<Carousel className="carousel-homepage" >
 			{props.map((state, index) => {
 				// eslint-disable-next-line react/jsx-key
@@ -23,29 +22,7 @@ function Announcement( {props} ) {
 				</Carousel.Item> 
 			})}
 		</Carousel>
-			
-		
-		
 	);
-/*
-	<Carousel>
-		{props.map((state) =>{
-			return(
-			<item>
-				<a href={props.website} target="_blank">
-						<img src={props.pic} alt="" className="pictures"/>
-					</a>
-			</item>
-			);
-})}
-</Carousel>
-);
-
-*/
-
-					
-		
-
 }
 export default Announcement;
 

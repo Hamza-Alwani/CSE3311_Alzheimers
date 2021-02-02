@@ -13,7 +13,7 @@ import '../../css/main.css';
 // images
 import SomangLogo from '../../pictures/somang2.png';
 import UTALogo from '../../pictures/uta.png';
-import img from '../../pictures/bg.jpg';
+import background from '../../pictures/bg.jpg';
 
 
 
@@ -109,7 +109,7 @@ div.bottom
     display:block;
     width: 100%;
     height: 100%;  
-    background: url(${img});  
+    background: url(${background});  
     background-size:cover;
     background-repeat: no-repeat ;
     background-position: 85% 0% ;

@@ -5,10 +5,6 @@ import styled from 'styled-components'
 import '../css/main.css'; 
 
 // images
-import pic1 from '../pictures/hamza.jpg';
-import pic2 from '../pictures/arman.jpg';
-import pic3 from '../pictures/henry.jpg';
-import pic4 from '../pictures/thy.jpg';
 
 
 function CoolBeansComponent() {
@@ -19,7 +15,7 @@ function CoolBeansComponent() {
                 <div className="container">
                     <div className="us">
                         <div className="pic">
-                            <img src={pic1} alt=""/>
+                            <img src="https://firebasestorage.googleapis.com/v0/b/alzheimers-f3255.appspot.com/o/BackEndImages%2Fhamza.jpg?alt=media&token=e9f4ae15-f649-4708-bd19-12e5b70b8458" alt=""/>
                         </div>
                         <div className="us-content">
                             <h4 className="usTitle">Hamza Alwani</h4>
@@ -30,7 +26,7 @@ function CoolBeansComponent() {
                     
                     <div className="us">
                         <div className="pic">
-                            <img src={pic2} alt=""/>
+                            <img src="https://firebasestorage.googleapis.com/v0/b/alzheimers-f3255.appspot.com/o/BackEndImages%2Farman.jpg?alt=media&token=aa978e2d-a6eb-4d47-a407-cf1504ab0827" alt=""/>
                         </div>
                         <div className="us-content">
                             <h4 className="usTitle">Arman Bhandari</h4>
@@ -40,7 +36,7 @@ function CoolBeansComponent() {
                     
                     <div className="us">
                         <div className="pic">
-                            <img src={pic3} alt=""/>
+                            <img src="https://firebasestorage.googleapis.com/v0/b/alzheimers-f3255.appspot.com/o/BackEndImages%2Fhenry.jpg?alt=media&token=c7b9d47c-2a31-4648-a685-f77669e39f63" alt=""/>
                         </div>
                         <div className="us-content">
                             <h4 className="usTitle">Henry Tang</h4>
@@ -50,7 +46,7 @@ function CoolBeansComponent() {
                     
                     <div className="us">
                         <div className="pic">
-                            <img src={pic4} alt=""/>
+                            <img src="https://firebasestorage.googleapis.com/v0/b/alzheimers-f3255.appspot.com/o/BackEndImages%2Fthy.jpg?alt=media&token=c477aafe-c706-4e7e-8d83-4bdcf91e6f40" alt=""/>
                         </div>
                         <div className="us-content">
                             <h4 className="usTitle">Thy Tran</h4>

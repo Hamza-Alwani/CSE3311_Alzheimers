@@ -6,7 +6,7 @@ import Nav from '../components/NavigationBar';
 
 //css
 import '../css/main.css'
-import Homepage from '../components/Homepage';
+import Homepage from '../components/HomePageComponents/Home';
 
 function langauageselection() {
    return (

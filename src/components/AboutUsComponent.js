@@ -4,11 +4,11 @@ import styled from 'styled-components'
 // css
 import '../css/main.css'; 
 
-import pic1 from '../pictures/mem4.jpg';
+/*import pic1 from '../pictures/mem4.jpg';
 import pic2 from '../pictures/mem2.jpg';
 import pic3 from '../pictures/mem3.jpg';
 import pic4 from '../pictures/mem1.jpg';
-
+*/
 // translations
 import strings from '../translation/AboutUsLang.js'
 strings.setLanguage(localStorage.getItem("Language"));
@@ -22,7 +22,7 @@ function AboutUsComponent() {
                     {/* Dr. Lee */}
                     <div className="our-team">
                         <div className="pic">
-                            <img src={pic1} alt=""/>
+                            <img src="https://firebasestorage.googleapis.com/v0/b/alzheimers-f3255.appspot.com/o/BackEndImages%2Fmem4.jpg?alt=media&token=6543d278-be86-40b0-9b86-5e4b3b013a0c" alt=""/>
                         </div>
                         <div className="team-content">
                             <h3 className="title">{strings.KathyLee}</h3>
@@ -35,7 +35,7 @@ function AboutUsComponent() {
                     {/* Dr. Seo */}
                     <div className="our-team">
                         <div className="pic">
-                            <img src={pic2} alt=""/>
+                            <img src="https://firebasestorage.googleapis.com/v0/b/alzheimers-f3255.appspot.com/o/BackEndImages%2Fmem2.jpg?alt=media&token=9e2c8943-a718-44d5-801a-8e4e7b715bd2" alt=""/>
                         </div>
                         <div className="team-content">
                             <h3 className="title">{strings.ChangHyunSeo}</h3>
@@ -47,7 +47,7 @@ function AboutUsComponent() {
                     {/* Joe */}
                     <div className="our-team">
                         <div className="pic">
-                            <img src={pic3} alt=""/>
+                            <img src="https://firebasestorage.googleapis.com/v0/b/alzheimers-f3255.appspot.com/o/BackEndImages%2Fmem3.jpg?alt=media&token=4eb33a7e-0d37-4e90-8d5c-2d4a967a738b" alt=""/>
                         </div>
                         <div className="team-content">
                             <h3 className="title">{strings.JoeZhao}</h3>
@@ -59,7 +59,7 @@ function AboutUsComponent() {
                     {/* Jesssica */}
                     <div className="our-team">
                         <div className="pic">
-                            <img src={pic4} alt=""/>
+                            <img src="https://firebasestorage.googleapis.com/v0/b/alzheimers-f3255.appspot.com/o/BackEndImages%2Fmem1.jpg?alt=media&token=b9be7463-69fd-4d69-a975-33ff0f7572ac" alt=""/>
                         </div>
                         <div className="team-content">
                             <h3 className="title">{strings.JessicaCassidy}</h3>

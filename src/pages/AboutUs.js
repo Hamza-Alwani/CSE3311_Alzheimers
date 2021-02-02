@@ -1,7 +1,7 @@
 import React from 'react';
 // components
 import AboutUsComponent from '../components/AboutUsComponent';
-import AboutUsDevs from '../shared_comps/AboutUsDevs';
+import AboutUsDevs from '../components/AboutUsDevs';
 import Footer from '../components/Footer';
 import Nav from '../components/NavigationBar';
 

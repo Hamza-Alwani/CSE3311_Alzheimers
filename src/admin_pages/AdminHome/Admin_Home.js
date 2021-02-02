@@ -6,7 +6,7 @@
 import React from 'react';
 
 // components
-import Nav from '../../shared_comps/Admin_nav';
+import Nav from '../Admin_nav';
 
 //css
 import '../../css/main.css'
@@ -16,6 +16,9 @@ function Admin_Home()
    return(
          <div className="main-component">
             <Nav/>
+            <h1>Home page</h1> 
+            <br></br>
+            <h9>nothing to see here move along</h9>
          </div>
    )
 }
