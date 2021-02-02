@@ -7,9 +7,9 @@
 
 import React from 'react';
 // components
-import Nav from '../components/NavigationBar';
+import Nav from '../shared_comps/NavigationBar';
 import Home from '../components/HomePageComponents/Home';
-import Footer from '../components/Footer';
+import Footer from '../shared_comps/Footer';
 
 
 function MainPage (){

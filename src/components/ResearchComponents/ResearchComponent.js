@@ -14,10 +14,10 @@ import Toast from 'react-bootstrap/Toast'
 import Button from 'react-bootstrap/Button'
 
 // css
-import '../css/main.css'; 
+import '../../css/main.css'; 
 
 // translation
-import strings from '../translation/ResearchLang.js'
+import strings from '../../translation/ResearchLang.js'
 strings.setLanguage(localStorage.getItem("Language"));
 
 function ResearchComponent() {

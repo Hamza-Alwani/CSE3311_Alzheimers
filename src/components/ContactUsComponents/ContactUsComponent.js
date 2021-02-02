@@ -12,17 +12,17 @@ import emailjs from 'emailjs-com'
 
 
 //firebase
-import firebase from'../shared_comps/firebase'
+import firebase from'../../shared_comps/firebase'
 
 // bootstrap 
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button';
 
 // css
-import '../css/main.css'; 
+import '../../css/main.css'; 
 
 // translations
-import strings from '../translation/ContactUsLang.js'
+import strings from '../../translation/ContactUsLang.js'
 strings.setLanguage(localStorage.getItem("Language"));
 
 // Basic form component used to take the user's input and later send to admin page/email

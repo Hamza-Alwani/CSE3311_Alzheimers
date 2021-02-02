@@ -14,7 +14,7 @@ import background1 from '../pictures/bg.jpg';
 import background2 from '../pictures/uta.jpg';
 import background3 from '../pictures/home7.jpg';
 
-import Footer from '../components/Footer';
+import Footer from '../shared_comps/Footer';
 
 function newHomepageComponent() {
     return (

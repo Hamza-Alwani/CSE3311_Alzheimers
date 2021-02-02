@@ -7,9 +7,9 @@
 
 import React from 'react';
 // components
-import Nav from '../components/NavigationBar';
-import ContactUsComponent from '../components/ContactUsComponent';
-import Footer from '../components/Footer';
+import Nav from '../shared_comps/NavigationBar';
+import ContactUsComponent from '../components/ContactUsComponents/ContactUsComponent';
+import Footer from '../shared_comps/Footer';
 
 
 

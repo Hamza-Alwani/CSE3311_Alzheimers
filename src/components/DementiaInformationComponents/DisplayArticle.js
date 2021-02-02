@@ -10,17 +10,17 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types';
 
 // components
-import Article from '../shared_comps/Article'
-import Video from '../shared_comps/Video'
+import Article from '../../shared_comps/Article'
+import Video from '../../shared_comps/Video'
 
 // firebase imports
- import firebase from '../shared_comps/firebase';
+ import firebase from '../../shared_comps/firebase';
 
 // css
-import '../css/main.css'; 
+import '../../css/main.css'; 
 
 // translations
-import strings from '../translation/DementiaLang.js'
+import strings from '../../translation/DementiaLang.js'
 strings.setLanguage(localStorage.getItem("Language"));
 
 function DisplayArticle() { 

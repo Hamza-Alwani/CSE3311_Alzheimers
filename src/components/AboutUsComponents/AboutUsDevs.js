@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components'
 
 // css
-import '../css/main.css'; 
+import '../../css/main.css'; 
 
 // images
 

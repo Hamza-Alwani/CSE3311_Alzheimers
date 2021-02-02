@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components'
-
+import Button from 'react-bootstrap/Button'
 // Components
 import DisplayAnnouncement from './DisplayAnnouncements';
 
@@ -50,12 +50,25 @@ function BottomHalf() {
                         
                         
                         <div className="buttons">
-                            <a href="/Community_Resources"><i>{strings.Button1}</i></a>
+                          {/*  <a href="/Community_Resources"><i>{strings.Button1}</i></a>
                             <br></br>
                             <br></br>
                             <br></br>
                             <a href="/Community_Resources"><i>{strings.Button2}</i></a>
-                       
+                            */}
+
+                            <a href="/Community_Resources"><i>
+                                <Button variant="primary" size="lg" block>
+							        {strings.Button1}
+						        </Button>
+                            </i></a>
+                            
+                            <a href="/Community_Resources"><i>
+                                <Button variant="primary" size="lg" block>
+							        {strings.Button2}
+						        </Button>
+                            </i></a>
+                            
                         </div>
                         
                     </div>
@@ -190,21 +203,17 @@ margin-top: 2%;
 padding: 0% 20%;
 margin-bottom: 30%;
 width: 100%;
-//background-color: brown;
-
-
-
 }
 
 .buttons a
 {
+
 //background-color: black;
-border-width:5px;  
-    border-style:double;
-    border-width: 10px;
-color: black;
+//border-width:5px;  
+  //  border-style:double;
+   // border-width: 10px;
 padding: 1%;
-font-size: 1.5vw;
+
 
 }
 
@@ -263,11 +272,7 @@ img.logos
     margin: 0% 1%;
     padding-bottom: 4%;
 }
-.buttons a
-{
-font-size: large;
 
-}
 
 
 
@@ -292,11 +297,7 @@ div.top
     left: 0;
     
 }
-.buttons a
-{
 
-    font-size: large;
-}
 }
 }
 }

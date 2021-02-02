@@ -7,9 +7,9 @@
 
 import React from 'react';
 // components
-import ResearchComponent from '../components/ResearchComponent';
-import Footer from '../components/Footer';
-import Nav from '../components/NavigationBar';
+import ResearchComponent from '../components/ResearchComponents/ResearchComponent';
+import Footer from '../shared_comps/Footer';
+import Nav from '../shared_comps/NavigationBar';
 
 //css
 import '../css/main.css'

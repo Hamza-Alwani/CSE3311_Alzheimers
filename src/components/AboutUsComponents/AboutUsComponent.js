@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components'
 
 // css
-import '../css/main.css'; 
+import '../../css/main.css'; 
 
 /*import pic1 from '../pictures/mem4.jpg';
 import pic2 from '../pictures/mem2.jpg';
@@ -10,7 +10,7 @@ import pic3 from '../pictures/mem3.jpg';
 import pic4 from '../pictures/mem1.jpg';
 */
 // translations
-import strings from '../translation/AboutUsLang.js'
+import strings from '../../translation/AboutUsLang.js'
 strings.setLanguage(localStorage.getItem("Language"));
 
 function AboutUsComponent() {

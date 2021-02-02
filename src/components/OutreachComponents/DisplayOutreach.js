@@ -10,16 +10,16 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types';
 
 // components
-import Article from '../shared_comps/Article'
+import Article from '../../shared_comps/Article'
 
 // firebase imports
- import firebase from '../shared_comps/firebase';
+ import firebase from '../../shared_comps/firebase';
 
 // css
-import '../css/main.css'; 
+import '../../css/main.css'; 
 
 // translations
-import strings from '../translation/OutreachLang.js'
+import strings from '../../translation/OutreachLang.js'
 strings.setLanguage(localStorage.getItem("Language"));
 
 function DisplayOutreach() { 
