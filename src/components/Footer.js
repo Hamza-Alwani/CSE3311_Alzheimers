@@ -76,7 +76,7 @@ const FooterContainer = styled.footer`
 
 .spacer {
   ${'' /* Seperates the body from the footer so it doesn't touch */}
-  padding-top: 8rem;
+  padding-top: 1rem;
 }
 
 .footer-content

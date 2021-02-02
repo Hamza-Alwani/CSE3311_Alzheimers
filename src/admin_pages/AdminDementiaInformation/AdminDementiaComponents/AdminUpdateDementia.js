@@ -175,7 +175,7 @@ function AdminUpdateDementia() {
 
                     {/* Form for Website */}
                     <Form.Group>
-                        <Form.Label>Webstie</Form.Label>
+                        <Form.Label>Website</Form.Label>
                         <Form.Control type="name" id="video-website-update" defaultValue={video.url}  />
                     </Form.Group>
 

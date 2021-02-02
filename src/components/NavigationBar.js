@@ -12,7 +12,7 @@ import styled from 'styled-components'
 
 // bootstrap components
 import { Navbar, Nav} from 'react-bootstrap';
-import logo from '../pictures/logo.png'
+import logo from '../pictures/thumbnail_IMG_2618.jpg'
 
 // css
 import '../css/main.css';

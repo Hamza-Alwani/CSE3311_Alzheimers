@@ -9,6 +9,12 @@ import '../../css/main.css';
 import '../../css/announcement.css'
 import Table from 'react-bootstrap/Table'
 
+
+
+import strings from '../../translation/CommunityLang.js'
+strings.setLanguage(localStorage.getItem("Language"));
+
+
 function Places( {props} ) {
 	
 	return (
@@ -17,10 +23,10 @@ function Places( {props} ) {
              <Table striped bordered hover >
                  <thead>
                  <tr>
-                <th>Name</th>
-                <th>Address</th>
-                <th>Website</th>
-                <th>Phone number</th>
+                <th>{strings.Name}</th>
+                <th>{strings.Address}</th>
+                <th>{strings.Website}</th>
+                <th>{strings.Phone}</th>
                 </tr>
                  </thead>
              {props.map((state, index) => {

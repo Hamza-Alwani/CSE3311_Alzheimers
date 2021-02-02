@@ -18,6 +18,8 @@ import img from '../../pictures/bg.jpg';
 
 
 
+import strings from '../../translation/HomeLang.js'
+strings.setLanguage(localStorage.getItem("Language"));
 
 function BottomHalf() {
     return (
@@ -30,8 +32,9 @@ function BottomHalf() {
 
                 <div className="bottom">
                     <div className="title">
-                        <p>Kare: Online Community for </p>
-                        <p> Asian-American Family Caregivers </p>
+                   
+                        <p> {strings.Title1 }</p>
+                        <p>{strings.Title2}</p>
                         <br></br>
                     </div>
                 
@@ -47,14 +50,14 @@ function BottomHalf() {
                         
                         
                         <div className="buttons">
-                            <a href="/Community_Resources"><i>see facilites near you</i></a>
+                            <a href="/Community_Resources"><i>{strings.Button1}</i></a>
                             <br></br>
                             <br></br>
                             <br></br>
-
-                            <a href="/Community_Resources"><i>see facilites near you</i></a>
+                            <a href="/Community_Resources"><i>{strings.Button2}</i></a>
+                       
                         </div>
-                     
+                        
                     </div>
             
 
@@ -112,6 +115,7 @@ div.bottom
     background-position: 85% 0% ;
     margin-top: 0;
     padding-top: 0;
+   
 }
 
 div.title
@@ -184,6 +188,7 @@ bottom: 0;
 text-align: center;
 margin-top: 2%;
 padding: 0% 20%;
+margin-bottom: 30%;
 width: 100%;
 //background-color: brown;
 
@@ -206,14 +211,15 @@ font-size: 1.5vw;
 
 
 /*phone*/
+
 @media (max-width: 1000px) 
 {
-
+    
 
 div.top
 {
     margin-top: 0;
-    height: 33%;
+    height: 33vh;
 
 }
 
@@ -237,6 +243,7 @@ div.banner
 
 }
 
+
 .video-wrapper
 {
     margin-left: auto;
@@ -256,7 +263,11 @@ img.logos
     margin: 0% 1%;
     padding-bottom: 4%;
 }
+.buttons a
+{
+font-size: large;
 
+}
 
 
 
@@ -265,14 +276,14 @@ img.logos
 div.top
 {
     width: 100%;
-    height: 60%;
+    height: 33vw;
 }
 
 .video-wrapper
 {
     text-align: center;
-    width: 64vh;
-    height: 32vh;
+    width: 64vw;
+    height: 32vw;
 }
 .react-player
 {
@@ -281,32 +292,14 @@ div.top
     left: 0;
     
 }
-}
-}
-/*
-To do later
-div.buttons
-{
-display: inline-block;
-position: relative;
-bottom: 0;
-text-align: center;
-margin-top: 2%;
-padding: 0% 20%;
-width: 100%;
-background-color: brown;
-
-
-}
-
 .buttons a
 {
-background-color: black;
-font-size: x-large;
-color: white;
-padding: 1%;
 
+    font-size: large;
 }
-*/
+}
+}
+}
+
 
 `
