@@ -21,14 +21,14 @@ import Paget_Not_Found_Page from './shared_page/PageNotFound'
 import LanguageSelection from './shared_page/LanguageSelection'
 
 //admins
-import Admin_Login from './admin_pages/Admin_Login'
-import Admin_Home from './admin_pages/AdminHome/Admin_Home'
-import Admin_Announcements from './admin_pages/AdminAnnouncements/Admin_Announcements'
-import Admin_Community_Resources_Page from './admin_pages/AdminCommunityResources/Admin_CommunityResources'
-import Admin_Places_Page from './admin_pages/AdminPlaces/Admin_Places'
-import Admin_Dementia_Information_Page from './admin_pages/AdminDementiaInformation/Admin_DementiaInformation'
+import Admin_Login from './Admin/Admin_Login'
+import Admin_Home from './Admin/AdminHome/Admin_Home'
+import Admin_Announcements from './Admin/AdminAnnouncements/Admin_Announcements'
+import Admin_Community_Resources_Page from './Admin/AdminCommunityResources/Admin_CommunityResources'
+import Admin_Places_Page from './Admin/AdminPlaces/Admin_Places'
+import Admin_Dementia_Information_Page from './Admin/AdminDementiaInformation/Admin_DementiaInformation'
 
-import Admin_Outreach_Page from './admin_pages/AdminOutreach/Admin_Outreach'
+import Admin_Outreach_Page from './Admin/AdminOutreach/Admin_Outreach'
 
 
 import  firebase from './shared_comps/firebase';
