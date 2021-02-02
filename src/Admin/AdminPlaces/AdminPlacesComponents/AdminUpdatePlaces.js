@@ -73,7 +73,7 @@ function AdminUpdateAnnouncements() {
                     }
                 });
             });
-    // eslint-disable-next-line react-hooks/exhaustive-deps,
+    // oldESlint-dis removed
     }, [placesKey])
 
     // Once the places or video object is finished being created, set the object to be used

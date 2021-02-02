@@ -73,7 +73,7 @@ function AdminUpdateAnnouncements() {
                     }
                 });
             });
-    // eslint-disable-next-line react-hooks/exhaustive-deps,
+    // oldESlint-dis removed
     }, [announcementsKey])
 
 

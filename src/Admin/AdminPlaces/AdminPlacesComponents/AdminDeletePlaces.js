@@ -75,7 +75,7 @@ function AdminDeletePlaces() {
                     }
                 });
             });
-    // eslint-disable-next-line react-hooks/exhaustive-deps,
+    // oldESlint-dis removed
     }, [placesKey])
 
     // If the object places is changed, update the information to the select places 

@@ -97,7 +97,7 @@ function AdminUpdateDementia() {
                     }
                 });
             });
-    // eslint-disable-next-line react-hooks/exhaustive-deps,
+    // oldESlint-dis removed
     }, [articleKey])
 
     // Once the article or video object is finished being created, set the object to be used

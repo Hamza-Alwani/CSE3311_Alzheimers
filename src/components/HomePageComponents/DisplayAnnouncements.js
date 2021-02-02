@@ -46,7 +46,7 @@ function DisplayAnnouncement() {
                         })
                 });
             });
-    // eslint-disable-next-line react-hooks/exhaustive-deps,
+    // oldESlint-dis removed
     }, [])
 
     // Once a change is detected for the announcement object, it will be added to a list to be spamed onto the page

@@ -72,7 +72,7 @@ function AdminDeleteAnnouncements() {
                     }
                 });
             });
-    // eslint-disable-next-line react-hooks/exhaustive-deps,
+    // oldESlint-dis removed
     }, [announcementsKey])
 
     // If the object announcements is changed, update the information to the select announcements 

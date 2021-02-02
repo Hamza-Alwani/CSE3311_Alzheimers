@@ -53,7 +53,7 @@ function DisplayOutreach() {
                         })
                 });
             });
-    // eslint-disable-next-line react-hooks/exhaustive-deps,
+    // oldESlint-dis removed
     }, [])
 
     // Once a change is detected for the outreach object, it will be added to a list to be spamed onto the page

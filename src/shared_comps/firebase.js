@@ -1,6 +1,6 @@
 // Firebase's config file so we can access our database and send/receive data
 
-import * as firebase from 'firebase';
+import firebase from 'firebase';
 
 const config={
     apiKey: "AIzaSyABKbfit7zCu8CI8ZXt35o6iQG5C1A-oWs",

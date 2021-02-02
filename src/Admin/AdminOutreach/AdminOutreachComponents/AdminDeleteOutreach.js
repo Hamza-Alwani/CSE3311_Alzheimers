@@ -80,7 +80,7 @@ function AdminDeleteDementia() {
                     }
                 });
             });
-    // eslint-disable-next-line react-hooks/exhaustive-deps,
+    // oldESlint-dis removed
     }, [outreachKey])
 
     // If the object outreach is changed, update the information to the select outreach 
