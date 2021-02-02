@@ -1,0 +1,160 @@
+
+div.whole
+{
+width: 100%;
+display: flex;
+flex-direction: column;
+position: relative;
+
+}
+div.top
+{
+    margin-top: -2rem;
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 70vh;
+
+}
+
+
+div.bottom
+{
+    position: relative;
+    display:block;
+    width: 100%;
+    height: 100%;  
+    background: url('../pictures/bg.jpg');  
+    background-size:cover;
+    background-repeat: no-repeat ;
+    background-position: 85% 0% ;
+    margin-top: 0;
+    padding-top: 0;
+   
+}
+div.title
+{
+    position: relative;
+    display: block;
+    font-size: 2.0vw;
+    font-weight: 950;
+    margin-left: 5%;
+    margin-top: 2rem;
+}
+div.banner
+{
+    position: relative;
+    display: inline-block;
+    top: 0;
+    width: 50%;
+    height: auto;
+    bottom:  22em;
+    margin-left: 5%; 
+    
+}
+
+div.logocont
+{
+    position: absolute;
+    display: block;
+    bottom: 0;
+    width:100%;
+    height: auto;
+    max-height: max-content;  
+    text-align: center;
+    margin-bottom: 1%;
+
+
+    /*font-size: 15px;
+    font-weight: 950;
+    */
+}
+img.logos 
+{  
+    max-width: 22em;
+    min-width: 15em;
+    width: 10%;
+    height: auto;
+    margin: 0% 1%;
+}    
+div.buttons
+{
+display: inline-block;
+position: relative;
+bottom: 0;
+text-align: center;
+margin-top: 2%;
+padding: 0% 20%;
+margin-bottom: 30%;
+width: 100%;
+}
+.buttons a
+{
+padding: 1%;
+}
+
+.player-wrapper {
+
+    position: relative;
+    padding-top: 56.25%; /* 720 / 1280 = 0.5625 */
+  }
+  
+.react-player {
+    
+    position: absolute;
+    top: 0;
+    left: 0;
+    
+
+  }
+/*phone*/
+@media (max-width: 1000px) 
+{
+
+div.top
+{
+    height: 35vh;
+}
+div.title
+{
+    font-size: 5.0vw;
+    text-align: center;
+}
+div.banner
+{ 
+   
+    margin: auto; 
+    width: 100%;
+    
+}
+
+img.logos 
+{  
+    min-width: 9em;
+    width: 15%;
+    margin: 0% 1%;
+    padding-bottom: 4%;
+}
+
+.player-wrapper {
+
+    position: relative;
+    padding-top: 56.25%; /* 720 / 1280 = 0.5625 */
+  }
+  
+.react-player {
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+
+  }
+}
+
+
+
+
+
