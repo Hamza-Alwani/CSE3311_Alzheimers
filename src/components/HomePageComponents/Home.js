@@ -43,7 +43,7 @@ function BottomHalf() {
                             <ReactPlayer 
                             width="100%"
                             height="100%"
-                            url="https://www.youtube.com/watch?v=ug50zmP9I7s"/>
+                            url={strings.Video}/>
                         </div>
                     
                         <br></br>
@@ -138,6 +138,7 @@ div.title
     font-size: 2.0vw;
     font-weight: 950;
     margin-left: 5%;
+    margin-top 2rem;
 }
 
 
