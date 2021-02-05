@@ -42,7 +42,6 @@ function HomePage() {
                     <ReactPlayer
                       url={strings.Video}
                       className='react-player'
-                      playing
                       controls
                       width='90%'
                       height='90%'
