@@ -42,6 +42,10 @@ function AdminAddOutreach() {
                      <Form.Label>Phone number</Form.Label>
                      <Form.Control type="name" id="phone_number" placeholder="(123) 333-333" />
                   </Form.Group>
+                  <Form.Group>
+                     <Form.Label>Map link</Form.Label>
+                     <Form.Control type="name" id="map_link" placeholder="https://www.google.com/maps/place/yadadad" />
+                  </Form.Group>
                   <Button onClick={() => add_places_button()}variant="primary" type="submit" className="submit">Add</Button>
                </Form>
          
@@ -63,12 +67,9 @@ function add_places_button(){
    window.alert(document.getElementById("Address").value)
    window.alert(document.getElementById("Website").value)
    window.alert(document.getElementById("phone_number").value)
-  
+   window.alert(document.getElementById("map_link").value)
 
-   if(document.getElementById("Name").value && 
-   document.getElementById("Address").value &&
-   document.getElementById("Website").value &&
-   document.getElementById("phone_number").value)
+   if(document.getElementById("Name").value)
    {
       
          key = firebase.database().ref('Places').push().key;
@@ -77,6 +78,7 @@ function add_places_button(){
                address:document.getElementById("Address").value,
                website:document.getElementById("Website").value,
                phone:document.getElementById("phone_number").value,
+               map:document.getElementById("map_link").value,
          },function(error){
                if(error){
                window.alert("failed");

@@ -35,6 +35,7 @@ function AdminUpdateAnnouncements() {
             address:"",
             website:"",
             phone:"",
+            map:"",
         });
 
     
@@ -68,6 +69,7 @@ function AdminUpdateAnnouncements() {
                                 address:childSnapshot.child("address").val(),
                                 website:childSnapshot.child("website").val(),
                                 phone:childSnapshot.child("phone").val(),
+                                map:childSnapshot.child("map").val(),
                             })
                         
                     }
@@ -126,6 +128,10 @@ function AdminUpdateAnnouncements() {
                         <Form.Control type="name" id="places-phone_number-update" defaultValue={places.phone}  />
                     </Form.Group>
 
+                    <Form.Group>
+                        <Form.Label>Map link</Form.Label>
+                        <Form.Control type="name" id="places-map_link-update" defaultValue={places.map}  />
+                    </Form.Group>
                     {/* Button used to update the page once all the fields are filled out */}
                     <Button onClick={() => update_places_button(placesKey)} variant="primary" type="submit" className="submit">Update</Button>
                 </Form>
@@ -178,16 +184,14 @@ CustomToggle.displayName="CustomDropdownToggle";
 // Used with the places update section
 function update_places_button(placesKey){ 
 
-    if( document.getElementById("places-name-update").value && 
-        document.getElementById("places-address-update").value &&
-        document.getElementById("places-phone_number-update").value &&
-        document.getElementById("places-website-update").value)
+    if( document.getElementById("places-name-update").value)
     {
         firebase.database().ref('Places/'+placesKey).set({
             name:       document.getElementById("places-name-update").value,
             address:    document.getElementById("places-address-update").value,
             website:    document.getElementById("places-website-update").value,
             phone:      document.getElementById("places-phone_number-update").value,
+            map:        document.getElementById("places-map_link-update").value,
         },function(error){
             if(error){
             window.alert("failed");

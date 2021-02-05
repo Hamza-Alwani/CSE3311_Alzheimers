@@ -18,7 +18,7 @@ strings.setLanguage(localStorage.getItem("Language"));
 function Places( {props} ) {
 	
 	return (
-		
+        <PlacesContainer>
 		<div>
              <Table striped bordered hover >
                  <thead>
@@ -34,9 +34,9 @@ function Places( {props} ) {
                  return(    // oldESlint-dis removed
                  <tbody>
                     <tr>
-                        <td>{props[index].name}</td>
-                        <td>{props[index].address}</td>
-                        <td>{props[index].website}</td>
+                        <td><a href={props[index].map} target="_blank" rel="noopener noreferrer">{props[index].name}</a></td>
+                        <td><a href={props[index].map} target="_blank" rel="noopener noreferrer" >{props[index].address}</a></td>
+                        <td><a href={props[index].website} target="_blank" rel="noopener noreferrer" >{props[index].website}</a></td>
                         <td>{props[index].phone}</td>
                     </tr>
                 </tbody>)
@@ -44,8 +44,13 @@ function Places( {props} ) {
             </Table>
         
         </div>
+        </PlacesContainer>
     );
 }
-
 export default Places;
 
+
+const PlacesContainer = styled.nav`
+
+
+`

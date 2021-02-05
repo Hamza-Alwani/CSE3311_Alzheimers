@@ -45,6 +45,7 @@ function DisplayPlaces() {
                             address: childSnapshot.child("address").val(),
                             phone: childSnapshot.child("phone").val(),
                             website: childSnapshot.child("website").val(),
+                            map: childSnapshot.child("map").val(),
                             
                         })
                 });
@@ -54,7 +55,7 @@ function DisplayPlaces() {
 
     // Once a change is detected for the places object, it will be added to a list to be spamed onto the page
     useEffect(() => {
-        if((places.name !== "") && (places.address !== "") && (places.phone !== "")  && (places.website !== "") )
+        if((places.name !== ""))
         {
             setobjectList(objectList => [...objectList, places]);
         }

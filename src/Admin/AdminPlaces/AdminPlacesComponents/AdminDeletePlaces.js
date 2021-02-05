@@ -35,6 +35,7 @@ function AdminDeletePlaces() {
             address:"",
             website:"",
             phone:"",
+            map:"",
         });
 
     
@@ -69,6 +70,7 @@ function AdminDeletePlaces() {
                                 address:childSnapshot.child("address").val(),
                                 website:childSnapshot.child("website").val(),
                                 phone:childSnapshot.child("phone").val(),
+                                map:childSnapshot.child("map").val(),
                                 
                             })
                         
@@ -116,6 +118,9 @@ function AdminDeletePlaces() {
                     </Form.Group>
                     <Form.Group>
                         <Form.Label>Phone Number: {obj.phone}</Form.Label>
+                    </Form.Group>
+                    <Form.Group>
+                        <Form.Label>Map Link: {obj.map}</Form.Label>
                     </Form.Group>
                     
                     {/* Button used to update the page once all the fields are filled out */}
