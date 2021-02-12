@@ -16,7 +16,10 @@ import Table from 'react-bootstrap/Table'
 import Dropdown from 'react-bootstrap/Dropdown'
 import ToggleButtonGroup from 'react-bootstrap/ToggleButtonGroup'
 import ToggleButton from 'react-bootstrap/ToggleButton'
+
+// components
 import DisplayPlaces from  './DisplayPlaces'
+import Legend from  './Legend'
 
 // css
 import '../../css/main.css'; 
@@ -222,6 +225,7 @@ function CommunityComponent() {
   // HTML
   return (
     <div className="main-component">
+      <Legend></Legend>
       <CommunityContainer>
         {/* Information about the city */}
         <Table striped bordered hover className="google-map-table">
