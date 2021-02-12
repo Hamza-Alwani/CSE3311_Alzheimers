@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Raleway:300,400,700,900');
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700,900');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&family=Noto+Sans+SC:wght@500&display=swap');
 /* used with styled components to keeps themes consistent in react project */
@@ -24,8 +24,8 @@ margin: 0;
 
 html, 
 body {
-  font-family: 'Raleway', sans-serif;
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: 'Roboto', sans-serif;
+  /*font-family: 'Noto Sans KR', sans-serif;*/
   height: 100%;
 }
 

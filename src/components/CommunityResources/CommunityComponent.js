@@ -43,6 +43,7 @@ function CommunityComponent() {
   const handleChange = (val) => setSelectedLang(val); // use with id='lang-buttons' to select the correct language on the website
 
   // Pulls a list of all the U.S States AND Cities that are ALL, KO, or CH
+
   useEffect(() => {
     const database = firebase.database()
     const rootRef = database.ref("community");
@@ -151,25 +152,12 @@ function CommunityComponent() {
 
   // When State, City, or Language is changed, pull a new embeded map
   useEffect(() => {
-    if(selectedState !== null && selectedState !== '' && selectedState !== undefined) 
-    {
-      const database = firebase.database()
-      const rootRef = database.ref("community/" + selectedState );
-      
-      rootRef.on('value', snap => {
-        snap.child(selectedCity).forEach(id => {
-          if(id.hasChild(selectedLang))
-          {
-            setGoogleMap(id.child(selectedLang).child("googleMap").val());
-          }
-        })
-      }); 
-    }
-  }, [selectedState, selectedCity, selectedLang])
+      setGoogleMap("<iframe src=\"https://www.google.com/maps/d/u/1/embed?mid=1lsisSxCNdYDiZQ23bx6C5nXfc-b7b411\" width=\"640\" height=\"480\"></iframe>")
+  })
 
 
 
-
+/*
 
   // Dropdown of all states based on language
   const DropdownStates = ({ nameList }) => {
@@ -200,14 +188,10 @@ function CommunityComponent() {
   }
 
 
-  
+  */
 ///////////////////////////////////////////////////////////////////////////////////////
-  
-  // HTML
-  return (
-    <div className="main-component">
-
-      {/* Header */}
+        {/* Header */}
+      {/*
       <CommunityContainer>
       <div>
         <div className="gen_header">{strings.Header}</div>
@@ -219,9 +203,9 @@ function CommunityComponent() {
           </ToggleButtonGroup>
         </div>
       </div>
-
+/*}
         {/* Drop down to pick citys */}
-        <Table striped bordered hover className="state-city-dropdown-table">
+      {/* <Table striped bordered hover className="state-city-dropdown-table">
           <thead>
             <tr>
             
@@ -234,17 +218,20 @@ function CommunityComponent() {
             </tr>
           </thead>
         </Table>
-
+  */}
+  // HTML
+  return (
+    <div className="main-component">
+      <CommunityContainer>
         {/* Information about the city */}
         <Table striped bordered hover className="google-map-table">
           <thead>
-
           </thead>
+
           <tbody>
             <tr>
-              <td >
-                {/* yolo */}
-                <div className="iframe-google-map" dangerouslySetInnerHTML={{ __html:googleMap}}></div>
+              <td>
+               <div className="iframe-google-map" dangerouslySetInnerHTML={{ __html:googleMap}}></div> 
               </td>
             </tr>
           </tbody>
@@ -293,6 +280,10 @@ const CommunityContainer = styled.div`
 .community-div
 {
   flex: 1;
+}
+.i4ewOd-pzNkMb-haAclf
+{
+  display: none;
 }
 
 .gen_header
