@@ -1,7 +1,7 @@
 export default {
     // About Us
     AboutUsTitle: "About Us",
-    AboutDescription: "Our main goal is to spread awareness of dementia among the Asian Comunnities to improve the quality of our lives",
+    AboutDescription: "Our main goal is to spread awareness of dementia among the Asian Communities to improve the quality of our lives",
 
     // Links
     LinkTitle: "Links",

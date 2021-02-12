@@ -70,7 +70,7 @@ function HomePage() {
 						        </Button>
                             </i></a>
                             
-                            <a href="/Community_Resources"><i>
+                            <a href="/Research"><i>
                                 <Button variant="primary" size="lg" block>
 							        {strings.Button2}
 						        </Button>
